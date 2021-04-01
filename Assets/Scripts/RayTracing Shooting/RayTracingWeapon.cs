@@ -19,10 +19,14 @@ namespace Foxlair.Weapons
         private AudioSource gunAudio;                                        // Reference to the audio source which will play our shooting sound effect
         private LineRenderer laserLine;                                        // Reference to the LineRenderer component which will display our laserline
         private float nextFire;                                                // Float to store the time the player will be allowed to fire again, after firing
+        private bool isCoolingDown;
 
+        InputHandler _input;
 
         void Start()
         {
+            _input = InputHandler.Instance;
+
             // Get and store a reference to our LineRenderer component
             laserLine = GetComponent<LineRenderer>();
 
@@ -36,9 +40,11 @@ namespace Foxlair.Weapons
 
         void Update()
         {
+            isCoolingDown = !(Time.time > nextFire);
+
             Debug.DrawRay(gunEnd.position, gunEnd.forward, Color.yellow);
 
-            if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+            if ( _input.isFiringButtonDown && !isCoolingDown )
             {
                 Shoot();
             }

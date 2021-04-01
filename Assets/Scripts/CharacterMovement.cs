@@ -3,7 +3,7 @@ using Foxlair.PlayerInput;
 
 namespace Foxlair.Movement
 {
-    [RequireComponent(typeof(InputHandler), typeof(CharacterController))]
+    [RequireComponent(typeof(CharacterController))]
     public class CharacterMovement : MonoBehaviour
     {
         private InputHandler _input;
@@ -27,7 +27,7 @@ namespace Foxlair.Movement
         private Vector3 direction;
         private void Awake()
         {
-            _input = GetComponent<InputHandler>();
+            _input = InputHandler.Instance;
             _characterController = GetComponent<CharacterController>();
         }
 

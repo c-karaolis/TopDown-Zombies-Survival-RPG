@@ -7,7 +7,8 @@ namespace Foxlair.PlayerInput
         public Vector2 inputVector { get; private set; }
         public Vector3 mousePosition { get; private set; }
 
-        // Update is called once per frame
+        public bool isFiringButtonDown;
+
         void Update()
         {
             HandleMovementInput();
@@ -18,7 +19,7 @@ namespace Foxlair.PlayerInput
 
         private void HandleWeaponInput()
         {
-            throw new System.NotImplementedException();
+            isFiringButtonDown = Input.GetButtonDown("Fire1");
         }
 
         private void HandleMovementInput()
