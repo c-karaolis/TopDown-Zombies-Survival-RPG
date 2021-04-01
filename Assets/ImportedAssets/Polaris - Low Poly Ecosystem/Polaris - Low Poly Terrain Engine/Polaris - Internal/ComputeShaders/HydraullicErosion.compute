@@ -1,0 +1,207 @@
+﻿#pragma kernel Init
+#pragma kernel Simulate
+
+#include "ErosionLib.cginc"
+
+Texture2D<float4> _HeightMap;
+int _HeightMapResolution;
+float3 _TerrainSize;
+
+RWTexture2D<float4> _SimulationData;
+RWTexture2D<float4> _WaterFlowVHData;
+RWTexture2D<float4> _WaterFlowDiagData;
+
+#define FLOW_CHANNEL_LEFT 0
+#define FLOW_CHANNEL_TOP 1
+#define FLOW_CHANNEL_RIGHT 2
+#define FLOW_CHANNEL_BOTTOM 3
+
+#define FLOW_CHANNEL_LEFT_TOP 0
+#define FLOW_CHANNEL_TOP_RIGHT 1
+#define FLOW_CHANNEL_RIGHT_BOTTOM 2
+#define FLOW_CHANNEL_BOTTOM_LEFT 3
+
+float _WaterSourceAmount;
+float _RainRate;
+float _FlowRate;
+float _ErosionRate;
+float _EvaporationRate;
+float _DepositAngle;
+
+Texture2D<float4> _MaskMap; //r: water source, g: rain, b: unused, a: hardness
+float2 _MaskMapResolution;
+
+float2 _RandomSeed;
+
+[numthreads(8, 1, 8)]
+void Init(uint3 id: SV_DISPATCHTHREADID)
+{
+	float2 uv = id.xz / _TerrainSize.xz;
+	float2 encHeight = SampleTextureBilinear(_HeightMap, _HeightMapResolution, _HeightMapResolution, uv).rg;
+	float h = DecodeFloatRG(encHeight) * _TerrainSize.y;
+
+	float4 data = float4(h, 0, 0, 0);
+	_SimulationData[id.xz] = data;
+	_WaterFlowVHData[id.xz] = float4(0, 0, 0, 0);
+	_WaterFlowDiagData[id.xz] = float4(0, 0, 0, 0);
+}
+
+void FlowOut(float3 srcPos, float3 desPos, RWTexture2D < float4 > flowData, int flowDataChannel)
+{
+	float4 srcData = _SimulationData[srcPos.xz];
+	float4 desData = _SimulationData[desPos.xz];
+
+	float srcHeight = srcData.r + srcData.a;
+	float desHeight = desData.r + desData.a;
+
+	float deltaHeight = srcHeight - desHeight;
+	float amountMultiplier = deltaHeight > 0;
+	float amount = amountMultiplier * _FlowRate * srcData.a / 8.0;
+	amount = clamp(amount, 0, srcData.a);
+	amount = clamp(amount, 0, max(0, deltaHeight));
+
+	srcData.a = max(0, srcData.a - amount);
+	_SimulationData[srcPos.xz] = srcData;
+
+	float4 srcFlowData = flowData[srcPos.xz];
+	srcFlowData[flowDataChannel] = amount;
+	flowData[srcPos.xz] = srcFlowData;
+}
+
+void FlowIn(float3 srcPos)
+{
+	float amount = 0;
+	float3 pos;
+	float4 data;
+	
+	pos = float3(srcPos.x - 1, 0, srcPos.z);
+	data = _WaterFlowVHData[pos.xz];
+	amount += data[FLOW_CHANNEL_RIGHT];
+
+	pos = float3(srcPos.x, 0, srcPos.z + 1);
+	data = _WaterFlowVHData[pos.xz];
+	amount += data[FLOW_CHANNEL_BOTTOM];
+
+	pos = float3(srcPos.x + 1, 0, srcPos.z);
+	data = _WaterFlowVHData[pos.xz];
+	amount += data[FLOW_CHANNEL_LEFT];
+
+	pos = float3(srcPos.x, 0, srcPos.z - 1);
+	data = _WaterFlowVHData[pos.xz];
+	amount += data[FLOW_CHANNEL_TOP];
+
+	pos = float3(srcPos.x - 1, 0, srcPos.z + 1);
+	data = _WaterFlowDiagData[pos.xz];
+	amount += data[FLOW_CHANNEL_RIGHT_BOTTOM];
+
+	pos = float3(srcPos.x + 1, 0, srcPos.z + 1);
+	data = _WaterFlowDiagData[pos.xz];
+	amount += data[FLOW_CHANNEL_BOTTOM_LEFT];
+
+	pos = float3(srcPos.x + 1, 0, srcPos.z - 1);
+	data = _WaterFlowDiagData[pos.xz];
+	amount += data[FLOW_CHANNEL_LEFT_TOP];
+
+	pos = float3(srcPos.x - 1, 0, srcPos.z - 1);
+	data = _WaterFlowDiagData[pos.xz];
+	amount += data[FLOW_CHANNEL_TOP_RIGHT];
+
+	float4 srcData = _SimulationData[srcPos.xz];
+	srcData.a += amount;
+	_SimulationData[srcPos.xz] = srcData;
+}
+
+[numthreads(8, 1, 8)]
+void Simulate(uint3 id: SV_DISPATCHTHREADID)
+{
+	float2 uv = id.xz / _TerrainSize.xz;
+	int index = id.z * _TerrainSize.x + id.x;
+
+	float4 mask = SampleTextureBilinear(_MaskMap, _MaskMapResolution.x, _MaskMapResolution.y, uv);
+
+	//Water source
+	{
+		float water = _WaterSourceAmount * mask.r;
+		float4 data = _SimulationData[id.xz];
+		data.a += water;
+		_SimulationData[id.xz] = data;
+	}
+
+	//Rain
+	{
+		float rand = RandomValue(uv + _RandomSeed);
+		float rainValue = rand < (_RainRate * mask.y);
+		
+		float4 data = _SimulationData[id.xz];
+		data.a += rainValue * _RainRate;
+		_SimulationData[id.xz] = data;
+		GroupMemoryBarrierWithGroupSync();
+	}
+
+	//Flow out
+	{
+		float3 srcPos = id;
+		float3 desPos;
+		RWTexture2D<float4> flowData;
+		int flowDataChannel;
+
+		desPos = float3(id.x - 1, 0, id.z);
+		flowData = _WaterFlowVHData;
+		flowDataChannel = FLOW_CHANNEL_LEFT;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		desPos = float3(id.x, 0, id.z + 1);
+		flowData = _WaterFlowVHData;
+		flowDataChannel = FLOW_CHANNEL_TOP;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		desPos = float3(id.x + 1, 0, id.z);
+		flowData = _WaterFlowVHData;
+		flowDataChannel = FLOW_CHANNEL_RIGHT;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		desPos = float3(id.x, 0, id.z - 1);
+		flowData = _WaterFlowVHData;
+		flowDataChannel = FLOW_CHANNEL_BOTTOM;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		desPos = float3(id.x - 1, 0, id.z + 1);
+		flowData = _WaterFlowDiagData;
+		flowDataChannel = FLOW_CHANNEL_LEFT_TOP;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		desPos = float3(id.x + 1, 0, id.z + 1);
+		flowData = _WaterFlowDiagData;
+		flowDataChannel = FLOW_CHANNEL_TOP_RIGHT;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		desPos = float3(id.x + 1, 0, id.z - 1);
+		flowData = _WaterFlowDiagData;
+		flowDataChannel = FLOW_CHANNEL_RIGHT_BOTTOM;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		desPos = float3(id.x - 1, 0, id.z - 1);
+		flowData = _WaterFlowDiagData;
+		flowDataChannel = FLOW_CHANNEL_BOTTOM_LEFT;
+		FlowOut(srcPos, desPos, flowData, flowDataChannel);
+
+		GroupMemoryBarrierWithGroupSync();
+	}
+
+	//Flow in
+	{
+		float3 srcPos = id;
+		FlowIn(srcPos);
+		GroupMemoryBarrierWithGroupSync();
+	}
+
+	//Evaporation
+	{
+		float4 data = _SimulationData[id.xz];
+		data.a -= _EvaporationRate;
+		data.a = max(0, data.a);
+		_SimulationData[id.xz] = data;
+		GroupMemoryBarrierWithGroupSync();
+	}
+}
+
