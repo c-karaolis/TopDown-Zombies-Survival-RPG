@@ -5,7 +5,7 @@ using Foxlair.Enemies;
 
 namespace Foxlair.Weapons
 {
-    public class RayTracingWeapon : MonoBehaviour
+    public class RayTracingWeapon : Weapon
     {
 
         public int gunDamage = 1;                                            // Set the number of hitpoints that this gun will take away from shot objects with a health script

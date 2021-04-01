@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Foxlair.PlayerInput;
 
-namespace Foxlair.Movement
+namespace Foxlair.Character.Movement
 {
     [RequireComponent(typeof(CharacterController))]
     public class CharacterMovement : MonoBehaviour
