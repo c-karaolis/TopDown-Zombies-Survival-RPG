@@ -1,0 +1,1 @@
+﻿enum ResourceType { Wood, Stone, Iron, Leather }

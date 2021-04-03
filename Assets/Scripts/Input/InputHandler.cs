@@ -14,8 +14,14 @@ namespace Foxlair.PlayerInput
         {
             HandleMovementInput();
             HandleWeaponInput();
+            HandleGeneralCharacterInput();
 
             mousePosition = Input.mousePosition;
+        }
+
+        private void HandleGeneralCharacterInput()
+        {
+            //Harvesting stuff here??
         }
 
         private void HandleWeaponInput()

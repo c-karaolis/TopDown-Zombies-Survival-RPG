@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using Foxlair.Weapons;
+using Foxlair.Tools;
+using Foxlair.Enemies;
 
 namespace Foxlair.Character.Targeting
 {
-    public class CharacterTargetingHandler : MonoBehaviour
+    public class CharacterTargetingHandler : SingletonMonoBehaviour<CharacterTargetingHandler>
     {
         protected Vector3 _aimDirection;
         protected Collider[] _hit;
         protected Vector3 _raycastDirection;
         protected Collider _potentialEnemyHit;
+        protected Collider _potentialHarvestResourceHit;
 
 
         public LayerMask TargetsMask;
+        public LayerMask HarvestResourceMask;
         public LayerMask ObstacleMask;
 
         protected Vector3 _raycastOrigin;
@@ -21,7 +25,8 @@ namespace Foxlair.Character.Targeting
         public float DurationBetweenScans = 0.2f;
         protected float _lastScanTimestamp = 0f;
 
-        public Transform Target;
+        public Enemy EnemyTarget;
+        public Transform HarvestResourceTarget;
 
         public bool DrawDebugRadius = true;
 
@@ -43,9 +48,9 @@ namespace Foxlair.Character.Targeting
         /// Scans for targets by performing an overlap detection, then verifying line of fire with a boxcast
         /// </summary>
         /// <returns></returns>
-        protected bool ScanForTargets()
+        protected bool ScanForEnemyTargets()
         {
-            Target = null;
+            EnemyTarget = null;
 
             float nearestDistance = float.MaxValue;
             float distance;
@@ -70,7 +75,54 @@ namespace Foxlair.Character.Targeting
                 RaycastHit obstacleHit = DebugRaycast3D(_raycastOrigin, _raycastDirection, Vector3.Distance(_potentialEnemyHit.transform.position, _raycastOrigin), ObstacleMask.value, Color.yellow, true);
                 if (obstacleHit.collider == null)
                 {
-                    Target = _potentialEnemyHit.transform;
+                    EnemyTarget = _potentialEnemyHit.GetComponent<Enemy>();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        /// <summary>
+        /// Scans for Harvest Resource targets by performing an overlap detection, then verifying line of fire with a boxcast
+        /// </summary>
+        /// <returns></returns>
+        protected bool ScanForHarvestResourceTargets()
+        {
+            HarvestResourceTarget = null;
+
+            float nearestDistance = float.MaxValue;
+            float distance;
+
+            //_hit = Physics.OverlapSphere(currentlyEquippedWeapon.transform.position, ScanRadius, TargetsMask);
+            _hit = Physics.OverlapSphere(transform.position, ScanRadius, HarvestResourceMask);
+
+            if (_hit.Length > 0)
+            {
+                foreach (Collider collider in _hit)
+                {
+                    distance = (_raycastOrigin - collider.transform.position).sqrMagnitude;
+                    if (distance < nearestDistance)
+                    {
+                        _potentialHarvestResourceHit = collider;
+                        nearestDistance = distance;
+                    }
+                }
+
+                // we cast a ray to make sure there's no obstacle
+                _raycastDirection = _potentialHarvestResourceHit.transform.position - _raycastOrigin;
+                RaycastHit obstacleHit = DebugRaycast3D(_raycastOrigin, _raycastDirection, Vector3.Distance(_potentialHarvestResourceHit.transform.position, _raycastOrigin), ObstacleMask.value, Color.yellow, true);
+                if (obstacleHit.collider == null)
+                {
+                    HarvestResourceTarget = _potentialHarvestResourceHit.transform;
                     return true;
                 }
                 else
@@ -93,7 +145,8 @@ namespace Foxlair.Character.Targeting
         {
             if (Time.time - _lastScanTimestamp > DurationBetweenScans)
             {
-                ScanForTargets();
+                ScanForEnemyTargets();
+                ScanForHarvestResourceTargets();
                 _lastScanTimestamp = Time.time;
             }
         }
