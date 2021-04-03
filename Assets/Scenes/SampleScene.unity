@@ -121,39 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &311972215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3463872070000944986, guid: ef8797f619d461044a4e82f7a4de2093,
-    type: 3}
-  m_PrefabInstance: {fileID: 7481468964427829302}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &311972220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311972215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8211fe9e02af80442a6994e072959ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaponDamage: 2
-  _armorPenetration: 0
-  _durability: 0
-  _isCoolingDown: 0
-  _weaponAudioSource: {fileID: 0}
-  _fireRate: 0.25
-  _weaponRange: 50
-  _weaponEnd: {fileID: 704341035}
-  _nextFire: 0
---- !u!4 &704341035 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 704341035, guid: ef8797f619d461044a4e82f7a4de2093,
-    type: 3}
-  m_PrefabInstance: {fileID: 7481468964427829302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,44 +543,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2088238232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7481468962612669614, guid: ef8797f619d461044a4e82f7a4de2093,
-    type: 3}
-  m_PrefabInstance: {fileID: 7481468964427829302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2088238233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7481468962612669615, guid: ef8797f619d461044a4e82f7a4de2093,
     type: 3}
   m_PrefabInstance: {fileID: 7481468964427829302}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2088238235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088238232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95cb58a92c9fda84c80322992e03f500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetsMask:
-    serializedVersion: 2
-    m_Bits: 512
-  HarvestResourceMask:
-    serializedVersion: 2
-    m_Bits: 0
-  ObstacleMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  ScanRadius: 12.85
-  DurationBetweenScans: 0.2
-  EnemyTarget: {fileID: 0}
-  HarvestResourceTarget: {fileID: 0}
-  DrawDebugRadius: 1
 --- !u!1 &2126664106
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,21 +663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1050293815022563970, guid: ef8797f619d461044a4e82f7a4de2093,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059622805682681254, guid: ef8797f619d461044a4e82f7a4de2093,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.154
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059622805682681254, guid: ef8797f619d461044a4e82f7a4de2093,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.269
-      objectReference: {fileID: 0}
     - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: _camera
@@ -808,6 +728,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1050293815022563970, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
