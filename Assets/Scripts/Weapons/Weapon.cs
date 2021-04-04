@@ -12,7 +12,10 @@ namespace Foxlair.Weapons
         //protected WeaponRarity weaponRarity;
         public float _weaponDamage;
         public float _armorPenetration;
-        public float _durability;
+
+        protected float _durability = 10f;
+        protected float _durabilityLossPerShot = 1f;
+
         public bool _isCoolingDown;
 
         public AudioSource _weaponAudioSource;
@@ -23,17 +26,19 @@ namespace Foxlair.Weapons
         public float _nextFire;
         public WaitForSeconds _weaponShotDuration = new WaitForSeconds(0.07f);
 
-        CharacterTargetingHandler _characterTargetingHandler;
-        InputHandler _input;
 
 
-        Enemy _weaponEnemyTarget;
+        public CharacterTargetingHandler _characterTargetingHandler;
+        public InputHandler _input;
+
+
+        public Enemy _weaponEnemyTarget;
 
 
 
         public virtual void Awake()
         {
-            
+
         }
 
         public virtual void Start()
@@ -52,27 +57,49 @@ namespace Foxlair.Weapons
 
             if (_input.isFiringButtonDown && !_isCoolingDown)
             {
-                Shoot();
+                GetCurrentEnemyTarget();
+
+                Attack();
             }
         }
 
-
-
-        public virtual void Shoot()
+        public virtual void GetCurrentEnemyTarget()
         {
             _weaponEnemyTarget = _characterTargetingHandler.EnemyTarget;
-            _nextFire = Time.time + _fireRate;
-            // Start our ShotEffect coroutine to turn our laser line on and off
-            StartCoroutine(ShotEffect());
-            _weaponEnemyTarget.Damage(_weaponDamage);
         }
 
-        public virtual IEnumerator ShotEffect()
+        public virtual void Attack()
+        {
+            if (_weaponEnemyTarget == null) { return; }
+
+            Debug.Log("parent weapon");
+
+            //TODO: this is fire delay not fire rate. 
+            //find a way to normalise firerate for humans. e.g. thisfirerate = humanfirerate * (1/100)
+            _nextFire = Time.time + _fireRate;
+            // Start our ShotEffect coroutine to turn our laser line on and off
+            StartCoroutine(AttackEffect());
+            _weaponEnemyTarget.Damage(_weaponDamage);
+
+            _durability -= _durabilityLossPerShot;
+
+        }
+
+        public virtual IEnumerator AttackEffect()
         {
             // Play the shooting sound effect
             _weaponAudioSource.Play();
             //Wait for .07 seconds
             yield return _weaponShotDuration;
+        }
+
+        public virtual void HandleWeaponDurability()
+        {
+            if ((_durability -= _durabilityLossPerShot) <= 0)
+            {
+                Debug.Log("Durability Depleted");
+                Destroy(this, 0.3f);
+            }
         }
 
     }

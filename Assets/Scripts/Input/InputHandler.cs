@@ -26,7 +26,7 @@ namespace Foxlair.PlayerInput
 
         private void HandleWeaponInput()
         {
-            isFiringButtonDown = Input.GetButtonDown("Fire1");
+            isFiringButtonDown = Input.GetButton("Fire1");
         }
 
         private void HandleMovementInput()

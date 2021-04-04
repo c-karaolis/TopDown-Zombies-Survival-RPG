@@ -17,9 +17,15 @@ namespace Foxlair.Enemies
 
         }
 
-        internal void Damage(float weaponDamage)
+        public virtual void Damage(float weaponDamage)
         {
-            Debug.Log($"Was hit for {weaponDamage} damage.");
+            Debug.Log($"{this} was hit for {weaponDamage} damage.");
         }
+
+        public virtual void Die()
+        {
+
+        }
+
     }
 }

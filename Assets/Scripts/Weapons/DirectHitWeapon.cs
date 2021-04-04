@@ -13,7 +13,7 @@ namespace Foxlair.Weapons
         //// Start is called before the first frame update
         //public override void Awake()
         //{
-           
+
         //}
 
         //// Update is called once per frame
@@ -25,14 +25,32 @@ namespace Foxlair.Weapons
 
 
 
-        //void ShootTarget()
+        public override void Attack()
+        {
+            Debug.Log($"Durability: {_durability} , Loss per Shot: {_durabilityLossPerShot}");
+            _nextFire = Time.time + _fireRate;
+            _weaponEnemyTarget = _characterTargetingHandler.EnemyTarget;
+
+            if (!(_weaponEnemyTarget == null))
+            {
+                _weaponEnemyTarget.Damage(_weaponDamage);
+            }
+            else
+            {
+                Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
+            }
+
+            HandleWeaponDurability();
+
+        }
+
+        //private void HandleWeaponDurability()
         //{
-        //    weaponEnemyTarget = _characterTargetingHandler.EnemyTarget;
-
-        //    weaponEnemyTarget.Damage((int)_weaponDamage);
-
-        //    Debug.Log($"{weaponEnemyTarget} was Shot");
+        //    if ((_durability -= _durabilityLossPerShot) <= 0)
+        //    {
+        //        Debug.Log("Durability Depleted");
+        //        Destroy(this, 0.3f);
+        //    }
         //}
-       
     }
 }

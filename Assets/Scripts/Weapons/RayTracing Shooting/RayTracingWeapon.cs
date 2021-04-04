@@ -16,7 +16,7 @@ namespace Foxlair.Weapons
         private LineRenderer laserLine;                                        // Reference to the LineRenderer component which will display our laserline
 
 
-        InputHandler _input;
+        
 
         public override void Start()
         {
@@ -39,12 +39,12 @@ namespace Foxlair.Weapons
         }
 
 
-        public override void Shoot()
+        public override void Attack()
         {
             _nextFire = Time.time + _fireRate;
 
             // Start our ShotEffect coroutine to turn our laser line on and off
-            StartCoroutine(ShotEffect());
+            StartCoroutine(AttackEffect());
 
             Vector3 rayOrigin = _weaponEnd.position;
 
@@ -86,19 +86,6 @@ namespace Foxlair.Weapons
             }
         }
 
-        private IEnumerator ShotEffect()
-        {
-            // Play the shooting sound effect
-            _weaponAudioSource.Play();
-
-            // Turn on our line renderer
-            laserLine.enabled = true;
-
-            //Wait for .07 seconds
-            yield return _weaponShotDuration;
-
-            // Deactivate our line renderer after waiting
-            laserLine.enabled = false;
-        }
+     
     }
 }

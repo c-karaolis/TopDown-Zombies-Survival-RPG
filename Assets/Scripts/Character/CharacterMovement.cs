@@ -46,7 +46,6 @@ namespace Foxlair.Character.Movement
             HandleAutoTargetingRotation();
             HandleHarvestingAutoRotation();
             HandleMovement();
-           
         }
 
         private void HandleHarvestingAutoRotation()
