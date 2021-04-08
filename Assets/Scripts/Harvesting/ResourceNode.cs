@@ -9,16 +9,20 @@ namespace Foxlair.Harvesting
         public bool isHarvested = false;
         public float respawnTime = 120f;
         public float timeSinceLastHarvest = 0f;
+
         //Maybe only get resource when fully harvested
         public int resourceDropRatePerTick = 1;
+
         public List<CharacterController> allowedHarvesters;
+
         //public WeaponItem requiredHarvestTool;
         //public InventoryItem inventoryResource;
         //public ItemPicker inventoryItemPicker;
         //public Health harvestResourceNodeHealth;
+
         public Animator resourceNodeAnimator;
         public GameObject meshRendererGameObject;
-        ResourceType resource;
+        public ResourceType resource;
 
 
         public virtual void Awake()
@@ -30,6 +34,11 @@ namespace Foxlair.Harvesting
         public virtual void Update()
         {
             HandleRespawnTimer();
+        }
+
+        public virtual void StartHarvesting()
+        {
+
         }
 
 

@@ -4,61 +4,21 @@ namespace Foxlair.Tools
 {
 	public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 	{
+		public static T Instance { get; private set; }
 
-		#region Fields
-
-		/// <summary>
-		/// The instance.
-		/// </summary>
-		private static T instance;
-
-		#endregion
-
-		#region Properties
-
-		/// <summary>
-		/// Gets the instance.
-		/// </summary>
-		/// <value>The instance.</value>
-		public static T Instance
+		public virtual void Awake()
 		{
-			get
+			if (Instance == null)
 			{
-				if (instance == null)
-				{
-					instance = FindObjectOfType<T>();
-					if (instance == null)
-					{
-						GameObject obj = new GameObject();
-						obj.name = typeof(T).Name;
-						instance = obj.AddComponent<T>();
-					}
-				}
-				return instance;
-			}
-		}
-
-		#endregion
-
-		#region Methods
-
-		/// <summary>
-		/// Use this for initialization.
-		/// </summary>
-		protected virtual void Awake()
-		{
-			if (instance == null)
-			{
-				instance = this as T;
-				DontDestroyOnLoad(gameObject);
+				Debug.Log($"Instantiating new singleton of type {typeof(T)}");
+				Instance = this as T;
+				DontDestroyOnLoad(this);
 			}
 			else
 			{
 				Destroy(gameObject);
 			}
 		}
-
-		#endregion
 
 	}
 }

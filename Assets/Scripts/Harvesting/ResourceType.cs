@@ -1,1 +1,1 @@
-﻿enum ResourceType { Wood, Stone, Iron, Leather }
+﻿public enum ResourceType { Wood, Stone, Iron, Leather }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Foxlair.Weapons;
 using Foxlair.Tools;
 using Foxlair.Enemies;
 
@@ -30,7 +29,7 @@ namespace Foxlair.Character.Targeting
 
         public bool DrawDebugRadius = true;
 
-        Weapon currentlyEquippedWeapon;
+        //Weapon currentlyEquippedWeapon;
 
         void Start()
         {

@@ -14,6 +14,7 @@ namespace Foxlair.Character.Movement
         private CharacterTargetingHandler _characterTargetingHandler;
         private bool enemyTargetFound;
         private bool resourceNodeTargetFound;
+        private double gravity;
 
         [SerializeField]
         private float movementSpeed = 5f;
@@ -33,19 +34,32 @@ namespace Foxlair.Character.Movement
         private Vector3 direction;
         private void Awake()
         {
-            _input = InputHandler.Instance;
             _characterTargetingHandler = CharacterTargetingHandler.Instance;
             _characterController = GetComponent<CharacterController>();
         }
+        private void Start()
+        {
+            _input = InputHandler.Instance;
 
+        }
 
         // Update is called once per frame
         void Update()
         {
-            direction = new Vector3(_input.inputVector.x, 0, _input.inputVector.y).normalized;
+            HandleGravity();
+            direction = new Vector3(_input.inputVector.x, (float)gravity, _input.inputVector.y).normalized;
             HandleAutoTargetingRotation();
             HandleHarvestingAutoRotation();
             HandleMovement();
+        }
+
+        private void HandleGravity()
+        {
+            gravity -= 9.81 * Time.deltaTime;
+            if (_characterController.isGrounded)
+            {
+                gravity = 0;
+            }
         }
 
         private void HandleHarvestingAutoRotation()

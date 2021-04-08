@@ -44,13 +44,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponDamage: 0
   _armorPenetration: 0
-  _durability: 0
   _isCoolingDown: 0
   _weaponAudioSource: {fileID: 0}
   _fireRate: 0.25
   _weaponRange: 50
   _weaponEnd: {fileID: 704341035}
   _nextFire: 0
+  _characterTargetingHandler: {fileID: 0}
+  _input: {fileID: 0}
+  _weaponEnemyTarget: {fileID: 0}
 --- !u!1 &7481468962612669614
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +139,7 @@ MonoBehaviour:
     m_Bits: 512
   HarvestResourceMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -529,6 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6274038914019525410, guid: 9eb38858b3a1f9d46886c66922c240aa, type: 3}
+    - {fileID: 305897854256961762, guid: 9eb38858b3a1f9d46886c66922c240aa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9eb38858b3a1f9d46886c66922c240aa, type: 3}
 --- !u!1 &3463872070000944986 stripped
 GameObject:

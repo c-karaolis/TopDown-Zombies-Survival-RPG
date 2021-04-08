@@ -43,8 +43,8 @@ namespace Foxlair.Weapons
 
         public virtual void Start()
         {
-            _characterTargetingHandler = CharacterTargetingHandler.Instance;
             _input = InputHandler.Instance;
+            _characterTargetingHandler = CharacterTargetingHandler.Instance;
             _weaponAudioSource = GetComponent<AudioSource>();
         }
 
