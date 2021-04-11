@@ -24,18 +24,12 @@ namespace Foxlair.Character
 		{
 			Null,
 			Idle,
-			Falling,
 			Walking,
 			Running,
 			Crouching,
-			Crawling,
-			Dashing,
-			Jetpacking,
-			Jumping,
-			Pushing,
-			DoubleJumping,
+			MovingToAttack,
 			Attacking,
-			FallingDownHole,
+			MovingToHarvest,
 			Harvesting
 		}
 	}

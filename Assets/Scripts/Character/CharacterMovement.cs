@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using Foxlair.PlayerInput;
-using Foxlair.Character;
-using System;
 using Foxlair.Character.Targeting;
 
 namespace Foxlair.Character.Movement
@@ -20,10 +18,7 @@ namespace Foxlair.Character.Movement
         private float movementSpeed = 5f;
 
         [SerializeField]
-        private float rotateSpeed = 3f;
-
-        [SerializeField]
-        private float rotationSmoothTime=0.1f;
+        private float rotationSmoothTime=0.01f;
 
         [SerializeField]
         private float rotationSmoothVelocity;
@@ -31,20 +26,21 @@ namespace Foxlair.Character.Movement
         [SerializeField]
         private Camera _camera;
 
-        private Vector3 direction;
+        public Vector3 direction;
         private void Awake()
         {
-            _characterTargetingHandler = CharacterTargetingHandler.Instance;
-            _characterController = GetComponent<CharacterController>();
         }
         private void Start()
         {
+            _characterTargetingHandler = CharacterTargetingHandler.Instance;
+            _characterController = GetComponent<CharacterController>();
+
             _input = InputHandler.Instance;
 
         }
 
-        // Update is called once per frame
-        void Update()
+
+        public void UpdateCharacterMovement()
         {
             HandleGravity();
             direction = new Vector3(_input.inputVector.x, (float)gravity, _input.inputVector.y).normalized;
@@ -52,6 +48,16 @@ namespace Foxlair.Character.Movement
             HandleHarvestingAutoRotation();
             HandleMovement();
         }
+
+        // Update is called once per frame
+        //void Update()
+        //{
+        //    HandleGravity();
+        //    direction = new Vector3(_input.inputVector.x, (float)gravity, _input.inputVector.y).normalized;
+        //    HandleAutoTargetingRotation();
+        //    HandleHarvestingAutoRotation();
+        //    HandleMovement();
+        //}
 
         private void HandleGravity()
         {
@@ -64,7 +70,7 @@ namespace Foxlair.Character.Movement
 
         private void HandleHarvestingAutoRotation()
         {
-            if (_characterTargetingHandler.HarvestResourceTarget != null)
+            if (_characterTargetingHandler.HarvestResourceTarget != null && _input.isInteractionButtonDown)
             {
                 //TODO: figure out how harvest resource will be handled(e.g. rotate to harvest node only if player presses harvest)
                 // || _characterTargetingHandler.HarvestResourceTarget != null
@@ -108,7 +114,7 @@ namespace Foxlair.Character.Movement
 
         private void RotateTowardsMovementDirection()
         {
-            if (enemyTargetFound) {return;}
+            if (enemyTargetFound || resourceNodeTargetFound) {return;}
             RotateTowards(direction);
         }
 

@@ -16,6 +16,7 @@ namespace Foxlair.Tools
 			}
 			else
 			{
+				Debug.LogWarning($"Deleting singleton of type {typeof(T)} because it already exists on {gameObject} game object.");
 				Destroy(gameObject);
 			}
 		}

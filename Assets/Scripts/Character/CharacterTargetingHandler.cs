@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Foxlair.Tools;
 using Foxlair.Enemies;
+using Foxlair.Harvesting;
 
 namespace Foxlair.Character.Targeting
 {
@@ -25,7 +26,7 @@ namespace Foxlair.Character.Targeting
         protected float _lastScanTimestamp = 0f;
 
         public Enemy EnemyTarget;
-        public Transform HarvestResourceTarget;
+        public ResourceNode HarvestResourceTarget;
 
         public bool DrawDebugRadius = true;
 
@@ -119,7 +120,7 @@ namespace Foxlair.Character.Targeting
                 RaycastHit obstacleHit = DebugRaycast3D(_raycastOrigin, _raycastDirection, Vector3.Distance(_potentialHarvestResourceHit.transform.position, _raycastOrigin), ObstacleMask.value, Color.yellow, true);
                 if (obstacleHit.collider == null)
                 {
-                    HarvestResourceTarget = _potentialHarvestResourceHit.transform;
+                    HarvestResourceTarget = _potentialHarvestResourceHit.GetComponent<ResourceNode>();
                     return true;
                 }
                 else
