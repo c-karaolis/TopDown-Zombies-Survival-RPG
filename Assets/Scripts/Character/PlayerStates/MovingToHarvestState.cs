@@ -2,7 +2,7 @@
 
 namespace Foxlair.Character.States
 {
-    public class MovingToHarvestState : State
+    public class MovingToHarvestState : PlayerStateMachineState
     {
         public override void OnStateEnter() { }
 

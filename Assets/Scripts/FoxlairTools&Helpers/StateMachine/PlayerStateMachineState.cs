@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Foxlair.Character.States;
 using UnityEngine;
 
 namespace Foxlair.Tools.StateMachine
@@ -6,19 +6,13 @@ namespace Foxlair.Tools.StateMachine
     /// <summary>
     /// Holds logic for the current state. Inherit from this class to create a new state.
     /// </summary>
-    public abstract class State : MonoBehaviour
+    public abstract class PlayerStateMachineState : MonoBehaviour
     {
         /// <summary>
         /// The current state machine responsible for this state
         /// </summary>
-        public StateMachine StateMachine { get; set; }
+        public PlayerStateMachine StateMachine { get; set; }
 
-        public List<State> forbiddenTransitions = new List<State> {};
-
-        private void Start()
-        {
-            forbiddenTransitions.Add(this);
-        }
         /// <summary>
         /// Check if the state machine is currently running this state
         /// </summary>

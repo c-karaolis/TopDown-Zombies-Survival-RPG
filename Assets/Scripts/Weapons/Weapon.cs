@@ -54,7 +54,10 @@ namespace Foxlair.Weapons
             _isCoolingDown = !(Time.time > _nextFire);
 
             Debug.DrawRay(_weaponEnd.position, _weaponEnd.forward, Color.yellow);
+        }
 
+        public void DetermineAttack()
+        {
             if (_input.isFiringButtonDown && !_isCoolingDown)
             {
                 GetCurrentEnemyTarget();

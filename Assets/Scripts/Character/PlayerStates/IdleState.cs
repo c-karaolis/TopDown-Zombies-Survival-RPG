@@ -16,7 +16,6 @@ namespace Foxlair.Character.States
             if (InputHandler.Instance.isMovementButtonsDown)
             {
                 PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
-
                 ChangeState(playerStateMachine.runningState);
 
                 //ChangeState(((PlayerStateMachine)StateMachine).runningState);
@@ -26,6 +25,8 @@ namespace Foxlair.Character.States
         public override void OnStateExecute() 
         {
             CheckForMovementInput();
+            if (InputHandler.Instance.isFiringButtonDown) { }
+
         }
 
         public override void OnStatePhysicsExecute() { }

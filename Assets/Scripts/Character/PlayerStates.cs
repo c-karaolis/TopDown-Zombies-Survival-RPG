@@ -6,7 +6,7 @@ namespace Foxlair.Character
 	/// <summary>
 	/// The various states you can use to check if your character is doing something at the current frame
 	/// </summary>    
-	public class CharacterStates
+	public class PlayerStates
 	{
 		/// The possible character conditions
 		public enum CharacterConditions
@@ -20,7 +20,7 @@ namespace Foxlair.Character
 
 		/// The possible Movement States the character can be in. These usually correspond to their own class, 
 		/// but it's not mandatory
-		public enum MovementStates
+		public enum State
 		{
 			Null,
 			Idle,

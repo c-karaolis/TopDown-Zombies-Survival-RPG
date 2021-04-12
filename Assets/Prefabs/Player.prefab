@@ -168,9 +168,9 @@ MonoBehaviour:
   idleState: {fileID: 1956693562}
   runningState: {fileID: 1263402991}
   movingToAttackState: {fileID: 487600379}
-  MovingToHarvestState: {fileID: 391331142}
-  AttackingState: {fileID: 1300369017}
-  HarvestingState: {fileID: 1942121598}
+  movingToHarvestState: {fileID: 391331142}
+  attackingState: {fileID: 1300369017}
+  harvestingState: {fileID: 1942121598}
 --- !u!1 &1263402989
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6d36ed99e01874f82148b2b506da49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterMovement: {fileID: 7481468962612669612}
 --- !u!1 &1942121596
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +416,6 @@ GameObject:
   - component: {fileID: 7481468962612669612}
   - component: {fileID: 2088238234}
   - component: {fileID: 2088238235}
-  - component: {fileID: 623940152}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -500,21 +500,6 @@ MonoBehaviour:
   EnemyTarget: {fileID: 0}
   HarvestResourceTarget: {fileID: 0}
   DrawDebugRadius: 1
---- !u!114 &623940152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481468962612669614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65328af839d3124e9678ab94fd00e84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterMovementStateMachine: {fileID: 0}
-  CharacterStates: []
-  characterStatesGameObject: {fileID: 2014411570}
 --- !u!1 &7481468963599002950
 GameObject:
   m_ObjectHideFlags: 0

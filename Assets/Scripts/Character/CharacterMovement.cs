@@ -44,8 +44,7 @@ namespace Foxlair.Character.Movement
         {
             HandleGravity();
             direction = new Vector3(_input.inputVector.x, (float)gravity, _input.inputVector.y).normalized;
-            HandleAutoTargetingRotation();
-            HandleHarvestingAutoRotation();
+            //HandleAutoTargetingRotation();
             HandleMovement();
         }
 
@@ -68,7 +67,7 @@ namespace Foxlair.Character.Movement
             }
         }
 
-        private void HandleHarvestingAutoRotation()
+        public void HandleHarvestingAutoRotation()
         {
             if (_characterTargetingHandler.HarvestResourceTarget != null && _input.isInteractionButtonDown)
             {
@@ -84,7 +83,7 @@ namespace Foxlair.Character.Movement
             }
         }
 
-        private void HandleAutoTargetingRotation()
+        public void HandleAutoTargetingRotation()
         {
             if(_characterTargetingHandler.EnemyTarget != null)
             {
@@ -101,20 +100,38 @@ namespace Foxlair.Character.Movement
 
         }
 
+        private void HandleAutoMoveToAttack(Transform targetToAttack) 
+        {
+            Vector3 targetDirection = targetToAttack.position - transform.position;
+            RotateTowards(targetDirection);
+            MoveTowards(targetDirection);
+        }
+
+        private void HandleAutoMoveToHarvest(Transform resourceToHarvest) 
+        {
+            Vector3 targetDirection = resourceToHarvest.position - transform.position;
+            RotateTowards(targetDirection);
+            MoveTowards(targetDirection);
+
+        }
+
         private void HandleMovement()
         {
 
             if (direction.magnitude >= 0.1f)
             {
                 RotateTowardsMovementDirection();
-
-                _characterController.Move(direction * movementSpeed * Time.deltaTime);
+                MoveTowards(direction);
             }
+        }
+
+        private void MoveTowards(Vector3 movementDirection)
+        {
+            _characterController.Move(movementDirection * movementSpeed * Time.deltaTime);
         }
 
         private void RotateTowardsMovementDirection()
         {
-            if (enemyTargetFound || resourceNodeTargetFound) {return;}
             RotateTowards(direction);
         }
 
