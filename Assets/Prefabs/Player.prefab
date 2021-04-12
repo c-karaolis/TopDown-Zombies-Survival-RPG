@@ -162,7 +162,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showDebugCurrentState: 1
   initialState: {fileID: 1956693562}
+  AvailableStates: []
   characterStatesGameObject: {fileID: 2014411570}
+  _inputHandler: {fileID: 0}
+  idleState: {fileID: 1956693562}
+  runningState: {fileID: 1263402991}
+  movingToAttackState: {fileID: 487600379}
+  MovingToHarvestState: {fileID: 391331142}
+  AttackingState: {fileID: 1300369017}
+  HarvestingState: {fileID: 1942121598}
 --- !u!1 &1263402989
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ce7c03cfbed1c469f7e0743a09115e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterMovement: {fileID: 7481468962612669612}
 --- !u!1 &1300369015
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +455,7 @@ MonoBehaviour:
   rotationSmoothTime: 0.1
   rotationSmoothVelocity: 0
   _camera: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
 --- !u!143 &2088238234
 CharacterController:
   m_ObjectHideFlags: 0
