@@ -5,13 +5,13 @@ namespace Foxlair.PlayerInput
 {
     public class InputHandler : SingletonMonoBehaviour<InputHandler>
     {
-        public Vector2 inputVector { get; private set; }
-        public Vector3 mousePosition { get; private set; }
+        public Vector2 InputVector { get; private set; }
+        public Vector3 MousePosition { get; private set; }
 
-        public bool isFiringButtonDown;
-        public bool isInteractionButtonDown;
+        public bool IsFiringButtonDown;
+        public bool IsInteractionButtonDown;
 
-        public bool isMovementButtonsDown;
+        public bool IsMovementButtonsDown;
 
         void Update()
         {
@@ -19,18 +19,18 @@ namespace Foxlair.PlayerInput
             HandleWeaponInput();
             HandleGeneralCharacterInput();
 
-            mousePosition = Input.mousePosition;
+            MousePosition = Input.mousePosition;
         }
 
         private void HandleGeneralCharacterInput()
         {
             //Harvesting stuff here??
-            isInteractionButtonDown = Input.GetButton("Jump");
+            IsInteractionButtonDown = Input.GetButton("Jump");
         }
 
         private void HandleWeaponInput()
         {
-            isFiringButtonDown = Input.GetButton("Fire1");
+            IsFiringButtonDown = Input.GetButton("Fire1");
         }
 
         private void HandleMovementInput()
@@ -41,8 +41,8 @@ namespace Foxlair.PlayerInput
             var v = Input.GetAxisRaw("Vertical");
 
 
-            inputVector = new Vector2(h, v);
-            isMovementButtonsDown = (inputVector != Vector2.zero);
+            InputVector = new Vector2(h, v);
+            IsMovementButtonsDown = (InputVector != Vector2.zero);
             //Debug.Log(inputVector);
         }
     }

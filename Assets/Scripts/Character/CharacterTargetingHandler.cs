@@ -40,6 +40,7 @@ namespace Foxlair.Character.Targeting
         {
             DetermineRaycastOrigin();
             ScanIfNeeded();
+
         }
 
         /// <summary>
@@ -74,6 +75,8 @@ namespace Foxlair.Character.Targeting
                 if (obstacleHit.collider == null)
                 {
                     EnemyTarget = _potentialEnemyHit.GetComponent<Enemy>();
+                    PlayerManager.Instance.PlayerTargetEnemy = EnemyTarget;
+
                     return true;
                 }
                 else
@@ -121,6 +124,8 @@ namespace Foxlair.Character.Targeting
                 if (obstacleHit.collider == null)
                 {
                     HarvestResourceTarget = _potentialHarvestResourceHit.GetComponent<ResourceNode>();
+                    PlayerManager.Instance.PlayerTargetResourceNode = HarvestResourceTarget;
+
                     return true;
                 }
                 else

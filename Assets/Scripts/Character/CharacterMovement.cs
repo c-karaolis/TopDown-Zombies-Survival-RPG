@@ -10,23 +10,22 @@ namespace Foxlair.Character.Movement
         private InputHandler _input;
         private CharacterController _characterController;
         private CharacterTargetingHandler _characterTargetingHandler;
-        private bool enemyTargetFound;
-        private bool resourceNodeTargetFound;
-        private double gravity;
+        private double Gravity;
 
         [SerializeField]
-        private float movementSpeed = 5f;
+        private float MovementSpeed = 5f;
 
         [SerializeField]
-        private float rotationSmoothTime=0.01f;
+        private float RotationSmoothTime=0.01f;
 
         [SerializeField]
-        private float rotationSmoothVelocity;
+        private float RotationSmoothVelocity;
 
         [SerializeField]
         private Camera _camera;
 
-        public Vector3 direction;
+        public Vector3 Direction;
+
         private void Awake()
         {
         }
@@ -43,7 +42,7 @@ namespace Foxlair.Character.Movement
         public void UpdateCharacterMovement()
         {
             HandleGravity();
-            direction = new Vector3(_input.inputVector.x, (float)gravity, _input.inputVector.y).normalized;
+            Direction = new Vector3(_input.InputVector.x, (float)Gravity, _input.InputVector.y).normalized;
             //HandleAutoTargetingRotation();
             HandleMovement();
         }
@@ -60,43 +59,31 @@ namespace Foxlair.Character.Movement
 
         private void HandleGravity()
         {
-            gravity -= 9.81 * Time.deltaTime;
+            Gravity -= 9.81 * Time.deltaTime;
             if (_characterController.isGrounded)
             {
-                gravity = 0;
+                Gravity = 0;
             }
         }
 
         public void HandleHarvestingAutoRotation()
         {
-            if (_characterTargetingHandler.HarvestResourceTarget != null && _input.isInteractionButtonDown)
+            if (_characterTargetingHandler.HarvestResourceTarget != null && _input.IsInteractionButtonDown)
             {
-                //TODO: figure out how harvest resource will be handled(e.g. rotate to harvest node only if player presses harvest)
-                // || _characterTargetingHandler.HarvestResourceTarget != null
-                resourceNodeTargetFound = true;
                 Vector3 targetDirection = _characterTargetingHandler.HarvestResourceTarget.transform.position - transform.position;
                 RotateTowards(targetDirection);
             }
-            else
-            {
-                resourceNodeTargetFound = false;
-            }
+
         }
 
         public void HandleAutoTargetingRotation()
         {
             if(_characterTargetingHandler.EnemyTarget != null)
             {
-                //TODO: figure out how harvest resource will be handled(e.g. rotate to harvest node only if player presses harvest)
-                // || _characterTargetingHandler.HarvestResourceTarget != null
-                enemyTargetFound = true;
                 Vector3 targetDirection = _characterTargetingHandler.EnemyTarget.transform.position - transform.position;
                 RotateTowards(targetDirection);
             }
-            else
-            {
-                enemyTargetFound = false;
-            }
+
 
         }
 
@@ -118,27 +105,27 @@ namespace Foxlair.Character.Movement
         private void HandleMovement()
         {
 
-            if (direction.magnitude >= 0.1f)
+            if (Direction.magnitude >= 0.1f)
             {
                 RotateTowardsMovementDirection();
-                MoveTowards(direction);
+                MoveTowards(Direction);
             }
         }
 
         private void MoveTowards(Vector3 movementDirection)
         {
-            _characterController.Move(movementDirection * movementSpeed * Time.deltaTime);
+            _characterController.Move(movementDirection * MovementSpeed * Time.deltaTime);
         }
 
         private void RotateTowardsMovementDirection()
         {
-            RotateTowards(direction);
+            RotateTowards(Direction);
         }
 
         private void RotateTowards(Vector3 rotationDirection)
         {
             float targetAngle = Mathf.Atan2(rotationDirection.x, rotationDirection.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationSmoothVelocity, rotationSmoothTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref RotationSmoothVelocity, RotationSmoothTime);
 
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
         }

@@ -12,7 +12,7 @@ namespace Foxlair.Character.States
         private void Start()
         {
             playerStateMachine = StateMachine as PlayerStateMachine;
-            forbiddenTransitions.Add(this);
+            ForbiddenTransitions.Add(this);
 
         }
 
@@ -24,13 +24,13 @@ namespace Foxlair.Character.States
 
         public override void OnStateExecute()
         {
-            if (!InputHandler.Instance.isFiringButtonDown) 
+            if (!InputHandler.Instance.IsFiringButtonDown) 
             {
                 PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
-                ChangeState(playerStateMachine.idleState);
+                ChangeState(playerStateMachine.IdleState);
             }
             characterMovement.HandleAutoTargetingRotation();
-            PlayerManager.Instance.playerEquippedWeapon.DetermineAttack();
+            PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
         }
 
         public override void OnStatePhysicsExecute() { }

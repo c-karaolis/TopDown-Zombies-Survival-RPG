@@ -1,5 +1,7 @@
 ﻿using Foxlair.Character;
 using Foxlair.Character.States;
+using Foxlair.Enemies;
+using Foxlair.Harvesting;
 using Foxlair.Tools;
 using Foxlair.Tools.StateMachine;
 using Foxlair.Weapons;
@@ -13,13 +15,17 @@ namespace Foxlair.Character
 
     public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     {
-
-        public Weapon playerEquippedWeapon;
+        [System.NonSerialized]
+        public Weapon PlayerEquippedWeapon;
+        [System.NonSerialized]
+        public Enemy PlayerTargetEnemy;
+        [System.NonSerialized]
+        public ResourceNode PlayerTargetResourceNode;
 
         // Start is called before the first frame update
         void Start()
         {
-            playerEquippedWeapon = FindObjectOfType<Weapon>();
+            PlayerEquippedWeapon = FindObjectOfType<Weapon>();
         }
 
 

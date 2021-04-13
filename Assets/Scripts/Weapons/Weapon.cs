@@ -58,7 +58,7 @@ namespace Foxlair.Weapons
 
         public void DetermineAttack()
         {
-            if (_input.isFiringButtonDown && !_isCoolingDown)
+            if ( !_isCoolingDown)
             {
                 GetCurrentEnemyTarget();
 
@@ -101,9 +101,13 @@ namespace Foxlair.Weapons
             if ((_durability -= _durabilityLossPerShot) <= 0)
             {
                 Debug.Log("Durability Depleted");
-                Destroy(this, 0.3f);
+                DestroyWeapon();
             }
         }
 
+        private void DestroyWeapon()
+        {
+            Destroy(this, 0.3f);
+        }
     }
 }

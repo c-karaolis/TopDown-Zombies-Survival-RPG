@@ -18,27 +18,15 @@ namespace Foxlair.Character.States
         {
             _characterMovement.UpdateCharacterMovement();
             CheckForMovementInput();
-            //CheckForWeaponAttack();
-
         }
 
-        private void CheckForWeaponAttack()
-        {
-            if (InputHandler.Instance.isFiringButtonDown)
-            {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
-                ChangeState(playerStateMachine.attackingState);
-            }
-        }
 
         private void CheckForMovementInput()
         {
-            if (_characterMovement.direction.magnitude <= 0.1f)
+            if (_characterMovement.Direction.magnitude <= 0.1f)
             {
-
                 PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
-                ChangeState(playerStateMachine.idleState);
-
+                ChangeState(playerStateMachine.IdleState);
                 //ChangeState(((PlayerStateMachine)StateMachine).runningState);
             }
         }

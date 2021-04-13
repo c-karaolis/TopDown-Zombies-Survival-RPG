@@ -13,20 +13,17 @@ namespace Foxlair.Character.States
 
         private void CheckForMovementInput()
         {
-            if (InputHandler.Instance.isMovementButtonsDown)
+            if (InputHandler.Instance.IsMovementButtonsDown)
             {
                 PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
-                ChangeState(playerStateMachine.runningState);
-
-                //ChangeState(((PlayerStateMachine)StateMachine).runningState);
+                ChangeState(playerStateMachine.RunningState);
+                //ChangeState(((PlayerStateMachine)StateMachine).RunningState);
             }
         }
 
         public override void OnStateExecute() 
         {
             CheckForMovementInput();
-            if (InputHandler.Instance.isFiringButtonDown) { }
-
         }
 
         public override void OnStatePhysicsExecute() { }

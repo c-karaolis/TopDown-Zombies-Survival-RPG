@@ -9,13 +9,13 @@ namespace Foxlair.Tools.StateMachine
     {
 #if UNITY_EDITOR
         [SerializeField] 
-        private bool showDebugCurrentState = false;
+        private bool ShowDebugCurrentState = false;
 #endif
         [SerializeField] 
-        private State initialState = null;
+        private State InitialState = null;
         public State[] AvailableStates;
 
-        public GameObject characterStatesGameObject;
+        public GameObject CharacterStatesGameObject;
         /// <summary>
         /// Current state of this state machine
         /// </summary>
@@ -45,7 +45,7 @@ namespace Foxlair.Tools.StateMachine
             if (CurrentState == null) return;
 
 #if UNITY_EDITOR
-            if (showDebugCurrentState)
+            if (ShowDebugCurrentState)
             {
                 Debug.Log($"<b><color=#e74c3c>{gameObject.name}'s current state is </color><color=#f1c40f>{CurrentState.name}</color></b>", this);
             }
@@ -56,19 +56,19 @@ namespace Foxlair.Tools.StateMachine
 
         public virtual void Start()
         {
-            if (characterStatesGameObject == null)
+            if (CharacterStatesGameObject == null)
             {
                 AvailableStates = GetComponentsInChildren<State>();
             }
             else {
-                AvailableStates = characterStatesGameObject.GetComponentsInChildren<State>();
+                AvailableStates = CharacterStatesGameObject.GetComponentsInChildren<State>();
             }
             for (int i = 0; i < AvailableStates.Length; i++)
             {
                 AvailableStates[i].StateMachine = this;
             }
 
-            ChangeState(initialState);
+            ChangeState(InitialState);
         }
 
         public virtual void Update()

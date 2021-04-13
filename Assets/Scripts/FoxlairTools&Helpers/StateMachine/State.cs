@@ -13,12 +13,8 @@ namespace Foxlair.Tools.StateMachine
         /// </summary>
         public StateMachine StateMachine { get; set; }
 
-        public List<State> forbiddenTransitions = new List<State> {};
+        public List<State> ForbiddenTransitions = new List<State> {};
 
-        private void Start()
-        {
-            forbiddenTransitions.Add(this);
-        }
         /// <summary>
         /// Check if the state machine is currently running this state
         /// </summary>
