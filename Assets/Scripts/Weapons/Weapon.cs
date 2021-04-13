@@ -1,6 +1,8 @@
-﻿using Foxlair.Character.Targeting;
+﻿using Foxlair.Character;
+using Foxlair.Character.Targeting;
 using Foxlair.Enemies;
 using Foxlair.PlayerInput;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -32,10 +34,6 @@ namespace Foxlair.Weapons
         public InputHandler _input;
 
 
-        public Enemy _weaponEnemyTarget;
-
-
-
         public virtual void Awake()
         {
 
@@ -60,20 +58,26 @@ namespace Foxlair.Weapons
         {
             if ( !_isCoolingDown)
             {
-                GetCurrentEnemyTarget();
-
                 Attack();
             }
         }
 
-        public virtual void GetCurrentEnemyTarget()
+        public bool InRangeToAttack()
         {
-            _weaponEnemyTarget = _characterTargetingHandler.EnemyTarget;
+            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetEnemy.transform.position, PlayerManager.Instance.MainPlayerCharacter.transform.position) <= _weaponRange)
+            {
+                Debug.Log("weapon in range to attack");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public virtual void Attack()
         {
-            if (_weaponEnemyTarget == null) { return; }
+            if (PlayerManager.Instance.PlayerTargetEnemy == null) { return; }
 
             Debug.Log("parent weapon");
 
@@ -82,7 +86,7 @@ namespace Foxlair.Weapons
             _nextFire = Time.time + _fireRate;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            _weaponEnemyTarget.Damage(_weaponDamage);
+            PlayerManager.Instance.PlayerTargetEnemy.Damage(_weaponDamage);
 
             _durability -= _durabilityLossPerShot;
 

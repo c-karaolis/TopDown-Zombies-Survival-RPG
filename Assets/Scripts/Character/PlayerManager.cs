@@ -21,16 +21,13 @@ namespace Foxlair.Character
         public Enemy PlayerTargetEnemy;
         [System.NonSerialized]
         public ResourceNode PlayerTargetResourceNode;
-
+        [System.NonSerialized]
+        public PlayerCharacter MainPlayerCharacter;
         // Start is called before the first frame update
         void Start()
         {
             PlayerEquippedWeapon = FindObjectOfType<Weapon>();
         }
-
-
-
-
 
         // Update is called once per frame
         void Update()

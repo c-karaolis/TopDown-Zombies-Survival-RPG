@@ -1,4 +1,5 @@
-﻿using Foxlair.Character.Targeting;
+﻿using Foxlair.Character;
+using Foxlair.Character.Targeting;
 using Foxlair.Enemies;
 using UnityEngine;
 
@@ -29,11 +30,11 @@ namespace Foxlair.Weapons
         {
             Debug.Log($"Durability: {_durability} , Loss per Shot: {_durabilityLossPerShot}");
             _nextFire = Time.time + _fireRate;
-            _weaponEnemyTarget = _characterTargetingHandler.EnemyTarget;
+            PlayerManager.Instance.PlayerTargetEnemy = _characterTargetingHandler.EnemyTarget;
 
-            if (!(_weaponEnemyTarget == null))
+            if (!(PlayerManager.Instance.PlayerTargetEnemy == null))
             {
-                _weaponEnemyTarget.Damage(_weaponDamage);
+                PlayerManager.Instance.PlayerTargetEnemy.Damage(_weaponDamage);
             }
             else
             {

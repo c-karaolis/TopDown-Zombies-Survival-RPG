@@ -6,8 +6,6 @@ namespace Foxlair.Character.States
 {
     public class PlayerStateMachine : StateMachine
     {
-        public InputHandler _inputHandler;
-
         public IdleState IdleState;
         public RunningState RunningState;
         public MovingToAttackState MovingToAttackState;
@@ -19,7 +17,6 @@ namespace Foxlair.Character.States
 
         public override void Start()
         {
-            _inputHandler = InputHandler.Instance;
             base.Start();
         }
 
@@ -36,7 +33,8 @@ namespace Foxlair.Character.States
 
         private void AttackingStateTransition()
         {
-            if (InputHandler.Instance.IsFiringButtonDown && !(CurrentState.ForbiddenTransitions.Contains(AttackingState)))
+          //  if (InputHandler.Instance.IsFiringButtonDown && !(CurrentState.ForbiddenTransitions.Contains(AttackingState)) && CurrentState != MovingToAttackState )
+            if (InputHandler.Instance.IsFiringButtonDown && !(CurrentState.ForbiddenTransitions.Contains(AttackingState)) )
             {
                 ChangeState(AttackingState);
             }

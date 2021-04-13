@@ -87,14 +87,14 @@ namespace Foxlair.Character.Movement
 
         }
 
-        private void HandleAutoMoveToAttack(Transform targetToAttack) 
+        public void HandleAutoMoveToAttack(Transform targetToAttack) 
         {
             Vector3 targetDirection = targetToAttack.position - transform.position;
             RotateTowards(targetDirection);
             MoveTowards(targetDirection);
         }
 
-        private void HandleAutoMoveToHarvest(Transform resourceToHarvest) 
+        public void HandleAutoMoveToHarvest(Transform resourceToHarvest) 
         {
             Vector3 targetDirection = resourceToHarvest.position - transform.position;
             RotateTowards(targetDirection);
@@ -114,7 +114,7 @@ namespace Foxlair.Character.Movement
 
         private void MoveTowards(Vector3 movementDirection)
         {
-            _characterController.Move(movementDirection * MovementSpeed * Time.deltaTime);
+            _characterController.Move(movementDirection.normalized * MovementSpeed * Time.deltaTime);
         }
 
         private void RotateTowardsMovementDirection()
