@@ -1,5 +1,6 @@
 ﻿using Foxlair.PlayerInput;
 using Foxlair.Tools.StateMachine;
+using System;
 using UnityEngine;
 
 namespace Foxlair.Character.States
@@ -29,6 +30,15 @@ namespace Foxlair.Character.States
         void HandleCommonStateTransitions()
         {
             AttackingStateTransition();
+            HarvestingStateTransition();
+        }
+
+        private void HarvestingStateTransition()
+        {
+            if (InputHandler.Instance.IsInteractionButtonDown && !(CurrentState.ForbiddenTransitions.Contains(HarvestingState)))
+            {
+                ChangeState(HarvestingState);
+            }
         }
 
         private void AttackingStateTransition()

@@ -1,12 +1,37 @@
-﻿using Foxlair.Tools.StateMachine;
+﻿using Foxlair.Character.Movement;
+using Foxlair.Tools.StateMachine;
+using UnityEngine;
 
 namespace Foxlair.Character.States
 {
     public class MovingToHarvestState : State
     {
-        public override void OnStateEnter() { }
+        public CharacterMovement characterMovement;
 
-        public override void OnStateExecute() { }
+
+        private void Start()
+        {
+
+        }
+        public override void OnStateEnter()
+        {
+            PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
+            ForbiddenTransitions.Add(playerStateMachine.HarvestingState);
+        }
+
+        public override void OnStateExecute()
+        {
+
+            if (!PlayerManager.Instance.MainPlayerCharacter.InRangeToHarvest())
+            {
+                characterMovement.HandleAutoMoveToHarvest(PlayerManager.Instance.PlayerTargetResourceNode.transform);
+            }
+            else
+            {
+                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
+                ChangeState(playerStateMachine.HarvestingState);
+            }
+        }
 
         public override void OnStatePhysicsExecute() { }
 

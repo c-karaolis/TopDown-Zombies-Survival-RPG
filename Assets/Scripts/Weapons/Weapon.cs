@@ -75,6 +75,7 @@ namespace Foxlair.Weapons
             }
         }
 
+
         public virtual void Attack()
         {
             if (PlayerManager.Instance.PlayerTargetEnemy == null) { return; }

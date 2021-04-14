@@ -12,5 +12,19 @@ namespace Foxlair.Character
         {
             PlayerManager.Instance.MainPlayerCharacter = this;
         }
+
+        public bool InRangeToHarvest()
+        {
+            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetResourceNode.transform.position, transform.position) <= 2)
+            {
+                Debug.Log("player in range to harvest");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

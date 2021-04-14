@@ -383,6 +383,18 @@ Transform:
   m_Father: {fileID: 1724498648}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &897463967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
+    type: 3}
+  m_PrefabInstance: {fileID: 7481468964427829302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3257038a6a12fe24e963156beacf213c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +937,14 @@ PrefabInstance:
       propertyPath: _weaponRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 391331142, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: characterMovement
+      value: 
+      objectReference: {fileID: 897463967}
+    - target: {fileID: 1942121598, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: characterMovement
+      value: 
+      objectReference: {fileID: 897463967}
     - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: _camera
