@@ -15,8 +15,6 @@ namespace Foxlair.Character.States
             //ForbiddenTransitions.Add(playerStateMachine.MovingToAttackState);
         }
 
-        public CharacterMovement characterMovement;
-
         public override void OnStateEnter()
         {
             HandleNotInRangeToHarvest();
@@ -35,7 +33,7 @@ namespace Foxlair.Character.States
         public override void OnStateExecute()
         {
 
-            characterMovement.HandleAutoTargetingRotation();
+            PlayerManager.Instance.MainPlayerCharacterMovement.HandleAutoTargetingRotation();
            // PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
             if (!InputHandler.Instance.IsInteractionButtonDown)
             {

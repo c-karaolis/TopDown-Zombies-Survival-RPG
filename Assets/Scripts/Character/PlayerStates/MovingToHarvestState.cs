@@ -6,8 +6,6 @@ namespace Foxlair.Character.States
 {
     public class MovingToHarvestState : State
     {
-        public CharacterMovement characterMovement;
-
 
         private void Start()
         {
@@ -24,7 +22,7 @@ namespace Foxlair.Character.States
 
             if (!PlayerManager.Instance.MainPlayerCharacter.InRangeToHarvest())
             {
-                characterMovement.HandleAutoMoveToHarvest(PlayerManager.Instance.PlayerTargetResourceNode.transform);
+                PlayerManager.Instance.MainPlayerCharacterMovement.HandleAutoMoveToHarvest(PlayerManager.Instance.PlayerTargetResourceNode.transform);
             }
             else
             {

@@ -9,8 +9,6 @@ namespace Foxlair.Character.States
     public class RunningState : State
     {
 
-        public CharacterMovement _characterMovement;
-
         public override void OnStateEnter()
         {
             PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
@@ -20,14 +18,14 @@ namespace Foxlair.Character.States
 
         public override void OnStateExecute()
         {
-            _characterMovement.UpdateCharacterMovement();
+            PlayerManager.Instance.MainPlayerCharacterMovement.UpdateCharacterMovement();
             CheckForMovementInput();
         }
 
 
         private void CheckForMovementInput()
         {
-            if (_characterMovement.Direction.magnitude <= 0.1f)
+            if (PlayerManager.Instance.MainPlayerCharacterMovement.Direction.magnitude <= 0.1f)
             {
                 PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
                 ChangeState(playerStateMachine.IdleState);

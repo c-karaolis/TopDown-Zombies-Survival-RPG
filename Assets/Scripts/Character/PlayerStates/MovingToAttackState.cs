@@ -7,9 +7,6 @@ namespace Foxlair.Character.States
     public class MovingToAttackState : State
     {
 
-        public CharacterMovement characterMovement;
-
-
         private void Start()
         {
             
@@ -23,7 +20,7 @@ namespace Foxlair.Character.States
         {
             if (!PlayerManager.Instance.PlayerEquippedWeapon.InRangeToAttack())
             {
-                characterMovement.HandleAutoMoveToAttack(PlayerManager.Instance.PlayerTargetEnemy.transform);
+                PlayerManager.Instance.MainPlayerCharacterMovement.HandleAutoMoveToAttack(PlayerManager.Instance.PlayerTargetEnemy.transform);
             }
             else
             {
