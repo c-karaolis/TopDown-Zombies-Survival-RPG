@@ -81,12 +81,14 @@ namespace Foxlair.Character.Targeting
                 }
                 else
                 {
+                    PlayerManager.Instance.PlayerTargetEnemy = null;
                     return false;
                 }
 
             }
             else
             {
+                PlayerManager.Instance.PlayerTargetEnemy = null;
                 return false;
             }
         }
@@ -130,12 +132,16 @@ namespace Foxlair.Character.Targeting
                 }
                 else
                 {
+                    PlayerManager.Instance.PlayerTargetResourceNode = null;
+
                     return false;
                 }
 
             }
             else
             {
+                PlayerManager.Instance.PlayerTargetResourceNode = null;
+
                 return false;
             }
         }
