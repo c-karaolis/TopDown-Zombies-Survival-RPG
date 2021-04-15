@@ -31,7 +31,7 @@ namespace Foxlair.PlayerInput
         private void HandleGeneralCharacterInput()
         {
             //Harvesting stuff here??
-            IsInteractionButtonDown = Input.GetButton("Jump");
+            //IsInteractionButtonDown = Input.GetButton("Jump");
         }
 
         private void HandleMovementInput()
@@ -41,8 +41,8 @@ namespace Foxlair.PlayerInput
             //var h = Input.GetAxisRaw("Horizontal");
            // var v = Input.GetAxisRaw("Vertical");
 
-            var h = Joystick.Horizontal;
-            var v = Joystick.Vertical;
+           // var h = Joystick.Horizontal;
+            //var v = Joystick.Vertical;
       
 
             //if (Joystick != null)
@@ -59,7 +59,8 @@ namespace Foxlair.PlayerInput
             //    }
             //}
 
-            InputVector = new Vector2(h, v);
+           // InputVector = new Vector2(h, v);
+            InputVector = new Vector2(Joystick.Horizontal, Joystick.Vertical);
           
             IsMovementButtonsDown = (InputVector != Vector2.zero);
             //Debug.Log(inputVector);

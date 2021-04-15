@@ -7,6 +7,7 @@ public class UIMobileInputHandling : MonoBehaviour
 {
 
     bool isFiringButtonPressed;
+    bool isInteractionButtonPressed;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,23 @@ public class UIMobileInputHandling : MonoBehaviour
         
     }
 
+
+
+    #region Interaction button
+    public void onInteractButtonPress()
+    {
+        isInteractionButtonPressed = true;
+        InputHandler.Instance.IsInteractionButtonDown = isInteractionButtonPressed;
+    }
+
+    public void onInteractButtonRelease()
+    {
+        isInteractionButtonPressed = false;
+        InputHandler.Instance.IsInteractionButtonDown = isInteractionButtonPressed;
+    }
+    #endregion
+
+    #region Fire button
     public void onFireButtonPress()
     {
         isFiringButtonPressed=true;
@@ -32,4 +50,6 @@ public class UIMobileInputHandling : MonoBehaviour
         InputHandler.Instance.IsFiringButtonDown = isFiringButtonPressed;
 
     }
+    #endregion
+
 }
