@@ -36,7 +36,7 @@ namespace Foxlair.Character.States
         {
 
             characterMovement.HandleAutoTargetingRotation();
-            PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
+           // PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
             if (!InputHandler.Instance.IsInteractionButtonDown)
             {
                 PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Foxlair.Character.Movement;
 using UnityEngine;
 
 namespace Foxlair.Character
@@ -11,6 +10,7 @@ namespace Foxlair.Character
         private void Start()
         {
             PlayerManager.Instance.MainPlayerCharacter = this;
+            PlayerManager.Instance.MainPlayerCharacterMovement = GetComponent<CharacterMovement>();
         }
 
         public bool InRangeToHarvest()

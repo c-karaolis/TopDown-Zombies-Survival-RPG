@@ -29,8 +29,17 @@ namespace Foxlair.Character.States
 
         void HandleCommonStateTransitions()
         {
+            RunningStateTransition();
             AttackingStateTransition();
             HarvestingStateTransition();
+        }
+
+        private void RunningStateTransition()
+        {
+            if (InputHandler.Instance.IsMovementButtonsDown && !(CurrentState.ForbiddenTransitions.Contains(RunningState)))
+            {
+                ChangeState(RunningState);
+            }
         }
 
         private void HarvestingStateTransition()

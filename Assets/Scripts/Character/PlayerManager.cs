@@ -1,4 +1,5 @@
 ﻿using Foxlair.Character;
+using Foxlair.Character.Movement;
 using Foxlair.Character.States;
 using Foxlair.Enemies;
 using Foxlair.Harvesting;
@@ -23,6 +24,9 @@ namespace Foxlair.Character
         public ResourceNode PlayerTargetResourceNode;
         [System.NonSerialized]
         public PlayerCharacter MainPlayerCharacter;
+        [System.NonSerialized]
+        public CharacterMovement MainPlayerCharacterMovement;
+
         // Start is called before the first frame update
         void Start()
         {

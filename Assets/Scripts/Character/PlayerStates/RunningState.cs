@@ -11,7 +11,11 @@ namespace Foxlair.Character.States
 
         public CharacterMovement _characterMovement;
 
-        public override void OnStateEnter() { }
+        public override void OnStateEnter()
+        {
+            PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
+            ForbiddenTransitions.Add(this);
+        }
 
 
         public override void OnStateExecute()
