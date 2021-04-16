@@ -4,12 +4,12 @@ namespace Foxlair.Enemies
 {
     public class Enemy : MonoBehaviour
     {
-        private int _health;
+        public float _health=30f;
 
 
         void Start()
         {
-
+         
         }
 
         void Update()
@@ -20,11 +20,15 @@ namespace Foxlair.Enemies
         public virtual void Damage(float weaponDamage)
         {
             Debug.Log($"{this} was hit for {weaponDamage} damage.");
+           if ( (_health -= weaponDamage) <= 0 )
+            {
+                Die();
+            }
         }
 
         public virtual void Die()
         {
-
+            Destroy(this.gameObject);
         }
 
     }
