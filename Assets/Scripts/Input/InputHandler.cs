@@ -3,7 +3,7 @@ using Foxlair.Tools;
 
 namespace Foxlair.PlayerInput
 {
-    public class InputHandler : SingletonMonoBehaviour<InputHandler>
+    public class InputHandler : PersistentSingletonMonoBehaviour<InputHandler>
     {
         public Vector2 InputVector { get; private set; }
         public Vector3 MousePosition { get; private set; }

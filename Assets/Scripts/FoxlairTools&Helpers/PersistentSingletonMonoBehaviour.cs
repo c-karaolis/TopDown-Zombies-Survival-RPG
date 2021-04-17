@@ -2,7 +2,7 @@
 
 namespace Foxlair.Tools
 {
-	public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+	public abstract class PersistentSingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 	{
 		public static T Instance { get; private set; }
 

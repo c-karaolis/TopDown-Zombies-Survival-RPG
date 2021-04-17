@@ -5,7 +5,7 @@ using Foxlair.Harvesting;
 
 namespace Foxlair.Character.Targeting
 {
-    public class CharacterTargetingHandler : SingletonMonoBehaviour<CharacterTargetingHandler>
+    public class CharacterTargetingHandler : PersistentSingletonMonoBehaviour<CharacterTargetingHandler>
     {
         protected Vector3 _aimDirection;
         protected Collider[] _hit;

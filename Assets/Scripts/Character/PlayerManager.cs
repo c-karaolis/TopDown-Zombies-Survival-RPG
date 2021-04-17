@@ -14,7 +14,7 @@ using UnityEngine;
 namespace Foxlair.Character
 {
 
-    public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
+    public class PlayerManager : PersistentSingletonMonoBehaviour<PlayerManager>
     {
         [System.NonSerialized]
         public Weapon PlayerEquippedWeapon;
