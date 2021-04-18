@@ -13,6 +13,8 @@ namespace Foxlair.Items
 
         public Action OnItemsUpdated = delegate { };
 
+        public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
+
         public ItemSlot AddItem(ItemSlot itemSlot)
         {
             for (int i = 0; i < itemSlots.Length; i++)
