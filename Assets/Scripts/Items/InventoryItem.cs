@@ -16,8 +16,8 @@ namespace Foxlair.Items
             }
         }
 
-        public int SellPrice => SellPrice;
-        public int MaxStack => MaxStack;
+        public int SellPrice => sellPrice;
+        public int MaxStack => maxStack;
 
     }
 }
