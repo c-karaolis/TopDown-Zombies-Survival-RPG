@@ -1,6 +1,6 @@
 ﻿using Foxlair.Events.CustomEvents;
 using Foxlair.Events.UnityEvents;
-using Foxlair.Items;
+using Foxlair.Inventory;
 
 namespace Foxlair.Events.Listeners
 {

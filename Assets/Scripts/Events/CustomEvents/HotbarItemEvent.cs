@@ -1,4 +1,4 @@
-﻿using Foxlair.Items;
+﻿using Foxlair.Inventory;
 using UnityEngine;
 
 namespace Foxlair.Events.CustomEvents

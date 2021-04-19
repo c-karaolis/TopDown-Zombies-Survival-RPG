@@ -1,4 +1,4 @@
-﻿using Foxlair.Items;
+﻿using Foxlair.Inventory;
 using System;
 using UnityEngine.Events;
 
