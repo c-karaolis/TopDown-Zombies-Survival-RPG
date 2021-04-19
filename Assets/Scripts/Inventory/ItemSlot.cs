@@ -2,6 +2,9 @@
 
 namespace Foxlair.Inventory
 {
+    /// <summary>
+    /// Struct comprised of an Inventory Item and its quantity.
+    /// </summary>
     [Serializable]
     public struct ItemSlot
     {
