@@ -71,6 +71,7 @@ namespace Foxlair.Inventory.Hotbars
            if(SlotItem == null)
             {
                 EnableSlotUI(false);
+                return;
             }
 
             itemIconImage.sprite = SlotItem.Icon;

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5368bc213e54dfe4481180e66071ac89, type: 3}
-  m_Name: Item_Consumables_Test
+  m_Name: Item_Consumables_Test 2
   m_EditorClassIdentifier: 
-  name: Smelly Boots
-  icon: {fileID: 21300000, guid: 2744443c8028bcd4f80e837982f14d6e, type: 3}
-  rarity: {fileID: 11400000, guid: 206882761d2f2e44d80d17225312d89b, type: 2}
-  sellPrice: 1
+  name: Legendary  Covid Mask
+  icon: {fileID: 21300000, guid: a1585b2f14e531d4f855a61397bdd73a, type: 3}
+  rarity: {fileID: 11400000, guid: cdf3df765cda1f44ca429d53c4a059b5, type: 2}
+  sellPrice: 15
   maxStack: 20
-  useText: Take a long sniff inside with  unknown results
+  useText: Heals you from Covid. Zombies are stil infectious though.

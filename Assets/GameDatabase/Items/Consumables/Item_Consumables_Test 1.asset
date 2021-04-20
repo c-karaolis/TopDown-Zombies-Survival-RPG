@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5368bc213e54dfe4481180e66071ac89, type: 3}
-  m_Name: Item_Consumables_Test
+  m_Name: Item_Consumables_Test 1
   m_EditorClassIdentifier: 
-  name: Smelly Boots
-  icon: {fileID: 21300000, guid: 2744443c8028bcd4f80e837982f14d6e, type: 3}
-  rarity: {fileID: 11400000, guid: 206882761d2f2e44d80d17225312d89b, type: 2}
-  sellPrice: 1
+  name: Epic Smelly Shirt
+  icon: {fileID: 21300000, guid: fef475c6b834a7b4e8b1fbd7c6541741, type: 3}
+  rarity: {fileID: 11400000, guid: e647a383fffa8694e9711c755c98729a, type: 2}
+  sellPrice: 15
   maxStack: 20
-  useText: Take a long sniff inside with  unknown results
+  useText: Wrapp it on your face
