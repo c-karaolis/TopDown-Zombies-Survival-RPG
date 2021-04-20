@@ -6,7 +6,9 @@ namespace Foxlair.Inventory
     /// Struct comprised of an Inventory Item and its quantity.
     /// </summary>
     [Serializable]
+#pragma warning disable CS0660 // Type defines operator == or operator != but does not override Object.Equals(object o)
     public struct ItemSlot
+#pragma warning restore CS0660 // Type defines operator == or operator != but does not override Object.Equals(object o)
     {
         public InventoryItem item;
         public int quantity;
