@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Foxlair.Inventory.Hotbars;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 

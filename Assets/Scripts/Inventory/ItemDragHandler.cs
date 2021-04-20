@@ -37,7 +37,7 @@ namespace Foxlair.Inventory
         {
             if(eventData.button == PointerEventData.InputButton.Left)
             {
-                onMouseEndHoverItem.Raise();
+                //onMouseEndHoverItem.Raise();
 
                 originalParent = transform.parent;
 

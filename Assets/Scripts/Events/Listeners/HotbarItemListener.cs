@@ -1,6 +1,6 @@
 ﻿using Foxlair.Events.CustomEvents;
 using Foxlair.Events.UnityEvents;
-using Foxlair.Inventory;
+using Foxlair.Inventory.Hotbars;
 
 namespace Foxlair.Events.Listeners
 {

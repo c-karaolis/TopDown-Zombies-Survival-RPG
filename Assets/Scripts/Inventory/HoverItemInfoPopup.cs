@@ -1,4 +1,5 @@
 ﻿
+using Foxlair.Inventory.Hotbars;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;

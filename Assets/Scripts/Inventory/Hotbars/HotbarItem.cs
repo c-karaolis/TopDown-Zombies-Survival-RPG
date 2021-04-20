@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Foxlair.Inventory
+namespace Foxlair.Inventory.Hotbars
 {
     public abstract class HotbarItem : ScriptableObject
     {

@@ -16,4 +16,4 @@ MonoBehaviour:
     type: 2}
   testItemSlot:
     item: {fileID: 11400000, guid: 5f5239e8b0b7b184f84869487dbf08b9, type: 2}
-    quantity: 24
+    quantity: 7

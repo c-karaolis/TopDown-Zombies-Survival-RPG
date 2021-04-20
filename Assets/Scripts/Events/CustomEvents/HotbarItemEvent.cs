@@ -1,4 +1,4 @@
-﻿using Foxlair.Inventory;
+﻿using Foxlair.Inventory.Hotbars;
 using UnityEngine;
 
 namespace Foxlair.Events.CustomEvents
