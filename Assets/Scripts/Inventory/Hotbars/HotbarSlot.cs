@@ -68,8 +68,10 @@ namespace Foxlair.Inventory.Hotbars
 
         public override void UpdateSlotUI()
         {
-           if(SlotItem == null)
+
+           if(SlotItem == null || inventory.ItemContainer.GetTotalQuantity((InventoryItem)SlotItem) < 1)
             {
+                Debug.Log("ItemSlot was null");
                 EnableSlotUI(false);
                 return;
             }

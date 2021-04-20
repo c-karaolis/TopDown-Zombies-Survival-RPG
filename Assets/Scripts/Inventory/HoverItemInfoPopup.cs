@@ -25,7 +25,6 @@ namespace Foxlair.Inventory
 
         public void HideInfo() 
         {
-            Debug.Log("Hiding Info");
             popupCanvasObject.SetActive(false); 
         }
 
@@ -56,7 +55,6 @@ namespace Foxlair.Inventory
 
         public void DisplayInfo(HotbarItem infoItem)
         {
-            Debug.Log("Displaying Info");
             StringBuilder builder = new StringBuilder();
 
             builder.Append("<size=35>").Append(infoItem.ColouredName).Append("</size>\n");

@@ -67,14 +67,12 @@ namespace Foxlair.Inventory
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log($"Pointer entered at slot: {ItemSlotUI.SlotItem}");
             onMouseStartHoverItem.Raise(ItemSlotUI.SlotItem);
             isHovering = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Debug.Log($"Pointer exited from slot: {ItemSlotUI.SlotItem}");
             onMouseEndHoverItem.Raise();
             isHovering = false;
         }
