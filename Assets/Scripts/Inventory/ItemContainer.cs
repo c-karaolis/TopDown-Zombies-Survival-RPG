@@ -13,62 +13,64 @@ namespace Foxlair.Inventory
         public ItemContainer(int size) => itemSlots = new ItemSlot[size];
         public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
 
-        public ItemSlot AddItem(ItemSlot itemSlot)
+        public ItemSlot AddItem(ItemSlot requestedItemSlot)
         {
+
+            //check for stacks iteration
             for (int i = 0; i < itemSlots.Length; i++)
             {
                 if(itemSlots[i].item != null)
                 {
-                    if(itemSlots[i].item == itemSlot.item)
+                    if(itemSlots[i].item == requestedItemSlot.item)
                     {
                         int slotRemainingSpace = itemSlots[i].item.MaxStack - itemSlots[i].quantity;
 
-                        if(itemSlot.quantity <= slotRemainingSpace)
+                        if(requestedItemSlot.quantity <= slotRemainingSpace)
                         {
-                            itemSlots[i].quantity += itemSlot.quantity;
+                            itemSlots[i].quantity += requestedItemSlot.quantity;
 
-                            itemSlot.quantity =0;
+                            requestedItemSlot.quantity =0;
 
                             OnItemsUpdated.Invoke();
 
-                            return itemSlot;
+                            return requestedItemSlot;
                         }
                         else if (slotRemainingSpace>0)
                         {
                             itemSlots[i].quantity += slotRemainingSpace;
 
-                            itemSlot.quantity -= slotRemainingSpace;
+                            requestedItemSlot.quantity -= slotRemainingSpace;
                         }
                     }
                 }
             }
 
-
+            //empty slots iteration. if quantity transferred is more than max stack, add it and continue iteration with the remaining amount
             for(int i=0; i < itemSlots.Length; i++)
             {
                 if(itemSlots[i].item == null)
                 {
-                    if (itemSlot.quantity <= itemSlot.item.MaxStack)
+                    if (requestedItemSlot.quantity <= requestedItemSlot.item.MaxStack)
                     {
-                        itemSlots[i] = itemSlot;
+                        itemSlots[i] = requestedItemSlot;
 
-                        itemSlot.quantity = 0;
+                        requestedItemSlot.quantity = 0;
 
                         OnItemsUpdated.Invoke();
 
-                        return itemSlot;
+                        return requestedItemSlot;
                     }
                     else
                     {
-                        itemSlots[i] = new ItemSlot(itemSlot.item, itemSlot.item.MaxStack);
+                        itemSlots[i] = new ItemSlot(requestedItemSlot.item, requestedItemSlot.item.MaxStack);
 
-                        itemSlot.quantity -= itemSlot.item.MaxStack;
+                        requestedItemSlot.quantity -= requestedItemSlot.item.MaxStack;
                     }
                 }
             }
 
             OnItemsUpdated.Invoke();
-            return itemSlot;
+            return requestedItemSlot;
         }
 
 

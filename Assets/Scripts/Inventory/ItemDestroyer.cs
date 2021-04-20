@@ -21,7 +21,7 @@ namespace Foxlair.Inventory
         {
             this.slotIndex = slotIndex;
 
-            areYouSureText.text = $"Are you sure you wish tp destroy {itemSlot.quantity}x {itemSlot.item.ColouredName}?";
+            areYouSureText.text = $"Are you sure you wish to destroy {itemSlot.quantity}x {itemSlot.item.ColouredName}?";
 
             gameObject.SetActive(true);
         }
