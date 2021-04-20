@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSlotUI: {fileID: 5784967845729118947}
+  itemDestroyer: {fileID: 0}
 --- !u!1 &3167714494346387143
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ namespace Foxlair.Inventory
 {
     public class InventoryItemDragHandler : ItemDragHandler
     {
+        [SerializeField] private ItemDestroyer itemDestroyer = null;
         public override void OnPointerUp(PointerEventData eventData)
         {
             if(eventData.button == PointerEventData.InputButton.Left)
@@ -15,7 +16,8 @@ namespace Foxlair.Inventory
 
                 if (eventData.hovered.Count == 0)
                 {
-                    //destroy item or drop item
+                    InventorySlot thisSlot = ItemSlotUI as InventorySlot;
+                    itemDestroyer.Activate(thisSlot.ItemSlot, thisSlot.SlotIndex);
                 }
             }
         }
