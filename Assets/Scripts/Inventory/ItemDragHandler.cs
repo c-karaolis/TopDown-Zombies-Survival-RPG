@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Foxlair.Events.CustomEvents;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,9 +7,12 @@ using UnityEngine.EventSystems;
 namespace Foxlair.Inventory
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class ItemDragHandler : MonoBehaviour, IPointerDownHandler,IDragHandler,IPointerUpHandler,IPointerExitHandler
+    public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IDragHandler, IPointerUpHandler,IPointerExitHandler
     {
         [SerializeField] protected ItemSlotUI itemSlotUI = null;
+        [SerializeField] protected HotbarItemEvent onMouseStartHoverItem = null;
+        [SerializeField] protected VoidEvent onMouseEndHoverItem = null; 
+
 
         private CanvasGroup canvasGroup = null;
         private Transform originalParent = null;
@@ -23,7 +27,7 @@ namespace Foxlair.Inventory
         {
             if (isHovering)
             {
-                //raise event
+                onMouseEndHoverItem.Raise();
                 isHovering = false;
             }
         }
@@ -33,7 +37,7 @@ namespace Foxlair.Inventory
         {
             if(eventData.button == PointerEventData.InputButton.Left)
             {
-                //raise event
+                onMouseEndHoverItem.Raise();
 
                 originalParent = transform.parent;
 
@@ -63,13 +67,15 @@ namespace Foxlair.Inventory
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            //raise event
+            Debug.Log($"Pointer entered at slot: {ItemSlotUI.SlotItem}");
+            onMouseStartHoverItem.Raise(ItemSlotUI.SlotItem);
             isHovering = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            //raise event
+            Debug.Log($"Pointer exited from slot: {ItemSlotUI.SlotItem}");
+            onMouseEndHoverItem.Raise();
             isHovering = false;
         }
 
