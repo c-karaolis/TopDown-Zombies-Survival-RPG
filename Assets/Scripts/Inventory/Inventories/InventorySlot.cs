@@ -13,7 +13,7 @@ namespace Foxlair.Inventory
         [SerializeField] private Inventory inventory = null;
         [SerializeField] private TextMeshProUGUI itemQuantityText;
 
-        public override HotbarItem SlotItem 
+        public override Item SlotItem 
         {
             get { return ItemSlot.item; }
             set { }

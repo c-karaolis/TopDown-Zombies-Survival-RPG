@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Foxlair.Inventory
 {
-    public abstract class InventoryItem : HotbarItem
+    public abstract class InventoryItem : Item
     {
         [Header("Item Data")]
         [SerializeField] private Rarity rarity = null;
@@ -14,7 +14,7 @@ namespace Foxlair.Inventory
         {
             get
             {
-                string hexColour = ColorUtility.ToHtmlStringRGB(rarity.TextColour);
+                string hexColour = ColorUtility.ToHtmlStringRGB(rarity.Colour);
                 return $"<color=#{hexColour}>{Name}</color>";
             }
         }

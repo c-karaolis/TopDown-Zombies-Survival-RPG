@@ -1,0 +1,6 @@
+common: 8C8888
+uncommon:09AD00
+rare: 0834FF
+epic: FF0093
+legendary: FF9500
+mythic: 00FFFF

@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Foxlair.Inventory.Hotbars
+namespace Foxlair.Inventory
 {
-    public abstract class HotbarItem : ScriptableObject
+    public abstract class Item : ScriptableObject
     {
         [Header("Basic Info")]
-        [SerializeField] private new string name = "New Hotbar Item Name";
+        [SerializeField] private new string name = "New Item Name";
         [SerializeField] private Sprite icon = null;
 
         public string Name => name;

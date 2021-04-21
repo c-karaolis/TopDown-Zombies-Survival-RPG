@@ -5,5 +5,5 @@ using UnityEngine.Events;
 
 namespace Foxlair.Events.UnityEvents
 {
-    [Serializable] public class UnityHotbarItemEvent : UnityEvent<HotbarItem> { }
+    [Serializable] public class UnityHotbarItemEvent : UnityEvent<Item> { }
 }

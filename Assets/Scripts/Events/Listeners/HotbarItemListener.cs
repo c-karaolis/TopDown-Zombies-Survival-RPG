@@ -1,8 +1,8 @@
 ﻿using Foxlair.Events.CustomEvents;
 using Foxlair.Events.UnityEvents;
-using Foxlair.Inventory.Hotbars;
+using Foxlair.Inventory;
 
 namespace Foxlair.Events.Listeners
 {
-    public class HotbarItemListener : BaseGameEventListener<HotbarItem, HotbarItemEvent, UnityHotbarItemEvent> { }
+    public class HotbarItemListener : BaseGameEventListener<Item, HotbarItemEvent, UnityHotbarItemEvent> { }
 }
