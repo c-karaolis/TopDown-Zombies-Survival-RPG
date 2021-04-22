@@ -8,6 +8,7 @@ namespace Foxlair.Inventory
         [SerializeField] private int size = 20;
         [SerializeField] private UnityEvent onInventoryItemsUpdated = null;
 
+        [Header("testing stuff")]
         bool open = true;
         [SerializeField] GameObject inventoryUIPanel;
         [SerializeField] ItemSlot itemToTest;
