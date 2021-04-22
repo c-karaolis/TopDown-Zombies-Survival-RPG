@@ -15,11 +15,11 @@ namespace Foxlair.Inventory
 
         public override Item SlotItem 
         {
-            get { return ItemSlot.item; }
+            get { return ItemStackInSlot.item; }
             set { }
         }
 
-        public ItemSlot ItemSlot => inventory.GetSlotByIndex(SlotIndex);
+        public ItemStack ItemStackInSlot => inventory.GetSlotByIndex(SlotIndex);
 
         public override void OnDrop(PointerEventData eventData)
         {
@@ -35,7 +35,7 @@ namespace Foxlair.Inventory
 
         public override void UpdateSlotUI()
         {
-            if(ItemSlot.item == null)
+            if(ItemStackInSlot.item == null)
             {
                 EnableSlotUI(false);
                 return;
@@ -43,8 +43,8 @@ namespace Foxlair.Inventory
 
             EnableSlotUI(true);
 
-            itemIconImage.sprite = ItemSlot.item.Icon;
-            itemQuantityText.text = ItemSlot.quantity > 1 ? ItemSlot.quantity.ToString() : "";
+            itemIconImage.sprite = ItemStackInSlot.item.Icon;
+            itemQuantityText.text = ItemStackInSlot.quantity > 1 ? ItemStackInSlot.quantity.ToString() : "";
         }
 
 

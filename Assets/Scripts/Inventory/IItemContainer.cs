@@ -4,8 +4,8 @@ namespace Foxlair.Inventory
 {
     public interface IItemContainer 
     {
-        ItemSlot AddItem(ItemSlot itemSlot);
-        void RemoveItem(ItemSlot itemSlot);
+        ItemStack AddItem(ItemStack itemStack);
+        void RemoveItem(ItemStack itemStack);
         void RemoveAt(int slotIndex);
         void Swap(int indexOne, int indexTwo);
         bool HasItem(InventoryItem item);

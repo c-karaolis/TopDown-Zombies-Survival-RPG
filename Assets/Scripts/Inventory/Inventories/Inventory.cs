@@ -11,15 +11,15 @@ namespace Foxlair.Inventory
         [Header("testing stuff")]
         bool open = true;
         [SerializeField] GameObject inventoryUIPanel;
-        [SerializeField] ItemSlot itemToTest;
+        [SerializeField] ItemStack itemToTest;
 
-        public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
+        public ItemStack GetSlotByIndex(int index) => itemSlots[index];
 
-        private ItemSlot[] itemSlots = new ItemSlot[20];
+        private ItemStack[] itemSlots = new ItemStack[20];
 
         public void Start()
         {
-            itemSlots = new ItemSlot[size];
+            itemSlots = new ItemStack[size];
         }
 
         private void Update()
@@ -35,7 +35,7 @@ namespace Foxlair.Inventory
             }
         }
 
-        public ItemSlot AddItem(ItemSlot requestedItemSlot)
+        public ItemStack AddItem(ItemStack requestedItemSlot)
         {
 
             //check for stacks iteration
@@ -84,7 +84,7 @@ namespace Foxlair.Inventory
                     }
                     else
                     {
-                        itemSlots[i] = new ItemSlot(requestedItemSlot.item, requestedItemSlot.item.MaxStack);
+                        itemSlots[i] = new ItemStack(requestedItemSlot.item, requestedItemSlot.item.MaxStack);
 
                         requestedItemSlot.quantity -= requestedItemSlot.item.MaxStack;
                     }
@@ -99,11 +99,11 @@ namespace Foxlair.Inventory
 
         public bool HasItem(InventoryItem item)
         {
-            foreach (ItemSlot itemSlot in itemSlots)
+            foreach (ItemStack itemStack in itemSlots)
             {
-                if (itemSlot.item == null) { continue; }
+                if (itemStack.item == null) { continue; }
                 //If this gets passed it means we found the item.
-                if (itemSlot.item != item) { continue; }
+                if (itemStack.item != item) { continue; }
 
                 return true;
             }
@@ -114,33 +114,33 @@ namespace Foxlair.Inventory
         {
             if (slotIndex < 0 || slotIndex > itemSlots.Length - 1) { return; }
 
-            itemSlots[slotIndex] = new ItemSlot();
+            itemSlots[slotIndex] = new ItemStack();
 
             onInventoryItemsUpdated.Invoke();
 
         }
 
-        public void RemoveItem(ItemSlot itemSlot)
+        public void RemoveItem(ItemStack itemStackToRemove)
         {
             for (int i = 0; i < itemSlots.Length; i++)
             {
                 if (itemSlots[i].item != null)
                 {
-                    if (itemSlots[i].item == itemSlot.item)
+                    if (itemSlots[i].item == itemStackToRemove.item)
                     {
-                        if (itemSlots[i].quantity < itemSlot.quantity)
+                        if (itemSlots[i].quantity < itemStackToRemove.quantity)
                         {
-                            itemSlot.quantity -= itemSlots[i].quantity;
+                            itemStackToRemove.quantity -= itemSlots[i].quantity;
 
-                            itemSlots[i] = new ItemSlot();
+                            itemSlots[i] = new ItemStack();
                         }
                         else
                         {
-                            itemSlots[i].quantity -= itemSlot.quantity;
+                            itemSlots[i].quantity -= itemStackToRemove.quantity;
 
                             if (itemSlots[i].quantity == 0)
                             {
-                                itemSlots[i] = new ItemSlot();
+                                itemSlots[i] = new ItemStack();
 
                                 onInventoryItemsUpdated.Invoke();
 
@@ -154,8 +154,8 @@ namespace Foxlair.Inventory
 
         public void Swap(int indexOne, int indexTwo)
         {
-            ItemSlot firstSlot = itemSlots[indexOne];
-            ItemSlot secondSlot = itemSlots[indexTwo];
+            ItemStack firstSlot = itemSlots[indexOne];
+            ItemStack secondSlot = itemSlots[indexTwo];
 
             if (firstSlot.Equals(secondSlot)) { return; }
 
@@ -169,7 +169,7 @@ namespace Foxlair.Inventory
                     {
                         itemSlots[indexTwo].quantity += firstSlot.quantity;
 
-                        itemSlots[indexOne] = new ItemSlot();
+                        itemSlots[indexOne] = new ItemStack();
 
                         onInventoryItemsUpdated.Invoke();
 
@@ -193,7 +193,7 @@ namespace Foxlair.Inventory
         public int GetTotalQuantity(InventoryItem item)
         {
             int totalCount = 0;
-            foreach (ItemSlot itemSlot in itemSlots)
+            foreach (ItemStack itemSlot in itemSlots)
             {
                 if (itemSlot.item == null) { continue; }
                 if (itemSlot.item != item) { continue; }

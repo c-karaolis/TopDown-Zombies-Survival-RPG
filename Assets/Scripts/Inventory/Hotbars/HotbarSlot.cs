@@ -51,7 +51,7 @@ namespace Foxlair.Inventory.Hotbars
 
             if (inventorySlot != null)
             {
-                SlotItem = inventorySlot.ItemSlot.item;
+                SlotItem = inventorySlot.ItemStackInSlot.item;
                 return;
             }
 

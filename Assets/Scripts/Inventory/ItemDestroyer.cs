@@ -17,7 +17,7 @@ namespace Foxlair.Inventory
             slotIndex = -1;
         }
 
-        public void Activate(ItemSlot itemSlot, int slotIndex)
+        public void Activate(ItemStack itemSlot, int slotIndex)
         {
             this.slotIndex = slotIndex;
 
