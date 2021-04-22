@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIconImage: {fileID: 1777423583131052460}
-  inventory: {fileID: 11400000, guid: 714ac93205817ae47a43ffcc14c57b9a, type: 2}
+  inventory: {fileID: 0}
   itemQuantityText: {fileID: 40988464}
 --- !u!114 &566739964855728868
 MonoBehaviour:

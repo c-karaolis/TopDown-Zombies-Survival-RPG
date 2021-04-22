@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 namespace Foxlair.Inventory
 {
-    public class InventorySlot : ItemSlotUI, IDropHandler
+    public class InventorySlotUI : ItemSlotUI, IDropHandler
     {
 
         [SerializeField] private Inventory inventory = null;
@@ -27,7 +27,7 @@ namespace Foxlair.Inventory
 
             if(itemDragHandler == null) { return; }
 
-            if((itemDragHandler.ItemSlotUI as InventorySlot) != null)
+            if((itemDragHandler.ItemSlotUI as InventorySlotUI) != null)
             {
                 inventory.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
             }

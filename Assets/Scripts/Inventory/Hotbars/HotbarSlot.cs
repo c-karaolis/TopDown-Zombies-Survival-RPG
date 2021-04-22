@@ -47,7 +47,7 @@ namespace Foxlair.Inventory.Hotbars
 
             if(itemDragHandler == null) { return; }
 
-            InventorySlot inventorySlot = itemDragHandler.ItemSlotUI as InventorySlot;
+            InventorySlotUI inventorySlot = itemDragHandler.ItemSlotUI as InventorySlotUI;
 
             if (inventorySlot != null)
             {

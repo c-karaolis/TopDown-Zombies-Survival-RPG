@@ -544,6 +544,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  inventoryUIPanel: {fileID: 0}
+  itemToTest:
+    item: {fileID: 0}
+    quantity: 0
 --- !u!1 &7481468963599002950
 GameObject:
   m_ObjectHideFlags: 0
