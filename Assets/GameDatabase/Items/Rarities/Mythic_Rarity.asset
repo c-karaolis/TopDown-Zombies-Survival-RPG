@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mythic_Rarity
   m_EditorClassIdentifier: 
   name: Mythic
-  textColour: {r: 0, g: 1, b: 1, a: 1}
+  colour: {r: 0, g: 1, b: 1, a: 1}

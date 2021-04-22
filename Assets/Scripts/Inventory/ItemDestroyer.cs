@@ -29,7 +29,7 @@ namespace Foxlair.Inventory
 
         public void Destroy()
         {
-            inventory.ItemContainer.RemoveAt(slotIndex);
+            inventory.RemoveAt(slotIndex);
 
             gameObject.SetActive(false);
         }

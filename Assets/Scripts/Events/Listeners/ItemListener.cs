@@ -4,5 +4,5 @@ using Foxlair.Inventory;
 
 namespace Foxlair.Events.Listeners
 {
-    public class HotbarItemListener : BaseGameEventListener<Item, HotbarItemEvent, UnityHotbarItemEvent> { }
+    public class ItemListener : BaseGameEventListener<Item, ItemEvent, UnityItemEvent> { }
 }

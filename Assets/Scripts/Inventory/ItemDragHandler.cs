@@ -10,7 +10,7 @@ namespace Foxlair.Inventory
     public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IDragHandler, IPointerUpHandler,IPointerExitHandler
     {
         [SerializeField] protected ItemSlotUI itemSlotUI = null;
-        [SerializeField] protected HotbarItemEvent onMouseStartHoverItem = null;
+        [SerializeField] protected ItemEvent onMouseStartHoverItem = null;
         [SerializeField] protected VoidEvent onMouseEndHoverItem = null; 
 
 
