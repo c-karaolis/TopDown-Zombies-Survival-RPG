@@ -47,11 +47,11 @@ namespace Foxlair.Inventory.Hotbars
 
             if(itemDragHandler == null) { return; }
 
-            InventorySlot inventorySlot = itemDragHandler.ItemSlotUI as InventorySlot;
+            InventorySlotUI inventorySlot = itemDragHandler.ItemSlotUI as InventorySlotUI;
 
             if (inventorySlot != null)
             {
-                SlotItem = inventorySlot.ItemSlot.item;
+                SlotItem = inventorySlot.ItemStackInSlot.item;
                 return;
             }
 

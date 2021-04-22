@@ -16,8 +16,8 @@ namespace Foxlair.Inventory
 
                 if (eventData.hovered.Count == 0)
                 {
-                    InventorySlot thisSlot = ItemSlotUI as InventorySlot;
-                    itemDestroyer.Activate(thisSlot.ItemSlot, thisSlot.SlotIndex);
+                    InventorySlotUI thisSlot = ItemSlotUI as InventorySlotUI;
+                    itemDestroyer.Activate(thisSlot.ItemStackInSlot, thisSlot.SlotIndex);
                 }
             }
         }
