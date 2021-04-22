@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Common_Rarity
   m_EditorClassIdentifier: 
   name: Common
-  textColour: {r: 0.5471698, g: 0.53426486, b: 0.53426486, a: 1}
+  colour: {r: 0.54901963, g: 0.53333336, b: 0.53333336, a: 1}

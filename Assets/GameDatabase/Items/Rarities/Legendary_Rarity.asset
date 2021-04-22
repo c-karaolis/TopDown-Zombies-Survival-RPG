@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Legendary_Rarity
   m_EditorClassIdentifier: 
   name: Legendary
-  textColour: {r: 1, g: 0.586016, b: 0, a: 1}
+  colour: {r: 1, g: 0.58431375, b: 0, a: 1}

@@ -8,11 +8,11 @@ namespace Foxlair.Inventory
     public class Rarity : ScriptableObject
     {
         [SerializeField] private new string name = "New Rarity Name";
-        [SerializeField] private Color textColour = new Color(1f, 1f, 1f, 1f);
+        [SerializeField] private Color colour = new Color(1f, 1f, 1f, 1f);
 
         public string Name { get { return name; } }
 
-        public Color TextColour { get { return textColour; } }
+        public Color Colour { get { return colour; } }
 
 
 

@@ -1,11 +1,12 @@
-﻿using System.Text;
+﻿using Foxlair.Inventory.Hotbars;
+using System.Text;
 using UnityEngine;
 
 namespace Foxlair.Inventory
 {
 
     [CreateAssetMenu(fileName = "New Consumable Item", menuName = "Inventory System/Items/Consumable Item")]
-    public class ConsumableItem : InventoryItem
+    public class ConsumableItem : InventoryItem, IHotbarItem
     {
         [Header("Consumable Data")]
         [SerializeField] private string useText = "Does something, maybe?";
@@ -19,6 +20,11 @@ namespace Foxlair.Inventory
             builder.Append("Sell Price: ").Append(SellPrice).Append(" Gold");
 
             return builder.ToString();
+        }
+
+        public void Use()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

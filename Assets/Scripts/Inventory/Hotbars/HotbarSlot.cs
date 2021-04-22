@@ -13,9 +13,9 @@ namespace Foxlair.Inventory.Hotbars
         [SerializeField] private Inventory inventory = null;
         [SerializeField] private TextMeshProUGUI itemQuantityText = null;
 
-        private HotbarItem slotItem = null;
+        private Item slotItem = null;
 
-        public override HotbarItem SlotItem
+        public override Item SlotItem
         {
             get  {  return slotItem; }
 
@@ -26,7 +26,7 @@ namespace Foxlair.Inventory.Hotbars
             }
         }
 
-        public bool AddItem(HotbarItem itemToAdd)
+        public bool AddItem(Item itemToAdd)
         {
             if(SlotItem != null) { return false; }
 
@@ -58,7 +58,7 @@ namespace Foxlair.Inventory.Hotbars
             HotbarSlot hotbarSlot = itemDragHandler.ItemSlotUI as HotbarSlot;
             if(hotbarSlot != null)
             {
-                HotbarItem oldItem = SlotItem;
+                Item oldItem = SlotItem;
                 SlotItem = hotbarSlot.SlotItem;
                 hotbarSlot.SlotItem = oldItem;
                 return;
@@ -69,9 +69,8 @@ namespace Foxlair.Inventory.Hotbars
         public override void UpdateSlotUI()
         {
 
-           if(SlotItem == null || inventory.ItemContainer.GetTotalQuantity((InventoryItem)SlotItem) < 1)
+           if(SlotItem == null || inventory.GetTotalQuantity((InventoryItem)SlotItem) < 1)
             {
-                Debug.Log("ItemSlot was null");
                 EnableSlotUI(false);
                 return;
             }
@@ -86,9 +85,9 @@ namespace Foxlair.Inventory.Hotbars
         {
             if(SlotItem is InventoryItem inventoryItem)
             {
-                if (inventory.ItemContainer.HasItem(inventoryItem))
+                if (inventory.HasItem(inventoryItem))
                 {
-                    int quantityCount = inventory.ItemContainer.GetTotalQuantity(inventoryItem);
+                    int quantityCount = inventory.GetTotalQuantity(inventoryItem);
                     itemQuantityText.text = quantityCount > 1 ? quantityCount.ToString() : "";
                 }
                 else

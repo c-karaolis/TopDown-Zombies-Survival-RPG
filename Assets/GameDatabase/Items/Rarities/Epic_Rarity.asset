@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Epic_Rarity
   m_EditorClassIdentifier: 
   name: Epic
-  textColour: {r: 1, g: 0, b: 0.57734966, a: 1}
+  colour: {r: 1, g: 0, b: 0.5764706, a: 1}

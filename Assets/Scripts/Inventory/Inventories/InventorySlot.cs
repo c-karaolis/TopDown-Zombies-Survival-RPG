@@ -13,13 +13,13 @@ namespace Foxlair.Inventory
         [SerializeField] private Inventory inventory = null;
         [SerializeField] private TextMeshProUGUI itemQuantityText;
 
-        public override HotbarItem SlotItem 
+        public override Item SlotItem 
         {
             get { return ItemSlot.item; }
             set { }
         }
 
-        public ItemSlot ItemSlot => inventory.ItemContainer.GetSlotByIndex(SlotIndex);
+        public ItemSlot ItemSlot => inventory.GetSlotByIndex(SlotIndex);
 
         public override void OnDrop(PointerEventData eventData)
         {
@@ -29,7 +29,7 @@ namespace Foxlair.Inventory
 
             if((itemDragHandler.ItemSlotUI as InventorySlot) != null)
             {
-                inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
+                inventory.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
             }
         }
 
