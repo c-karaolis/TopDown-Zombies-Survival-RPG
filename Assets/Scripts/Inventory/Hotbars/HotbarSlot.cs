@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foxlair.Tools.Events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,6 +25,16 @@ namespace Foxlair.Inventory.Hotbars
                 slotItem=value;
                 UpdateSlotUI();
             }
+        }
+
+        private void Awake()
+        {
+            FoxlairEventManager.Instance.OnInventoryItemsUpdated += UpdateSlotUI;
+        }
+
+        private void OnDisable()
+        {
+            FoxlairEventManager.Instance.OnInventoryItemsUpdated -= UpdateSlotUI;
         }
 
         public bool AddItem(Item itemToAdd)
