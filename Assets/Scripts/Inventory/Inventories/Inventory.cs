@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Foxlair.Tools.Events;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Foxlair.Inventory
@@ -6,7 +7,6 @@ namespace Foxlair.Inventory
     public class Inventory : MonoBehaviour, IItemContainer
     {
         [SerializeField] private int size = 20;
-        [SerializeField] private UnityEvent onInventoryItemsUpdated = null;
 
         [Header("testing stuff")]
         bool open = true;
@@ -53,7 +53,8 @@ namespace Foxlair.Inventory
 
                             requestedItemSlot.quantity = 0;
 
-                            onInventoryItemsUpdated.Invoke();
+                            FoxlairEventManager.Instance.onInventoryItemsUpdated();
+
 
                             return requestedItemSlot;
                         }
@@ -78,7 +79,7 @@ namespace Foxlair.Inventory
 
                         requestedItemSlot.quantity = 0;
 
-                        onInventoryItemsUpdated.Invoke();
+                        FoxlairEventManager.Instance.onInventoryItemsUpdated();
 
                         return requestedItemSlot;
                     }
@@ -91,8 +92,8 @@ namespace Foxlair.Inventory
                 }
             }
 
-            onInventoryItemsUpdated.Invoke();
-            
+            FoxlairEventManager.Instance.onInventoryItemsUpdated();
+
             return requestedItemSlot;
         }
 
@@ -116,7 +117,7 @@ namespace Foxlair.Inventory
 
             itemSlots[slotIndex] = new ItemStack();
 
-            onInventoryItemsUpdated.Invoke();
+            FoxlairEventManager.Instance.onInventoryItemsUpdated();
 
         }
 
@@ -142,7 +143,7 @@ namespace Foxlair.Inventory
                             {
                                 itemSlots[i] = new ItemStack();
 
-                                onInventoryItemsUpdated.Invoke();
+                                FoxlairEventManager.Instance.onInventoryItemsUpdated();
 
                                 return;
                             }
@@ -171,7 +172,7 @@ namespace Foxlair.Inventory
 
                         itemSlots[indexOne] = new ItemStack();
 
-                        onInventoryItemsUpdated.Invoke();
+                        FoxlairEventManager.Instance.onInventoryItemsUpdated();
 
                         return;
                     }
@@ -181,7 +182,7 @@ namespace Foxlair.Inventory
             itemSlots[indexOne] = secondSlot;
             itemSlots[indexTwo] = firstSlot;
 
-            onInventoryItemsUpdated.Invoke();
+            FoxlairEventManager.Instance.onInventoryItemsUpdated();
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using Foxlair.Inventory.Hotbars;
+using Foxlair.Tools.Events;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,6 +21,16 @@ namespace Foxlair.Inventory
         }
 
         public ItemStack ItemStackInSlot => inventory.GetSlotByIndex(SlotIndex);
+
+        private void Awake()
+        {
+            FoxlairEventManager.Instance.OnInventoryItemsUpdated += UpdateSlotUI;
+        }
+
+        private void OnDisable()
+        {
+            FoxlairEventManager.Instance.OnInventoryItemsUpdated -= UpdateSlotUI;
+        }
 
         public override void OnDrop(PointerEventData eventData)
         {

@@ -1,5 +1,6 @@
 ﻿
 using Foxlair.Inventory.Hotbars;
+using Foxlair.Tools.Events;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -19,9 +20,27 @@ namespace Foxlair.Inventory
 
         private Canvas popupCanvas = null;
 
-        private void Start() => popupCanvas = popupCanvasObject.GetComponent<Canvas>();
+        private void Awake()
+        {
+            FoxlairEventManager.Instance.OnMouseStartHoverItem += DisplayInfo;
+            FoxlairEventManager.Instance.OnMouseEndHoverItem += HideInfo;
+        }
 
-        private void Update() => FollowCursor();
+        private void OnDisable()
+        {
+            FoxlairEventManager.Instance.OnMouseStartHoverItem -= DisplayInfo;
+            FoxlairEventManager.Instance.OnMouseEndHoverItem -= HideInfo;
+        }
+
+        private void Start()
+        {
+            popupCanvas = popupCanvasObject.GetComponent<Canvas>();
+        }
+
+        private void Update()
+        {
+            FollowCursor();
+        }
 
         public void HideInfo() 
         {

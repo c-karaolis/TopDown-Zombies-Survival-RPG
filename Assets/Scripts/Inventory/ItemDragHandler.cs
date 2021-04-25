@@ -1,4 +1,5 @@
 ﻿using Foxlair.Events.CustomEvents;
+using Foxlair.Tools.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,7 +28,8 @@ namespace Foxlair.Inventory
         {
             if (isHovering)
             {
-                onMouseEndHoverItem.Raise();
+                FoxlairEventManager.Instance.onMouseEndHoverItem();
+                //onMouseEndHoverItem.Raise();
                 isHovering = false;
             }
         }
@@ -67,13 +69,15 @@ namespace Foxlair.Inventory
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            onMouseStartHoverItem.Raise(ItemSlotUI.SlotItem);
+            FoxlairEventManager.Instance.onMouseStartHoverItem(ItemSlotUI.SlotItem);
+            //onMouseStartHoverItem.Raise(ItemSlotUI.SlotItem);
             isHovering = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            onMouseEndHoverItem.Raise();
+            FoxlairEventManager.Instance.onMouseEndHoverItem();
+            //onMouseEndHoverItem.Raise();
             isHovering = false;
         }
 
