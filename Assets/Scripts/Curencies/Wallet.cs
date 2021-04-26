@@ -7,7 +7,7 @@ namespace Foxlair.Currencies
     public class Wallet
     {
         private readonly Currency _coins;
-        private PremiumCurrency _platinumBars;
+        private readonly PremiumCurrency _platinumBars;
 
         public Wallet(long coins, int platinumBars)
         {
