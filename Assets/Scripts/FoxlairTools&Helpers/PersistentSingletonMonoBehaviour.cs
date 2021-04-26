@@ -10,7 +10,7 @@ namespace Foxlair.Tools
 		{
 			if (Instance == null)
 			{
-				Debug.Log($"Instantiating new singleton of type {typeof(T)}");
+				//Debug.Log($"Instantiating new singleton of type {typeof(T)}");
 				Instance = this as T;
 				DontDestroyOnLoad(this);
 			}

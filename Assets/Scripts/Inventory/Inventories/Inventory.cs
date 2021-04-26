@@ -2,16 +2,24 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+using Foxlair.Currencies;
+
+
 namespace Foxlair.Inventory
 {
     public class Inventory : MonoBehaviour, IItemContainer
     {
         [SerializeField] private int size = 20;
 
+
+        //TODO: Remove testing stuff when done
         [Header("testing stuff")]
         bool open = true;
         [SerializeField] GameObject inventoryUIPanel;
         [SerializeField] ItemStack itemToTest;
+        [SerializeField] Wallet wallet;
+
+
 
         public ItemStack GetSlotByIndex(int index) => itemSlots[index];
 
@@ -20,16 +28,34 @@ namespace Foxlair.Inventory
         public void Start()
         {
             itemSlots = new ItemStack[size];
+
+            wallet = new Wallet(10000, 500);
         }
 
         private void Update()
         {
+            //TODO: Remove testing stuff when done
+
             if (Input.GetKeyDown(KeyCode.K))
             {
                 AddItem(itemToTest);
+                wallet.Currency.Add(11);
+
+                Debug.Log($"Gold: {wallet.Currency.Gold}, Silver: {wallet.Currency.Silver},Copper: {wallet.Currency.Copper}");
+            }
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                
+                wallet.Currency.Add(4544);
+                long[] test = wallet.Currency.ConvertValueExchange(4544);
+
+                Debug.Log($"Trying to add Gold: {test[0]}, Silver: {test[1]},Copper: {test[2]}");
+                Debug.Log($"Gold: {wallet.Currency.Gold}, Silver: {wallet.Currency.Silver},Copper: {wallet.Currency.Copper}");
             }
             if (Input.GetKeyDown(KeyCode.I))
             {
+                wallet.Currency.Remove(3000);
+                Debug.Log($"Gold: {wallet.Currency.Gold}, Silver: {wallet.Currency.Silver},Copper: {wallet.Currency.Copper}");
                 inventoryUIPanel.SetActive(open);
                 open = !open;
             }
