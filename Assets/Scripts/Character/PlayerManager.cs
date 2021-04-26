@@ -1,6 +1,7 @@
 ﻿using Foxlair.Character;
 using Foxlair.Character.Movement;
 using Foxlair.Character.States;
+using Foxlair.Character.Targeting;
 using Foxlair.Enemies;
 using Foxlair.Harvesting;
 using Foxlair.Tools;
@@ -26,6 +27,8 @@ namespace Foxlair.Character
         public PlayerCharacter MainPlayerCharacter;
         [System.NonSerialized]
         public CharacterMovement MainPlayerCharacterMovement;
+        [System.NonSerialized]
+        public CharacterTargetingHandler MainPlayerCharacterTargetingHandler;
 
         // Start is called before the first frame update
         void Start()

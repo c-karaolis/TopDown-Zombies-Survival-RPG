@@ -30,7 +30,7 @@ namespace Foxlair.Weapons
         {
             Debug.Log($"Durability: {_durability} , Loss per Shot: {_durabilityLossPerShot}");
             _nextFire = Time.time + _fireRate;
-            PlayerManager.Instance.PlayerTargetEnemy = _characterTargetingHandler.EnemyTarget;
+            //PlayerManager.Instance.PlayerTargetEnemy = _characterTargetingHandler.EnemyTarget;
 
             if (!(PlayerManager.Instance.PlayerTargetEnemy == null))
             {
