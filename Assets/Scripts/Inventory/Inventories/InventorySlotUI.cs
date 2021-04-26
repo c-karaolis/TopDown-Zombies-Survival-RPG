@@ -22,7 +22,7 @@ namespace Foxlair.Inventory
 
         public ItemStack ItemStackInSlot => inventory.GetSlotByIndex(SlotIndex);
 
-        private void Awake()
+        private void OnEnable()
         {
             FoxlairEventManager.Instance.OnInventoryItemsUpdated += UpdateSlotUI;
         }

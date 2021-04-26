@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Foxlair.Tools.Events;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class Currency
         get=> coins; 
         set 
         {
+
             if (value <= 0) 
             {
                 coins = 0;
@@ -22,8 +24,10 @@ public class Currency
             else
             {
                 coins = value;
-            } 
-        } 
+            }
+            FoxlairEventManager.Instance.onCurrencyChanged();
+
+        }
     }
 
     public Currency() => Coins = 0;

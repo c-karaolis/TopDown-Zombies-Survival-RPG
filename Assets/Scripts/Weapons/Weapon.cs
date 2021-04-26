@@ -34,11 +34,6 @@ namespace Foxlair.Weapons
         public InputHandler _input;
 
 
-        public virtual void Awake()
-        {
-
-        }
-
         public virtual void Start()
         {
             _input = InputHandler.Instance;

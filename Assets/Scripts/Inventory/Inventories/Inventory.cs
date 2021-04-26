@@ -29,7 +29,7 @@ namespace Foxlair.Inventory
         {
             itemSlots = new ItemStack[size];
 
-            wallet = new Wallet(10000, 500);
+            //wallet = gameObject.GetComponent<Wallet>();
         }
 
         private void Update()
@@ -57,6 +57,8 @@ namespace Foxlair.Inventory
                 wallet.Currency.Remove(3000);
                 Debug.Log($"Gold: {wallet.Currency.Gold}, Silver: {wallet.Currency.Silver},Copper: {wallet.Currency.Copper}");
                 inventoryUIPanel.SetActive(open);
+                FoxlairEventManager.Instance.onInventoryItemsUpdated();
+
                 open = !open;
             }
         }

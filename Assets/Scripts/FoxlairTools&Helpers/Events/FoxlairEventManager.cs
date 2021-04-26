@@ -6,17 +6,22 @@ using Foxlair.Inventory;
 
 namespace Foxlair.Tools.Events
 {
-	public class FoxlairEventManager:PersistentSingletonMonoBehaviour<FoxlairEventManager>
-	{
+    public class FoxlairEventManager : PersistentSingletonMonoBehaviour<FoxlairEventManager>
+    {
 
         #region Inventory Events
         public event Action OnMouseEndHoverItem;
-		public event Action<Item> OnMouseStartHoverItem;
-		public event Action OnInventoryItemsUpdated;
+        public event Action<Item> OnMouseStartHoverItem;
+        public event Action OnInventoryItemsUpdated;
 
-		public void onMouseStartHoverItem(Item item) => OnMouseStartHoverItem(item);
-		public void onMouseEndHoverItem() => OnMouseEndHoverItem();
-		public void onInventoryItemsUpdated() => OnInventoryItemsUpdated();
+        public void onMouseStartHoverItem(Item item) => OnMouseStartHoverItem?.Invoke(item);
+        public void onMouseEndHoverItem() => OnMouseEndHoverItem?.Invoke();
+        public void onInventoryItemsUpdated() => OnInventoryItemsUpdated?.Invoke();
+        #endregion
+
+        #region Currency Events
+        public event Action OnCurrencyChanged;
+        public void onCurrencyChanged() => OnCurrencyChanged?.Invoke();
         #endregion
 
     }
@@ -26,11 +31,11 @@ namespace Foxlair.Tools.Events
     /// </summary>
     public interface FoxlairEventListenerBase { };
 
-	/// <summary>
-	/// A public interface you'll need to implement for each type of event you want to listen to.
-	/// </summary>
-	public interface FoxlairEventListener<T> : FoxlairEventListenerBase
-	{
-		void OnFoxlairEvent(T eventType);
-	}
+    /// <summary>
+    /// A public interface you'll need to implement for each type of event you want to listen to.
+    /// </summary>
+    public interface FoxlairEventListener<T> : FoxlairEventListenerBase
+    {
+        void OnFoxlairEvent(T eventType);
+    }
 }

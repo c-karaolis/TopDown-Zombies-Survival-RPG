@@ -27,7 +27,7 @@ namespace Foxlair.Inventory.Hotbars
             }
         }
 
-        private void Awake()
+        private void OnEnable()
         {
             FoxlairEventManager.Instance.OnInventoryItemsUpdated += UpdateSlotUI;
         }

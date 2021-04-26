@@ -26,9 +26,6 @@ namespace Foxlair.Character.Movement
 
         public Vector3 Direction;
 
-        private void Awake()
-        {
-        }
         private void Start()
         {
             _characterTargetingHandler = CharacterTargetingHandler.Instance;

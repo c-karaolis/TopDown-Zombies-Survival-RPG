@@ -20,7 +20,7 @@ namespace Foxlair.Inventory
 
         private Canvas popupCanvas = null;
 
-        private void Awake()
+        private void OnEnable()
         {
             FoxlairEventManager.Instance.OnMouseStartHoverItem += DisplayInfo;
             FoxlairEventManager.Instance.OnMouseEndHoverItem += HideInfo;
