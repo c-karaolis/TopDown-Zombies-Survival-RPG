@@ -803,9 +803,10 @@ MonoBehaviour:
   resourceDropRatePerTick: 1
   allowedHarvesters:
   - {fileID: 2088238234}
+  inventoryResource: {fileID: 0}
   resourceNodeAnimator: {fileID: 0}
   meshRendererGameObject: {fileID: 1042710987}
-  resource: 0
+  resource: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1685,7 @@ MonoBehaviour:
   resourceDropRatePerTick: 1
   allowedHarvesters:
   - {fileID: 2088238234}
+  inventoryResource: {fileID: 0}
   resourceNodeAnimator: {fileID: 0}
   meshRendererGameObject: {fileID: 1042710987}
   resource: 0
@@ -2178,21 +2180,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Rock_Round_03
       objectReference: {fileID: 0}
+    - target: {fileID: 1193348567003356, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1823
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9155407
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1525
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.0984468
+      value: -10.77
       objectReference: {fileID: 0}
     - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.085453235
+      value: -0.13421
       objectReference: {fileID: 0}
     - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.230909
+      value: 13.02
       objectReference: {fileID: 0}
     - target: {fileID: 4850431870600360, guid: 9f9ddff3c7b21614d9fc2821677a2fb0, type: 3}
       propertyPath: m_LocalRotation.w
