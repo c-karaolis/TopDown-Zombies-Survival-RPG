@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5368bc213e54dfe4481180e66071ac89, type: 3}
-  m_Name: Item_Consumables_Test 1
+  m_Name: shirt_Test
   m_EditorClassIdentifier: 
   name: Epic Smelly Shirt
   icon: {fileID: 21300000, guid: fef475c6b834a7b4e8b1fbd7c6541741, type: 3}

@@ -779,6 +779,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2860001814564964807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &582801503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1193348567003356, guid: 9f9ddff3c7b21614d9fc2821677a2fb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241297871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &582801504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582801503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b42a01f3ee472b4b8533581485e7256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHarvested: 0
+  respawnTime: 120
+  timeSinceLastHarvest: 0
+  resourceDropRatePerTick: 1
+  allowedHarvesters:
+  - {fileID: 2088238234}
+  resourceNodeAnimator: {fileID: 0}
+  meshRendererGameObject: {fileID: 1042710987}
+  resource: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,6 +4176,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 995115894}
     - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: craftingRecipe
+      value: 
+      objectReference: {fileID: 11400000, guid: da27a003952da11449cec3a2b2cec580,
+        type: 2}
+    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
       propertyPath: itemToTest.item
       value: 
       objectReference: {fileID: 11400000, guid: 1714b6d8b71ad8b4883e6188bbd04717,
@@ -4158,7 +4190,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 283629211}
     - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: itemToTest2.item
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f5239e8b0b7b184f84869487dbf08b9,
+        type: 2}
+    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
       propertyPath: itemToTest.quantity
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: itemToTest2.quantity
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,

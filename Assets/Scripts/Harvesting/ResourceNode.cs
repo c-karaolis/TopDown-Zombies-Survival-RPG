@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Foxlair.Inventory;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Foxlair.Harvesting
@@ -16,7 +17,7 @@ namespace Foxlair.Harvesting
         public List<CharacterController> allowedHarvesters;
 
         //public WeaponItem requiredHarvestTool;
-        //public InventoryItem inventoryResource;
+        public InventoryItem inventoryResource;
         //public ItemPicker inventoryItemPicker;
         //public Health harvestResourceNodeHealth;
 
