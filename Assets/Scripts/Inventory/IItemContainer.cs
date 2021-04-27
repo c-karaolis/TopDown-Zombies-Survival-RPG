@@ -8,8 +8,8 @@ namespace Foxlair.Inventory
         void RemoveItem(ItemStack itemStack);
         void RemoveAt(int slotIndex);
         void Swap(int indexOne, int indexTwo);
-        bool HasItem(InventoryItem item);
-        int GetTotalQuantity(InventoryItem item);
+        bool HasItem(Item item);
+        int GetTotalQuantity(Item item);
 
 
 

@@ -17,7 +17,7 @@ namespace Foxlair.Harvesting
         public List<CharacterController> allowedHarvesters;
 
         //public WeaponItem requiredHarvestTool;
-        public InventoryItem inventoryResource;
+        public Item inventoryResource;
         //public ItemPicker inventoryItemPicker;
         //public Health harvestResourceNodeHealth;
 

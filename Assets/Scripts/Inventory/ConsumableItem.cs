@@ -6,7 +6,7 @@ namespace Foxlair.Inventory
 {
 
     [CreateAssetMenu(fileName = "New Consumable Item", menuName = "Inventory System/Items/Consumable Item")]
-    public class ConsumableItem : InventoryItem, IHotbarItem
+    public class ConsumableItem : Item, IHotbarItem
     {
         [Header("Consumable Data")]
         [SerializeField] private string useText = "Does something, maybe?";

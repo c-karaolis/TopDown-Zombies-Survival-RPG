@@ -9,10 +9,10 @@ namespace Foxlair.Inventory
     [Serializable]
     public struct ItemStack
     {
-        public InventoryItem item;
+        public Item item;
         public int quantity;
 
-        public ItemStack(InventoryItem item, int quantity)
+        public ItemStack(Item item, int quantity)
         {
             this.item = item;
             this.quantity = quantity;

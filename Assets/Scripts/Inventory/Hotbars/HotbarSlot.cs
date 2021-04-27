@@ -80,7 +80,7 @@ namespace Foxlair.Inventory.Hotbars
         public override void UpdateSlotUI()
         {
 
-           if(SlotItem == null || inventory.GetTotalQuantity((InventoryItem)SlotItem) < 1)
+           if(SlotItem == null || inventory.GetTotalQuantity((Item)SlotItem) < 1)
             {
                 EnableSlotUI(false);
                 return;
@@ -94,7 +94,7 @@ namespace Foxlair.Inventory.Hotbars
 
         private void SetItemQuantityUI()
         {
-            if(SlotItem is InventoryItem inventoryItem)
+            if(SlotItem is Item inventoryItem)
             {
                 if (inventory.HasItem(inventoryItem))
                 {

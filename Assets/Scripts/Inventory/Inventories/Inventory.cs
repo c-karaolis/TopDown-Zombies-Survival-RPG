@@ -128,7 +128,7 @@ namespace Foxlair.Inventory
         }
 
 
-        public bool HasItem(InventoryItem item)
+        public bool HasItem(Item item)
         {
             foreach (ItemStack itemStack in itemSlots)
             {
@@ -227,7 +227,7 @@ namespace Foxlair.Inventory
         /// </summary>
         /// <param name="item">The item to get the Quantity for</param>
         /// <returns>Item's quanity</returns>
-        public int GetTotalQuantity(InventoryItem item)
+        public int GetTotalQuantity(Item item)
         {
             int totalCount = 0;
             foreach (ItemStack itemSlot in itemSlots)
