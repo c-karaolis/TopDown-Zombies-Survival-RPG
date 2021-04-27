@@ -17,6 +17,7 @@ namespace Foxlair.Character
         {
             if (Vector3.Distance(PlayerManager.Instance.PlayerTargetResourceNode.transform.position, transform.position) <= 2)
             {
+                //TODO: Rotate towards harvest resource and start harvesting
                 Debug.Log("player in range to harvest");
                 return true;
             }
