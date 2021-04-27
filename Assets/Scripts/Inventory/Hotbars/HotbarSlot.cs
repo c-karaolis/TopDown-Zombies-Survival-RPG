@@ -74,7 +74,6 @@ namespace Foxlair.Inventory.Hotbars
                 hotbarSlot.SlotItem = oldItem;
                 return;
             }
-
         }
 
         public override void UpdateSlotUI()
