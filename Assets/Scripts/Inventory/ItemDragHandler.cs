@@ -1,7 +1,4 @@
-﻿using Foxlair.Events.CustomEvents;
-using Foxlair.Tools.Events;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Foxlair.Tools.Events;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,9 +8,6 @@ namespace Foxlair.Inventory
     public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IDragHandler, IPointerUpHandler,IPointerExitHandler
     {
         [SerializeField] protected ItemSlotUI itemSlotUI = null;
-        [SerializeField] protected ItemEvent onMouseStartHoverItem = null;
-        [SerializeField] protected VoidEvent onMouseEndHoverItem = null; 
-
 
         private CanvasGroup canvasGroup = null;
         private Transform originalParent = null;

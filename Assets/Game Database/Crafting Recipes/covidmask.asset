@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a32b20992c8896945a8d4f74c5aac28d, type: 3}
-  m_Name: shirt
+  m_Name: covidmask
   m_EditorClassIdentifier: 
   Materials:
   - item: {fileID: 11400000, guid: 5f5239e8b0b7b184f84869487dbf08b9, type: 2}
