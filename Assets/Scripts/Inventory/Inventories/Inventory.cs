@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 using Foxlair.Currencies;
-
+using Foxlair.Inventory.Crafting;
 
 namespace Foxlair.Inventory
 {
@@ -17,13 +17,15 @@ namespace Foxlair.Inventory
         bool open = true;
         [SerializeField] GameObject inventoryUIPanel;
         [SerializeField] ItemStack itemToTest;
+        [SerializeField] ItemStack itemToTest2;
         [SerializeField] Wallet wallet;
+        [SerializeField] CraftingRecipe craftingRecipe;
 
 
 
         public ItemStack GetSlotByIndex(int index) => itemSlots[index];
 
-        private ItemStack[] itemSlots = new ItemStack[20];
+        [SerializeField] private ItemStack[] itemSlots = new ItemStack[20];
 
         public void Start()
         {
@@ -39,16 +41,16 @@ namespace Foxlair.Inventory
             if (Input.GetKeyDown(KeyCode.K))
             {
                 AddItem(itemToTest);
+                AddItem(itemToTest2);
                 wallet.Currency.Add(11);
 
                 Debug.Log($"Gold: {wallet.Currency.Gold}, Silver: {wallet.Currency.Silver},Copper: {wallet.Currency.Copper}");
             }
             if (Input.GetKeyDown(KeyCode.J))
             {
-                
                 wallet.Currency.Add(4544);
                 long[] test = wallet.Currency.ConvertValueExchange(4544);
-
+                craftingRecipe.Craft(this);
                 Debug.Log($"Trying to add Gold: {test[0]}, Silver: {test[1]},Copper: {test[2]}");
                 Debug.Log($"Gold: {wallet.Currency.Gold}, Silver: {wallet.Currency.Silver},Copper: {wallet.Currency.Copper}");
             }
@@ -165,8 +167,10 @@ namespace Foxlair.Inventory
                         }
                         else
                         {
+                            //substracting the removed item from the quantity of slot
                             itemSlots[i].quantity -= itemStackToRemove.quantity;
 
+                            //if after substraction slot is empty return.
                             if (itemSlots[i].quantity == 0)
                             {
                                 itemSlots[i] = new ItemStack();
@@ -175,6 +179,10 @@ namespace Foxlair.Inventory
 
                                 return;
                             }
+
+                            //if after substraction slot is still not empty again return.
+                            FoxlairEventManager.Instance.onInventoryItemsUpdated();
+                            return;
                         }
                     }
                 }
