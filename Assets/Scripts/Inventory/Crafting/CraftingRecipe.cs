@@ -10,7 +10,6 @@ namespace Foxlair.Inventory.Crafting
         public List<ItemStack> Materials;
         public List<ItemStack> Results;
 
-
         public bool CanCraft(IItemContainer itemContainer)
         {
             foreach(ItemStack itemStack in Materials)
@@ -29,21 +28,14 @@ namespace Foxlair.Inventory.Crafting
             {
                 foreach(ItemStack itemStack in Materials)
                 {
-                    //for (int i = 0; i < itemStack.quantity; i++)
-                    //{
                         itemContainer.RemoveItem(itemStack);
-                    //}
                 }
 
                 foreach (ItemStack itemStack in Results)
                 {
-                    //for (int i = 0; i < itemStack.quantity; i++)
-                    //{
                         itemContainer.AddItem(itemStack);
-                    //}
                 }
             }
         }
-
     }
 }

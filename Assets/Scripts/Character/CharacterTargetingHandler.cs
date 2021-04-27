@@ -32,15 +32,10 @@ namespace Foxlair.Character.Targeting
 
         //Weapon currentlyEquippedWeapon;
 
-        void Start()
-        {
-        }
-
         void Update()
         {
             DetermineRaycastOrigin();
             ScanIfNeeded();
-
         }
 
         /// <summary>
@@ -84,7 +79,6 @@ namespace Foxlair.Character.Targeting
                     PlayerManager.Instance.PlayerTargetEnemy = null;
                     return false;
                 }
-
             }
             else
             {
