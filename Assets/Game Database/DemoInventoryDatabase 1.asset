@@ -73,6 +73,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f786aa6a6b66ed46bd55d782d37ee8a, type: 2}
   - {fileID: 11400000, guid: 90dc5d8e3de1e2346b5c6263f4b4204e, type: 2}
   - {fileID: 11400000, guid: cfbac5c7861877f4f838b536acb68de4, type: 2}
+  - {fileID: 11400000, guid: 1633043be886d1c4793858105f609663, type: 2}
+  - {fileID: 11400000, guid: 0f070727cbd0b9f47a5136a23057a7ab, type: 2}
+  - {fileID: 11400000, guid: b596188b2481b434aa4306c6124bf1d5, type: 2}
   m_Currencies:
   - {fileID: 11400000, guid: 48404f8843544c44cbdae0504f985eeb, type: 2}
   - {fileID: 11400000, guid: 2ba90964d00e500428100eaa4809e67d, type: 2}
@@ -87,6 +90,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13c56bd3fa9575342bbe41ba5c2ea7e5, type: 2}
   - {fileID: 11400000, guid: 5edec7a7a01d714418a8bd70d6d83935, type: 2}
   - {fileID: 11400000, guid: dba95d664e4cd0049a345e6433ac36bc, type: 2}
+  - {fileID: 11400000, guid: d4e76d5521186594aa408ef730e80f62, type: 2}
   m_CraftingCategories:
   - {fileID: 11400000, guid: cc26caf2f27eea7468393d19d008eb2b, type: 2}
   - {fileID: 11400000, guid: 5ed79e44ead63964881bbd6b8367228d, type: 2}

@@ -34,9 +34,9 @@ MonoBehaviour:
   m_ElementsData:
     m_ObjectType: Opsive.Shared.Utility.ResizableArray`1[[Opsive.UltimateInventorySystem.Core.ItemDefinition,
       Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: 4c1e4f8ec233006407c1b58994c2b589e1ccb5896eceb589fbcfb58948c9b589
-    m_ValuePositions: 0000000004000000080000000c0000001000000014000000180000001c000000
-    m_Values: 0600000006000000000000000100000002000000030000000400000005000000
+    m_ValueHashes: 4c1e4f8ec233006407c1b58994c2b589e1ccb5896eceb589fbcfb58948c9b589d5cab58922d4b589
+    m_ValuePositions: 0000000004000000080000000c0000001000000014000000180000001c0000002000000024000000
+    m_Values: 08000000080000000000000001000000020000000300000004000000050000000600000007000000
     m_UnityObjects:
     - {fileID: 11400000, guid: ec5af14f29110754eacd3ff5d37adce6, type: 2}
     - {fileID: 11400000, guid: 0ddb113de7345d6449694ec6f3e51f8e, type: 2}
@@ -44,6 +44,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aa0b8ef5d6f1b174586e39f9a4b54945, type: 2}
     - {fileID: 11400000, guid: b368cd2d88a9f5e46949d1a6da5ff487, type: 2}
     - {fileID: 11400000, guid: 8f786aa6a6b66ed46bd55d782d37ee8a, type: 2}
+    - {fileID: 11400000, guid: 1633043be886d1c4793858105f609663, type: 2}
+    - {fileID: 11400000, guid: 0f070727cbd0b9f47a5136a23057a7ab, type: 2}
     m_Version: 3.1
   m_IsAbstract: 0
   m_Color: {r: 0.5166907, g: 0.35686275, b: 0.5372549, a: 1}
@@ -61,9 +63,9 @@ MonoBehaviour:
       m_Version: 3.1
     - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Foxlair.Inventory.Rarity,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-      m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4ab11ea485f5f03df2
-      m_ValuePositions: 000000000600000007000000070000000b0000000b0000000f0000000f000000
-      m_Values: 52617269747901000000008ef9a72c
+      m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4ab11ea485aed97b691e3c939b8529c487f5f03df222eaf6fc72b86a44091a4912
+      m_ValuePositions: 000000000600000007000000070000000b0000000b0000000f0000000f0000000f0000001300000023000000230000002300000027000000
+      m_Values: 52617269747901000000008ef9a72c0100000000000000000000000000000000000000010000008d8c0c3f8988083f8988083f00000000
       m_UnityObjects: []
       m_Version: 3.1
   m_RequiredItemDefinitionAttributes:
