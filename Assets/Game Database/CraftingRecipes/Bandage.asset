@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32b874893a67544698a1f68f0dd5540, type: 3}
+  m_Name: Bandage
+  m_EditorClassIdentifier: 
+  m_ID: 2013759131
+  m_Category: {fileID: 11400000, guid: cc26caf2f27eea7468393d19d008eb2b, type: 2}
+  m_IngredientsData:
+    m_ObjectType: 
+    m_ValueHashes: 
+    m_ValuePositions: 
+    m_Values: 
+    m_UnityObjects: []
+    m_Version: 
+  m_DefaultOutputData:
+    m_ObjectType: 
+    m_ValueHashes: 
+    m_ValuePositions: 
+    m_Values: 
+    m_UnityObjects: []
+    m_Version: 
+  m_EditorIcon: {fileID: 0}
