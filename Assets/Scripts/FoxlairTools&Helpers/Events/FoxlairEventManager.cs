@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
-using Foxlair.Inventory;
-
 namespace Foxlair.Tools.Events
 {
     public class FoxlairEventManager : PersistentSingletonMonoBehaviour<FoxlairEventManager>

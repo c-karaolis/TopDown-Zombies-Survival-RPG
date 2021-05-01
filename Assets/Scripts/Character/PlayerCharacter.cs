@@ -1,4 +1,5 @@
 ﻿using Foxlair.Character.Movement;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using UnityEngine;
 
 namespace Foxlair.Character
@@ -11,6 +12,7 @@ namespace Foxlair.Character
         {
             PlayerManager.Instance.MainPlayerCharacter = this;
             PlayerManager.Instance.MainPlayerCharacterMovement = GetComponent<CharacterMovement>();
+            PlayerManager.Instance.MainPlayerCharacterInventory = GetComponent<Inventory>();
         }
 
         public bool InRangeToHarvest()

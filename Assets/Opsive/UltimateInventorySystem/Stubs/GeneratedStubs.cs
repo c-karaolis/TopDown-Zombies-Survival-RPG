@@ -52,7 +52,6 @@ namespace Opsive.UltimateInventorySystem.Stubs
 			new Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute<Opsive.UltimateInventorySystem.Core.DataStructures.ItemDefinitionAmount>();
 			new Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute<Opsive.UltimateInventorySystem.Core.DataStructures.ItemDefinitionAmounts>();
 			new Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute<Opsive.UltimateInventorySystem.Core.DataStructures.ItemDefinitionAmountsWithCategory>();
-			new Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute<Foxlair.Inventory.Rarity>();
 #pragma warning restore 0618
 		}
 	}

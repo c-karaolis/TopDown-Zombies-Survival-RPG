@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Foxlair.Inventory
-{
     public enum RariryType
     {
         Junk,
@@ -16,8 +14,8 @@ namespace Foxlair.Inventory
     }
     public class Rarity
     {
-        [SerializeField] private RariryType name = RariryType.Common;
-        [SerializeField] private Color colour = new Color();
+        [SerializeField] private RariryType name;
+        [SerializeField] private Color colour;
         //public Color Colour
         //{
         //    set
@@ -74,4 +72,3 @@ namespace Foxlair.Inventory
 
 
     }
-}

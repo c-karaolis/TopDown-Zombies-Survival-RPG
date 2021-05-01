@@ -1,5 +1,4 @@
-﻿using Foxlair.Inventory;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Foxlair.Harvesting

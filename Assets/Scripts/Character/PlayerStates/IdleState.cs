@@ -1,6 +1,7 @@
 ﻿using Foxlair.PlayerInput;
 using Foxlair.Tools.StateMachine;
 using System;
+using UnityEngine;
 
 namespace Foxlair.Character.States
 {
@@ -23,6 +24,10 @@ namespace Foxlair.Character.States
         public override void OnStateExecute() 
         {
             CheckForMovementInput();
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                PlayerManager.Instance.MainPlayerCharacterInventory.AddItem("Bandage", 3);
+            }
         }
 
         public override void OnStatePhysicsExecute() { }
