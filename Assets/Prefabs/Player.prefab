@@ -397,7 +397,6 @@ GameObject:
   - component: {fileID: 2088238234}
   - component: {fileID: 2088238235}
   - component: {fileID: 1633508898}
-  - component: {fileID: 995115894}
   - component: {fileID: 995115895}
   - component: {fileID: 995115896}
   - component: {fileID: 995115897}
@@ -504,21 +503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
---- !u!114 &995115894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481468962612669614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36249549b8a8c4a43b6612a3e42f8f72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldText: {fileID: 0}
-  silverText: {fileID: 0}
-  copperText: {fileID: 0}
 --- !u!114 &995115895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7540d24761b4f024d8d8a6014f93d9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ItemCollectionRestrictionObjects: []
+  m_ItemCollectionRestrictionObjects:
+  - {fileID: 11400000, guid: abac6d1ec6899b345812f85ef797a290, type: 2}
   m_ItemCollectionData:
   - m_ObjectType: Opsive.UltimateInventorySystem.Core.InventoryCollections.ItemCollection
     m_ValueHashes: 0d00eb25b769d11d5030ac3e3edd1331719c8809ffab97cf34df945eaa1351826791e7bfaf7e5032c9f13d91dd6f4cf47a52e37d619c510662a997cfbdc9905e23055582821884b54af733382c785e9b38e62ffe9fdb8077c0ee036dd1a897cf5aa9915ec4655482313fbdb4f9d00a399f5f679a8bc116ff2cfcb9766f6bbb21449697cf3362b55eadae70828c0de2e044e2556d226d38ce36f349ab91cee6228e2d3920b293ba12d1e2dc5ae66be0a331f25998c2f159985fff5998e8fe599865fc5998f6fb599883f959981cc75998c094ad6da54a8e6f32558e6f8f578e6f1c568e6f69508e6fe6528e6f735d8e6fc05f8e6fb745b64403a17cf2bea07cf2299e7cf2a49d7cf2d79b7cf242997cf2fd987cf268967cf29b957cf216937cf281927cf23c907cf2af8f7cf2da8d7cf21d9d776ea29902b5219dba12f645ee5ac1ccd2a3d02fb9b66d2db9b6fe2cb9b68b2ab9b60428b9b69137b9b62235b9b6bf34b9b6e7339f6d209b4286bd6542860a644286876642861461428661634286fe6d42864b6c428690e2844486e5c53e31e3c53eace2c53edfe0c53e4adec53ec5ddc53e70dbc53ee3dac53e1ed8c53e89d7c53e04d5c53eb7d4c53e22d2c53e5dd0c53ec8cfc53e7bcdc53ef6ccc53e61cac53e9cc9c53e0fc7c53ebac6c53e35c4c53ea0c3c53e3a3a456e853e30b5ac9cba12671fef5a5096d3a397bc7eb420ba7eb4bdb97eb44e877eb4db867eb454847eb4e1837eb472817eb476699e6d63680887f06a08874d750887da77088757760887a4700887317308878e7d088701b8854441e4883ffce3883f6fe1883f9ae0883f15de883f80dd883f33db883faeda883fd9d8883f54d6883fc7d5883f72d3883fedd2883f18d0883f8bcf883f06cd883fb1cc883f2cca883f5fc8883fcac7883f45c5883ff0c4883f63c2883f9ec1883f093f883f843e883f373c883fa23b883fdd39883f4837883ffb36883f7634883fe133883fab60446e146431b5
@@ -1033,6 +1018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812272125974370240, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: nextFire
+      value: 36.266666
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a58e28c5a3fbe4ebc3e08a13341807, type: 3}
