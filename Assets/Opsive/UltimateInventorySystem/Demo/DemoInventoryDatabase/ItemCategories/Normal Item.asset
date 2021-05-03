@@ -64,11 +64,11 @@ MonoBehaviour:
       m_Values: 43617465676f727949636f6e0001000000ae947671ffffffffffffffff
       m_UnityObjects: []
       m_Version: 3.1
-    - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Foxlair.Inventory.Rarity,
+    - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Rarity,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-      m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4ab11ea485f5f03df2
+      m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a3e3c4554820edfc0
       m_ValuePositions: 000000000600000007000000070000000b0000000b0000000f0000000f000000
-      m_Values: 52617269747901000000008ef9a72c
+      m_Values: 52617269747901000000003206429a
       m_UnityObjects: []
       m_Version: 3.1
   m_RequiredItemDefinitionAttributes:

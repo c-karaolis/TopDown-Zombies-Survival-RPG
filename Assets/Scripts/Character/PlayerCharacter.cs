@@ -7,12 +7,19 @@ namespace Foxlair.Character
     public class PlayerCharacter : Actor
     {
         public float health = 10f;
+        [SerializeField]public Rarity testRarity;
 
         private void Start()
         {
             PlayerManager.Instance.MainPlayerCharacter = this;
             PlayerManager.Instance.MainPlayerCharacterMovement = GetComponent<CharacterMovement>();
             PlayerManager.Instance.MainPlayerCharacterInventory = GetComponent<Inventory>();
+
+            testRarity = new Rarity();
+            testRarity.name = RariryType.Rare;
+            Debug.Log(testRarity.name);
+            Debug.Log(testRarity.Colour);
+           // Debug.Log(Rarity.RarityColors[testRarity.name]);
         }
 
         public bool InRangeToHarvest()

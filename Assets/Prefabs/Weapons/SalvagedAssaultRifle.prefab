@@ -176,7 +176,7 @@ MonoBehaviour:
   armorPenetration: 3
   isCoolingDown: 0
   weaponAudioSource: {fileID: 0}
-  attackSoundEffect: {fileID: 0}
+  attackSoundEffect: {fileID: 8300000, guid: 9e644a0b405b51c4caeeb8858075a974, type: 3}
   fireRate: 0.25
   weaponRange: 50
   nextFire: 0

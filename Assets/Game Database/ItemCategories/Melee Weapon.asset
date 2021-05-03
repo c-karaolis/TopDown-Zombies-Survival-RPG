@@ -58,6 +58,13 @@ MonoBehaviour:
       m_Values: 416e696d6174696f6e49440000000000b7a7530b0000000001000000
       m_UnityObjects: []
       m_Version: 3.1
+    - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Rarity,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+      m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a3e3c4554820edfc0
+      m_ValuePositions: 000000000600000007000000070000000b0000000b0000000f0000000f000000
+      m_Values: 52617269747901000000003206429a
+      m_UnityObjects: []
+      m_Version: 3.1
   m_RequiredItemDefinitionAttributes:
     m_AttributeCollectionData:
     - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[UnityEngine.Sprite,

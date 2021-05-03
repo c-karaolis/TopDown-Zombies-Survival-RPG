@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 573e9748875a7bb458e9b588519ef0e5, type: 3}
-  m_Name: DemoInventoryDatabase 1
+  m_Name: MainGameInventoryDatabase
   m_EditorClassIdentifier: 
   m_ItemCategories:
   - {fileID: 11400000, guid: a900a2d033173ad44828b0bcf55a20cb, type: 2}
