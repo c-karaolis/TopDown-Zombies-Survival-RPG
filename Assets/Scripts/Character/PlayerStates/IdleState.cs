@@ -26,7 +26,11 @@ namespace Foxlair.Character.States
             CheckForMovementInput();
             if (Input.GetKeyDown(KeyCode.J))
             {
-                PlayerManager.Instance.MainPlayerCharacterInventory.AddItem("Bandage", 3);
+                foreach(string testingItem in PlayerManager.Instance.testingItems)
+                {
+                    PlayerManager.Instance.MainPlayerCharacterInventory.AddItem(testingItem, 1);
+                }
+                
             }
         }
 

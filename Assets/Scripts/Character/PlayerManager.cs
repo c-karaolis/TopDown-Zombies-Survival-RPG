@@ -18,8 +18,9 @@ namespace Foxlair.Character
 
     public class PlayerManager : PersistentSingletonMonoBehaviour<PlayerManager>
     {
-        [System.NonSerialized]
-        public Weapon PlayerEquippedWeapon;
+        public GameObject punchWeapon;
+
+
         [System.NonSerialized]
         public Enemy PlayerTargetEnemy;
         [System.NonSerialized]
@@ -33,17 +34,29 @@ namespace Foxlair.Character
         [System.NonSerialized]
         public Inventory MainPlayerCharacterInventory;
 
+        private Weapon playerEquippedWeapon;
 
-        // Start is called before the first frame update
-        void Start()
+        [Header("TESTING ITEMS")]
+        public List<string> testingItems;
+
+
+        public Weapon PlayerEquippedWeapon
         {
-            PlayerEquippedWeapon = FindObjectOfType<Weapon>();
+            get
+            {
+                if (playerEquippedWeapon != null)
+                {
+                    return playerEquippedWeapon;
+                }
+                else return punchWeapon.GetComponent<Weapon>();
+            }
+
+            set
+            {
+                playerEquippedWeapon = value;
+            }
         }
 
-        // Update is called once per frame
-        void Update()
-        {
 
-        }
     }
 }

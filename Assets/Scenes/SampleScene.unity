@@ -20415,6 +20415,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690130578}
   m_CullTransparentMesh: 0
+--- !u!1 &691956044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8236648986194342470, guid: ef8797f619d461044a4e82f7a4de2093,
+    type: 3}
+  m_PrefabInstance: {fileID: 7481468964427829302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &692996762
 GameObject:
   m_ObjectHideFlags: 0
@@ -28994,6 +29000,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65328af839d3124e9678ab94fd00e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punchWeapon: {fileID: 691956044}
+  testingItems:
+  - Salvaged Rifle
+  - Bandage
+  - Titanium Ingot
 --- !u!4 &991599551
 Transform:
   m_ObjectHideFlags: 0
@@ -29014,147 +29025,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7481468964427829302}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &995115894
+--- !u!114 &995115901 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36249549b8a8c4a43b6612a3e42f8f72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldText: {fileID: 0}
-  silverText: {fileID: 0}
-  copperText: {fileID: 0}
---- !u!114 &995115895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb4bf8482eb7ce46b52ccb09e7bea9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Key: 
-  m_SaveOnApplicationQuit: 0
-  m_SaveOnDestroy: 0
-  m_LoadOnStart: 0
-  m_CurrencyOwner: {fileID: 0}
-  m_Additive: 0
---- !u!114 &995115896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64aad295103c33b428b4540f579aca10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Key: 
-  m_SaveOnApplicationQuit: 0
-  m_SaveOnDestroy: 0
-  m_LoadOnStart: 0
-  m_Inventory: {fileID: 0}
-  m_Additive: 0
---- !u!114 &995115897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26ca2b4fcf8a4993b85339717e172c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Inventory: {fileID: 0}
-  m_InteractableIndicator: {fileID: 0}
-  m_AutoInteract: 0
-  m_Input:
-    m_InputType: 2
-    m_InputName: Action
-    m_LongPressDuration: 0.5
-    m_WaitForLongPressRelease: 0
---- !u!114 &995115898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dc8f34ad158de14aa7ec08654f6e04b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CurrencyAmount:
-    m_CurrencyAmountData:
-      m_ObjectType: Opsive.Shared.Utility.ResizableArray`1[[Opsive.UltimateInventorySystem.Exchange.CurrencyAmount,
-        Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-      m_ValueHashes: 4c1e4f8e813e215745dd75944641698ad05643c8
-      m_ValuePositions: 000000000400000008000000080000000c000000
-      m_Values: 01000000010000003200000000000000
-      m_UnityObjects:
-      - {fileID: 11400000, guid: 8a36b085376104041907aebbb9cf542b, type: 2}
-      m_Version: 3.1
---- !u!114 &995115899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9c18933a275014f9b208ad09865ec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalLookInputName: Mouse X
-  m_VerticalLookInputName: Mouse Y
-  m_LookVectorMode: 0
-  m_LookSensitivity: {x: 2, y: 2}
-  m_LookSensitivityMultiplier: 1
-  m_SmoothLookSteps: 20
-  m_SmoothLookWeight: 0.5
-  m_SmoothExponent: 1.05
-  m_LookAccelerationThreshold: 0.4
-  m_ControllerConnectedCheckRate: 1
-  m_EnableGamplayInputEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ForceInput: 0
-  m_DisableCursor: 0
-  m_EnableCursorWithEscape: 0
-  m_PreventLookVectorChanges: 1
-  m_JoystickUpThreshold: 1
---- !u!114 &995115900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05d9b00a10345299e7d28cf4896ce37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InventoryInput: {fileID: 995115899}
---- !u!114 &995115901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 995115901, guid: ef8797f619d461044a4e82f7a4de2093,
+    type: 3}
+  m_PrefabInstance: {fileID: 7481468964427829302}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995115890}
   m_Enabled: 1
@@ -29162,38 +29037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7540d24761b4f024d8d8a6014f93d9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ItemCollectionRestrictionObjects: []
-  m_ItemCollectionData:
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.InventoryCollections.ItemCollection
-    m_ValueHashes: 0d00eb25b769d11d5030ac3e3edd1331719c8809ffab97cf34df945eaa1351826791e7bfaf7e5032c9f13d91dd6f4cf47a52e37d619c510662a997cfbdc9905e23055582821884b54af733382c785e9b38e62ffe9fdb8077c0ee036dd1a897cf5aa9915ec4655482313fbdb4f9d00a399f5f679a8bc116ff2cfcb9766f6bbb21449697cf3362b55eadae70828c0de2e044e2556d226d38ce36f349ab91cee6228e2d3920b293ba12d1e2dc5ae66be0a331f25998c2f159985fff5998e8fe599865fc5998f6fb599883f959981cc75998c094ad6da54a8e6f32558e6f8f578e6f1c568e6f69508e6fe6528e6f735d8e6fc05f8e6fb745b64403a17cf2bea07cf2299e7cf2a49d7cf2d79b7cf242997cf2fd987cf268967cf29b957cf216937cf281927cf23c907cf2af8f7cf2da8d7cf21d9d776ea29902b5219dba12f645ee5ac1ccd2a3d02fb9b66d2db9b6fe2cb9b68b2ab9b60428b9b69137b9b62235b9b6bf34b9b6e7339f6d209b4286bd6542860a644286876642861461428661634286fe6d42864b6c428690e2844486e5c53e31e3c53eace2c53edfe0c53e4adec53ec5ddc53e70dbc53ee3dac53e1ed8c53e89d7c53e04d5c53eb7d4c53e22d2c53e5dd0c53ec8cfc53e7bcdc53ef6ccc53e61cac53e9cc9c53e0fc7c53ebac6c53e35c4c53ea0c3c53e3a3a456e853e30b5ac9cba12671fef5a5096d3a397bc7eb420ba7eb4bdb97eb44e877eb4db867eb454847eb4e1837eb472817eb476699e6d63680887f06a08874d750887da77088757760887a4700887317308878e7d088701b8854441e4883ffce3883f6fe1883f9ae0883f15de883f80dd883f33db883faeda883fd9d8883f54d6883fc7d5883f72d3883fedd2883f18d0883f8bcf883f06cd883fb1cc883f2cca883f5fc8883fcac7883f45c5883ff0c4883f63c2883f9ec1883f093f883f843e883f373c883fa23b883fdd39883f4837883ffb36883f7634883fe133883fab60446e146431b5
-    m_ValuePositions: 000000001100000011000000150000001500000019000000190000001d0000001d000000210000002b0000002f000000330000003300000037000000370000003b0000003b0000003f0000004b0000004f000000530000005300000057000000570000005b0000005b0000005f000000680000006c0000007000000070000000740000007400000078000000780000007c00000085000000890000008d0000008d0000009100000091000000690100006d0100007101000075010000790100007d0100008101000085010000890100008d0100009101000095010000990100009d010000a1010000a5010000a9010000ad010000b1010000b5010000b6010000b7010000b8010000b9010000ba010000bb010000bc010000bd010000be010000bf010000c0010000c1010000c2010000c3010000c7010000ca010000ca010000660200006a0200006e02000072020000760200007a0200007e02000082020000860200008a0200008e02000092020000960200009a0200009e020000a2020000a6020000aa020000ae020000b2020000b3020000b4020000b5020000b6020000b7020000b8020000b9020000ba020000bb020000bc020000bd020000be020000bf020000c0020000c1020000c2020000c3020000c4020000c5020000c6020000c7020000c8020000c9020000cd020000d0020000d00200006c0300007003000074030000780300007c0300008003000084030000880300008c0300009003000094030000980300009c030000a0030000a4030000a8030000ac030000b0030000b4030000b8030000b9030000ba030000bb030000bc030000bd030000be030000bf030000c0030000c1030000c2030000c3030000c4030000c5030000c6030000c7030000c8030000c9030000ca030000cb030000cc030000cd030000ce030000cf030000d0030000d1030000d2030000d3030000d4030000d5030000d6030000d7030000d8030000d9030000dd030000
-    m_Values: 4e65774974656d436f6c6c656374696f6e01000000040000000100000066c8cbd142696720506f74696f6e87b804e40000000000000000010000003892f547416d617a696e672052756e65de86e38a01000000000000000100000089a154544368657374204b657930e7a5990200000000000000010000002f21c4d2466972652057616e64adc5168003000000030000004f70736976652e556c74696d617465496e76656e746f727953797374656d2e436f72652e41747472696275746553797374656d2e41747472696275746560315b5b4f70736976652e556c74696d617465496e76656e746f727953797374656d2e436f72652e44617461537472756374757265732e4974656d416d6f756e74732c204f70736976652e556c74696d617465496e76656e746f727953797374656d2c2056657273696f6e3d302e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c5d5d080000000d00eb255b713f72086efd3934ebab2af446621ba8823c4a6a0d9940aedf32ad08000000000000000500000006000000060000000a0000000a0000000e0000000e0000000e000000536c6f7473000000000076e59f4e00000000332e314f70736976652e556c74696d617465496e76656e746f727953797374656d2e436f72652e41747472696275746553797374656d2e41747472696275746560315b5b53797374656d2e496e7433322c206d73636f726c69622c2056657273696f6e3d342e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d623737613563353631393334653038395d5d080000000d00eb255b713f72086efd3934ebab2af446621ba8823c4a424b280f861dc27b08000000000000000600000007000000070000000b0000000b0000000f000000130000001700000041747461636b000000000070bf4e97000000000400000000000000332e314f70736976652e556c74696d617465496e76656e746f727953797374656d2e436f72652e41747472696275746553797374656d2e41747472696275746560315b5b53797374656d2e496e7433322c206d73636f726c69622c2056657273696f6e3d342e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d623737613563353631393334653038395d5d080000000d00eb255b713f72086efd3934ebab2af446621ba8823c4a424b280f861dc27b08000000000000001000000011000000110000001500000015000000190000001d000000210000004e756d4f6650726f6a656374696c65730000000000fd5b1212000000000300000000000000332e31
-    m_UnityObjects:
-    - {fileID: 11400000, guid: 80f38e8f2453b80418b7fa22be720dba, type: 2}
-    - {fileID: 11400000, guid: 702937eeae34f6848bda0b382fbbcb8e, type: 2}
-    - {fileID: 11400000, guid: aa666163806f1bf47b288ede03d91fe7, type: 2}
-    - {fileID: 11400000, guid: f459d9b3b43acd646a6b4ab97ac986ca, type: 2}
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.InventoryCollections.ItemSlotCollection
-    m_ValueHashes: 0d00eb25b769d11d5030ac3e3edd1331719c88096ea76198ae473e86
-    m_ValuePositions: 000000000f0000000f0000001300000013000000170000001b000000
-    m_Values: 4974656d436f6c6c656374696f6e3103000000000000000000000000
-    m_UnityObjects:
-    - {fileID: 11400000, guid: 1422b7b8aec91e548afada6b99bc83ef, type: 2}
-    m_Version: 3.1
---- !u!114 &995115902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995115890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd5036dbda0a419a9cce2a63da507b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ID: 1
 --- !u!1 &996015548
 GameObject:
   m_ObjectHideFlags: 0
@@ -61726,37 +61569,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040061961}
     m_Modifications:
-    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: wallet
-      value: 
-      objectReference: {fileID: 995115894}
-    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: craftingRecipe
-      value: 
-      objectReference: {fileID: 11400000, guid: da27a003952da11449cec3a2b2cec580,
-        type: 2}
-    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: itemToTest.item
-      value: 
-      objectReference: {fileID: 11400000, guid: 1714b6d8b71ad8b4883e6188bbd04717,
-        type: 2}
-    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: inventoryUIPanel
-      value: 
+    - target: {fileID: 995115901, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: m_ItemCollectionRestrictionObjects.Array.size
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: itemToTest2.item
+    - target: {fileID: 995115901, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: m_ItemCollectionRestrictionObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 5f5239e8b0b7b184f84869487dbf08b9,
+      objectReference: {fileID: 11400000, guid: abac6d1ec6899b345812f85ef797a290,
         type: 2}
-    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: itemToTest.quantity
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: itemToTest2.quantity
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: _camera
@@ -61822,6 +61643,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2015892288, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
