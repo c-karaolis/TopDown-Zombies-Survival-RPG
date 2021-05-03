@@ -28992,7 +28992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65328af839d3124e9678ab94fd00e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchWeapon: {fileID: 0}
+  punchWeapon: {fileID: 1557666025978253287, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+    type: 3}
   testingItems:
   - Salvaged Rifle
   - Bandage
