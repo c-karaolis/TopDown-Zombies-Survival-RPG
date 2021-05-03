@@ -20,9 +20,9 @@ MonoBehaviour:
   m_ItemActionCollection:
     m_ItemActionsData:
     - m_ObjectType: Opsive.UltimateInventorySystem.ItemActions.AssignHotbarItemAction
-      m_ValueHashes: 0d00eb25fae2bfb28324a75579171be92cbb39784f1f456a
+      m_ValueHashes: 0d00eb25fae2bfb2dee580ef79171be92cbb39784f1f456a
       m_ValuePositions: 00000000060000000a0000000e000000190000001a000000
-      m_Values: 41737369676e00000000ffffffff4974656d20486f746261720101
+      m_Values: 41737369676e00000000000000004974656d20486f746261720101
       m_UnityObjects:
       - {fileID: 6440728373136931005, guid: a32fc32429ad54444b6f7d720ac4b8db, type: 3}
       m_Version: 3.1

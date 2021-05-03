@@ -11100,10 +11100,10 @@ GameObject:
   - component: {fileID: 340622715}
   - component: {fileID: 340622714}
   - component: {fileID: 340622713}
-  - component: {fileID: 340622712}
   - component: {fileID: 340622719}
   - component: {fileID: 340622720}
   - component: {fileID: 340622721}
+  - component: {fileID: 340622712}
   m_Layer: 5
   m_Name: My Inventory Grid
   m_TagString: Untagged
@@ -11140,17 +11140,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 340622710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79501a988bf4750a7a43df0272d4412, type: 3}
+  m_Script: {fileID: 11500000, guid: 44c62d12865c4e1bbdb3629fa53801eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Grid: {fileID: 340622716}
   m_TabControl: {fileID: 0}
   m_PreviousButton: {fileID: 0}
   m_NextButton: {fileID: 0}
-  m_Scrollbar: {fileID: 1159410635}
-  m_Content: {fileID: 1633593550}
-  m_Vertical: 1
-  m_GridElementSize: -1
+  m_StepOption: 0
+  m_CustomAmount: 0
 --- !u!114 &340622713
 MonoBehaviour:
   m_ObjectHideFlags: 0

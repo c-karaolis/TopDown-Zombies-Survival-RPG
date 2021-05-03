@@ -19,11 +19,12 @@ MonoBehaviour:
     m_ItemCollectionOverflow:
       m_OverflowAction: 0
       m_RemoveReplacedItem: 0
-      m_OverflowBackToOrigin: 0
+      m_OverflowBackToOrigin: 1
       m_OverflowItemCollection:
         m_Name: 
         m_Purpose: 0
-      m_RejectedItemActions: {fileID: 0}
+      m_RejectedItemActions: {fileID: 11400000, guid: 3f7e86db60806dc4db9efc782e5f89f1,
+        type: 2}
       m_ForcedRemoveItemActions: {fileID: 0}
     m_ItemCollectionRestrictions: 1
     m_FullSizeLimit: 16
