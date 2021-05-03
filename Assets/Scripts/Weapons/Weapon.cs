@@ -2,6 +2,8 @@
 using Foxlair.Character.Targeting;
 using Foxlair.Enemies;
 using Foxlair.PlayerInput;
+using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.DataStructures;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -9,6 +11,7 @@ using UnityEngine;
 
 namespace Foxlair.Weapons
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Weapon : MonoBehaviour
     {
         //protected WeaponRarity weaponRarity;
@@ -29,7 +32,7 @@ namespace Foxlair.Weapons
         public float weaponAttackDuration = 0.07f;
 
 
-
+        public PlayerCharacter playerCharacter;
         public CharacterTargetingHandler characterTargetingHandler;
         public InputHandler input;
 
@@ -38,6 +41,7 @@ namespace Foxlair.Weapons
         {
             input = InputHandler.Instance;
             characterTargetingHandler = PlayerManager.Instance.MainPlayerCharacterTargetingHandler;
+            playerCharacter = PlayerManager.Instance.MainPlayerCharacter;
             weaponAudioSource = GetComponent<AudioSource>();
         }
 
@@ -107,7 +111,10 @@ namespace Foxlair.Weapons
 
         private void DestroyWeapon()
         {
-            Destroy(this, 0.3f);
+            ItemInfo equippedItemInfo = GetComponent<ItemObject>().ItemInfo;
+            playerCharacter.Inventory.RemoveItem(equippedItemInfo);
+
+            Destroy(this.gameObject, 0.3f);
         }
     }
 }

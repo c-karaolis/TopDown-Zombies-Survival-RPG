@@ -1,4 +1,5 @@
 ﻿using Foxlair.Character.Movement;
+using Foxlair.Weapons;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using UnityEngine;
 
@@ -14,13 +15,9 @@ namespace Foxlair.Character
             PlayerManager.Instance.MainPlayerCharacter = this;
             PlayerManager.Instance.MainPlayerCharacterMovement = GetComponent<CharacterMovement>();
             PlayerManager.Instance.MainPlayerCharacterInventory = GetComponent<Inventory>();
-
-            testRarity = new Rarity();
-            testRarity.name = RariryType.Rare;
-            Debug.Log(testRarity.name);
-            Debug.Log(testRarity.Colour);
-           // Debug.Log(Rarity.RarityColors[testRarity.name]);
         }
+        public Weapon PlayerWeapon => GetComponentInChildren<Weapon>();
+        public Inventory Inventory => GetComponent<Inventory>();
 
         public bool InRangeToHarvest()
         {

@@ -45,15 +45,19 @@ MonoBehaviour:
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
       m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4abbc6d22cff986c99
       m_ValuePositions: 000000000c0000000d0000000d00000011000000110000001500000019000000
-      m_Values: 5069636b75705072656661620101000000ef490320ffffffffffffffff
-      m_UnityObjects: []
+      m_Values: 5069636b75705072656661620101000000ef4903200000000001000000
+      m_UnityObjects:
+      - {fileID: 7606752143854573306, guid: 9eb38858b3a1f9d46886c66922c240aa, type: 3}
+      - {fileID: 7606752143854573306, guid: 9eb38858b3a1f9d46886c66922c240aa, type: 3}
       m_Version: 3.1
     - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
       m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4abbc6d22cff986c99
       m_ValuePositions: 000000000f00000010000000100000001400000014000000180000001c000000
-      m_Values: 45717569706d656e745072656661620101000000e42b6c57ffffffffffffffff
-      m_UnityObjects: []
+      m_Values: 45717569706d656e745072656661620101000000e42b6c570000000001000000
+      m_UnityObjects:
+      - {fileID: 7606752143854573306, guid: 9eb38858b3a1f9d46886c66922c240aa, type: 3}
+      - {fileID: 7606752143854573306, guid: 9eb38858b3a1f9d46886c66922c240aa, type: 3}
       m_Version: 3.1
     - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[System.Int32,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
