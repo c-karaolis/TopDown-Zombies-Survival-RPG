@@ -194,8 +194,6 @@ namespace AdvancedCustomizableSystem
         private void Update()
         {
             EmotionTick();
-            if (Input.GetKeyDown(KeyCode.A))
-                LoadFromFile();
         }
 
         public void EmotionTick()
