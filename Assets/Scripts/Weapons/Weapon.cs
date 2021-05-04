@@ -4,6 +4,7 @@ using Foxlair.Enemies;
 using Foxlair.PlayerInput;
 using Opsive.UltimateInventorySystem.Core;
 using Opsive.UltimateInventorySystem.Core.DataStructures;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Foxlair.Weapons
         public float weaponDamage;
         public float armorPenetration;
 
-        protected float durability = 10f;
+        public float durability = 10f;
         protected float durabilityLossPerShot = 1f;
 
         public bool isCoolingDown;
@@ -112,7 +113,9 @@ namespace Foxlair.Weapons
         private void DestroyWeapon()
         {
             ItemInfo equippedItemInfo = GetComponent<ItemObject>().ItemInfo;
-            playerCharacter.Inventory.RemoveItem(equippedItemInfo);
+            playerCharacter.Inventory.GetItemCollection(ItemCollectionPurpose.Equipped).RemoveItem(equippedItemInfo);
+
+            //playerCharacter.Inventory.RemoveItem(equippedItemInfo);
 
             Destroy(this.gameObject, 0.3f);
         }
