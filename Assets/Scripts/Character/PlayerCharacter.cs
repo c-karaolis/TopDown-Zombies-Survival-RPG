@@ -1,4 +1,6 @@
 ﻿using Foxlair.Character.Movement;
+using Foxlair.Weapons;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using UnityEngine;
 
 namespace Foxlair.Character
@@ -6,12 +8,16 @@ namespace Foxlair.Character
     public class PlayerCharacter : Actor
     {
         public float health = 10f;
+        [SerializeField]public Rarity testRarity;
 
         private void Start()
         {
             PlayerManager.Instance.MainPlayerCharacter = this;
             PlayerManager.Instance.MainPlayerCharacterMovement = GetComponent<CharacterMovement>();
+            PlayerManager.Instance.MainPlayerCharacterInventory = GetComponent<Inventory>();
         }
+        public Weapon PlayerWeapon => GetComponentInChildren<Weapon>();
+        public Inventory Inventory => GetComponent<Inventory>();
 
         public bool InRangeToHarvest()
         {

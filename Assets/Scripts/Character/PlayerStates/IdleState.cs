@@ -1,6 +1,7 @@
 ﻿using Foxlair.PlayerInput;
 using Foxlair.Tools.StateMachine;
 using System;
+using UnityEngine;
 
 namespace Foxlair.Character.States
 {
@@ -23,6 +24,14 @@ namespace Foxlair.Character.States
         public override void OnStateExecute() 
         {
             CheckForMovementInput();
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                foreach(string testingItem in PlayerManager.Instance.testingItems)
+                {
+                    PlayerManager.Instance.MainPlayerCharacterInventory.AddItem(testingItem, 1);
+                }
+                
+            }
         }
 
         public override void OnStatePhysicsExecute() { }

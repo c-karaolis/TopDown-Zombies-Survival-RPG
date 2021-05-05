@@ -2,6 +2,9 @@
 using Foxlair.Character.Targeting;
 using Foxlair.Enemies;
 using Foxlair.PlayerInput;
+using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.DataStructures;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -9,49 +12,51 @@ using UnityEngine;
 
 namespace Foxlair.Weapons
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Weapon : MonoBehaviour
     {
         //protected WeaponRarity weaponRarity;
-        public float _weaponDamage;
-        public float _armorPenetration;
+        public float weaponDamage;
+        public float armorPenetration;
 
-        protected float _durability = 10f;
-        protected float _durabilityLossPerShot = 1f;
+        public float durability = 10f;
+        protected float durabilityLossPerShot = 1f;
 
-        public bool _isCoolingDown;
+        public bool isCoolingDown;
 
-        public AudioSource _weaponAudioSource;
+        public AudioSource weaponAudioSource;
+        public AudioClip attackSoundEffect;
 
-        public float _fireRate = 0.25f;
-        public float _weaponRange = 50f;
-        public Transform _weaponEnd;
-        public float _nextFire;
-        public WaitForSeconds _weaponShotDuration = new WaitForSeconds(0.07f);
+        public float fireRate = 0.25f;
+        public float weaponRange = 50f;
+        public float nextFire;
+        public float weaponAttackDuration = 0.07f;
 
 
-
-        public CharacterTargetingHandler _characterTargetingHandler;
-        public InputHandler _input;
+        public PlayerCharacter playerCharacter;
+        public CharacterTargetingHandler characterTargetingHandler;
+        public InputHandler input;
 
 
         public virtual void Start()
         {
-            _input = InputHandler.Instance;
-            _characterTargetingHandler = PlayerManager.Instance.MainPlayerCharacterTargetingHandler;
-            _weaponAudioSource = GetComponent<AudioSource>();
+            input = InputHandler.Instance;
+            characterTargetingHandler = PlayerManager.Instance.MainPlayerCharacterTargetingHandler;
+            playerCharacter = PlayerManager.Instance.MainPlayerCharacter;
+            weaponAudioSource = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
         public virtual void Update()
         {
-            _isCoolingDown = !(Time.time > _nextFire);
+            isCoolingDown = !(Time.time > nextFire);
 
-            Debug.DrawRay(_weaponEnd.position, _weaponEnd.forward, Color.yellow);
+            //Debug.DrawRay(weaponEnd.position, weaponEnd.forward, Color.yellow);
         }
 
         public void DetermineAttack()
         {
-            if ( !_isCoolingDown)
+            if ( !isCoolingDown)
             {
                 Attack();
             }
@@ -59,7 +64,7 @@ namespace Foxlair.Weapons
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetEnemy.transform.position, PlayerManager.Instance.MainPlayerCharacter.transform.position) <= _weaponRange)
+            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetEnemy.transform.position, PlayerManager.Instance.MainPlayerCharacter.transform.position) <= weaponRange)
             {
                 Debug.Log("weapon in range to attack");
                 return true;
@@ -79,26 +84,26 @@ namespace Foxlair.Weapons
 
             //TODO: this is fire delay not fire rate. 
             //find a way to normalise firerate for humans. e.g. thisfirerate = humanfirerate * (1/100)
-            _nextFire = Time.time + _fireRate;
+            nextFire = Time.time + fireRate;
             // Start our ShotEffect coroutine to turn our laser line on and off
-            StartCoroutine(AttackEffect());
-            PlayerManager.Instance.PlayerTargetEnemy.Damage(_weaponDamage);
+            //StartCoroutine(AttackEffect());
+            PlayerManager.Instance.PlayerTargetEnemy.Damage(weaponDamage);
 
-            _durability -= _durabilityLossPerShot;
+            durability -= durabilityLossPerShot;
 
         }
 
         public virtual IEnumerator AttackEffect()
         {
             // Play the shooting sound effect
-            _weaponAudioSource.Play();
+            weaponAudioSource.Play();
             //Wait for .07 seconds
-            yield return _weaponShotDuration;
+            yield return new WaitForSeconds(weaponAttackDuration);
         }
 
         public virtual void HandleWeaponDurability()
         {
-            if ((_durability -= _durabilityLossPerShot) <= 0)
+            if ((durability -= durabilityLossPerShot) <= 0)
             {
                 Debug.Log("Durability Depleted");
                 DestroyWeapon();
@@ -107,7 +112,12 @@ namespace Foxlair.Weapons
 
         private void DestroyWeapon()
         {
-            Destroy(this, 0.3f);
+            ItemInfo equippedItemInfo = GetComponent<ItemObject>().ItemInfo;
+            playerCharacter.Inventory.GetItemCollection(ItemCollectionPurpose.Equipped).RemoveItem(equippedItemInfo);
+
+            //playerCharacter.Inventory.RemoveItem(equippedItemInfo);
+
+            Destroy(this.gameObject, 0.3f);
         }
     }
 }

@@ -7,6 +7,7 @@ using Foxlair.Harvesting;
 using Foxlair.Tools;
 using Foxlair.Tools.StateMachine;
 using Foxlair.Weapons;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,8 +18,9 @@ namespace Foxlair.Character
 
     public class PlayerManager : PersistentSingletonMonoBehaviour<PlayerManager>
     {
-        [System.NonSerialized]
-        public Weapon PlayerEquippedWeapon;
+        public GameObject punchWeapon;
+
+
         [System.NonSerialized]
         public Enemy PlayerTargetEnemy;
         [System.NonSerialized]
@@ -29,17 +31,33 @@ namespace Foxlair.Character
         public CharacterMovement MainPlayerCharacterMovement;
         [System.NonSerialized]
         public CharacterTargetingHandler MainPlayerCharacterTargetingHandler;
+        [System.NonSerialized]
+        public Inventory MainPlayerCharacterInventory;
 
-        // Start is called before the first frame update
-        void Start()
+        private Weapon playerEquippedWeapon;
+
+        [Header("TESTING ITEMS")]
+        public List<string> testingItems;
+
+
+        public Weapon PlayerEquippedWeapon
         {
-            PlayerEquippedWeapon = FindObjectOfType<Weapon>();
+            get
+            {
+                if (MainPlayerCharacter.PlayerWeapon != null)
+                {
+                    Debug.Log($"found equipped weapon: {MainPlayerCharacter.PlayerWeapon.name}");
+                    return MainPlayerCharacter.PlayerWeapon;
+                }
+                else return punchWeapon.GetComponent<Weapon>();
+            }
+
+            set
+            {
+                playerEquippedWeapon = value;
+            }
         }
 
-        // Update is called once per frame
-        void Update()
-        {
 
-        }
     }
 }

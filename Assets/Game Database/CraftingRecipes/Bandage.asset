@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32b874893a67544698a1f68f0dd5540, type: 3}
+  m_Name: Bandage
+  m_EditorClassIdentifier: 
+  m_ID: 2013759131
+  m_Category: {fileID: 11400000, guid: a0f39a031cf94b041ab6a4420e75d08e, type: 2}
+  m_IngredientsData:
+    m_ObjectType: Opsive.UltimateInventorySystem.Crafting.CraftingIngredients
+    m_ValueHashes: f1e927d1c801c00647444e8391c5f68c42a9f8681d1e3f79256a692adfaef868944a0679ac3e502aad8e46011ec72de8
+    m_ValuePositions: 0000000000000000040000000400000008000000080000000c0000001000000010000000140000001800000018000000
+    m_Values: 00000000020000000100000000000000040000000100000000000000
+    m_UnityObjects:
+    - {fileID: 11400000, guid: 1633043be886d1c4793858105f609663, type: 2}
+    - {fileID: 11400000, guid: 0f070727cbd0b9f47a5136a23057a7ab, type: 2}
+    m_Version: 3.1
+  m_DefaultOutputData:
+    m_ObjectType: Opsive.UltimateInventorySystem.Crafting.CraftingOutput
+    m_ValueHashes: ad8e46011ec72de826fcb009a963d6b737af136b8e57daa546b86d282037008b34a971ee9394de67a41cfb2b
+    m_ValuePositions: 0000000000000000040000000400000008000000080000000c00000013000000170000001b0000001b000000
+    m_Values: 0100000001000000272638e342616e646167659587910a0000000000000000
+    m_UnityObjects:
+    - {fileID: 11400000, guid: b596188b2481b434aa4306c6124bf1d5, type: 2}
+    m_Version: 3.1
+  m_EditorIcon: {fileID: 21300000, guid: 097e910faea979b4da7408ca80edb146, type: 3}

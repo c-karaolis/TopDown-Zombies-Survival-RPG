@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9d0f19db9c7d949b5317a193f72cd0, type: 3}
+  m_Name: PlayerAvailableEquipment
+  m_EditorClassIdentifier: 
+  m_ItemSlots:
+  - m_Name: Head
+    m_Category:
+      m_Name: Head Wear
+      m_ItemCategory: {fileID: 11400000, guid: df4f0fa87ec8ec1418f941460256de96, type: 2}
+  - m_Name: Chest
+    m_Category:
+      m_Name: Chest Wear
+      m_ItemCategory: {fileID: 11400000, guid: 8ac5f0b0f441d5f42b3811c47aadb181, type: 2}
+  - m_Name: Hands
+    m_Category:
+      m_Name: Hand Wear
+      m_ItemCategory: {fileID: 11400000, guid: aba0b1f9f03ce49419c9c37e846c1cc7, type: 2}
+  - m_Name: Legs
+    m_Category:
+      m_Name: Leg Wear
+      m_ItemCategory: {fileID: 11400000, guid: 9f1cbfc2ecf1210479a69927337ee78c, type: 2}
+  - m_Name: Feet
+    m_Category:
+      m_Name: Feet Wear
+      m_ItemCategory: {fileID: 11400000, guid: 2a82ee6b466138549b3c8762698f8a8f, type: 2}
+  - m_Name: FingerLeft
+    m_Category:
+      m_Name: Ring
+      m_ItemCategory: {fileID: 11400000, guid: 33b74c8663d0d0942bd42b086344a9b1, type: 2}
+  - m_Name: FingerRight
+    m_Category:
+      m_Name: Ring
+      m_ItemCategory: {fileID: 11400000, guid: 33b74c8663d0d0942bd42b086344a9b1, type: 2}
+  - m_Name: Neck
+    m_Category:
+      m_Name: Necklace
+      m_ItemCategory: {fileID: 11400000, guid: 22e1372d98ab6cd479c21e4c7be74323, type: 2}
+  - m_Name: Weapon
+    m_Category:
+      m_Name: Weapons
+      m_ItemCategory: {fileID: 11400000, guid: af709a2c720e59949a5398cba38d76ac, type: 2}
