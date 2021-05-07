@@ -7,6 +7,6 @@ namespace Foxlair.Weapons
     public class PunchDefaultWeapon : MeleeWeapon
     {
 
-        
+        public override void HandleWeaponDurability() { return; }
     }
 }
