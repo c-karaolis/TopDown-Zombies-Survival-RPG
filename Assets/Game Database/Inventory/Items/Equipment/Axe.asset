@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -24,3 +25,9 @@ MonoBehaviour:
   IntelligencePercentBonus: 0
   VitalityPercentBonus: 0
   EquipmentType: 4
+  PhysicalItemPrefab: {fileID: 0}
+  attributeModifiers:
+  - Value: 4
+    Type: 100
+    Order: 0
+    AttributeType: 0

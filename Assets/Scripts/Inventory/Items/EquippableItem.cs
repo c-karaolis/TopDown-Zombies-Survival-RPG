@@ -9,10 +9,11 @@ public enum EquipmentType
 	Chest,
 	Gloves,
 	Boots,
-	Weapon1,
-	Weapon2,
-	Accessory1,
-	Accessory2,
+	Pants,
+	Weapon,
+	Neck,
+	Ring1,
+	Ring2,
 }
 
 [CreateAssetMenu(menuName = "Foxlair/Inventory/Items/Equippable Item")]
