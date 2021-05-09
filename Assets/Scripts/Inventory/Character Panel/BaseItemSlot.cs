@@ -106,6 +106,6 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 	{
 		isPointerOver = false;
 
-		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event?.Invoke(this);
+		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event?.Invoke();
 	}
 }

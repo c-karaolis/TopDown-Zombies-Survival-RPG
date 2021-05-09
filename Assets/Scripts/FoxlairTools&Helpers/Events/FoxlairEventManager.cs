@@ -10,7 +10,7 @@ namespace Foxlair.Tools.Events
         #region Inventory Events
         public Action<BaseItemSlot> Inventory_OnRightClick_Event;
         public Action<BaseItemSlot> Inventory_OnPointerEnter_Event;
-        public Action<BaseItemSlot> Inventory_OnPointerExit_Event;
+        public Action Inventory_OnPointerExit_Event;
         public Action<BaseItemSlot> Inventory_OnBeginDrag_Event;
         public Action<BaseItemSlot> Inventory_OnEndDrag_Event;
         public Action<BaseItemSlot> Inventory_OnDrag_Event;

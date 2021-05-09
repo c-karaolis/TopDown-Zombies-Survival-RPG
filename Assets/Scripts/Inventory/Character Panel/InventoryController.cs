@@ -92,21 +92,6 @@ public class InventoryController : MonoBehaviour
 		}
 	}
 
-	private void ShowTooltip(BaseItemSlot itemSlot)
-	{
-		if (itemSlot.Item != null)
-		{
-			itemTooltip.ShowTooltip(itemSlot.Item);
-		}
-	}
-
-	private void HideTooltip(BaseItemSlot itemSlot)
-	{
-		if (itemTooltip.gameObject.activeSelf)
-		{
-			itemTooltip.HideTooltip();
-		}
-	}
 
 	private void BeginDrag(BaseItemSlot itemSlot)
 	{
@@ -313,11 +298,7 @@ public class InventoryController : MonoBehaviour
 	{
 		Inventory.OnRightClickEvent += InventoryRightClick;
 		EquipmentPanel.OnRightClickEvent += EquipmentPanelRightClick;
-
-		// Pointer Enter
-		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event += ShowTooltip;
-		// Pointer Exit
-		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event += HideTooltip;
+	
 		// Begin Drag
 		FoxlairEventManager.Instance.Inventory_OnBeginDrag_Event += BeginDrag;
 		// End Drag
@@ -335,10 +316,6 @@ public class InventoryController : MonoBehaviour
 		Inventory.OnRightClickEvent -= InventoryRightClick;
 		EquipmentPanel.OnRightClickEvent -= EquipmentPanelRightClick;
 
-		// Pointer Enter
-		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event -= ShowTooltip;
-		// Pointer Exit
-		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event -= HideTooltip;
 		// Begin Drag
 		FoxlairEventManager.Instance.Inventory_OnBeginDrag_Event -= BeginDrag;
 		// End Drag
