@@ -8,7 +8,6 @@ namespace Foxlair.Tools.Events
     {
 
         #region Inventory Events
-
         public Action<BaseItemSlot> Inventory_OnRightClick_Event;
         public Action<BaseItemSlot> Inventory_OnPointerEnter_Event;
         public Action<BaseItemSlot> Inventory_OnPointerExit_Event;
@@ -16,17 +15,13 @@ namespace Foxlair.Tools.Events
         public Action<BaseItemSlot> Inventory_OnEndDrag_Event;
         public Action<BaseItemSlot> Inventory_OnDrag_Event;
         public Action<BaseItemSlot> Inventory_OnDrop_Event;
-
         #endregion
 
         #region DropItemArea Events
-
         public Action<BaseItemSlot> DropItemArea_OnDrop_Event;
-
         #endregion
 
         #region EquipmentPanel Events
-
         public Action<BaseItemSlot> EquipmentPanel_OnRightClick_Event;
         public Action<BaseItemSlot> EquipmentPanel_OnPointerEnter_Event;
         public Action<BaseItemSlot> EquipmentPanel_OnPointerExit_Event;
@@ -34,20 +29,15 @@ namespace Foxlair.Tools.Events
         public Action<BaseItemSlot> EquipmentPanel_OnEndDrag_Event;
         public Action<BaseItemSlot> EquipmentPanel_OnDrag_Event;
         public Action<BaseItemSlot> EquipmentPanel_OnDrop_Event;
-
         #endregion
 
         #region CraftingWindow Events
-
         public Action<BaseItemSlot> CraftingWindow_OnPointerEnter_Event;
         public Action<BaseItemSlot> CraftingWindow_OnPointerExit_Event;
-
         #endregion
 
         #region Currency Events
-
         public Action Currency_OnCurrencyChanged_Event;
-
         #endregion
 
     }
