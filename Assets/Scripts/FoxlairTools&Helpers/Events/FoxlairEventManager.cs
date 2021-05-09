@@ -31,6 +31,10 @@ namespace Foxlair.Tools.Events
         public Action<BaseItemSlot> EquipmentPanel_OnDrop_Event;
         #endregion
 
+        #region StatPanel Events
+        public Action StatPanel_OnValuesUpdated_Event;
+        #endregion
+
         #region CraftingWindow Events
         public Action<BaseItemSlot> CraftingWindow_OnPointerEnter_Event;
         public Action<BaseItemSlot> CraftingWindow_OnPointerExit_Event;

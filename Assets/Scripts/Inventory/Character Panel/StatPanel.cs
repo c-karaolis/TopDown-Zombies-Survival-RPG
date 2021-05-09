@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Foxlair.CharacterStats;
+using Foxlair.Tools.Events;
+using System;
 
 public class StatPanel : MonoBehaviour
 {
@@ -12,6 +14,26 @@ public class StatPanel : MonoBehaviour
 	{
 		statDisplays = GetComponentsInChildren<StatDisplay>();
 		UpdateStatNames();
+	}
+
+    private void Start()
+    {
+		SubscribeToEvents();
+    }
+
+    private void OnDestroy()
+    {
+		UnsubscribeFromEvents();
+	}
+
+    private void UnsubscribeFromEvents()
+    {
+		FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event -= UpdateStatValuesUI;
+	}
+
+	private void SubscribeToEvents()
+    {
+		FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event += UpdateStatValuesUI;
 	}
 
 	public void SetStats(params CharacterStat[] charStats)

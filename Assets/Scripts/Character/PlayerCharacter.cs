@@ -20,14 +20,17 @@ namespace Foxlair.Character
         public CharacterAttribute Charisma;
 
         public InventoryController InventoryController;
+        public Inventory Inventory;
 
         //public CharacterAttribute[] CharacterAttributes;
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
+        private void Awake()
+        {
+            InitializeAttributesDictionary();
+        }
         private void Start()
         {
             //CharacterAttributes = new CharacterAttribute[] { Strength, Agility, Intelligence, Vitality, Perception, Luck, Charisma };
-            InitializeAttributesDictionary();
-
             PlayerManager.Instance.MainPlayerCharacter = this;
             PlayerManager.Instance.MainPlayerCharacterMovement = GetComponent<CharacterMovement>();
            // PlayerManager.Instance.MainPlayerCharacterInventory = GetComponent<Inventory>();

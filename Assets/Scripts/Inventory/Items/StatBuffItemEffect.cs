@@ -2,6 +2,7 @@
 using UnityEngine;
 using Foxlair.CharacterStats;
 using Foxlair.Character;
+using Foxlair.Tools.Events;
 
 [CreateAssetMenu(menuName = "Foxlair/Inventory/Item Effects/Stat Buff")]
 public class StatBuffItemEffect : UsableItemEffect
@@ -13,7 +14,7 @@ public class StatBuffItemEffect : UsableItemEffect
 	{
 		StatModifier statModifier = new StatModifier(AgilityBuff, StatModType.Flat, parentItem);
 		character.Agility.AddModifier(statModifier);
-		character.InventoryController.UpdateStatValuesUI();
+		FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 		character.StartCoroutine(RemoveBuff(character, statModifier, Duration));
 	}
 
@@ -26,6 +27,6 @@ public class StatBuffItemEffect : UsableItemEffect
 	{
 		yield return new WaitForSeconds(duration);
 		character.Agility.RemoveModifier(statModifier);
-		character.InventoryController.UpdateStatValuesUI();
+		FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 	}
 }

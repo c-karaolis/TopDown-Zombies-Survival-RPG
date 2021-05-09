@@ -23,11 +23,17 @@ public class EquippableItem : Item
 	public int AgilityBonus;
 	public int IntelligenceBonus;
 	public int VitalityBonus;
+	public int PerceptionBonus;
+	public int LuckBonus;
+	public int CharismaBonus;
 	[Space]
 	public float StrengthPercentBonus;
 	public float AgilityPercentBonus;
 	public float IntelligencePercentBonus;
 	public float VitalityPercentBonus;
+	public int PerceptionPercentBonus;
+	public int LuckPercentBonus;
+	public int CharismaPercentBonus;
 	[Space]
 	public EquipmentType EquipmentType;
 	[Space]
@@ -38,50 +44,68 @@ public class EquippableItem : Item
 		return Instantiate(this);
 	}
 
-	public override void Destroy()
+     public override void Destroy()
 	{
 		Destroy(this);
 	}
 
-	public void Equip(InventoryController c)
+	public void Equip(PlayerCharacter character)
 	{
-		//foreach(AttributeModifier attributeModifier in attributeModifiers)
-  //      {
-		//	CharacterStat characterStat = c.CharacterAttributes[attributeModifier.AttributeType];
-		//	StatModifier statModifier = new StatModifier(attributeModifier.Value, attributeModifier.Type, this);
-		//	characterStat.AddModifier(statModifier);
-		//}
+        //     foreach (AttributeModifier attributeModifier in attributeModifiers)
+        //     {
+        //         CharacterStat characterStat = character.CharacterAttributes[attributeModifier.AttributeType];
+        //         StatModifier statModifier = new StatModifier(attributeModifier.Value, attributeModifier.Type, this);
+        //Debug.Log($"Adding mod: ${statModifier.Value} to character stat: ${characterStat.Value}");
+        //         characterStat.AddModifier(statModifier);
+        //     }
 
-		if (StrengthBonus != 0)
-			c.Strength.AddModifier(new StatModifier(StrengthBonus, StatModType.Flat, this));
-		if (AgilityBonus != 0)
-			c.Agility.AddModifier(new StatModifier(AgilityBonus, StatModType.Flat, this));
-		if (IntelligenceBonus != 0)
-			c.Intelligence.AddModifier(new StatModifier(IntelligenceBonus, StatModType.Flat, this));
-		if (VitalityBonus != 0)
-			c.Vitality.AddModifier(new StatModifier(VitalityBonus, StatModType.Flat, this));
 
+		//Add flat bonuses
+        if (StrengthBonus != 0)
+            character.Strength.AddModifier(new StatModifier(StrengthBonus, StatModType.Flat, this));
+        if (AgilityBonus != 0)
+            character.Agility.AddModifier(new StatModifier(AgilityBonus, StatModType.Flat, this));
+        if (IntelligenceBonus != 0)
+            character.Intelligence.AddModifier(new StatModifier(IntelligenceBonus, StatModType.Flat, this));
+        if (VitalityBonus != 0)
+            character.Vitality.AddModifier(new StatModifier(VitalityBonus, StatModType.Flat, this));
+		if (PerceptionBonus != 0)
+			character.Vitality.AddModifier(new StatModifier(PerceptionBonus, StatModType.Flat, this));
+		if (LuckBonus != 0)
+			character.Vitality.AddModifier(new StatModifier(LuckBonus, StatModType.Flat, this));
+		if (CharismaBonus != 0)
+			character.Vitality.AddModifier(new StatModifier(CharismaBonus, StatModType.Flat, this));
+
+
+		//Add percent bonuses
 		if (StrengthPercentBonus != 0)
-			c.Strength.AddModifier(new StatModifier(StrengthPercentBonus, StatModType.PercentMult, this));
-		if (AgilityPercentBonus != 0)
-			c.Agility.AddModifier(new StatModifier(AgilityPercentBonus, StatModType.PercentMult, this));
-		if (IntelligencePercentBonus != 0)
-			c.Intelligence.AddModifier(new StatModifier(IntelligencePercentBonus, StatModType.PercentMult, this));
-		if (VitalityPercentBonus != 0)
-			c.Vitality.AddModifier(new StatModifier(VitalityPercentBonus, StatModType.PercentMult, this));
+            character.Strength.AddModifier(new StatModifier(StrengthPercentBonus, StatModType.PercentMult, this));
+        if (AgilityPercentBonus != 0)
+            character.Agility.AddModifier(new StatModifier(AgilityPercentBonus, StatModType.PercentMult, this));
+        if (IntelligencePercentBonus != 0)
+            character.Intelligence.AddModifier(new StatModifier(IntelligencePercentBonus, StatModType.PercentMult, this));
+        if (VitalityPercentBonus != 0)
+            character.Vitality.AddModifier(new StatModifier(VitalityPercentBonus, StatModType.PercentMult, this));
+		if (PerceptionPercentBonus != 0)
+			character.Vitality.AddModifier(new StatModifier(PerceptionPercentBonus, StatModType.Flat, this));
+		if (LuckPercentBonus != 0)
+			character.Vitality.AddModifier(new StatModifier(LuckPercentBonus, StatModType.Flat, this));
+		if (CharismaPercentBonus != 0)
+			character.Vitality.AddModifier(new StatModifier(CharismaPercentBonus, StatModType.Flat, this));
+
 	}
 
-	public void Unequip(InventoryController c)
+	public void Unequip(PlayerCharacter character)
 	{
-		//foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in c.CharacterAttributes)
-		//{
-		//	attribute.Value.RemoveAllModifiersFromSource(this);
-		//}
-		c.Strength.RemoveAllModifiersFromSource(this);
-		c.Agility.RemoveAllModifiersFromSource(this);
-		c.Intelligence.RemoveAllModifiersFromSource(this);
-		c.Vitality.RemoveAllModifiersFromSource(this);
-	}
+        //foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in character.CharacterAttributes)
+        //{
+        //    attribute.Value.RemoveAllModifiersFromSource(this);
+        //}
+        character.Strength.RemoveAllModifiersFromSource(this);
+        character.Agility.RemoveAllModifiersFromSource(this);
+        character.Intelligence.RemoveAllModifiersFromSource(this);
+        character.Vitality.RemoveAllModifiersFromSource(this);
+    }
 
 	public override string GetItemType()
 	{

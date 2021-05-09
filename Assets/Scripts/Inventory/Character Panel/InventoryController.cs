@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Foxlair.CharacterStats;
 using Foxlair.Tools.Events;
 using Foxlair.Character;
+using System.Linq;
 
 public class InventoryController : MonoBehaviour
 {
@@ -38,17 +39,18 @@ public class InventoryController : MonoBehaviour
 
 	private void Awake()
 	{
-		statPanel.SetStats(Strength, Agility, Intelligence, Vitality);
-		statPanel.UpdateStatValuesUI();
-
 		FindPlayerCharacter();
+		PlayerCharacter.Inventory = Inventory;
+		//statPanel.SetStats(Strength, Agility, Intelligence, Vitality);
+		statPanel.SetStats(PlayerCharacter.CharacterAttributes.Values.ToArray());
 	}
 
 	private void Start()
     {
         SubscribeToEvents();
+		FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 
-        if (itemSaveManager != null)
+		if (itemSaveManager != null)
         {
             itemSaveManager.LoadEquipment(this);
             itemSaveManager.LoadInventory(this);
@@ -63,6 +65,8 @@ public class InventoryController : MonoBehaviour
 			itemSaveManager.SaveEquipment(this);
 			itemSaveManager.SaveInventory(this);
 		}
+		UnsubscribeFromEvents();
+
 	}
 
 	private void InventoryRightClick(BaseItemSlot itemSlot)
@@ -145,15 +149,15 @@ public class InventoryController : MonoBehaviour
 
 		if (dropItemSlot is EquipmentSlot)
 		{
-			if (dragEquipItem != null) dragEquipItem.Equip(this);
-			if (dropEquipItem != null) dropEquipItem.Unequip(this);
+			if (dragEquipItem != null) dragEquipItem.Equip(PlayerCharacter);
+			if (dropEquipItem != null) dropEquipItem.Unequip(PlayerCharacter);
 		}
 		if (dragItemSlot is EquipmentSlot)
 		{
-			if (dragEquipItem != null) dragEquipItem.Unequip(this);
-			if (dropEquipItem != null) dropEquipItem.Equip(this);
+			if (dragEquipItem != null) dragEquipItem.Unequip(PlayerCharacter);
+			if (dropEquipItem != null) dropEquipItem.Equip(PlayerCharacter);
 		}
-		statPanel.UpdateStatValuesUI();
+		FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 
 		Item draggedItem = dragItemSlot.Item;
 		int draggedItemAmount = dragItemSlot.Amount;
@@ -180,7 +184,7 @@ public class InventoryController : MonoBehaviour
 		if (itemSlot is EquipmentSlot)
 		{
 			EquippableItem equippableItem = (EquippableItem)itemSlot.Item;
-			equippableItem.Unequip(this);
+			equippableItem.Unequip(PlayerCharacter);
 		}
 
 		itemSlot.Item.Destroy();
@@ -197,11 +201,11 @@ public class InventoryController : MonoBehaviour
 				if (previousItem != null)
 				{
 					Inventory.AddItem(previousItem);
-					previousItem.Unequip(this);
-					statPanel.UpdateStatValuesUI();
+					previousItem.Unequip(PlayerCharacter);
+					FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 				}
-				item.Equip(this);
-				statPanel.UpdateStatValuesUI();
+				item.Equip(PlayerCharacter);
+				FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 			}
 			else
 			{
@@ -214,8 +218,8 @@ public class InventoryController : MonoBehaviour
 	{
 		if (Inventory.CanAddItem(item) && EquipmentPanel.RemoveItem(item))
 		{
-			item.Unequip(this);
-			statPanel.UpdateStatValuesUI();
+			item.Unequip(PlayerCharacter);
+			FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 			Inventory.AddItem(item);
 		}
 	}
@@ -278,19 +282,14 @@ public class InventoryController : MonoBehaviour
 
 	public void UpdateStatValuesUI()
 	{
-		statPanel.UpdateStatValuesUI();
+		FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
 	}
 
-    private void FindPlayerCharacter()
+	private void FindPlayerCharacter()
     {
         if (PlayerCharacter != null) return;
 
 		PlayerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
-    }
-
-    private void OnDisable()
-    {
-		UnsubscribeFromEvents();   
     }
 
     #region Event Subscribe/Unsubscribe

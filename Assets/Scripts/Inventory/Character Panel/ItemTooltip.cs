@@ -9,19 +9,19 @@ public class ItemTooltip : MonoBehaviour
 	[SerializeField] Text ItemTypeText;
 	[SerializeField] Text ItemDescriptionText;
 
-    private void Start()
-    {
+	private void Start()
+	{
 		SubscribeToEvents();
 		DisableTooltipOnStart();
 	}
 
 	private void OnDestroy()
-    {
-		UnsubscribeFromEvents();
-    }
-    public void ShowTooltip(BaseItemSlot itemSlot)
 	{
-		if (itemSlot == null) return;
+		UnsubscribeFromEvents();
+	}
+	public void ShowTooltip(BaseItemSlot itemSlot)
+	{
+		if (itemSlot == null || itemSlot.Item == null) return;
 
 		ItemNameText.text = itemSlot.Item.ItemName;
 		ItemTypeText.text = itemSlot.Item.GetItemType();
@@ -43,8 +43,6 @@ public class ItemTooltip : MonoBehaviour
 
 	private void SubscribeToEvents()
     {
-		Debug.Log("show");
-
 		// Pointer Enter
 		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event += ShowTooltip;
 		// Pointer Exit
