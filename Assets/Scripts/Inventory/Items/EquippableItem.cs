@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Foxlair.CharacterStats;
+using System.Collections.Generic;
+using Foxlair.Character;
 
 public enum EquipmentType
 {
@@ -29,7 +31,7 @@ public class EquippableItem : Item
 	public EquipmentType EquipmentType;
 	[Space]
 	public GameObject PhysicalItemPrefab;
-
+	public List<AttributeModifier> attributeModifiers;
 	public override Item GetCopy()
 	{
 		return Instantiate(this);
@@ -42,6 +44,13 @@ public class EquippableItem : Item
 
 	public void Equip(Character c)
 	{
+		//foreach(AttributeModifier attributeModifier in attributeModifiers)
+  //      {
+		//	CharacterStat characterStat = c.CharacterAttributes[attributeModifier.AttributeType];
+		//	StatModifier statModifier = new StatModifier(attributeModifier.Value, attributeModifier.Type, this);
+		//	characterStat.AddModifier(statModifier);
+		//}
+
 		if (StrengthBonus != 0)
 			c.Strength.AddModifier(new StatModifier(StrengthBonus, StatModType.Flat, this));
 		if (AgilityBonus != 0)
@@ -63,6 +72,10 @@ public class EquippableItem : Item
 
 	public void Unequip(Character c)
 	{
+		//foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in c.CharacterAttributes)
+		//{
+		//	attribute.Value.RemoveAllModifiersFromSource(this);
+		//}
 		c.Strength.RemoveAllModifiersFromSource(this);
 		c.Agility.RemoveAllModifiersFromSource(this);
 		c.Intelligence.RemoveAllModifiersFromSource(this);

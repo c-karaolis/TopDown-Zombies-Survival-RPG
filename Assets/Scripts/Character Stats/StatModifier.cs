@@ -1,3 +1,5 @@
+using System;
+
 namespace Foxlair.CharacterStats
 {
 	public enum StatModType
@@ -7,12 +9,13 @@ namespace Foxlair.CharacterStats
 		PercentMult = 300,
 	}
 
+	[Serializable]
 	public class StatModifier
 	{
-		public readonly float Value;
-		public readonly StatModType Type;
-		public readonly int Order;
-		public readonly object Source;
+		public  float Value;
+		public  StatModType Type;
+		public  int Order;
+		public  object Source;
 
 		public StatModifier(float value, StatModType type, int order, object source)
 		{
