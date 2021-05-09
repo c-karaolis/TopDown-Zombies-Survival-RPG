@@ -13,9 +13,6 @@ public class CraftingWindow : MonoBehaviour
 	public ItemContainer ItemContainer;
 	public List<CraftingRecipe> CraftingRecipes;
 
-	public event Action<BaseItemSlot> OnPointerEnterEvent;
-	public event Action<BaseItemSlot> OnPointerExitEvent;
-
 	private void OnValidate()
 	{
 		Init();
@@ -24,12 +21,6 @@ public class CraftingWindow : MonoBehaviour
 	private void Start()
 	{
 		Init();
-
-		foreach (CraftingRecipeUI craftingRecipeUI in craftingRecipeUIs)
-		{
-			craftingRecipeUI.OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
-			craftingRecipeUI.OnPointerExitEvent += slot => OnPointerExitEvent(slot);
-		}
 	}
 
 	private void Init()

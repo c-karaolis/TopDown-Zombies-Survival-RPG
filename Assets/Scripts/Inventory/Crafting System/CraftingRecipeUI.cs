@@ -17,21 +17,9 @@ public class CraftingRecipeUI : MonoBehaviour
 		set { SetCraftingRecipe(value); }
 	}
 
-	public event Action<BaseItemSlot> OnPointerEnterEvent;
-	public event Action<BaseItemSlot> OnPointerExitEvent;
-
 	private void OnValidate()
 	{
 		itemSlots = GetComponentsInChildren<BaseItemSlot>(includeInactive: true);
-	}
-
-	private void Start()
-	{
-		foreach (BaseItemSlot itemSlot in itemSlots)
-		{
-			itemSlot.OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
-			itemSlot.OnPointerExitEvent += slot => OnPointerExitEvent(slot);
-		}
 	}
 
 	public void OnCraftButtonClick()

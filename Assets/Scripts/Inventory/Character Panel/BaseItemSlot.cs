@@ -2,14 +2,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Foxlair.Tools.Events;
 
 public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
 	[SerializeField] protected Image image;
 	[SerializeField] protected Text amountText;
 
-	public event Action<BaseItemSlot> OnPointerEnterEvent;
-	public event Action<BaseItemSlot> OnPointerExitEvent;
 	public event Action<BaseItemSlot> OnRightClickEvent;
 
 	protected bool isPointerOver;
@@ -100,15 +99,13 @@ public class BaseItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
 	{
 		isPointerOver = true;
 
-		if (OnPointerEnterEvent != null)
-			OnPointerEnterEvent(this);
+		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event?.Invoke(this);
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
 		isPointerOver = false;
 
-		if (OnPointerExitEvent != null)
-			OnPointerExitEvent(this);
+		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event?.Invoke(this);
 	}
 }

@@ -18,7 +18,7 @@ namespace Foxlair.Tools.Events
         #endregion
 
         #region DropItemArea Events
-        public Action<BaseItemSlot> DropItemArea_OnDrop_Event;
+        public Action DropItemArea_OnDrop_Event;
         #endregion
 
         #region EquipmentPanel Events

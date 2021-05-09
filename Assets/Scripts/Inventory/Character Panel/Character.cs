@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Foxlair.CharacterStats;
+using Foxlair.Tools.Events;
 
 public class Character : MonoBehaviour
 {
@@ -43,26 +44,19 @@ public class Character : MonoBehaviour
 		Inventory.OnRightClickEvent += InventoryRightClick;
 		EquipmentPanel.OnRightClickEvent += EquipmentPanelRightClick;
 		// Pointer Enter
-		Inventory.OnPointerEnterEvent += ShowTooltip;
-		EquipmentPanel.OnPointerEnterEvent += ShowTooltip;
-		craftingWindow.OnPointerEnterEvent += ShowTooltip;
+		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event += ShowTooltip;
 		// Pointer Exit
-		Inventory.OnPointerExitEvent += HideTooltip;
-		EquipmentPanel.OnPointerExitEvent += HideTooltip;
-		craftingWindow.OnPointerExitEvent += HideTooltip;
+		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event += HideTooltip;
 		// Begin Drag
-		Inventory.OnBeginDragEvent += BeginDrag;
-		EquipmentPanel.OnBeginDragEvent += BeginDrag;
+		FoxlairEventManager.Instance.Inventory_OnBeginDrag_Event += BeginDrag;
 		// End Drag
-		Inventory.OnEndDragEvent += EndDrag;
-		EquipmentPanel.OnEndDragEvent += EndDrag;
+		FoxlairEventManager.Instance.Inventory_OnEndDrag_Event += EndDrag;
 		// Drag
-		Inventory.OnDragEvent += Drag;
-		EquipmentPanel.OnDragEvent += Drag;
+		FoxlairEventManager.Instance.Inventory_OnDrag_Event += Drag;
 		// Drop
-		Inventory.OnDropEvent += Drop;
-		EquipmentPanel.OnDropEvent += Drop;
-		dropItemArea.OnDropEvent += DropItemOutsideUI;
+		FoxlairEventManager.Instance.Inventory_OnDrop_Event += Drop;
+
+		FoxlairEventManager.Instance.DropItemArea_OnDrop_Event += DropItemOutsideUI;
 	}
 
 	private void Start()
@@ -284,12 +278,12 @@ public class Character : MonoBehaviour
 
 		itemContainer.OnRightClickEvent += TransferToInventory;
 
-		itemContainer.OnPointerEnterEvent += ShowTooltip;
-		itemContainer.OnPointerExitEvent += HideTooltip;
-		itemContainer.OnBeginDragEvent += BeginDrag;
-		itemContainer.OnEndDragEvent += EndDrag;
-		itemContainer.OnDragEvent += Drag;
-		itemContainer.OnDropEvent += Drop;
+		//itemContainer.OnPointerEnterEvent += ShowTooltip;
+		//itemContainer.OnPointerExitEvent += HideTooltip;
+		//itemContainer.OnBeginDragEvent += BeginDrag;
+		//itemContainer.OnEndDragEvent += EndDrag;
+		//itemContainer.OnDragEvent += Drag;
+		//itemContainer.OnDropEvent += Drop;
 	}
 
 	public void CloseItemContainer(ItemContainer itemContainer)
@@ -301,12 +295,12 @@ public class Character : MonoBehaviour
 
 		itemContainer.OnRightClickEvent -= TransferToInventory;
 
-		itemContainer.OnPointerEnterEvent -= ShowTooltip;
-		itemContainer.OnPointerExitEvent -= HideTooltip;
-		itemContainer.OnBeginDragEvent -= BeginDrag;
-		itemContainer.OnEndDragEvent -= EndDrag;
-		itemContainer.OnDragEvent -= Drag;
-		itemContainer.OnDropEvent -= Drop;
+		//itemContainer.OnPointerEnterEvent -= ShowTooltip;
+		//itemContainer.OnPointerExitEvent -= HideTooltip;
+		//itemContainer.OnBeginDragEvent -= BeginDrag;
+		//itemContainer.OnEndDragEvent -= EndDrag;
+		//itemContainer.OnDragEvent -= Drag;
+		//itemContainer.OnDropEvent -= Drop;
 	}
 
 	public void UpdateStatValues()

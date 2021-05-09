@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Foxlair.Tools.Events;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ItemSlot : BaseItemSlot, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
-	public event Action<BaseItemSlot> OnBeginDragEvent;
-	public event Action<BaseItemSlot> OnEndDragEvent;
-	public event Action<BaseItemSlot> OnDragEvent;
-	public event Action<BaseItemSlot> OnDropEvent;
 
 	private bool isDragging;
 	private Color dragColor = new Color(1, 1, 1, 0.5f);
@@ -38,8 +35,7 @@ public class ItemSlot : BaseItemSlot, IBeginDragHandler, IEndDragHandler, IDragH
 		if (Item != null)
 			image.color = dragColor;
 
-		if (OnBeginDragEvent != null)
-			OnBeginDragEvent(this);
+		FoxlairEventManager.Instance.Inventory_OnBeginDrag_Event?.Invoke(this);
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
@@ -49,19 +45,16 @@ public class ItemSlot : BaseItemSlot, IBeginDragHandler, IEndDragHandler, IDragH
 		if (Item != null)
 			image.color = normalColor;
 
-		if (OnEndDragEvent != null)
-			OnEndDragEvent(this);
+		FoxlairEventManager.Instance.Inventory_OnEndDrag_Event?.Invoke(this);
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		if (OnDragEvent != null)
-			OnDragEvent(this);
+		FoxlairEventManager.Instance.Inventory_OnDrag_Event?.Invoke(this);
 	}
 
 	public void OnDrop(PointerEventData eventData)
 	{
-		if (OnDropEvent != null)
-			OnDropEvent(this);
+		FoxlairEventManager.Instance.Inventory_OnDrop_Event?.Invoke(this);
 	}
 }
