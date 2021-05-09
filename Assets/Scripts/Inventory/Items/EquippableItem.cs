@@ -70,11 +70,11 @@ public class EquippableItem : Item
         if (VitalityBonus != 0)
             character.Vitality.AddModifier(new StatModifier(VitalityBonus, StatModType.Flat, this));
 		if (PerceptionBonus != 0)
-			character.Vitality.AddModifier(new StatModifier(PerceptionBonus, StatModType.Flat, this));
+			character.Perception.AddModifier(new StatModifier(PerceptionBonus, StatModType.Flat, this));
 		if (LuckBonus != 0)
-			character.Vitality.AddModifier(new StatModifier(LuckBonus, StatModType.Flat, this));
+			character.Luck.AddModifier(new StatModifier(LuckBonus, StatModType.Flat, this));
 		if (CharismaBonus != 0)
-			character.Vitality.AddModifier(new StatModifier(CharismaBonus, StatModType.Flat, this));
+			character.Charisma.AddModifier(new StatModifier(CharismaBonus, StatModType.Flat, this));
 
 
 		//Add percent bonuses
@@ -87,11 +87,11 @@ public class EquippableItem : Item
         if (VitalityPercentBonus != 0)
             character.Vitality.AddModifier(new StatModifier(VitalityPercentBonus, StatModType.PercentMult, this));
 		if (PerceptionPercentBonus != 0)
-			character.Vitality.AddModifier(new StatModifier(PerceptionPercentBonus, StatModType.Flat, this));
+			character.Perception.AddModifier(new StatModifier(PerceptionPercentBonus, StatModType.Flat, this));
 		if (LuckPercentBonus != 0)
-			character.Vitality.AddModifier(new StatModifier(LuckPercentBonus, StatModType.Flat, this));
+			character.Luck.AddModifier(new StatModifier(LuckPercentBonus, StatModType.Flat, this));
 		if (CharismaPercentBonus != 0)
-			character.Vitality.AddModifier(new StatModifier(CharismaPercentBonus, StatModType.Flat, this));
+			character.Charisma.AddModifier(new StatModifier(CharismaPercentBonus, StatModType.Flat, this));
 
 	}
 
@@ -105,6 +105,9 @@ public class EquippableItem : Item
         character.Agility.RemoveAllModifiersFromSource(this);
         character.Intelligence.RemoveAllModifiersFromSource(this);
         character.Vitality.RemoveAllModifiersFromSource(this);
+        character.Perception.RemoveAllModifiersFromSource(this);
+        character.Luck.RemoveAllModifiersFromSource(this);
+        character.Charisma.RemoveAllModifiersFromSource(this);
     }
 
 	public override string GetItemType()
@@ -119,11 +122,17 @@ public class EquippableItem : Item
 		AddStat(AgilityBonus, "Agility");
 		AddStat(IntelligenceBonus, "Intelligence");
 		AddStat(VitalityBonus, "Vitality");
+		AddStat(PerceptionBonus, "Perception");
+		AddStat(LuckBonus, "Luck");
+		AddStat(CharismaBonus, "Charisma");
 
 		AddStat(StrengthPercentBonus, "Strength", isPercent: true);
 		AddStat(AgilityPercentBonus, "Agility", isPercent: true);
 		AddStat(IntelligencePercentBonus, "Intelligence", isPercent: true);
 		AddStat(VitalityPercentBonus, "Vitality", isPercent: true);
+		AddStat(PerceptionPercentBonus, "Perception", isPercent: true);
+		AddStat(LuckPercentBonus, "Luck", isPercent: true);
+		AddStat(CharismaPercentBonus, "Charisma", isPercent: true);
 
 		return sb.ToString();
 	}

@@ -4473,6 +4473,33 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -58
       objectReference: {fileID: 0}
+    - target: {fileID: 3319186762985185995, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: m_Text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319463690813720085, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: startingItems.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319463690813720085, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: startingItems.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: da672e07b97ec4a40bc1cd67fb60bbd7,
+        type: 2}
+    - target: {fileID: 3319542943557166041, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a83e6742d332aec4591cec7b23ce9930,
+        type: 3}
+    - target: {fileID: 3319542943557166041, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3424440536598763840, guid: 4956360da2c713c4ba0a8b75398b1b92,
         type: 3}
       propertyPath: m_Name

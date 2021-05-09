@@ -17,14 +17,84 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: a83e6742d332aec4591cec7b23ce9930, type: 3}
   MaximumStacks: 1
   StrengthBonus: -1
-  AgilityBonus: 1
-  IntelligenceBonus: 0
-  VitalityBonus: 0
-  StrengthPercentBonus: 0
-  AgilityPercentBonus: 0
-  IntelligencePercentBonus: 0
-  VitalityPercentBonus: 0
+  AgilityBonus: 2
+  IntelligenceBonus: 3
+  VitalityBonus: 1
+  PerceptionBonus: 2
+  LuckBonus: 1
+  CharismaBonus: 4
+  StrengthPercentBonus: 0.12
+  AgilityPercentBonus: 0.12
+  IntelligencePercentBonus: 0.06
+  VitalityPercentBonus: 0.1
+  PerceptionPercentBonus: 0
+  LuckPercentBonus: 0
+  CharismaPercentBonus: 1
   EquipmentType: 5
   PhysicalItemPrefab: {fileID: 7606752143854573306, guid: 9eb38858b3a1f9d46886c66922c240aa,
     type: 3}
-  attributeModifiers: []
+  attributeModifiers:
+  - Value: -1
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 1
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 0
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 0
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
+  - Value: -1
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 1
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 0
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 0
+    Type: 100
+    Order: 100
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
+  - Value: 0
+    Type: 300
+    Order: 300
+    AttributeType: 0
