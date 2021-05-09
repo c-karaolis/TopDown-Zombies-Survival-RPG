@@ -35,7 +35,7 @@ public class StatPanel : MonoBehaviour
 		}
 	}
 
-	public void UpdateStatValues()
+	public void UpdateStatValuesUI()
 	{
 		for (int i = 0; i < stats.Length; i++)
 		{

@@ -8,7 +8,7 @@ public class ItemSaveManager : MonoBehaviour
 	private const string InventoryFileName = "Inventory";
 	private const string EquipmentFileName = "Equipment";
 
-	public void LoadInventory(Character character)
+	public void LoadInventory(InventoryController character)
 	{
 		ItemContainerSaveData savedSlots = ItemSaveIO.LoadItems(InventoryFileName);
 		if (savedSlots == null) return;
@@ -32,7 +32,7 @@ public class ItemSaveManager : MonoBehaviour
 		}
 	}
 
-	public void LoadEquipment(Character character)
+	public void LoadEquipment(InventoryController character)
 	{
 		ItemContainerSaveData savedSlots = ItemSaveIO.LoadItems(EquipmentFileName);
 		if (savedSlots == null) return;
@@ -49,12 +49,12 @@ public class ItemSaveManager : MonoBehaviour
 		}
 	}
 
-	public void SaveInventory(Character character)
+	public void SaveInventory(InventoryController character)
 	{
 		SaveItems(character.Inventory.ItemSlots, InventoryFileName);
 	}
 
-	public void SaveEquipment(Character character)
+	public void SaveEquipment(InventoryController character)
 	{
 		SaveItems(character.EquipmentPanel.EquipmentSlots, EquipmentFileName);
 	}

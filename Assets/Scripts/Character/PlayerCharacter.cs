@@ -8,7 +8,7 @@ namespace Foxlair.Character
 {
     public class PlayerCharacter : Actor
     {
-        public float health = 10f;
+        public float Health = 10f;
 
         [Header("Player Attributes")]
         public CharacterAttribute Strength;
@@ -18,6 +18,8 @@ namespace Foxlair.Character
         public CharacterAttribute Perception;
         public CharacterAttribute Luck;
         public CharacterAttribute Charisma;
+
+        public InventoryController InventoryController;
 
         //public CharacterAttribute[] CharacterAttributes;
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;

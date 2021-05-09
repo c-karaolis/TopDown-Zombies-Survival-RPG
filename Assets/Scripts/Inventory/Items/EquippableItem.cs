@@ -43,7 +43,7 @@ public class EquippableItem : Item
 		Destroy(this);
 	}
 
-	public void Equip(Character c)
+	public void Equip(InventoryController c)
 	{
 		//foreach(AttributeModifier attributeModifier in attributeModifiers)
   //      {
@@ -71,7 +71,7 @@ public class EquippableItem : Item
 			c.Vitality.AddModifier(new StatModifier(VitalityPercentBonus, StatModType.PercentMult, this));
 	}
 
-	public void Unequip(Character c)
+	public void Unequip(InventoryController c)
 	{
 		//foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in c.CharacterAttributes)
 		//{

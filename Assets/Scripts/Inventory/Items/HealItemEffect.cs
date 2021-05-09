@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using Foxlair.Character;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Foxlair/Inventory/Item Effects/Heal")]
 public class HealItemEffect : UsableItemEffect
 {
 	public int HealAmount;
 
-	public override void ExecuteEffect(UsableItem usableItem, Character character)
+	public override void ExecuteEffect(UsableItem usableItem, PlayerCharacter character)
 	{
 		character.Health += HealAmount;
 	}

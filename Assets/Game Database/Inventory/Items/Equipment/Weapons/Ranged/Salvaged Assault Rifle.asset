@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c896565b734b104f8c3c04bd3e7e7f8, type: 3}
-  m_Name: Salvaged Rifle
+  m_Name: Salvaged Assault Rifle
   m_EditorClassIdentifier: 
-  id: 
-  ItemName: 
-  Icon: {fileID: 0}
+  id: da672e07b97ec4a40bc1cd67fb60bbd7
+  ItemName: Salvaged Assault Rifle
+  Icon: {fileID: 21300000, guid: a83e6742d332aec4591cec7b23ce9930, type: 3}
   MaximumStacks: 1
-  StrengthBonus: 0
-  AgilityBonus: 0
+  StrengthBonus: -1
+  AgilityBonus: 1
   IntelligenceBonus: 0
   VitalityBonus: 0
   StrengthPercentBonus: 0
   AgilityPercentBonus: 0
   IntelligencePercentBonus: 0
   VitalityPercentBonus: 0
-  EquipmentType: 0
-  PhysicalItemPrefab: {fileID: 0}
+  EquipmentType: 5
+  PhysicalItemPrefab: {fileID: 7606752143854573306, guid: 9eb38858b3a1f9d46886c66922c240aa,
+    type: 3}
   attributeModifiers: []

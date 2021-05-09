@@ -2,8 +2,9 @@
 using UnityEngine.UI;
 using Foxlair.CharacterStats;
 using Foxlair.Tools.Events;
+using Foxlair.Character;
 
-public class Character : MonoBehaviour
+public class InventoryController : MonoBehaviour
 {
 	public int Health = 50;
 
@@ -16,6 +17,7 @@ public class Character : MonoBehaviour
 	[Header("Public")]
 	public Inventory Inventory;
 	public EquipmentPanel EquipmentPanel;
+	public PlayerCharacter PlayerCharacter;
 
 	[Header("Serialize Field")]
 	[SerializeField] CraftingWindow craftingWindow;
@@ -37,38 +39,24 @@ public class Character : MonoBehaviour
 	private void Awake()
 	{
 		statPanel.SetStats(Strength, Agility, Intelligence, Vitality);
-		statPanel.UpdateStatValues();
+		statPanel.UpdateStatValuesUI();
 
-		// Setup Events:
-		// Right Click
-		Inventory.OnRightClickEvent += InventoryRightClick;
-		EquipmentPanel.OnRightClickEvent += EquipmentPanelRightClick;
-		// Pointer Enter
-		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event += ShowTooltip;
-		// Pointer Exit
-		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event += HideTooltip;
-		// Begin Drag
-		FoxlairEventManager.Instance.Inventory_OnBeginDrag_Event += BeginDrag;
-		// End Drag
-		FoxlairEventManager.Instance.Inventory_OnEndDrag_Event += EndDrag;
-		// Drag
-		FoxlairEventManager.Instance.Inventory_OnDrag_Event += Drag;
-		// Drop
-		FoxlairEventManager.Instance.Inventory_OnDrop_Event += Drop;
-
-		FoxlairEventManager.Instance.DropItemArea_OnDrop_Event += DropItemOutsideUI;
+		FindPlayerCharacter();
 	}
 
 	private void Start()
-	{
-		if (itemSaveManager != null)
-		{
-			itemSaveManager.LoadEquipment(this);
-			itemSaveManager.LoadInventory(this);
-		}
-	}
+    {
+        SubscribeToEvents();
 
-	private void OnDestroy()
+        if (itemSaveManager != null)
+        {
+            itemSaveManager.LoadEquipment(this);
+            itemSaveManager.LoadInventory(this);
+        }
+    }
+
+    
+    private void OnDestroy()
 	{
 		if (itemSaveManager != null)
 		{
@@ -86,7 +74,7 @@ public class Character : MonoBehaviour
 		else if (itemSlot.Item is UsableItem)
 		{
 			UsableItem usableItem = (UsableItem)itemSlot.Item;
-			usableItem.Use(this);
+			usableItem.Use(PlayerCharacter);
 
 			if (usableItem.IsConsumable)
 			{
@@ -180,7 +168,7 @@ public class Character : MonoBehaviour
 			if (dragEquipItem != null) dragEquipItem.Unequip(this);
 			if (dropEquipItem != null) dropEquipItem.Equip(this);
 		}
-		statPanel.UpdateStatValues();
+		statPanel.UpdateStatValuesUI();
 
 		Item draggedItem = dragItemSlot.Item;
 		int draggedItemAmount = dragItemSlot.Amount;
@@ -225,10 +213,10 @@ public class Character : MonoBehaviour
 				{
 					Inventory.AddItem(previousItem);
 					previousItem.Unequip(this);
-					statPanel.UpdateStatValues();
+					statPanel.UpdateStatValuesUI();
 				}
 				item.Equip(this);
-				statPanel.UpdateStatValues();
+				statPanel.UpdateStatValuesUI();
 			}
 			else
 			{
@@ -242,7 +230,7 @@ public class Character : MonoBehaviour
 		if (Inventory.CanAddItem(item) && EquipmentPanel.RemoveItem(item))
 		{
 			item.Unequip(this);
-			statPanel.UpdateStatValues();
+			statPanel.UpdateStatValuesUI();
 			Inventory.AddItem(item);
 		}
 	}
@@ -303,8 +291,35 @@ public class Character : MonoBehaviour
 		//itemContainer.OnDropEvent -= Drop;
 	}
 
-	public void UpdateStatValues()
+	public void UpdateStatValuesUI()
 	{
-		statPanel.UpdateStatValues();
+		statPanel.UpdateStatValuesUI();
 	}
+
+	private void SubscribeToEvents()
+	{
+		Inventory.OnRightClickEvent += InventoryRightClick;
+		EquipmentPanel.OnRightClickEvent += EquipmentPanelRightClick;
+
+		// Pointer Enter
+		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event += ShowTooltip;
+		// Pointer Exit
+		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event += HideTooltip;
+		// Begin Drag
+		FoxlairEventManager.Instance.Inventory_OnBeginDrag_Event += BeginDrag;
+		// End Drag
+		FoxlairEventManager.Instance.Inventory_OnEndDrag_Event += EndDrag;
+		// Drag
+		FoxlairEventManager.Instance.Inventory_OnDrag_Event += Drag;
+		// Drop
+		FoxlairEventManager.Instance.Inventory_OnDrop_Event += Drop;
+
+		FoxlairEventManager.Instance.DropItemArea_OnDrop_Event += DropItemOutsideUI;
+	}
+    private void FindPlayerCharacter()
+    {
+        if (PlayerCharacter != null) return;
+
+		PlayerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
+    }
 }

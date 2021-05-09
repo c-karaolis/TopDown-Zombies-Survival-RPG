@@ -9,7 +9,7 @@ public class ItemStash : ItemContainer
 	private bool isOpen;
 	private bool isInRange;
 
-	private Character character;
+	private InventoryController inventoryController;
 
 	protected override void OnValidate()
 	{
@@ -36,9 +36,9 @@ public class ItemStash : ItemContainer
 			itemsParent.gameObject.SetActive(isOpen);
 
 			if (isOpen)
-				character.OpenItemContainer(this);
+				inventoryController.OpenItemContainer(this);
 			else
-				character.CloseItemContainer(this);
+				inventoryController.CloseItemContainer(this);
 		}
 	}
 
@@ -73,13 +73,13 @@ public class ItemStash : ItemContainer
 			{
 				isOpen = false;
 				itemsParent.gameObject.SetActive(false);
-				character.CloseItemContainer(this);
+				inventoryController.CloseItemContainer(this);
 			}
 
 			if (isInRange)
-				character = gameObject.GetComponent<Character>();
+				inventoryController = gameObject.GetComponent<InventoryController>();
 			else
-				character = null;
+				inventoryController = null;
 		}
 	}
 }
