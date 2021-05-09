@@ -296,7 +296,20 @@ public class InventoryController : MonoBehaviour
 		statPanel.UpdateStatValuesUI();
 	}
 
-	private void SubscribeToEvents()
+    private void FindPlayerCharacter()
+    {
+        if (PlayerCharacter != null) return;
+
+		PlayerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
+    }
+
+    private void OnDisable()
+    {
+		UnsubscribeFromEvents();   
+    }
+
+    #region Event Subscribe/Unsubscribe
+    private void SubscribeToEvents()
 	{
 		Inventory.OnRightClickEvent += InventoryRightClick;
 		EquipmentPanel.OnRightClickEvent += EquipmentPanelRightClick;
@@ -316,10 +329,26 @@ public class InventoryController : MonoBehaviour
 
 		FoxlairEventManager.Instance.DropItemArea_OnDrop_Event += DropItemOutsideUI;
 	}
-    private void FindPlayerCharacter()
-    {
-        if (PlayerCharacter != null) return;
 
-		PlayerCharacter = GameObject.FindWithTag("Player").GetComponent<PlayerCharacter>();
-    }
+	private void UnsubscribeFromEvents()
+	{
+		Inventory.OnRightClickEvent -= InventoryRightClick;
+		EquipmentPanel.OnRightClickEvent -= EquipmentPanelRightClick;
+
+		// Pointer Enter
+		FoxlairEventManager.Instance.Inventory_OnPointerEnter_Event -= ShowTooltip;
+		// Pointer Exit
+		FoxlairEventManager.Instance.Inventory_OnPointerExit_Event -= HideTooltip;
+		// Begin Drag
+		FoxlairEventManager.Instance.Inventory_OnBeginDrag_Event -= BeginDrag;
+		// End Drag
+		FoxlairEventManager.Instance.Inventory_OnEndDrag_Event -= EndDrag;
+		// Drag
+		FoxlairEventManager.Instance.Inventory_OnDrag_Event -= Drag;
+		// Drop
+		FoxlairEventManager.Instance.Inventory_OnDrop_Event -= Drop;
+
+		FoxlairEventManager.Instance.DropItemArea_OnDrop_Event -= DropItemOutsideUI;
+	}
+    #endregion
 }
