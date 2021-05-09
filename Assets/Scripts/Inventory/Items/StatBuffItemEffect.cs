@@ -2,7 +2,7 @@
 using UnityEngine;
 using Foxlair.CharacterStats;
 
-[CreateAssetMenu(menuName = "Item Effects/Stat Buff")]
+[CreateAssetMenu(menuName = "Foxlair/Inventory/Item Effects/Stat Buff")]
 public class StatBuffItemEffect : UsableItemEffect
 {
 	public int AgilityBuff;

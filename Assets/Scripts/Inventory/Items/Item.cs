@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(menuName = "Items/Item")]
+[CreateAssetMenu(menuName = "Foxlair/Inventory/Items/Item")]
 public class Item : ScriptableObject
 {
 	[SerializeField] string id;

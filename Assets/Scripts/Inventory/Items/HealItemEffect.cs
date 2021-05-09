@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item Effects/Heal")]
+[CreateAssetMenu(menuName = "Foxlair/Inventory/Item Effects/Heal")]
 public class HealItemEffect : UsableItemEffect
 {
 	public int HealAmount;

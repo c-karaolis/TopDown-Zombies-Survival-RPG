@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Items/Usable Item")]
+[CreateAssetMenu(menuName = "Foxlair/Inventory/Items/Usable Item")]
 public class UsableItem : Item
 {
 	public bool IsConsumable;

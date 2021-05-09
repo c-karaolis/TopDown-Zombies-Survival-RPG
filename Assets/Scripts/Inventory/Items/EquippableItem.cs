@@ -13,7 +13,7 @@ public enum EquipmentType
 	Accessory2,
 }
 
-[CreateAssetMenu(menuName = "Items/Equippable Item")]
+[CreateAssetMenu(menuName = "Foxlair/Inventory/Items/Equippable Item")]
 public class EquippableItem : Item
 {
 	public int StrengthBonus;
@@ -27,6 +27,8 @@ public class EquippableItem : Item
 	public float VitalityPercentBonus;
 	[Space]
 	public EquipmentType EquipmentType;
+	[Space]
+	public GameObject PhysicalItemPrefab;
 
 	public override Item GetCopy()
 	{
