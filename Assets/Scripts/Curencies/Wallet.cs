@@ -25,9 +25,9 @@ namespace Foxlair.Currencies
         {
             _coins = new Currency();
             _platinumBars = new PremiumCurrency();
-            FoxlairEventManager.Instance.OnCurrencyChanged += UpdateCurrencyText;
+            FoxlairEventManager.Instance.Currency_OnCurrencyChanged_Event += UpdateCurrencyText;
 
-            FoxlairEventManager.Instance.onCurrencyChanged();
+            FoxlairEventManager.Instance.Currency_OnCurrencyChanged_Event?.Invoke();
         }
 
         public Currency Currency { get { return _coins; }  }
@@ -40,7 +40,7 @@ namespace Foxlair.Currencies
 
         private void OnDisable()
         {
-            FoxlairEventManager.Instance.OnCurrencyChanged -= UpdateCurrencyText;
+            FoxlairEventManager.Instance.Currency_OnCurrencyChanged_Event -= UpdateCurrencyText;
         }
 
         private void UpdateCurrencyText()

@@ -25,7 +25,7 @@ public class Currency
             {
                 coins = value;
             }
-            FoxlairEventManager.Instance.onCurrencyChanged();
+            FoxlairEventManager.Instance.Currency_OnCurrencyChanged_Event?.Invoke();
 
         }
     }
