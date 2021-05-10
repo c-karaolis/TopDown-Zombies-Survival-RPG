@@ -34,13 +34,13 @@ public class ItemDatabase : ScriptableObject
 
 	private void OnEnable()
 	{
-		EditorApplication.projectWindowChanged -= LoadItems;
-		EditorApplication.projectWindowChanged += LoadItems;
+		EditorApplication.projectChanged -= LoadItems;
+		EditorApplication.projectChanged += LoadItems;
 	}
 
 	private void OnDisable()
 	{
-		EditorApplication.projectWindowChanged -= LoadItems;
+		EditorApplication.projectChanged -= LoadItems;
 	}
 
 	private void LoadItems()

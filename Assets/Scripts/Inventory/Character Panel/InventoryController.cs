@@ -9,12 +9,6 @@ public class InventoryController : MonoBehaviour
 {
 	public int Health = 50;
 
-	[Header("Stats")]
-	public CharacterStat Strength;
-	public CharacterStat Agility;
-	public CharacterStat Intelligence;
-	public CharacterStat Vitality;
-
 	[Header("Public")]
 	public Inventory Inventory;
 	public EquipmentPanel EquipmentPanel;
