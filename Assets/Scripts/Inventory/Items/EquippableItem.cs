@@ -19,22 +19,6 @@ public enum EquipmentType
 [CreateAssetMenu(menuName = "Foxlair/Inventory/Items/Equippable Item")]
 public class EquippableItem : Item
 {
-    public int StrengthBonus;
-    public int AgilityBonus;
-    public int IntelligenceBonus;
-    public int VitalityBonus;
-    public int PerceptionBonus;
-    public int LuckBonus;
-    public int CharismaBonus;
-    [Space]
-    public float StrengthPercentBonus;
-    public float AgilityPercentBonus;
-    public float IntelligencePercentBonus;
-    public float VitalityPercentBonus;
-    public int PerceptionPercentBonus;
-    public int LuckPercentBonus;
-    public int CharismaPercentBonus;
-    [Space]
     public EquipmentType EquipmentType;
     [Space]
     public GameObject PhysicalItemPrefab;
@@ -66,7 +50,7 @@ public class EquippableItem : Item
         foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in character.CharacterAttributes)
         {
             attribute.Value.RemoveAllModifiersFromSource(this);
-            Debug.Log($"Removing all mods from {attribute.Value.Name} related to item: {this.name}");
+            //Debug.Log($"Removing all mods from {attribute.Value.Name} related to item: {this.name}");
         }
     }
 
