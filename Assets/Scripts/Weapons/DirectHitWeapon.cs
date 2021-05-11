@@ -21,7 +21,7 @@ namespace Foxlair.Weapons
             }
             else
             {
-                Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
+                //Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
             }
 
             HandleWeaponDurability();

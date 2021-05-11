@@ -42,13 +42,12 @@ public class EquippableItem : Item
 
     public void Equip(PlayerCharacter character)
     {
-        FoxlairEventManager.Instance.Player_OnItemEquipped_Event(this);
+        FoxlairEventManager.Instance.Player_OnItemEquipped_Event?.Invoke(this);
 
         foreach (AttributeModifier attributeModifier in attributeModifiers)
         {
             CharacterAttribute characterStat = character.CharacterAttributes[attributeModifier.AttributeType];
             AttributeModifier statModifier = new AttributeModifier(attributeModifier.Value, attributeModifier.Type, this);
-            Debug.Log($"Adding mod: +{statModifier.Value} {attributeModifier.AttributeType} to character attribute: {characterStat.Name}");
             characterStat.AddModifier(statModifier);
         }
 
@@ -64,12 +63,11 @@ public class EquippableItem : Item
 
     public void Unequip(PlayerCharacter character)
     {
-        FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event(this);
+        FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event?.Invoke(this);
 
         foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in character.CharacterAttributes)
         {
             attribute.Value.RemoveAllModifiersFromSource(this);
-            //Debug.Log($"Removing all mods from {attribute.Value.Name} related to item: {this.name}");
         }
 
         if (PhysicalItemPrefab != null)
