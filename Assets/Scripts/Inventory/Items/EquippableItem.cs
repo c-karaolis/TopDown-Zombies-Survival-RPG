@@ -2,6 +2,8 @@
 using Foxlair.CharacterStats;
 using System.Collections.Generic;
 using Foxlair.Character;
+using Foxlair.Weapons;
+using Foxlair.Tools.Events;
 
 public enum EquipmentType
 {
@@ -22,7 +24,11 @@ public class EquippableItem : Item
     public EquipmentType EquipmentType;
     [Space]
     public GameObject PhysicalItemPrefab;
+    public GameObject InstanceOfPhysicalItemPrefab;
     public List<AttributeModifier> attributeModifiers;
+
+    private float durability;
+    private string EquipID;
 
     public override Item GetCopy()
     {
@@ -36,6 +42,8 @@ public class EquippableItem : Item
 
     public void Equip(PlayerCharacter character)
     {
+        FoxlairEventManager.Instance.Player_OnItemEquipped_Event(this);
+
         foreach (AttributeModifier attributeModifier in attributeModifiers)
         {
             CharacterAttribute characterStat = character.CharacterAttributes[attributeModifier.AttributeType];
@@ -43,14 +51,30 @@ public class EquippableItem : Item
             Debug.Log($"Adding mod: +{statModifier.Value} {attributeModifier.AttributeType} to character attribute: {characterStat.Name}");
             characterStat.AddModifier(statModifier);
         }
+
+        if(PhysicalItemPrefab != null)
+        {
+            InstanceOfPhysicalItemPrefab = Instantiate(PhysicalItemPrefab, character.weaponEquipPoint.transform);
+            if(this.EquipmentType == EquipmentType.Weapon)
+            {
+                InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability = durability;
+            }
+        }
     }
 
     public void Unequip(PlayerCharacter character)
     {
+        FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event(this);
+
         foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in character.CharacterAttributes)
         {
             attribute.Value.RemoveAllModifiersFromSource(this);
             //Debug.Log($"Removing all mods from {attribute.Value.Name} related to item: {this.name}");
+        }
+
+        if (PhysicalItemPrefab != null)
+        {
+            Destroy(InstanceOfPhysicalItemPrefab, 0.1f);
         }
     }
 

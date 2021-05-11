@@ -17,6 +17,9 @@ namespace Foxlair.Tools.Events
         public Action<BaseItemSlot> Inventory_OnDrop_Event;
         #endregion
 
+        public Action<EquippableItem> Player_OnItemEquipped_Event;
+        public Action<EquippableItem> Player_OnItemUnEquipped_Event;
+
         #region DropItemArea Events
         public Action DropItemArea_OnDrop_Event;
         #endregion

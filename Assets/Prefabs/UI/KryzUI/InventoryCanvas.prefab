@@ -2060,7 +2060,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 982c717cca1da3247aa21b9c589e08e5, type: 2}
   - {fileID: 11400000, guid: da672e07b97ec4a40bc1cd67fb60bbd7, type: 2}
   itemsParent: {fileID: 3214269839694763517}
-  PlayerCharacter: {fileID: 0}
 --- !u!1 &3422844703018234587
 GameObject:
   m_ObjectHideFlags: 0

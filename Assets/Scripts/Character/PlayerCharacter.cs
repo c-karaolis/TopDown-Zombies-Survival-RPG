@@ -22,8 +22,12 @@ namespace Foxlair.Character
         public InventoryController InventoryController;
         public Inventory Inventory;
 
+        public GameObject weaponEquipPoint;
+
         //public CharacterAttribute[] CharacterAttributes;
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
+
+
         private void Awake()
         {
             InitializeAttributesDictionary();
