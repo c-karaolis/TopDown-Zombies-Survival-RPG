@@ -26,12 +26,12 @@ public class ItemSaveManager : MonoBehaviour
             }
             else
             {
-                int durability = savedSlot.Durability;
+                int itemDurability = savedSlot.Durability;
                 itemSlot.Item = itemDatabase.GetItemCopy(savedSlot.ItemID);
 
-                if (durability != 0)
+                if (itemDurability != 0)
                 {
-                    (itemSlot.Item as EquippableItem).durability = durability;
+                    (itemSlot.Item as EquippableItem).durability = itemDurability;
                     (itemSlot.Item as EquippableItem).isDirty = true;
                 }
                 itemSlot.Amount = savedSlot.Amount;
@@ -50,8 +50,15 @@ public class ItemSaveManager : MonoBehaviour
             {
                 continue;
             }
-
+            int itemDurability = savedSlot.Durability;
             Item item = itemDatabase.GetItemCopy(savedSlot.ItemID);
+
+            if (itemDurability != 0)
+            {
+                (item as EquippableItem).durability = itemDurability;
+                (item as EquippableItem).isDirty = true;
+            }
+
             character.Inventory.AddItem(item);
             character.Equip((EquippableItem)item);
         }
