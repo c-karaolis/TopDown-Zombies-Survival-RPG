@@ -43,7 +43,6 @@ public class EquippableItem : Item
 
     public void Equip(PlayerCharacter character)
     {
-        FoxlairEventManager.Instance.Player_OnItemEquipped_Event?.Invoke(this);
 
         foreach (AttributeModifier attributeModifier in attributeModifiers)
         {
@@ -68,11 +67,12 @@ public class EquippableItem : Item
 
         }
         isDirty = true;
+        FoxlairEventManager.Instance.Player_OnItemEquipped_Event?.Invoke(this);
+
     }
 
     public void Unequip(PlayerCharacter character)
     {
-        FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event?.Invoke(this);
 
         foreach (KeyValuePair<AttributeType, CharacterAttribute> attribute in character.CharacterAttributes)
         {
@@ -83,6 +83,8 @@ public class EquippableItem : Item
         {
             Destroy(InstanceOfPhysicalItemPrefab, 0.1f);
         }
+        FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event?.Invoke(this);
+
     }
 
     public override string GetItemType()

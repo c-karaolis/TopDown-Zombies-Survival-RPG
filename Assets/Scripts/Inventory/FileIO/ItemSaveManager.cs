@@ -90,7 +90,6 @@ public class ItemSaveManager : MonoBehaviour
             {
                 if (itemSlot.Item is EquippableItem)
                 {
-                    Debug.Log($"Saving item {itemSlot.Item.name} with durability {(itemSlot.Item as EquippableItem).durability}");
                     saveData.SavedSlots[i] = new ItemSlotSaveData(itemSlot.Item.ID, itemSlot.Amount, (itemSlot.Item as EquippableItem).durability);
                 }
                 else

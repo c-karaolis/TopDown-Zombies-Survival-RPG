@@ -2,6 +2,7 @@
 using Foxlair.Character.Targeting;
 using Foxlair.Enemies;
 using Foxlair.PlayerInput;
+using Foxlair.Tools.Events;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -101,15 +102,14 @@ namespace Foxlair.Weapons
 
         public virtual void HandleWeaponDurability()
         {
-            durability -= durabilityLossPerShot;
-            InventoryItemInstance.durability = durability;
 
-            Debug.Log($"Durability: {durability} . Item durability: {InventoryItemInstance.durability}");
             if ((durability -= durabilityLossPerShot) <= 0)
             {
                 Debug.Log("Durability Depleted");
                 DestroyWeapon();
             }
+            InventoryItemInstance.durability = durability;
+
         }
 
         private void DestroyWeapon()
@@ -121,7 +121,9 @@ namespace Foxlair.Weapons
             BaseItemSlot slotToRemove = playerCharacter.InventoryController.GetEquipmentSlotByType(InventoryItemInstance.EquipmentType);
             if (slotToRemove != null)
             {
+
                 playerCharacter.InventoryController.DestroyItemInSlot(slotToRemove);
+                FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
             }
             Destroy(this.gameObject, 0.3f);
 
