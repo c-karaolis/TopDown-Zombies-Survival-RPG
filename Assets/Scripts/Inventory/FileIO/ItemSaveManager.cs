@@ -3,77 +3,96 @@ using UnityEngine;
 
 public class ItemSaveManager : MonoBehaviour
 {
-	[SerializeField] ItemDatabase itemDatabase;
+    [SerializeField] ItemDatabase itemDatabase;
 
-	private const string InventoryFileName = "Inventory";
-	private const string EquipmentFileName = "Equipment";
+    private const string InventoryFileName = "Inventory";
+    private const string EquipmentFileName = "Equipment";
 
-	public void LoadInventory(InventoryController character)
-	{
-		ItemContainerSaveData savedSlots = ItemSaveIO.LoadItems(InventoryFileName);
-		if (savedSlots == null) return;
-		character.Inventory.Clear();
+    public void LoadInventory(InventoryController character)
+    {
+        ItemContainerSaveData savedSlots = ItemSaveIO.LoadItems(InventoryFileName);
+        if (savedSlots == null) return;
+        character.Inventory.Clear();
 
-		for (int i = 0; i < savedSlots.SavedSlots.Length; i++)
-		{
-			ItemSlot itemSlot = character.Inventory.ItemSlots[i];
-			ItemSlotSaveData savedSlot = savedSlots.SavedSlots[i];
+        for (int i = 0; i < savedSlots.SavedSlots.Length; i++)
+        {
+            ItemSlot itemSlot = character.Inventory.ItemSlots[i];
+            ItemSlotSaveData savedSlot = savedSlots.SavedSlots[i];
 
-			if (savedSlot == null)
-			{
-				itemSlot.Item = null;
-				itemSlot.Amount = 0;
-			}
-			else
-			{
-				itemSlot.Item = itemDatabase.GetItemCopy(savedSlot.ItemID);
-				itemSlot.Amount = savedSlot.Amount;
-			}
-		}
-	}
+            if (savedSlot == null)
+            {
+                itemSlot.Item = null;
+                itemSlot.Amount = 0;
+            }
+            else
+            {
+                int durability = savedSlot.Durability;
+                itemSlot.Item = itemDatabase.GetItemCopy(savedSlot.ItemID);
 
-	public void LoadEquipment(InventoryController character)
-	{
-		ItemContainerSaveData savedSlots = ItemSaveIO.LoadItems(EquipmentFileName);
-		if (savedSlots == null) return;
+                if (durability != 0)
+                {
+                    (itemSlot.Item as EquippableItem).durability = durability;
+                    (itemSlot.Item as EquippableItem).isDirty = true;
+                }
+                itemSlot.Amount = savedSlot.Amount;
+            }
+        }
+    }
 
-		foreach (ItemSlotSaveData savedSlot in savedSlots.SavedSlots)
-		{
-			if (savedSlot == null) {
-				continue;
-			}
+    public void LoadEquipment(InventoryController character)
+    {
+        ItemContainerSaveData savedSlots = ItemSaveIO.LoadItems(EquipmentFileName);
+        if (savedSlots == null) return;
 
-			Item item = itemDatabase.GetItemCopy(savedSlot.ItemID);
-			character.Inventory.AddItem(item);
-			character.Equip((EquippableItem)item);
-		}
-	}
+        foreach (ItemSlotSaveData savedSlot in savedSlots.SavedSlots)
+        {
+            if (savedSlot == null)
+            {
+                continue;
+            }
 
-	public void SaveInventory(InventoryController character)
-	{
-		SaveItems(character.Inventory.ItemSlots, InventoryFileName);
-	}
+            Item item = itemDatabase.GetItemCopy(savedSlot.ItemID);
+            character.Inventory.AddItem(item);
+            character.Equip((EquippableItem)item);
+        }
+    }
 
-	public void SaveEquipment(InventoryController character)
-	{
-		SaveItems(character.EquipmentPanel.EquipmentSlots, EquipmentFileName);
-	}
+    public void SaveInventory(InventoryController character)
+    {
+        SaveItems(character.Inventory.ItemSlots, InventoryFileName);
+    }
 
-	private void SaveItems(IList<ItemSlot> itemSlots, string fileName)
-	{
-		var saveData = new ItemContainerSaveData(itemSlots.Count);
+    public void SaveEquipment(InventoryController character)
+    {
+        SaveItems(character.EquipmentPanel.EquipmentSlots, EquipmentFileName);
+    }
 
-		for (int i = 0; i < saveData.SavedSlots.Length; i++)
-		{
-			ItemSlot itemSlot = itemSlots[i];
+    private void SaveItems(IList<ItemSlot> itemSlots, string fileName)
+    {
+        var saveData = new ItemContainerSaveData(itemSlots.Count);
 
-			if (itemSlot.Item == null) {
-				saveData.SavedSlots[i] = null;
-			} else {
-				saveData.SavedSlots[i] = new ItemSlotSaveData(itemSlot.Item.ID, itemSlot.Amount);
-			}
-		}
+        for (int i = 0; i < saveData.SavedSlots.Length; i++)
+        {
+            ItemSlot itemSlot = itemSlots[i];
 
-		ItemSaveIO.SaveItems(saveData, fileName);
-	}
+            if (itemSlot.Item == null)
+            {
+                saveData.SavedSlots[i] = null;
+            }
+            else
+            {
+                if (itemSlot.Item is EquippableItem)
+                {
+                    Debug.Log($"Saving item {itemSlot.Item.name} with durability {(itemSlot.Item as EquippableItem).durability}");
+                    saveData.SavedSlots[i] = new ItemSlotSaveData(itemSlot.Item.ID, itemSlot.Amount, (itemSlot.Item as EquippableItem).durability);
+                }
+                else
+                {
+                    saveData.SavedSlots[i] = new ItemSlotSaveData(itemSlot.Item.ID, itemSlot.Amount);
+                }
+            }
+        }
+
+        ItemSaveIO.SaveItems(saveData, fileName);
+    }
 }

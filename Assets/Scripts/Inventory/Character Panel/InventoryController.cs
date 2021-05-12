@@ -62,6 +62,23 @@ public class InventoryController : MonoBehaviour
 		UnsubscribeFromEvents();
 
 	}
+	public void Save()
+    {
+		if (itemSaveManager != null)
+		{
+			itemSaveManager.SaveEquipment(this);
+			itemSaveManager.SaveInventory(this);
+		}
+
+	}
+	public void Load()
+	{
+		if (itemSaveManager != null)
+		{
+			itemSaveManager.LoadEquipment(this);
+			itemSaveManager.LoadInventory(this);
+		}
+	}
 
 	private void InventoryRightClick(BaseItemSlot itemSlot)
 	{
@@ -172,7 +189,7 @@ public class InventoryController : MonoBehaviour
 		reallyDropItemDialog.OnYesEvent += () => DestroyItemInSlot(slot);
 	}
 
-	private void DestroyItemInSlot(BaseItemSlot itemSlot)
+	public void DestroyItemInSlot(BaseItemSlot itemSlot)
 	{
 		// If the item is equiped, unequip first
 		if (itemSlot is EquipmentSlot)
@@ -184,6 +201,18 @@ public class InventoryController : MonoBehaviour
 		itemSlot.Item.Destroy();
 		itemSlot.Item = null;
 	}
+
+	public BaseItemSlot GetEquipmentSlotByType(EquipmentType equipmentType)
+    {
+		for (int i = 0; i < EquipmentPanel.EquipmentSlots.Length; i++)
+        {
+			if (EquipmentPanel.EquipmentSlots[i].EquipmentType == equipmentType)
+            {
+				return EquipmentPanel.EquipmentSlots[i];
+			}
+        }
+		return null;
+    }
 
 	public void Equip(EquippableItem item)
 	{

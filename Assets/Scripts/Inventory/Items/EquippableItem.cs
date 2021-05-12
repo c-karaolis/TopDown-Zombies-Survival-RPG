@@ -24,11 +24,12 @@ public class EquippableItem : Item
     public EquipmentType EquipmentType;
     [Space]
     public GameObject PhysicalItemPrefab;
-    public GameObject InstanceOfPhysicalItemPrefab;
+    public GameObject InstanceOfPhysicalItemPrefab = null;
     public List<AttributeModifier> attributeModifiers;
 
-    private float durability;
+    public int durability ;
     private string EquipID;
+    public bool isDirty=false;
 
     public override Item GetCopy()
     {
@@ -51,14 +52,22 @@ public class EquippableItem : Item
             characterStat.AddModifier(statModifier);
         }
 
-        if(PhysicalItemPrefab != null)
+        if (PhysicalItemPrefab != null)
         {
             InstanceOfPhysicalItemPrefab = Instantiate(PhysicalItemPrefab, character.weaponEquipPoint.transform);
-            if(this.EquipmentType == EquipmentType.Weapon)
+            if (isDirty)
             {
                 InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability = durability;
             }
+            else
+            {
+                durability = InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability;
+            }
+
+            InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().InventoryItemInstance = this;
+
         }
+        isDirty = true;
     }
 
     public void Unequip(PlayerCharacter character)
@@ -95,7 +104,7 @@ public class EquippableItem : Item
                 AddStat(attributeModifier.Value, attributeModifier.AttributeType.ToString(), true);
             }
         }
-
+        AddStat(durability, "Dura");
         return sb.ToString();
     }
 

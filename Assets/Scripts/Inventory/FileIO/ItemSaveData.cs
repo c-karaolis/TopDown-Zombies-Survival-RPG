@@ -5,11 +5,12 @@ public class ItemSlotSaveData
 {
 	public string ItemID;
 	public int Amount;
-
-	public ItemSlotSaveData(string id, int amount)
+	public int Durability;
+	public ItemSlotSaveData(string id, int amount, int durability = 0)
 	{
 		ItemID = id;
 		Amount = amount;
+		Durability = durability;
 	}
 }
 

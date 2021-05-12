@@ -2101,6 +2101,50 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 394168270}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1616023984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616023986}
+  - component: {fileID: 1616023985}
+  m_Layer: 0
+  m_Name: Item Save Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1616023985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616023984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4921ca4f8c24540aedd631bd86b506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 11400000, guid: 24e38648973d2ff40ba6d0f2f885568a, type: 2}
+--- !u!4 &1616023986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616023984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 426.70178, y: 469.81873, z: -286.1365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676095505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,6 +2375,11 @@ PrefabInstance:
       propertyPath: PlayerCharacter
       value: 
       objectReference: {fileID: 332921858}
+    - target: {fileID: 218956038988595261, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: itemSaveManager
+      value: 
+      objectReference: {fileID: 1616023985}
     - target: {fileID: 2609047662729559197, guid: 4956360da2c713c4ba0a8b75398b1b92,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4446,6 +4495,28 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3320024307471238359, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a83e6742d332aec4591cec7b23ce9930,
+        type: 3}
+    - target: {fileID: 3320024307471238359, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320266471575358441, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a83e6742d332aec4591cec7b23ce9930,
+        type: 3}
+    - target: {fileID: 3320266471575358441, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3424440536598763840, guid: 4956360da2c713c4ba0a8b75398b1b92,
         type: 3}
       propertyPath: m_Name
@@ -4591,6 +4662,23 @@ PrefabInstance:
       propertyPath: PlayerCharacter
       value: 
       objectReference: {fileID: 332921858}
+    - target: {fileID: 7106982457539653893, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: startingItems.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106982457539653893, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: startingItems.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: da672e07b97ec4a40bc1cd67fb60bbd7,
+        type: 2}
+    - target: {fileID: 7106982457539653893, guid: 4956360da2c713c4ba0a8b75398b1b92,
+        type: 3}
+      propertyPath: startingItems.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: da672e07b97ec4a40bc1cd67fb60bbd7,
+        type: 2}
     - target: {fileID: 8150291881460019848, guid: 4956360da2c713c4ba0a8b75398b1b92,
         type: 3}
       propertyPath: m_AnchorMax.y

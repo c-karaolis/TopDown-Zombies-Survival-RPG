@@ -16,15 +16,16 @@ namespace Foxlair.Weapons
         public float weaponDamage;
         public float armorPenetration;
 
-        public float durability = 10f;
-        protected float durabilityLossPerShot = 1f;
+        public int durability = 10;
+        protected int durabilityLossPerShot = 1;
 
         public bool isCoolingDown;
 
         public AudioSource weaponAudioSource;
         public AudioClip attackSoundEffect;
 
-        public float fireRate = 0.25f;
+        public float fireRate = 0.3f;
+        public EquippableItem InventoryItemInstance;
         public float weaponRange = 50f;
         public float nextFire;
         public float weaponAttackDuration = 0.07f;
@@ -86,7 +87,7 @@ namespace Foxlair.Weapons
             //StartCoroutine(AttackEffect());
             PlayerManager.Instance.PlayerTargetEnemy.Damage(weaponDamage);
 
-            durability -= durabilityLossPerShot;
+            HandleWeaponDurability();
 
         }
 
@@ -100,6 +101,10 @@ namespace Foxlair.Weapons
 
         public virtual void HandleWeaponDurability()
         {
+            durability -= durabilityLossPerShot;
+            InventoryItemInstance.durability = durability;
+
+            Debug.Log($"Durability: {durability} . Item durability: {InventoryItemInstance.durability}");
             if ((durability -= durabilityLossPerShot) <= 0)
             {
                 Debug.Log("Durability Depleted");
@@ -113,8 +118,13 @@ namespace Foxlair.Weapons
             //playerCharacter.Inventory.GetItemCollection(ItemCollectionPurpose.Equipped).RemoveItem(equippedItemInfo);
 
             //playerCharacter.Inventory.RemoveItem(equippedItemInfo);
-
+            BaseItemSlot slotToRemove = playerCharacter.InventoryController.GetEquipmentSlotByType(InventoryItemInstance.EquipmentType);
+            if (slotToRemove != null)
+            {
+                playerCharacter.InventoryController.DestroyItemInSlot(slotToRemove);
+            }
             Destroy(this.gameObject, 0.3f);
+
         }
     }
 }
