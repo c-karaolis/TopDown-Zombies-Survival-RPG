@@ -24,14 +24,20 @@ public class InventoryController : MonoBehaviour
 	[SerializeField] ItemSaveManager itemSaveManager;
 
 	private BaseItemSlot dragItemSlot;
-
+	public Item TestItem;
 	private void OnValidate()
 	{
 		if (itemTooltip == null)
 			itemTooltip = FindObjectOfType<ItemTooltip>();
 	}
-
-	private void Awake()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+			Inventory.AddItem(Instantiate(TestItem));
+        }
+    }
+    private void Awake()
 	{
 		FindPlayerCharacter();
 		PlayerCharacter.Inventory = Inventory;
@@ -191,11 +197,15 @@ public class InventoryController : MonoBehaviour
 
 	public void DestroyItemInSlot(BaseItemSlot itemSlot)
 	{
+		if (itemSlot == null || itemSlot.Item == null) return;
 		// If the item is equiped, unequip first
 		if (itemSlot is EquipmentSlot)
 		{
 			EquippableItem equippableItem = (EquippableItem)itemSlot.Item;
-			equippableItem.Unequip(PlayerCharacter);
+			if(equippableItem != null)
+			{
+				equippableItem.Unequip(PlayerCharacter);
+			}
 		}
 
 		itemSlot.Item.Destroy();

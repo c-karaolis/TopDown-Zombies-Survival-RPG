@@ -19,6 +19,7 @@ MonoBehaviour:
   EquipmentType: 5
   PhysicalItemPrefab: {fileID: 7606752143854573306, guid: 9eb38858b3a1f9d46886c66922c240aa,
     type: 3}
+  InstanceOfPhysicalItemPrefab: {fileID: 0}
   attributeModifiers:
   - Value: 15
     Type: 100
@@ -32,3 +33,5 @@ MonoBehaviour:
     Type: 300
     Order: 100
     AttributeType: 5
+  durability: 200
+  isDirty: 0

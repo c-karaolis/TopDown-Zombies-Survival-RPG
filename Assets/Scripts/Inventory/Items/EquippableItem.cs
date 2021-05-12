@@ -27,7 +27,7 @@ public class EquippableItem : Item
     public GameObject InstanceOfPhysicalItemPrefab = null;
     public List<AttributeModifier> attributeModifiers;
 
-    public int durability ;
+    public int durability = 40;
     private string EquipID;
     public bool isDirty=false;
 
@@ -39,6 +39,7 @@ public class EquippableItem : Item
     public override void Destroy()
     {
         Destroy(this);
+        //DestroyImmediate(this,t);
     }
 
     public void Equip(PlayerCharacter character)
@@ -56,10 +57,13 @@ public class EquippableItem : Item
             InstanceOfPhysicalItemPrefab = Instantiate(PhysicalItemPrefab, character.weaponEquipPoint.transform);
             if (isDirty)
             {
+                Debug.Log($"Item {this.name} was dirty.");
+                Debug.Log($"Durability of physical is {InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability}.");
                 InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability = durability;
             }
             else
             {
+                Debug.Log($"Item {this.name} was clean.");
                 durability = InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability;
             }
 
@@ -67,8 +71,6 @@ public class EquippableItem : Item
 
         }
         isDirty = true;
-        FoxlairEventManager.Instance.Player_OnItemEquipped_Event?.Invoke(this);
-
     }
 
     public void Unequip(PlayerCharacter character)
@@ -83,7 +85,7 @@ public class EquippableItem : Item
         {
             Destroy(InstanceOfPhysicalItemPrefab, 0.1f);
         }
-        FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event?.Invoke(this);
+        //FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event?.Invoke(this);
 
     }
 

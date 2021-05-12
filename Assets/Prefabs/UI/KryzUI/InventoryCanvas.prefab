@@ -23740,6 +23740,7 @@ MonoBehaviour:
   dropItemArea: {fileID: 3424440536386767981}
   reallyDropItemDialog: {fileID: 3424440537220827831}
   itemSaveManager: {fileID: 0}
+  TestItem: {fileID: 0}
 --- !u!1 &4944982561188970539
 GameObject:
   m_ObjectHideFlags: 0
