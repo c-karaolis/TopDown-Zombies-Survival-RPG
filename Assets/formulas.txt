@@ -1,0 +1,28 @@
+Assets/ImportedAssets/Polaris - Low Poly Ecosystem/Polaris - Low Poly Terrain Engine/Samples/Pinwheel Studio/Prefabs/Rock.prefab
+
+
+xp to level formula -> Level * (Level + 9) + (Level / 2)
+
+
+5/(1/5) * (1/100)
+
+- Amazing music/ambience
+- Amazing level desing and lighting.
+- Amazing UI and fonts.
+- Amazing combination of the above and maybe more stuff i cannot pinpoint that creates an atmosphere 
+that gives me an awe-inspiring feeling in my gut. Yes sum this up as AMAZING ATMOSPHERE.
+- Very nice feedback on weapon hits
+- Very nice equipment IK
+
+- Firearm weapon sounds is a bit underwhelming especially compared to the rest of the sounds. Muzzle flashes is also a bit   underwhelming. On the other hand grenades are too loud
+- The thing happening at 4:08 seems very weird like a collider bug or something.
+- Added to inventory text could be better if there is an x after the number? (e.g. 2 x Crude Oil added..) 
+  It might also be better to completely remove the number when its 1 item thats added.
+- Theres something feeling snappy and very "instant" in the player handling and rotation. I do not really know how to     explain this
+- Footsteps are almost inaudible compared to the music and other audio fx(e.g. engine start). 
+- Since you do have footstep sounds correctly depicting the dirt it creates an expectancy that when you jumped on the car 
+  or ran on metal or rock that the footstep sound should change accordingly. Maybe create surfaces and even go the length of   adding an onLanding event to your jump that you play an amplified/louder sound. 
+ 
+
+In general a summary: The game looks amazing and almost done. It just needs some polishing here and there in general aspects
+and a lot of polishing sound wise.
