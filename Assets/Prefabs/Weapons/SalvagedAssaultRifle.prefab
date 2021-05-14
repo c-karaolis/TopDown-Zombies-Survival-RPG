@@ -506,9 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8211fe9e02af80442a6994e072959ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 5
+  weaponDamage: 3
   armorPenetration: 3
-  durability: 20
+  durability: 40
   isCoolingDown: 0
   weaponAudioSource: {fileID: 0}
   attackSoundEffect: {fileID: 8300000, guid: 9e644a0b405b51c4caeeb8858075a974, type: 3}
@@ -519,7 +519,7 @@ MonoBehaviour:
   playerCharacter: {fileID: 0}
   characterTargetingHandler: {fileID: 0}
   input: {fileID: 0}
-  fireRate: 9
+  fireRate: 19
   gunBarrelEnd: {fileID: 3534022744987390148}
   muzzleFlashEffect: {fileID: 1126046646508270, guid: f913bc3b5f93c1d4cac760813a9a6bf1,
     type: 3}
