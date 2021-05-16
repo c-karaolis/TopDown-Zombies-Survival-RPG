@@ -4602,8 +4602,13 @@ PrefabInstance:
     - target: {fileID: 8184126248361491322, guid: 2cde594bbe644d8478cbcad84b8391d8,
         type: 3}
       propertyPath: xpToAdd
-      value: 20
+      value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 8184126248361491322, guid: 2cde594bbe644d8478cbcad84b8391d8,
+        type: 3}
+      propertyPath: levelingSystem
+      value: 
+      objectReference: {fileID: 1448349943}
     - target: {fileID: 8184126248361491322, guid: 2cde594bbe644d8478cbcad84b8391d8,
         type: 3}
       propertyPath: PlayerCharacter
