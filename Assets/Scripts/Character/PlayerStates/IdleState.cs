@@ -28,7 +28,7 @@ namespace Foxlair.Character.States
             {
                 foreach(string testingItem in PlayerManager.Instance.testingItems)
                 {
-                    PlayerManager.Instance.MainPlayerCharacterInventory.AddItem(testingItem, 1);
+                    //PlayerManager.Instance.MainPlayerCharacterInventory.AddItem(testingItem, 1);
                 }
                 
             }

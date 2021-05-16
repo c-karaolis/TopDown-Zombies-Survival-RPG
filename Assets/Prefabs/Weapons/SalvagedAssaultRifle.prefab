@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3534022744987390148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunBarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -30,6 +30,340 @@ Transform:
   m_Father: {fileID: 980275469250937862}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7145498177766852395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7150352231034967197}
+  - component: {fileID: 7159754629153088583}
+  - component: {fileID: 7169241042928351067}
+  m_Layer: 8
+  m_Name: SM_Wep_AssaultRifle_01_Trigger_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7150352231034967197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145498177766852395}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0000000032833332, y: 0.036309786, z: 0.05501834}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7143837122533095351}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7159754629153088583
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145498177766852395}
+  m_Mesh: {fileID: 4300004, guid: 174abc94a5cf6b44992c03a6bf528bee, type: 3}
+--- !u!23 &7169241042928351067
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145498177766852395}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &7146236674364105329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7143837122533095351}
+  - component: {fileID: 7156909371135890307}
+  - component: {fileID: 7167489120609285263}
+  - component: {fileID: 7191771338151907357}
+  m_Layer: 8
+  m_Name: SM_Wep_AssaultRifle_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7143837122533095351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146236674364105329}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.29323912, y: 0.16804017, z: -0.16333583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7144281490368410511}
+  - {fileID: 7150113161566325225}
+  - {fileID: 7150352231034967197}
+  m_Father: {fileID: 980275469250937862}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7156909371135890307
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146236674364105329}
+  m_Mesh: {fileID: 4300000, guid: 174abc94a5cf6b44992c03a6bf528bee, type: 3}
+--- !u!23 &7167489120609285263
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146236674364105329}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!64 &7191771338151907357
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146236674364105329}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 43699194306653770, guid: 5f5046c6433960a4a9fe4aa6edaa5982, type: 2}
+--- !u!1 &7146878368334215547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7150113161566325225}
+  - component: {fileID: 7160585480187751505}
+  - component: {fileID: 7169281719935159303}
+  m_Layer: 8
+  m_Name: SM_Wep_AssaultRifle_01_Slide_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7150113161566325225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146878368334215547}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.019093089, y: 0.105400465, z: 0.18479565}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7143837122533095351}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7160585480187751505
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146878368334215547}
+  m_Mesh: {fileID: 4300006, guid: 174abc94a5cf6b44992c03a6bf528bee, type: 3}
+--- !u!23 &7169281719935159303
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146878368334215547}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &7147176406019304713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7144281490368410511}
+  - component: {fileID: 7159732184820393049}
+  - component: {fileID: 7167649542649410489}
+  m_Layer: 8
+  m_Name: SM_Wep_AssaultRifle_01_Magazine_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7144281490368410511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147176406019304713}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000057001173, y: -0.004625143, z: 0.16781718}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7143837122533095351}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7159732184820393049
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147176406019304713}
+  m_Mesh: {fileID: 4300002, guid: 174abc94a5cf6b44992c03a6bf528bee, type: 3}
+--- !u!23 &7167649542649410489
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147176406019304713}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5bb68a94905ffc0418608fc7e572ea42, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &7606752143854573306
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,9 +375,7 @@ GameObject:
   - component: {fileID: 980275469250937862}
   - component: {fileID: 1561417256517484732}
   - component: {fileID: 5537330097926575888}
-  - component: {fileID: 9117573563654224807}
-  - component: {fileID: -2171683291410719274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SalvagedAssaultRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,8 +389,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7606752143854573306}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.476336, y: -0.16585411, z: 0.22476098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7143837122533095351}
@@ -174,250 +506,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8211fe9e02af80442a6994e072959ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 5
+  weaponDamage: 3
   armorPenetration: 3
-  durability: 20
+  durability: 40
   isCoolingDown: 0
   weaponAudioSource: {fileID: 0}
   attackSoundEffect: {fileID: 8300000, guid: 9e644a0b405b51c4caeeb8858075a974, type: 3}
-  fireRate: 0.3
+  InventoryItemInstance: {fileID: 0}
   weaponRange: 50
   nextFire: 0
   weaponAttackDuration: 0.07
   playerCharacter: {fileID: 0}
   characterTargetingHandler: {fileID: 0}
   input: {fileID: 0}
+  fireRate: 19
   gunBarrelEnd: {fileID: 3534022744987390148}
   muzzleFlashEffect: {fileID: 1126046646508270, guid: f913bc3b5f93c1d4cac760813a9a6bf1,
     type: 3}
---- !u!114 &9117573563654224807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7606752143854573306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec83bdea51e5954a985bcb9403ffacf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ItemInfo:
-    m_ItemAmount:
-      m_Amount: 1
-      m_Item:
-        m_ID: 2683554414
-        m_Name: Salvaged Rifle
-        m_ItemDefinitionID: 372383685
-        m_ItemDefinition: {fileID: 11400000, guid: f96e7e23dbd95ff44b59a1bb95c4d578,
-          type: 2}
-        m_ItemAttributeCollection:
-          m_AttributeCollectionData:
-          - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Opsive.UltimateInventorySystem.Core.DataStructures.ItemAmounts,
-              Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-            m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a6a0d994035481f3faedf32ad
-            m_ValuePositions: 000000000500000006000000060000000a0000000a0000000e0000000e00000012000000
-            m_Values: 536c6f7473000000000076e59f4e00000000
-            m_UnityObjects: []
-            m_Version: 3.1
-          - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[System.Int32,
-              mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-            m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a424b280f861dc27b
-            m_ValuePositions: 000000000600000007000000070000000b0000000b0000000f00000013000000
-            m_Values: 41747461636b000000000070bf4e970000000005000000
-            m_UnityObjects: []
-            m_Version: 3.1
---- !u!114 &-2171683291410719274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7606752143854573306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0708d38c346a482480ce0b677deee438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AttributeBindingsData:
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[UnityEngine.Sprite,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000c00000010000000
-    m_Values: 43617465676f727949636f6effffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[System.Int32,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000b0000000f000000
-    m_Values: 416e696d6174696f6e4944ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[Rarity,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 00000000060000000a000000
-    m_Values: 526172697479ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[UnityEngine.Sprite,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000400000008000000
-    m_Values: 49636f6effffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[System.String,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000b0000000f000000
-    m_Values: 4465736372697074696f6effffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[UnityEngine.GameObject,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000c00000010000000
-    m_Values: 5069636b7570507265666162ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[UnityEngine.GameObject,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000f00000013000000
-    m_Values: 45717569706d656e74507265666162ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[System.Int32,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000a0000000e000000
-    m_Values: 4261736541747461636bffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[System.Int32,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 00000000090000000d000000
-    m_Values: 536c6f74436f756e74ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[Opsive.UltimateInventorySystem.Exchange.CurrencyAmounts,
-      Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 00000000080000000c000000
-    m_Values: 4275795072696365ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[Opsive.UltimateInventorySystem.Exchange.CurrencyAmounts,
-      Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 00000000090000000d000000
-    m_Values: 53656c6c5072696365ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[UnityEngine.GameObject,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000001000000014000000
-    m_Values: 557361626c654974656d507265666162ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[Opsive.UltimateInventorySystem.UI.Item.ItemShape,
-      Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000500000009000000
-    m_Values: 5368617065ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[UnityEngine.Sprite,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 00000000090000000d000000
-    m_Values: 536861706549636f6effffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[Opsive.UltimateInventorySystem.Core.DataStructures.ItemAmounts,
-      Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 000000000500000009000000
-    m_Values: 536c6f7473ffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeBinding`1[[System.Int32,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-    m_ValueHashes: d7e3edd6f5e48b2e1cb0e23c
-    m_ValuePositions: 00000000060000000a000000
-    m_Values: 41747461636bffffffff
-    m_UnityObjects: []
-    m_Version: 3.1
-  m_ItemCategory: {fileID: 11400000, guid: 82cf37f83401b624baf655b090334a18, type: 2}
---- !u!1001 &7145603981068226085
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 980275469250937862}
-    m_Modifications:
-    - target: {fileID: 1900586067242068, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_Name
-      value: SM_Wep_AssaultRifle_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.29323912
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.16804017
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.16333583
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 64181910784515640, guid: ad49a19d2c4adc94b838606a5d459f85,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
---- !u!4 &7143837122533095351 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4023067158591890, guid: ad49a19d2c4adc94b838606a5d459f85,
-    type: 3}
-  m_PrefabInstance: {fileID: 7145603981068226085}
-  m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242e86f6e45bf164db9aa7a9fdc0dae8, type: 3}
+  m_Name: Green Potion
+  m_EditorClassIdentifier: 
+  id: 5e5d47652203e324ab369f6c348ac87f
+  ItemName: Green Potion
+  Icon: {fileID: 21300000, guid: 84c49027aee60dc42b7a94f588fe12c5, type: 3}
+  MaximumStacks: 20
+  IsConsumable: 1
+  Effects:
+  - {fileID: 11400000, guid: aba7d31693c95e4449572794f300a541, type: 2}
+  - {fileID: 11400000, guid: 85e55c932df9ca04f8da5b832a18bc2c, type: 2}

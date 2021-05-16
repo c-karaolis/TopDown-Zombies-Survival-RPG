@@ -1,7 +1,6 @@
 ﻿using Foxlair.Character.Movement;
 using Foxlair.CharacterStats;
 using Foxlair.Weapons;
-using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace Foxlair.Character
 {
     public class PlayerCharacter : Actor
     {
-        public float health = 10f;
+        public float Health = 10f;
 
         [Header("Player Attributes")]
         public CharacterAttribute Strength;
@@ -20,20 +19,29 @@ namespace Foxlair.Character
         public CharacterAttribute Luck;
         public CharacterAttribute Charisma;
 
+        public InventoryController InventoryController;
+        public Inventory Inventory;
+
+        public GameObject weaponEquipPoint;
+
         //public CharacterAttribute[] CharacterAttributes;
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
+
+
+        private void Awake()
+        {
+            InitializeAttributesDictionary();
+        }
         private void Start()
         {
             //CharacterAttributes = new CharacterAttribute[] { Strength, Agility, Intelligence, Vitality, Perception, Luck, Charisma };
-            InitializeAttributesDictionary();
-
             PlayerManager.Instance.MainPlayerCharacter = this;
             PlayerManager.Instance.MainPlayerCharacterMovement = GetComponent<CharacterMovement>();
-            PlayerManager.Instance.MainPlayerCharacterInventory = GetComponent<Inventory>();
+           // PlayerManager.Instance.MainPlayerCharacterInventory = GetComponent<Inventory>();
         }
             
         public Weapon PlayerWeapon => GetComponentInChildren<Weapon>();
-        public Inventory Inventory => GetComponent<Inventory>();
+        //public Inventory Inventory => GetComponent<Inventory>();
 
         public bool InRangeToHarvest()
         {

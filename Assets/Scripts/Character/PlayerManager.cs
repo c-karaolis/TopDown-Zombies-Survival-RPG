@@ -7,7 +7,6 @@ using Foxlair.Harvesting;
 using Foxlair.Tools;
 using Foxlair.Tools.StateMachine;
 using Foxlair.Weapons;
-using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,7 +31,7 @@ namespace Foxlair.Character
         [System.NonSerialized]
         public CharacterTargetingHandler MainPlayerCharacterTargetingHandler;
         [System.NonSerialized]
-        public Inventory MainPlayerCharacterInventory;
+       //public Inventory MainPlayerCharacterInventory;
 
         private Weapon playerEquippedWeapon;
 

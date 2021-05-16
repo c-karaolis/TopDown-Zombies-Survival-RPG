@@ -12,7 +12,8 @@ namespace Foxlair.Weapons
         public override void Attack()
         {
             Debug.Log($"Durability: {durability} , Loss per Shot: {durabilityLossPerShot}");
-            nextFire = Time.time + fireRate;
+            Debug.Log($"FireDelay: {FireDelay}");
+            nextFire = Time.time + FireDelay;
             //PlayerManager.Instance.PlayerTargetEnemy = _characterTargetingHandler.EnemyTarget;
 
             if (!(PlayerManager.Instance.PlayerTargetEnemy == null))
@@ -21,7 +22,7 @@ namespace Foxlair.Weapons
             }
             else
             {
-                Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
+                //Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
             }
 
             HandleWeaponDurability();
