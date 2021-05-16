@@ -4,6 +4,7 @@ using Foxlair.CharacterStats;
 using Foxlair.Tools.Events;
 using Foxlair.Character;
 using System.Linq;
+using Foxlair.Character.LevelingSystem;
 
 public class InventoryController : MonoBehaviour
 {
@@ -24,7 +25,11 @@ public class InventoryController : MonoBehaviour
 	[SerializeField] ItemSaveManager itemSaveManager;
 
 	private BaseItemSlot dragItemSlot;
+
+	[Header("Testing Fields")]
 	public Item TestItem;
+	public LevelingSystem levelingSystem;
+	public int xpToAdd;
 	private void OnValidate()
 	{
 		if (itemTooltip == null)
@@ -35,8 +40,13 @@ public class InventoryController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
 			Inventory.AddItem(Instantiate(TestItem));
+
         }
-    }
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			levelingSystem.AddExperience(xpToAdd);
+		}
+	}
     private void Awake()
 	{
 		FindPlayerCharacter();

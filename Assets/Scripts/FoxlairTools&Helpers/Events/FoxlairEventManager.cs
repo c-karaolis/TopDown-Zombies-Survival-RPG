@@ -15,25 +15,32 @@ namespace Foxlair.Tools.Events
         public Action<BaseItemSlot> Inventory_OnEndDrag_Event;
         public Action<BaseItemSlot> Inventory_OnDrag_Event;
         public Action<BaseItemSlot> Inventory_OnDrop_Event;
-        #endregion
 
         //public Action<EquippableItem> Player_OnItemEquipped_Event;
         //public Action<EquippableItem> Player_OnItemUnEquipped_Event;
 
         public Action Inventory_OnItemsChanged_Event;
+        #endregion
+
+        #region Leveling System
+
+        public Action LevelingSystem_OnExperienceChanged_Event;
+        public Action LevelingSystem_OnLevelChanged_Event;
+
+        #endregion
 
         #region DropItemArea Events
         public Action DropItemArea_OnDrop_Event;
         #endregion
 
         #region EquipmentPanel Events
-        public Action<BaseItemSlot> EquipmentPanel_OnRightClick_Event;
-        public Action<BaseItemSlot> EquipmentPanel_OnPointerEnter_Event;
-        public Action<BaseItemSlot> EquipmentPanel_OnPointerExit_Event;
-        public Action<BaseItemSlot> EquipmentPanel_OnBeginDrag_Event;
-        public Action<BaseItemSlot> EquipmentPanel_OnEndDrag_Event;
-        public Action<BaseItemSlot> EquipmentPanel_OnDrag_Event;
-        public Action<BaseItemSlot> EquipmentPanel_OnDrop_Event;
+        //public Action<BaseItemSlot> EquipmentPanel_OnRightClick_Event;
+        //public Action<BaseItemSlot> EquipmentPanel_OnPointerEnter_Event;
+        //public Action<BaseItemSlot> EquipmentPanel_OnPointerExit_Event;
+        //public Action<BaseItemSlot> EquipmentPanel_OnBeginDrag_Event;
+        //public Action<BaseItemSlot> EquipmentPanel_OnEndDrag_Event;
+        //public Action<BaseItemSlot> EquipmentPanel_OnDrag_Event;
+        //public Action<BaseItemSlot> EquipmentPanel_OnDrop_Event;
         #endregion
 
         #region StatPanel Events
