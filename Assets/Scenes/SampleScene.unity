@@ -2199,12 +2199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e130db4db7916e0489d368993a55d515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentXPtext: {fileID: 1920707854}
-  targetXPtext: {fileID: 1348197356}
-  levelText: {fileID: 1005158891}
+  currentExperienceText: {fileID: 1920707854}
+  targetExperienceText: {fileID: 1348197356}
+  currentLevelText: {fileID: 1005158891}
   currentXP: 0
   targetXP: 100
-  level: 1
+  currentLevel: 1
 --- !u!1 &1616023984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,7 +4602,7 @@ PrefabInstance:
     - target: {fileID: 8184126248361491322, guid: 2cde594bbe644d8478cbcad84b8391d8,
         type: 3}
       propertyPath: xpToAdd
-      value: 1500
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 8184126248361491322, guid: 2cde594bbe644d8478cbcad84b8391d8,
         type: 3}

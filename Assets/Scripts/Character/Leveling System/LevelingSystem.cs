@@ -14,8 +14,6 @@ namespace Foxlair.Character.LevelingSystem
         public int currentXP;
         public int targetXP;
         public int currentLevel = 1;
-        private int experience;
-
 
 
 
@@ -43,9 +41,31 @@ namespace Foxlair.Character.LevelingSystem
 
             while (currentXP >= targetXP)
             {
-                currentXP = currentXP - targetXP;
+                currentXP -= targetXP;
                 LevelUp();
-                targetXP += targetXP / 20;
+                switch (currentLevel)
+                {
+                    case int n when n < 10:
+                        targetXP += (int)Math.Round((float)targetXP * 0.5);
+                        break;
+
+                    case int n when n < 20:
+                        targetXP += (int)Math.Round((float)targetXP * 0.3);
+                        break;
+
+                    case int n when n < 50:
+                        targetXP += (int)Math.Round((float)targetXP * 0.05);
+                        break;
+
+                    case int n when n < 80:
+                        targetXP += (int)Math.Round((float)targetXP * 0.02);
+                        break;
+
+                    default:
+                        targetXP += (int)Math.Round((float)targetXP * 0.002);
+                        break;
+                }
+                //targetXP += (int)Math.Round((float)targetXP * 0.09);
                 FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event?.Invoke();
             }
            
@@ -70,11 +90,9 @@ namespace Foxlair.Character.LevelingSystem
 
         private void RefreshLevelingUI()
         {
-
             currentLevelText.text = currentLevel.ToString();
             currentExperienceText.text = currentXP.ToString();
             targetExperienceText.text = targetXP.ToString();
-
         }
 
 
