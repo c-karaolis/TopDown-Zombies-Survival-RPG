@@ -25,6 +25,7 @@ namespace Foxlair.Tools.Events
         #region Leveling System
 
         public Action LevelingSystem_OnExperienceChanged_Event;
+        public Action<int> LevelingSystem_OnExperienceChangedAmount_Event;
         public Action LevelingSystem_OnLevelChanged_Event;
 
         #endregion

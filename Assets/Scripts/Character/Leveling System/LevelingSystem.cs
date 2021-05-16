@@ -27,7 +27,7 @@ namespace Foxlair.Character.LevelingSystem
 
 
             FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event += RefreshLevelingUI;
-            FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event += FloatingExperienceGainedText;
+            FoxlairEventManager.Instance.LevelingSystem_OnExperienceChangedAmount_Event += FloatingExperienceGainedText;
             FoxlairEventManager.Instance.LevelingSystem_OnLevelChanged_Event += RefreshLevelingUI;
         }
 
@@ -37,7 +37,9 @@ namespace Foxlair.Character.LevelingSystem
         {
 
             currentXP += amount;
+
             FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event?.Invoke();
+            FoxlairEventManager.Instance.LevelingSystem_OnExperienceChangedAmount_Event?.Invoke(amount);
 
             while (currentXP >= targetXP)
             {
@@ -46,19 +48,13 @@ namespace Foxlair.Character.LevelingSystem
                 targetXP += targetXP / 20;
                 FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event?.Invoke();
             }
-
-            
-            // FoxlairEventManager.Instance.LevelingSystem_OnLevelChanged_Event?.Invoke();
-
-            // FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event?.Invoke();
-
+           
         }
 
         private void LevelUp()
         {
             currentLevel++;
-            //TODO: set this in a refresh UI method that also gets invoked through events?
-
+         
             FoxlairEventManager.Instance.LevelingSystem_OnLevelChanged_Event?.Invoke();
         }
 
@@ -67,7 +63,7 @@ namespace Foxlair.Character.LevelingSystem
 
         }
 
-        private void FloatingExperienceGainedText()
+        private void FloatingExperienceGainedText(int xpGained)
         {
 
         }
@@ -85,7 +81,7 @@ namespace Foxlair.Character.LevelingSystem
         private void OnDestroy()
         {
             FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event -= RefreshLevelingUI;
-            FoxlairEventManager.Instance.LevelingSystem_OnExperienceChanged_Event -= FloatingExperienceGainedText;
+            FoxlairEventManager.Instance.LevelingSystem_OnExperienceChangedAmount_Event -= FloatingExperienceGainedText;
             FoxlairEventManager.Instance.LevelingSystem_OnLevelChanged_Event -= RefreshLevelingUI;
         }
     }
