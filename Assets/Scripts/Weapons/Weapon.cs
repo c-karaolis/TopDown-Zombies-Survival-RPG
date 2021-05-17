@@ -120,7 +120,7 @@ namespace Foxlair.Weapons
             //find a way to normalise firerate for humans. e.g. thisfirerate = humanfirerate * (1/100)
             nextFire = Time.time + FireDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
-            //StartCoroutine(AttackEffect());
+            StartCoroutine(AttackEffect());
             PlayerManager.Instance.PlayerTargetEnemy.Damage(weaponDamage);
 
             HandleWeaponDurability();
@@ -148,7 +148,7 @@ namespace Foxlair.Weapons
 
         }
 
-        private void DestroyWeapon()
+        public  virtual void DestroyWeapon()
         {
             BaseItemSlot slotToRemove = playerCharacter.InventoryController.GetEquipmentSlotByType(InventoryItemInstance.EquipmentType);
             if (slotToRemove != null)

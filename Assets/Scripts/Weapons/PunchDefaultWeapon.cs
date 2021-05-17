@@ -8,5 +8,7 @@ namespace Foxlair.Weapons
     {
 
         public override void HandleWeaponDurability() { return; }
+
+        public override void DestroyWeapon() { return; }
     }
 }
