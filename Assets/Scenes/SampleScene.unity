@@ -709,7 +709,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7481468964427829302}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448349940}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c58afbbdd55bd154f9e21aa39e38ee4b, type: 3}
@@ -1027,80 +1027,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &468825815
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 468825816}
-  - component: {fileID: 468825818}
-  m_Layer: 8
-  m_Name: PlayerRenderCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &468825816
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468825815}
-  m_LocalRotation: {x: -0, y: 0.9797645, z: -0, w: -0.2001536}
-  m_LocalPosition: {x: 3.41, y: 0, z: 8.37}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2088238233}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 203.092, z: 0}
---- !u!20 &468825818
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468825815}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 1.47
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 256
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8600000, guid: db2f754bf48aef94e8778ccfc0f59c70, type: 2}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &582801503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1193348567003356, guid: 9f9ddff3c7b21614d9fc2821677a2fb0,
@@ -2093,12 +2019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2be590031df88f46a4f67d7d3eaca37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1127100345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1665639689008592502, guid: ef8797f619d461044a4e82f7a4de2093,
-    type: 3}
-  m_PrefabInstance: {fileID: 7481468964427829302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1229280981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,49 +2421,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 394168270}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1448349940 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7481468962612669614, guid: ef8797f619d461044a4e82f7a4de2093,
+--- !u!114 &1448349943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1448349943, guid: ef8797f619d461044a4e82f7a4de2093,
     type: 3}
   m_PrefabInstance: {fileID: 7481468964427829302}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1448349941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448349940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0daaa2ff0b9d59541be981b7a851b392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacterHealth: 0
-  Hunger: 100
-  HungerRate: 0.1
-  HungerSlider: {fileID: 1077138670}
-  Thirst: 100
-  ThirstRate: 0.3
-  ThirstSlider: {fileID: 324716203}
---- !u!114 &1448349943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448349940}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e130db4db7916e0489d368993a55d515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentExperienceText: {fileID: 1920707854}
-  targetExperienceText: {fileID: 1348197356}
-  currentLevelText: {fileID: 1005158891}
-  currentXP: 0
-  targetXP: 100
-  currentLevel: 1
 --- !u!1 &1616023984
 GameObject:
   m_ObjectHideFlags: 0
@@ -5378,74 +5267,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040061961}
     m_Modifications:
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Inventory
+    - target: {fileID: 1448349941, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: HungerSlider
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Luck.Name
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Agility.Name
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Charisma.Name
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Vitality.Name
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Luck.BaseValue
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Perception.Name
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: weaponEquipPoint
+      objectReference: {fileID: 1077138670}
+    - target: {fileID: 1448349941, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: ThirstSlider
       value: 
-      objectReference: {fileID: 1127100345}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Agility.BaseValue
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Intelligence.Name
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Charisma.BaseValue
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Strength.BaseValue
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Vitality.BaseValue
-      value: 5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 324716203}
+    - target: {fileID: 1448349943, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: currentLevelText
+      value: 
+      objectReference: {fileID: 1005158891}
+    - target: {fileID: 1448349943, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: targetExperienceText
+      value: 
+      objectReference: {fileID: 1348197356}
+    - target: {fileID: 1448349943, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: currentExperienceText
+      value: 
+      objectReference: {fileID: 1920707854}
     - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
       propertyPath: InventoryController
       value: 
       objectReference: {fileID: 1920707852}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Perception.BaseValue
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: Intelligence.BaseValue
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-      propertyPath: CharacterAttributes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: _camera
@@ -5511,14 +5356,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2924057183775083229, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115900, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115901, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115902, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115896, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115895, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115897, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
-    - {fileID: 995115899, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
