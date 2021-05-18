@@ -48,7 +48,7 @@ namespace Foxlair.Character
                     Debug.Log($"found equipped weapon: {MainPlayerCharacter.PlayerWeapon.name}");
                     return MainPlayerCharacter.PlayerWeapon;
                 }
-                else return punchWeapon.GetComponent<Weapon>();
+                else return punchWeapon.GetComponent<PunchDefaultWeapon>();
             }
 
             set

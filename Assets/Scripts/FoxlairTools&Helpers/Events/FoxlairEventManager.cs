@@ -30,6 +30,13 @@ namespace Foxlair.Tools.Events
 
         #endregion
 
+        #region Health System
+
+        public Action HealthSystem_OnHealthChanged_Event;
+        public Action HealthSystem_OnPlayerDeath_Event;
+
+        #endregion
+
         #region DropItemArea Events
         public Action DropItemArea_OnDrop_Event;
         #endregion
