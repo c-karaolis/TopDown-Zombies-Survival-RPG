@@ -11,13 +11,13 @@ namespace Foxlair.Character.SurvivalSystem
         public int playerCharacterHealth;
 
         [Header("Player Hunger")]
-        public const float MaxHunger = 100f;
+        public float MaxHunger = 100f;
         public float Hunger = 0f;
         public float HungerRate;
-        public Image HungerSlider; 
+        public Image HungerSlider;
 
         [Header("Player Thirst")]
-        public const float MaxThirst = 100f;
+        public float MaxThirst = 100f;
         public float Thirst = 0f;
         public float ThirstRate;
         public Image ThirstSlider;

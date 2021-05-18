@@ -5,6 +5,7 @@ using Foxlair.Tools.Events;
 using Foxlair.Character;
 using System.Linq;
 using Foxlair.Character.LevelingSystem;
+using Foxlair.Character.HealthSystem;
 
 public class InventoryController : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class InventoryController : MonoBehaviour
 	public Item TestItem;
 	public LevelingSystem levelingSystem;
 	public int xpToAdd;
+	public HealthSystem PlayerHealthSystem;
 	private void OnValidate()
 	{
 		if (itemTooltip == null)
@@ -45,6 +47,14 @@ public class InventoryController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.L))
 		{
 			levelingSystem.AddExperience(xpToAdd);
+		}
+		if (Input.GetKeyDown(KeyCode.B))
+		{
+			PlayerHealthSystem.TakeDamage(10);
+		}
+		if (Input.GetKeyDown(KeyCode.N))
+		{
+			PlayerHealthSystem.Heal(10);
 		}
 	}
     private void Awake()
