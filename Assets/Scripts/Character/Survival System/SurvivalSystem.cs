@@ -28,6 +28,30 @@ namespace Foxlair.Character.SurvivalSystem
             CalculateThirst();
         }
 
+        public void Eat(float amount)
+        {
+            if (Hunger + amount <= MaxHunger)
+            {
+                Hunger += amount;
+            }
+            else
+            {
+                Hunger = MaxHunger;
+            }
+        }
+
+        public void Drink(float amount)
+        {
+            if (Thirst + amount <= MaxThirst)
+            {
+                Thirst += amount;
+            }
+            else
+            {
+                Thirst = MaxThirst;
+            }
+        }
+
         private void CalculateThirst()
         {
             Thirst -= ThirstRate * Time.deltaTime;
@@ -43,5 +67,6 @@ namespace Foxlair.Character.SurvivalSystem
             if (HungerSlider == null) return;
             HungerSlider.fillAmount = Hunger / MaxHunger;
         }
+
     }
 }

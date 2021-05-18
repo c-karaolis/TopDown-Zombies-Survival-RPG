@@ -2568,6 +2568,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e130db4db7916e0489d368993a55d515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1448349945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1448349945, guid: ef8797f619d461044a4e82f7a4de2093,
+    type: 3}
+  m_PrefabInstance: {fileID: 7481468964427829302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd03dbf6b557b247a7c39f932546fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1616023984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,6 +4994,11 @@ PrefabInstance:
       propertyPath: itemSaveManager
       value: 
       objectReference: {fileID: 1616023985}
+    - target: {fileID: 8184126248361491322, guid: 2cde594bbe644d8478cbcad84b8391d8,
+        type: 3}
+      propertyPath: PlayerHealthSystem
+      value: 
+      objectReference: {fileID: 1448349945}
     - target: {fileID: 8253691027265503775, guid: 2cde594bbe644d8478cbcad84b8391d8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5332,11 +5349,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: c145818bd8989264b9abd02bfd230b1e, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -5497,6 +5514,10 @@ PrefabInstance:
       propertyPath: currentExperienceText
       value: 
       objectReference: {fileID: 1920707854}
+    - target: {fileID: 1448349945, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: HealthBar
+      value: 
+      objectReference: {fileID: 2084860803}
     - target: {fileID: 1633508898, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
       propertyPath: InventoryController
       value: 

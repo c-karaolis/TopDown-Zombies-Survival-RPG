@@ -794,6 +794,7 @@ MonoBehaviour:
   TestItem: {fileID: 11400000, guid: da672e07b97ec4a40bc1cd67fb60bbd7, type: 2}
   levelingSystem: {fileID: 0}
   xpToAdd: 0
+  PlayerHealthSystem: {fileID: 0}
 --- !u!1 &3714561616190622603
 GameObject:
   m_ObjectHideFlags: 0

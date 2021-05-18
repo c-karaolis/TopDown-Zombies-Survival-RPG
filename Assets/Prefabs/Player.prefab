@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 1633508898}
   - component: {fileID: 1448349941}
   - component: {fileID: 1448349943}
+  - component: {fileID: 1448349945}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -608,9 +609,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacterHealth: 0
+  MaxHunger: 100
   Hunger: 100
   HungerRate: 0.1
   HungerSlider: {fileID: 0}
+  MaxThirst: 100
   Thirst: 100
   ThirstRate: 0.3
   ThirstSlider: {fileID: 0}
@@ -632,6 +635,22 @@ MonoBehaviour:
   currentXP: 0
   targetXP: 100
   currentLevel: 1
+--- !u!114 &1448349945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481468962612669614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd03dbf6b557b247a7c39f932546fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  MaxHealth: 0
+  HealthRegeneration: 0
+  HealthBar: {fileID: 0}
 --- !u!1 &7481468963599002950
 GameObject:
   m_ObjectHideFlags: 0
