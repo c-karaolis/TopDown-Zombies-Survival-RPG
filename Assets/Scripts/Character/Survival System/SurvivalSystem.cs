@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foxlair.Tools.Events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,7 @@ namespace Foxlair.Character.SurvivalSystem
             {
                 Hunger = MaxHunger;
             }
+            FoxlairEventManager.Instance.SurvivalSystem_OnEat_Event?.Invoke();
         }
 
         public void Drink(float amount)
@@ -50,6 +52,7 @@ namespace Foxlair.Character.SurvivalSystem
             {
                 Thirst = MaxThirst;
             }
+            FoxlairEventManager.Instance.SurvivalSystem_OnDrink_Event?.Invoke();
         }
 
         private void CalculateThirst()

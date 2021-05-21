@@ -28,6 +28,7 @@ public class EquipmentPanel : MonoBehaviour
 		{
 			if (EquipmentSlots[i].EquipmentType == item.EquipmentType)
 			{
+				//TODO: if weapon send equipped event
 				previousItem = (EquippableItem)EquipmentSlots[i].Item;
 				EquipmentSlots[i].Item = item;
 				EquipmentSlots[i].Amount = 1;
@@ -44,6 +45,7 @@ public class EquipmentPanel : MonoBehaviour
 		{
 			if (EquipmentSlots[i].Item == item)
 			{
+				//TODO: if weapon send unequipped event
 				EquipmentSlots[i].Item = null;
 				EquipmentSlots[i].Amount = 0;
 				return true;

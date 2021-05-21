@@ -224,6 +224,10 @@ public class InventoryController : MonoBehaviour
 			EquippableItem equippableItem = (EquippableItem)itemSlot.Item;
 			if(equippableItem != null)
 			{
+				if((itemSlot as EquipmentSlot).EquipmentType == EquipmentType.Weapon)
+                {
+					//TODO: Send weapon unequipped event
+                }
 				equippableItem.Unequip(PlayerCharacter);
 			}
 		}

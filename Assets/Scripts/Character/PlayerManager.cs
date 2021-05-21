@@ -35,10 +35,6 @@ namespace Foxlair.Character
 
         private Weapon playerEquippedWeapon;
 
-        [Header("TESTING ITEMS")]
-        public List<string> testingItems;
-
-
         public Weapon PlayerEquippedWeapon
         {
             get

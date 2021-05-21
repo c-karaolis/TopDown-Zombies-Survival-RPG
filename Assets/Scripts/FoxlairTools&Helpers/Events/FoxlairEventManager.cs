@@ -23,18 +23,21 @@ namespace Foxlair.Tools.Events
         #endregion
 
         #region Leveling System
-
         public Action LevelingSystem_OnExperienceChanged_Event;
         public Action<int> LevelingSystem_OnExperienceChangedAmount_Event;
         public Action LevelingSystem_OnLevelChanged_Event;
+        #endregion
 
+        #region Survival System
+        public Action SurvivalSystem_OnEat_Event;
+        public Action SurvivalSystem_OnDrink_Event;
         #endregion
 
         #region Health System
-
         public Action HealthSystem_OnHealthChanged_Event;
+        public Action<float> HealthSystem_OnHealthGained_Event;
+        public Action<float> HealthSystem_OnHealthLost_Event;
         public Action HealthSystem_OnPlayerDeath_Event;
-
         #endregion
 
         #region DropItemArea Events
