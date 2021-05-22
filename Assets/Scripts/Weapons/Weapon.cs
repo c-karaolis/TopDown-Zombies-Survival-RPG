@@ -92,7 +92,7 @@ namespace Foxlair.Weapons
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetEnemy.transform.position, playerCharacter.transform.position) <= weaponRange)
+            if (Vector3.Distance(playerCharacter.PlayerTargetEnemy.transform.position, playerCharacter.transform.position) <= weaponRange)
             {
                 Debug.Log("weapon in range to attack");
                 return true;
@@ -106,7 +106,7 @@ namespace Foxlair.Weapons
 
         public virtual void Attack()
         {
-            if (PlayerManager.Instance.PlayerTargetEnemy == null) { return; }
+            if (playerCharacter.PlayerTargetEnemy == null) { return; }
 
             Debug.Log("parent weapon");
 
@@ -115,7 +115,7 @@ namespace Foxlair.Weapons
             nextFire = Time.time + FireDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            PlayerManager.Instance.PlayerTargetEnemy.Damage(weaponDamage);
+            playerCharacter.PlayerTargetEnemy.Damage(weaponDamage);
 
             HandleWeaponDurability();
 

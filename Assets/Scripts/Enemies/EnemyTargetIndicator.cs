@@ -1,15 +1,35 @@
 ﻿using Foxlair.Character;
+using Foxlair.Enemies;
+using Foxlair.Tools.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTargetIndicator : MonoBehaviour
 {
+    Enemy PlayerTargetEnemy;
+
+    private void Start()
+    {
+        FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event += SetTarget;
+        FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event += UnsetTarget;
+    }
+
+    private void UnsetTarget()
+    {
+        PlayerTargetEnemy = null;
+    }
+
+    private void SetTarget(Enemy obj)
+    {
+        PlayerTargetEnemy = obj;
+    }
+
     void Update()
     {
-        if (PlayerManager.Instance.PlayerTargetEnemy != null)
+        if (PlayerTargetEnemy != null)
         {
-            Bounds bounds = PlayerManager.Instance.PlayerTargetEnemy.GetComponentInChildren<Renderer>().bounds;
+            Bounds bounds = PlayerTargetEnemy.GetComponentInChildren<Renderer>().bounds;
 
             float diameter = bounds.size.z;
             diameter *= 2.50f;
@@ -21,5 +41,11 @@ public class EnemyTargetIndicator : MonoBehaviour
         {
             this.transform.position = new Vector3(100000, 0.1f, 100000);
         }
+    }
+
+    private void OnDestroy()
+    {
+        FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event -= SetTarget;
+        FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event -= UnsetTarget;
     }
 }

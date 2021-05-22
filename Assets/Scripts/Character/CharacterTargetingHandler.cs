@@ -2,6 +2,7 @@
 using Foxlair.Tools;
 using Foxlair.Enemies;
 using Foxlair.Harvesting;
+using Foxlair.Tools.Events;
 
 namespace Foxlair.Character.Targeting
 {
@@ -12,7 +13,6 @@ namespace Foxlair.Character.Targeting
         protected Vector3 _raycastDirection;
         protected Collider _potentialEnemyHit;
         protected Collider _potentialHarvestResourceHit;
-
 
         public LayerMask TargetsMask;
         public LayerMask HarvestResourceMask;
@@ -29,8 +29,6 @@ namespace Foxlair.Character.Targeting
         public ResourceNode HarvestResourceTarget;
 
         public bool DrawDebugRadius = true;
-
-        //Weapon currentlyEquippedWeapon;
 
         void Update()
         {
@@ -70,23 +68,21 @@ namespace Foxlair.Character.Targeting
                 if (obstacleHit.collider == null)
                 {
                     EnemyTarget = _potentialEnemyHit.GetComponent<Enemy>();
-                    PlayerManager.Instance.PlayerTargetEnemy = EnemyTarget;
-
+                    FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event?.Invoke(EnemyTarget);
                     return true;
                 }
                 else
                 {
-                    PlayerManager.Instance.PlayerTargetEnemy = null;
+                    FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event?.Invoke();
                     return false;
                 }
             }
             else
             {
-                PlayerManager.Instance.PlayerTargetEnemy = null;
+                FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event?.Invoke();
                 return false;
             }
         }
-
 
         /// <summary>
         /// Scans for Harvest Resource targets by performing an overlap detection, then verifying line of fire with a boxcast
@@ -120,30 +116,23 @@ namespace Foxlair.Character.Targeting
                 if (obstacleHit.collider == null)
                 {
                     HarvestResourceTarget = _potentialHarvestResourceHit.GetComponent<ResourceNode>();
-                    PlayerManager.Instance.PlayerTargetResourceNode = HarvestResourceTarget;
-
+                    FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event?.Invoke(HarvestResourceTarget);
                     return true;
                 }
                 else
                 {
-                    PlayerManager.Instance.PlayerTargetResourceNode = null;
-
+                    FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event?.Invoke();
                     return false;
                 }
 
             }
             else
             {
-                PlayerManager.Instance.PlayerTargetResourceNode = null;
-
+                FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event?.Invoke();
                 return false;
             }
         }
 
-
-        /// <summary>
-        /// Performs a periodic scan
-        /// </summary>
         protected virtual void ScanIfNeeded()
         {
             if (Time.time - _lastScanTimestamp > DurationBetweenScans)
@@ -153,8 +142,6 @@ namespace Foxlair.Character.Targeting
                 _lastScanTimestamp = Time.time;
             }
         }
-
-
 
         protected virtual void OnDrawGizmos()
         {

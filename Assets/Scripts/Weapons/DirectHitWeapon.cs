@@ -12,13 +12,12 @@ namespace Foxlair.Weapons
         public override void Attack()
         {
             Debug.Log($"Durability: {durability} , Loss per Shot: {durabilityLossPerShot}");
-            Debug.Log($"FireDelay: {FireDelay}");
             nextFire = Time.time + FireDelay;
             //PlayerManager.Instance.PlayerTargetEnemy = _characterTargetingHandler.EnemyTarget;
 
-            if (!(PlayerManager.Instance.PlayerTargetEnemy == null))
+            if (!(playerCharacter.PlayerTargetEnemy == null))
             {
-                PlayerManager.Instance.PlayerTargetEnemy.Damage(weaponDamage);
+                playerCharacter.PlayerTargetEnemy.Damage(weaponDamage);
             }
             else
             {

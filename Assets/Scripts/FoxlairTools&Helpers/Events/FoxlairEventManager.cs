@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using Foxlair.Weapons;
+using Foxlair.Harvesting;
+using Foxlair.Enemies;
 
 namespace Foxlair.Tools.Events
 {
@@ -46,6 +48,14 @@ namespace Foxlair.Tools.Events
         public Action<float> HealthSystem_OnHealthGained_Event;
         public Action<float> HealthSystem_OnHealthLost_Event;
         public Action HealthSystem_OnPlayerDeath_Event;
+        #endregion
+
+        #region Interaction, Targeting & Harvest System
+        public Action<ResourceNode> InteractionSystem_OnResourceNodeFound_Event;
+        public Action InteractionSystem_OnResourceNodeLost_Event;
+
+        public Action<Enemy> TargetingSystem_OnTargetEnemyAcquired_Event;
+        public Action TargetingSystem_OnTargetEnemyLost_Event;
         #endregion
 
         #region DropItemArea Events
