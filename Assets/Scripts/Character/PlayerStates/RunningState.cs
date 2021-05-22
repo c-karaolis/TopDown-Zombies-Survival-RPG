@@ -8,28 +8,26 @@ namespace Foxlair.Character.States
 {
     public class RunningState : State
     {
+        public PlayerStateMachine playerStateMachine;
 
         public override void OnStateEnter()
         {
-            PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
             ForbiddenTransitions.Add(this);
         }
 
 
         public override void OnStateExecute()
         {
-            PlayerManager.Instance.MainPlayerCharacterMovement.UpdateCharacterMovement();
+            playerStateMachine.PlayerCharacter.CharacterMovement.UpdateCharacterMovement();
             CheckForMovementInput();
         }
 
 
         private void CheckForMovementInput()
         {
-            if (PlayerManager.Instance.MainPlayerCharacterMovement.Direction.magnitude <= 0.1f)
+            if (playerStateMachine.PlayerCharacter.CharacterMovement.Direction.magnitude <= 0.1f)
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
                 ChangeState(playerStateMachine.IdleState);
-                //ChangeState(((PlayerStateMachine)StateMachine).runningState);
             }
         }
 

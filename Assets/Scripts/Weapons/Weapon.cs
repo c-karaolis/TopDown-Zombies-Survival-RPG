@@ -130,7 +130,7 @@ namespace Foxlair.Weapons
         public virtual IEnumerator AttackEffect()
         {
             // Play the shooting sound effect
-            weaponAudioSource.Play();
+            weaponAudioSource.PlayOneShot(attackSoundEffect);
             //Wait for .07 seconds
             yield return new WaitForSeconds(weaponAttackDuration);
         }

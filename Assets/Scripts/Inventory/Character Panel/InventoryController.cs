@@ -9,7 +9,6 @@ using Foxlair.Character.HealthSystem;
 
 public class InventoryController : MonoBehaviour
 {
-	public int Health = 50;
 
 	[Header("Public")]
 	public Inventory Inventory;

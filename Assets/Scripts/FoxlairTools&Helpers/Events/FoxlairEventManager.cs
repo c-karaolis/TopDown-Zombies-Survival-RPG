@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using Foxlair.Weapons;
+
 namespace Foxlair.Tools.Events
 {
     public class FoxlairEventManager : PersistentSingletonMonoBehaviour<FoxlairEventManager>
@@ -26,6 +28,11 @@ namespace Foxlair.Tools.Events
         public Action LevelingSystem_OnExperienceChanged_Event;
         public Action<int> LevelingSystem_OnExperienceChangedAmount_Event;
         public Action LevelingSystem_OnLevelChanged_Event;
+        #endregion
+
+        #region Weapon System
+        public Action<Weapon> WeaponSystem_OnWeaponEquipped_Event;
+        public Action<Weapon> WeaponSystem_OnWeaponUnEquipped_Event;
         #endregion
 
         #region Survival System

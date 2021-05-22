@@ -51,23 +51,26 @@ public class EquippableItem : Item
             characterStat.AddModifier(statModifier);
         }
 
-        if (PhysicalItemPrefab != null)
+        if (PhysicalItemPrefab != null && EquipmentType == EquipmentType.Weapon)
         {
             InstanceOfPhysicalItemPrefab = Instantiate(PhysicalItemPrefab, character.weaponEquipPoint.transform);
+            Weapon weaponInstance = InstanceOfPhysicalItemPrefab.GetComponent<Weapon>();
+
             if (isDirty)
             {
                 Debug.Log($"Item {this.name} was dirty.");
-                Debug.Log($"Durability of physical is {InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability}.");
-                InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability = durability;
+                Debug.Log($"Durability of physical is {weaponInstance.durability}.");
+                weaponInstance.durability = durability;
             }
             else
             {
                 Debug.Log($"Item {this.name} was clean.");
-                durability = InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().durability;
+                durability = weaponInstance.durability;
             }
 
-            InstanceOfPhysicalItemPrefab.GetComponent<Weapon>().InventoryItemInstance = this;
+            weaponInstance.InventoryItemInstance = this;
 
+            FoxlairEventManager.Instance.WeaponSystem_OnWeaponEquipped_Event(weaponInstance);
         }
         isDirty = true;
     }
@@ -80,9 +83,12 @@ public class EquippableItem : Item
             attribute.Value.RemoveAllModifiersFromSource(this);
         }
 
-        if (PhysicalItemPrefab != null)
+        if (PhysicalItemPrefab != null && EquipmentType == EquipmentType.Weapon)
         {
+            Weapon weaponInstance = InstanceOfPhysicalItemPrefab.GetComponent<Weapon>();
+
             Destroy(InstanceOfPhysicalItemPrefab, 0.1f);
+            FoxlairEventManager.Instance.WeaponSystem_OnWeaponUnEquipped_Event(weaponInstance);
         }
         //FoxlairEventManager.Instance.Player_OnItemUnEquipped_Event?.Invoke(this);
 

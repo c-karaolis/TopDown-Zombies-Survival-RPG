@@ -6,11 +6,8 @@ namespace Foxlair.Character.States
 {
     public class MovingToAttackState : State
     {
+        public PlayerStateMachine playerStateMachine;
 
-        private void Start()
-        {
-            
-        }
         public override void OnStateEnter() {
             PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
             ForbiddenTransitions.Add(playerStateMachine.AttackingState);
@@ -18,9 +15,10 @@ namespace Foxlair.Character.States
 
         public override void OnStateExecute()
         {
-            if (!PlayerManager.Instance.PlayerEquippedWeapon.InRangeToAttack())
+            
+            if (!playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
-                PlayerManager.Instance.MainPlayerCharacterMovement.HandleAutoMoveToAttack(PlayerManager.Instance.PlayerTargetEnemy.transform);
+                playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoMoveToAttack(PlayerManager.Instance.PlayerTargetEnemy.transform);
             }
             else
             {

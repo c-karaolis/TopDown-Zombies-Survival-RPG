@@ -7,10 +7,10 @@ namespace Foxlair.Character.States
 {
     public class HarvestingState : State
     {
+        public PlayerStateMachine playerStateMachine;
 
         private void Start()
         {
-            PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
             ForbiddenTransitions.Add(this);
             //ForbiddenTransitions.Add(playerStateMachine.MovingToAttackState);
         }
@@ -25,7 +25,6 @@ namespace Foxlair.Character.States
 
             if (PlayerManager.Instance.PlayerTargetResourceNode != null && !PlayerManager.Instance.MainPlayerCharacter.InRangeToHarvest())
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
                 ChangeState(playerStateMachine.MovingToHarvestState);
             }
         }
@@ -33,11 +32,10 @@ namespace Foxlair.Character.States
         public override void OnStateExecute()
         {
 
-            PlayerManager.Instance.MainPlayerCharacterMovement.HandleAutoTargetingRotation();
+            playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoTargetingRotation();
            // PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
             if (!InputHandler.Instance.IsInteractionButtonDown)
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
                 ChangeState(playerStateMachine.IdleState);
             }
         }
