@@ -23,7 +23,7 @@ namespace Foxlair.Character.States
 
         private void HandleNotInRangeToAttack()
         {
-            if (PlayerManager.Instance.PlayerTargetEnemy != null && !playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
+            if (playerStateMachine.PlayerCharacter.PlayerTargetEnemy != null && !playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
                 ChangeState(playerStateMachine.MovingToAttackState);
             }

@@ -5,7 +5,7 @@ using Foxlair.Tools.Events;
 using Foxlair.Character;
 using System.Linq;
 using Foxlair.Character.LevelingSystem;
-using Foxlair.Character.HealthSystem;
+using Foxlair.Character.Health;
 
 public class InventoryController : MonoBehaviour
 {

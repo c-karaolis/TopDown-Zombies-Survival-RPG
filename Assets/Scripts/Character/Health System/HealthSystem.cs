@@ -3,7 +3,7 @@ using Foxlair.Tools.Events;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Foxlair.Character.HealthSystem
+namespace Foxlair.Character.Health
 {
     public class HealthSystem : MonoBehaviour
     {
@@ -67,6 +67,7 @@ namespace Foxlair.Character.HealthSystem
         private void Update()
         {
             RegenerateHealth();
+
             HealthBar.fillAmount = Health / MaxHealth;
         }
 

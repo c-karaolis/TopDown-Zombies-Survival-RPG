@@ -1,15 +1,36 @@
 ﻿using Foxlair.Character;
+using Foxlair.Harvesting;
+using Foxlair.Tools.Events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableIndicator : MonoBehaviour
 {
+    ResourceNode PlayerTargetResourceNode;
+
+    private void Start()
+    {
+        FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event += SetResourceNode;
+        FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event += UnsetResourceNode;
+    }
+
+    private void UnsetResourceNode()
+    {
+        PlayerTargetResourceNode = null;
+    }
+
+    private void SetResourceNode(ResourceNode obj)
+    {
+        PlayerTargetResourceNode = obj;
+    }
+
     void Update()
     {
-        if (PlayerManager.Instance.PlayerTargetResourceNode != null)
+        if (PlayerTargetResourceNode != null)
         {
-            Bounds bounds = PlayerManager.Instance.PlayerTargetResourceNode.GetComponentInChildren<Renderer>().bounds;
+            Bounds bounds = PlayerTargetResourceNode.GetComponentInChildren<Renderer>().bounds;
 
             float diameter = bounds.size.z;
             diameter *= 2.50f;
@@ -21,5 +42,12 @@ public class InteractableIndicator : MonoBehaviour
         {
             this.transform.position = new Vector3(100000, 0.1f, 100000);
         }
+    }
+
+
+    private void OnDestroy()
+    {
+        FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event -= SetResourceNode;
+        FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event -= UnsetResourceNode;
     }
 }

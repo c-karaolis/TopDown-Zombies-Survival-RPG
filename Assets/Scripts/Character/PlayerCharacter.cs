@@ -1,18 +1,20 @@
 ﻿using Foxlair.Character.Movement;
 using Foxlair.Character.Targeting;
+using Foxlair.Character.Health;
 using Foxlair.CharacterStats;
 using Foxlair.Tools.Events;
 using Foxlair.Weapons;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Foxlair.Harvesting;
+using Foxlair.Enemies;
 
 namespace Foxlair.Character
 {
     public class PlayerCharacter : Actor
     {
-        public float Health = 10f;
-
+        #region Fields & Properties
         [Header("Player Attributes")]
         public CharacterAttribute Strength;
         public CharacterAttribute Agility;
@@ -25,18 +27,22 @@ namespace Foxlair.Character
         [Header("Character Systems")]
         public CharacterMovement CharacterMovement;
         public InventoryController InventoryController;
-        public Inventory Inventory;
         public CharacterTargetingHandler CharacterTargetingHandler;
-        public Weapon PlayerEquippedWeapon;
+        public HealthSystem HealthSystem;
+        private Weapon PlayerEquippedWeapon;
 
+        [Header("Weapon Related")]
         public GameObject PunchDefaultWeaponPrefabInstance;
         public PunchDefaultWeapon PunchDefaultWeapon;
-
         public GameObject weaponEquipPoint;
 
-        //public CharacterAttribute[] CharacterAttributes;
-        public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
+        [Header("Will be set through code")]
+        public Inventory Inventory;
+        public ResourceNode PlayerTargetResourceNode;
+        public Enemy PlayerTargetEnemy;
+        #endregion
 
+        public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
 
         private void Awake()
         {
@@ -45,13 +51,16 @@ namespace Foxlair.Character
 
         private void Start()
         {
-            PlayerManager.Instance.MainPlayerCharacter = this;
-
             FoxlairEventManager.Instance.WeaponSystem_OnWeaponEquipped_Event += SetEquippedWeapon;
             FoxlairEventManager.Instance.WeaponSystem_OnWeaponUnEquipped_Event += UnsetEquippedWeapon;
+            FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event += SetResourceNode;
+            FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event += UnsetResourceNode;
+            FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event += SetEnemyTarget;
+            FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event += UnsetEnemyTarget;
 
             SceneStartWeaponSetup();
         }
+
 
         public Weapon GetPlayerWeapon()
         {
@@ -68,12 +77,11 @@ namespace Foxlair.Character
             currentlyEquippedWeapon = null;
             return false;
         }
-        //public Inventory Inventory => GetComponent<Inventory>();
 
         private void SetEquippedWeapon(Weapon weapon)
         {
             Debug.Log($"Equipping {weapon}");
-
+            weapon.playerCharacter = this;
             PunchDefaultWeaponPrefabInstance.SetActive(false);
             PlayerEquippedWeapon = weapon;
         }
@@ -81,13 +89,13 @@ namespace Foxlair.Character
         private void UnsetEquippedWeapon(Weapon weapon) 
         {
             Debug.Log($"Unequipping {weapon}");
-
             PunchDefaultWeaponPrefabInstance.SetActive(true);
             PlayerEquippedWeapon = PunchDefaultWeapon;
         }
+
         public bool InRangeToHarvest()
         {
-            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetResourceNode.transform.position, transform.position) <= 2)
+            if (Vector3.Distance(PlayerTargetResourceNode.transform.position, transform.position) <= 2)
             {
                 //TODO: Rotate towards harvest resource and start harvesting
                 Debug.Log("player in range to harvest");
@@ -98,17 +106,15 @@ namespace Foxlair.Character
                 return false;
             }
         }
+
         private void SceneStartWeaponSetup()
         {
             if (HasEquippedWeapon(out Weapon _currentlyEquippedWeapon))
             {
-                PunchDefaultWeaponPrefabInstance.SetActive(false);
-
-                PlayerEquippedWeapon = _currentlyEquippedWeapon;
+                SetEquippedWeapon(_currentlyEquippedWeapon);
             }
 
-            PunchDefaultWeaponPrefabInstance.SetActive(true);
-            PlayerEquippedWeapon = PunchDefaultWeapon;
+            UnsetEquippedWeapon(_currentlyEquippedWeapon);
         }
 
         private void InitializeAttributesDictionary()
@@ -123,8 +129,32 @@ namespace Foxlair.Character
                 {AttributeType.Charisma, Charisma },
             };
         }
+        private void UnsetResourceNode()
+        {
+            PlayerTargetResourceNode = null;
+        }
 
+        private void SetResourceNode(ResourceNode obj)
+        {
+            PlayerTargetResourceNode = obj;
+        }
 
+        private void OnDestroy()
+        {
+            FoxlairEventManager.Instance.WeaponSystem_OnWeaponEquipped_Event -= SetEquippedWeapon;
+            FoxlairEventManager.Instance.WeaponSystem_OnWeaponUnEquipped_Event -= UnsetEquippedWeapon;
+            FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event -= SetResourceNode;
+            FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event -= UnsetResourceNode;
+        }
 
+        private void UnsetEnemyTarget()
+        {
+            PlayerTargetEnemy = null;
+        }
+
+        private void SetEnemyTarget(Enemy obj)
+        {
+            PlayerTargetEnemy = obj;
+        }
     }
 }

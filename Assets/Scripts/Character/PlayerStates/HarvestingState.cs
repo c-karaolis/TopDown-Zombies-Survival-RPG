@@ -1,5 +1,7 @@
 ﻿using Foxlair.Character.Movement;
+using Foxlair.Harvesting;
 using Foxlair.PlayerInput;
+using Foxlair.Tools.Events;
 using Foxlair.Tools.StateMachine;
 using UnityEngine;
 
@@ -8,10 +10,14 @@ namespace Foxlair.Character.States
     public class HarvestingState : State
     {
         public PlayerStateMachine playerStateMachine;
+        ResourceNode PlayerTargetResourceNode;
 
         private void Start()
         {
             ForbiddenTransitions.Add(this);
+            FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event += SetResourceNode;
+            FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event += UnsetResourceNode;
+
             //ForbiddenTransitions.Add(playerStateMachine.MovingToAttackState);
         }
 
@@ -23,7 +29,7 @@ namespace Foxlair.Character.States
         private void HandleNotInRangeToHarvest()
         {
 
-            if (PlayerManager.Instance.PlayerTargetResourceNode != null && !PlayerManager.Instance.MainPlayerCharacter.InRangeToHarvest())
+            if (PlayerTargetResourceNode != null && !playerStateMachine.PlayerCharacter.InRangeToHarvest())
             {
                 ChangeState(playerStateMachine.MovingToHarvestState);
             }
@@ -46,6 +52,14 @@ namespace Foxlair.Character.States
 
         public override void OnStateExit() { }
 
+        private void UnsetResourceNode()
+        {
+            PlayerTargetResourceNode = null;
+        }
 
+        private void SetResourceNode(ResourceNode obj)
+        {
+            PlayerTargetResourceNode = obj;
+        }
     }
 }
