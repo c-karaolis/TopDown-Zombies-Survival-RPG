@@ -12,6 +12,7 @@ namespace Foxlair.Character
 {
     public class PlayerCharacter : Actor
     {
+        #region Fields & Properties
         [Header("Player Attributes")]
         public CharacterAttribute Strength;
         public CharacterAttribute Agility;
@@ -35,12 +36,9 @@ namespace Foxlair.Character
 
         [Header("Will be set through code")]
         public Inventory Inventory;
+        #endregion
 
-        
-
-        //public CharacterAttribute[] CharacterAttributes;
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
-
 
         private void Awake()
         {
@@ -70,7 +68,6 @@ namespace Foxlair.Character
             currentlyEquippedWeapon = null;
             return false;
         }
-        //public Inventory Inventory => GetComponent<Inventory>();
 
         private void SetEquippedWeapon(Weapon weapon)
         {
