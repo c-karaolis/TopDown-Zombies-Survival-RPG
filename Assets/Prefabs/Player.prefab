@@ -603,6 +603,7 @@ MonoBehaviour:
   CharacterMovement: {fileID: 7481468962612669612}
   InventoryController: {fileID: 0}
   Inventory: {fileID: 0}
+  CharacterTargetingHandler: {fileID: 0}
   PlayerEquippedWeapon: {fileID: 0}
   PunchDefaultWeaponPrefabInstance: {fileID: 8236648986557021876}
   PunchDefaultWeapon: {fileID: 4107370984349381437}
