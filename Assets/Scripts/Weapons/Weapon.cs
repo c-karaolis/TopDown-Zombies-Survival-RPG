@@ -33,7 +33,6 @@ namespace Foxlair.Weapons
 
 
         public PlayerCharacter playerCharacter;
-        public CharacterTargetingHandler characterTargetingHandler;
         public InputHandler input;
         [Range(1, 25)]
         public int fireRate;
@@ -75,17 +74,12 @@ namespace Foxlair.Weapons
         public virtual void Start()
         {
             input = InputHandler.Instance;
-            characterTargetingHandler = PlayerManager.Instance.MainPlayerCharacterTargetingHandler;
-            playerCharacter = PlayerManager.Instance.MainPlayerCharacter;
             weaponAudioSource = GetComponent<AudioSource>();
         }
 
-        // Update is called once per frame
         public virtual void Update()
         {
             isCoolingDown = !(Time.time > nextFire);
-
-            //Debug.DrawRay(weaponEnd.position, weaponEnd.forward, Color.yellow);
         }
 
         public void DetermineAttack()
@@ -98,7 +92,7 @@ namespace Foxlair.Weapons
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetEnemy.transform.position, PlayerManager.Instance.MainPlayerCharacter.transform.position) <= weaponRange)
+            if (Vector3.Distance(PlayerManager.Instance.PlayerTargetEnemy.transform.position, playerCharacter.transform.position) <= weaponRange)
             {
                 Debug.Log("weapon in range to attack");
                 return true;
@@ -156,6 +150,9 @@ namespace Foxlair.Weapons
 
                 playerCharacter.InventoryController.DestroyItemInSlot(slotToRemove);
                 FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
+                //TODO: when this gets invoked find where to subscribe to change to idle state so if fire is hold enemy not punched from long range because moving to attack is bypassed already
+                FoxlairEventManager.Instance.WeaponSystem_OnEquippedWeaponDestroyed_Event?.Invoke();
+
             }
             //Destroy(this.gameObject, 0.3f);
 

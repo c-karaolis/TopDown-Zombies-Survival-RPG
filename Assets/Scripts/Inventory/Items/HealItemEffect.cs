@@ -8,7 +8,7 @@ public class HealItemEffect : UsableItemEffect
 
 	public override void ExecuteEffect(UsableItem usableItem, PlayerCharacter character)
 	{
-		character.Health += HealAmount;
+		character.HealthSystem.Heal(HealAmount);
 	}
 
 	public override string GetDescription()

@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 1633508898}
   - component: {fileID: 1448349941}
   - component: {fileID: 1448349943}
-  - component: {fileID: 1448349945}
+  - component: {fileID: 2176075982940395978}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -496,7 +496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7481468962612669614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.6380203, y: 0.545888, z: -22.634052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7481468964291297333}
@@ -580,7 +580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58afbbdd55bd154f9e21aa39e38ee4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 10
   Strength:
     BaseValue: 3
     Name: 0
@@ -605,6 +604,7 @@ MonoBehaviour:
   CharacterMovement: {fileID: 7481468962612669612}
   InventoryController: {fileID: 0}
   CharacterTargetingHandler: {fileID: 2088238235}
+  HealthSystem: {fileID: 2176075982940395978}
   PunchDefaultWeaponPrefabInstance: {fileID: 8236648986557021876}
   PunchDefaultWeapon: {fileID: 4107370984349381437}
   weaponEquipPoint: {fileID: 1665639689008592502}
@@ -648,7 +648,7 @@ MonoBehaviour:
   currentXP: 0
   targetXP: 100
   currentLevel: 1
---- !u!114 &1448349945
+--- !u!114 &2176075982940395978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -657,13 +657,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7481468962612669614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd03dbf6b557b247a7c39f932546fc9, type: 3}
+  m_Script: {fileID: 11500000, guid: d603d7943ef69c446947ebd19983816b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  MaxHealth: 0
-  HealthRegeneration: 0
-  Armor: 0
+  Health: 50
+  MaxHealth: 50
+  HealthRegeneration: 1
+  Armor: 5
   HealthBar: {fileID: 0}
 --- !u!1 &7481468963599002950
 GameObject:

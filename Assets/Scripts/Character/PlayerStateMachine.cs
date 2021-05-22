@@ -1,4 +1,5 @@
 ﻿using Foxlair.PlayerInput;
+using Foxlair.Tools.Events;
 using Foxlair.Tools.StateMachine;
 using System;
 using UnityEngine;
@@ -20,7 +21,9 @@ namespace Foxlair.Character.States
         public override void Start()
         {
             base.Start();
+            FoxlairEventManager.Instance.WeaponSystem_OnEquippedWeaponDestroyed_Event += OnWeaponDestroyedGoToIdleState;
         }
+
 
         public override void Update()
         {
@@ -53,11 +56,20 @@ namespace Foxlair.Character.States
 
         private void AttackingStateTransition()
         {
-          //  if (InputHandler.Instance.IsFiringButtonDown && !(CurrentState.ForbiddenTransitions.Contains(AttackingState)) && CurrentState != MovingToAttackState )
             if (InputHandler.Instance.IsFiringButtonDown && !(CurrentState.ForbiddenTransitions.Contains(AttackingState)) )
             {
                 ChangeState(AttackingState);
             }
+        }
+
+        private void OnWeaponDestroyedGoToIdleState()
+        {
+            ChangeState(IdleState);
+        }
+
+        private void OnDestroy()
+        {
+            FoxlairEventManager.Instance.WeaponSystem_OnEquippedWeaponDestroyed_Event -= OnWeaponDestroyedGoToIdleState;
         }
     }
 }

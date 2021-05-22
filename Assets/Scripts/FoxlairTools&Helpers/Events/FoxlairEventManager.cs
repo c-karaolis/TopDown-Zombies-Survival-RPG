@@ -33,6 +33,7 @@ namespace Foxlair.Tools.Events
         #region Weapon System
         public Action<Weapon> WeaponSystem_OnWeaponEquipped_Event;
         public Action<Weapon> WeaponSystem_OnWeaponUnEquipped_Event;
+        public Action WeaponSystem_OnEquippedWeaponDestroyed_Event;
         #endregion
 
         #region Survival System

@@ -23,7 +23,7 @@ namespace Foxlair.Character.States
         private void HandleNotInRangeToHarvest()
         {
 
-            if (PlayerManager.Instance.PlayerTargetResourceNode != null && !PlayerManager.Instance.MainPlayerCharacter.InRangeToHarvest())
+            if (PlayerManager.Instance.PlayerTargetResourceNode != null && !playerStateMachine.PlayerCharacter.InRangeToHarvest())
             {
                 ChangeState(playerStateMachine.MovingToHarvestState);
             }

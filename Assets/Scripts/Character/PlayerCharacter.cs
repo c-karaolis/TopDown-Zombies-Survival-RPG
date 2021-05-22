@@ -1,5 +1,6 @@
 ﻿using Foxlair.Character.Movement;
 using Foxlair.Character.Targeting;
+using Foxlair.Character.Health;
 using Foxlair.CharacterStats;
 using Foxlair.Tools.Events;
 using Foxlair.Weapons;
@@ -11,8 +12,6 @@ namespace Foxlair.Character
 {
     public class PlayerCharacter : Actor
     {
-        public float Health = 10f;
-
         [Header("Player Attributes")]
         public CharacterAttribute Strength;
         public CharacterAttribute Agility;
@@ -26,6 +25,7 @@ namespace Foxlair.Character
         public CharacterMovement CharacterMovement;
         public InventoryController InventoryController;
         public CharacterTargetingHandler CharacterTargetingHandler;
+        public HealthSystem HealthSystem;
         private Weapon PlayerEquippedWeapon;
 
         [Header("Weapon Related")]
@@ -49,8 +49,6 @@ namespace Foxlair.Character
 
         private void Start()
         {
-            PlayerManager.Instance.MainPlayerCharacter = this;
-
             FoxlairEventManager.Instance.WeaponSystem_OnWeaponEquipped_Event += SetEquippedWeapon;
             FoxlairEventManager.Instance.WeaponSystem_OnWeaponUnEquipped_Event += UnsetEquippedWeapon;
 
@@ -77,7 +75,7 @@ namespace Foxlair.Character
         private void SetEquippedWeapon(Weapon weapon)
         {
             Debug.Log($"Equipping {weapon}");
-
+            weapon.playerCharacter = this;
             PunchDefaultWeaponPrefabInstance.SetActive(false);
             PlayerEquippedWeapon = weapon;
         }
@@ -89,6 +87,7 @@ namespace Foxlair.Character
             PunchDefaultWeaponPrefabInstance.SetActive(true);
             PlayerEquippedWeapon = PunchDefaultWeapon;
         }
+
         public bool InRangeToHarvest()
         {
             if (Vector3.Distance(PlayerManager.Instance.PlayerTargetResourceNode.transform.position, transform.position) <= 2)
@@ -102,17 +101,15 @@ namespace Foxlair.Character
                 return false;
             }
         }
+
         private void SceneStartWeaponSetup()
         {
             if (HasEquippedWeapon(out Weapon _currentlyEquippedWeapon))
             {
-                PunchDefaultWeaponPrefabInstance.SetActive(false);
-
-                PlayerEquippedWeapon = _currentlyEquippedWeapon;
+                SetEquippedWeapon(_currentlyEquippedWeapon);
             }
 
-            PunchDefaultWeaponPrefabInstance.SetActive(true);
-            PlayerEquippedWeapon = PunchDefaultWeapon;
+            UnsetEquippedWeapon(_currentlyEquippedWeapon);
         }
 
         private void InitializeAttributesDictionary()
@@ -128,7 +125,10 @@ namespace Foxlair.Character
             };
         }
 
-
-
+        private void OnDestroy()
+        {
+            FoxlairEventManager.Instance.WeaponSystem_OnWeaponEquipped_Event -= SetEquippedWeapon;
+            FoxlairEventManager.Instance.WeaponSystem_OnWeaponUnEquipped_Event -= UnsetEquippedWeapon;
+        }
     }
 }

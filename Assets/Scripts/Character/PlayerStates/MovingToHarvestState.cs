@@ -16,7 +16,7 @@ namespace Foxlair.Character.States
         public override void OnStateExecute()
         {
 
-            if (!PlayerManager.Instance.MainPlayerCharacter.InRangeToHarvest())
+            if (!playerStateMachine.PlayerCharacter.InRangeToHarvest())
             {
                 playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoMoveToHarvest(PlayerManager.Instance.PlayerTargetResourceNode.transform);
             }
