@@ -7,10 +7,13 @@ namespace Foxlair.Character.Movement
     [RequireComponent(typeof(CharacterController))]
     public class CharacterMovement : MonoBehaviour
     {
-        private InputHandler _input;
-        private CharacterController _characterController;
-        private CharacterTargetingHandler _characterTargetingHandler;
-        private double Gravity;
+        public PlayerCharacter PlayerCharacter;
+
+        private InputHandler input;
+        [SerializeField]
+        private CharacterController characterController;
+        private CharacterTargetingHandler characterTargetingHandler;
+        private double gravity;
 
         [SerializeField]
         private float MovementSpeed = 5f;
@@ -28,10 +31,8 @@ namespace Foxlair.Character.Movement
 
         private void Start()
         {
-            _characterTargetingHandler = PlayerManager.Instance.MainPlayerCharacterTargetingHandler;
-            _characterController = GetComponent<CharacterController>();
-
-            _input = InputHandler.Instance;
+            characterTargetingHandler = PlayerCharacter.CharacterTargetingHandler;
+            input = InputHandler.Instance;
 
         }
 
@@ -39,7 +40,7 @@ namespace Foxlair.Character.Movement
         public void UpdateCharacterMovement()
         {
             HandleGravity();
-            Direction = new Vector3(_input.InputVector.x, (float)Gravity, _input.InputVector.y).normalized;
+            Direction = new Vector3(input.InputVector.x, (float)gravity, input.InputVector.y).normalized;
             //HandleAutoTargetingRotation();
             HandleMovement();
         }
@@ -56,18 +57,18 @@ namespace Foxlair.Character.Movement
 
         private void HandleGravity()
         {
-            Gravity -= 9.81 * Time.deltaTime;
-            if (_characterController.isGrounded)
+            gravity -= 9.81 * Time.deltaTime;
+            if (characterController.isGrounded)
             {
-                Gravity = 0;
+                gravity = 0;
             }
         }
 
         public void HandleHarvestingAutoRotation()
         {
-            if (_characterTargetingHandler.HarvestResourceTarget != null && _input.IsInteractionButtonDown)
+            if (characterTargetingHandler.HarvestResourceTarget != null && input.IsInteractionButtonDown)
             {
-                Vector3 targetDirection = _characterTargetingHandler.HarvestResourceTarget.transform.position - transform.position;
+                Vector3 targetDirection = characterTargetingHandler.HarvestResourceTarget.transform.position - transform.position;
                 RotateTowards(targetDirection);
             }
 
@@ -111,7 +112,7 @@ namespace Foxlair.Character.Movement
 
         private void MoveTowards(Vector3 movementDirection)
         {
-            _characterController.Move(movementDirection.normalized * MovementSpeed * Time.deltaTime);
+            characterController.Move(movementDirection.normalized * MovementSpeed * Time.deltaTime);
         }
 
         private void RotateTowardsMovementDirection()

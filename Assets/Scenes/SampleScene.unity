@@ -5539,6 +5539,16 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
+        type: 3}
+      propertyPath: PlayerCharacter
+      value: 
+      objectReference: {fileID: 332921858}
+    - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
+        type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 2088238234}
     - target: {fileID: 7481468962612669614, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: m_Name

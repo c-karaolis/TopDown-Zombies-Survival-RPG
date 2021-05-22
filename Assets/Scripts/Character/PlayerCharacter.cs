@@ -25,14 +25,18 @@ namespace Foxlair.Character
         [Header("Character Systems")]
         public CharacterMovement CharacterMovement;
         public InventoryController InventoryController;
-        public Inventory Inventory;
         public CharacterTargetingHandler CharacterTargetingHandler;
-        public Weapon PlayerEquippedWeapon;
+        private Weapon PlayerEquippedWeapon;
 
+        [Header("Weapon Related")]
         public GameObject PunchDefaultWeaponPrefabInstance;
         public PunchDefaultWeapon PunchDefaultWeapon;
-
         public GameObject weaponEquipPoint;
+
+        [Header("Will be set through code")]
+        public Inventory Inventory;
+
+        
 
         //public CharacterAttribute[] CharacterAttributes;
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;

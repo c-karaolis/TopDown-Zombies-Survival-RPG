@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3257038a6a12fe24e963156beacf213c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCharacter: {fileID: 1633508898}
+  characterController: {fileID: 2088238234}
   MovementSpeed: 5
   RotationSmoothTime: 0.01
   RotationSmoothVelocity: 0
@@ -602,12 +604,11 @@ MonoBehaviour:
     Name: 6
   CharacterMovement: {fileID: 7481468962612669612}
   InventoryController: {fileID: 0}
-  Inventory: {fileID: 0}
-  CharacterTargetingHandler: {fileID: 0}
-  PlayerEquippedWeapon: {fileID: 0}
+  CharacterTargetingHandler: {fileID: 2088238235}
   PunchDefaultWeaponPrefabInstance: {fileID: 8236648986557021876}
   PunchDefaultWeapon: {fileID: 4107370984349381437}
   weaponEquipPoint: {fileID: 1665639689008592502}
+  Inventory: {fileID: 0}
 --- !u!114 &1448349941
 MonoBehaviour:
   m_ObjectHideFlags: 0
