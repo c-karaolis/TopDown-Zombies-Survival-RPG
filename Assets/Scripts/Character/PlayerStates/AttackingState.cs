@@ -2,15 +2,16 @@
 using Foxlair.Character.Movement;
 using Foxlair.PlayerInput;
 using Foxlair.Tools.StateMachine;
+using UnityEngine;
 
 namespace Foxlair.Character.States
 {
     public class AttackingState : State
     {
+        public PlayerStateMachine playerStateMachine;
 
         private void Start()
         {
-            PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
             ForbiddenTransitions.Add(this);
             //ForbiddenTransitions.Add(playerStateMachine.MovingToAttackState);
         }
@@ -22,21 +23,19 @@ namespace Foxlair.Character.States
 
         private void HandleNotInRangeToAttack()
         {
-            if (PlayerManager.Instance.PlayerTargetEnemy != null && !PlayerManager.Instance.PlayerEquippedWeapon.InRangeToAttack())
+            if (PlayerManager.Instance.PlayerTargetEnemy != null && !playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
                 ChangeState(playerStateMachine.MovingToAttackState);
             }
         }
 
         public override void OnStateExecute()
         {
+            playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoTargetingRotation();
 
-            PlayerManager.Instance.MainPlayerCharacterMovement.HandleAutoTargetingRotation();
-            PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
+            playerStateMachine.PlayerCharacter.GetPlayerWeapon().DetermineAttack(); 
             if (!InputHandler.Instance.IsFiringButtonDown)
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
                 ChangeState(playerStateMachine.IdleState);
             }
         }

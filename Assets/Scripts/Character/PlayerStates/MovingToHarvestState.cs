@@ -6,14 +6,10 @@ namespace Foxlair.Character.States
 {
     public class MovingToHarvestState : State
     {
+        public PlayerStateMachine playerStateMachine;
 
-        private void Start()
-        {
-
-        }
         public override void OnStateEnter()
         {
-            PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
             ForbiddenTransitions.Add(playerStateMachine.HarvestingState);
         }
 
@@ -22,11 +18,10 @@ namespace Foxlair.Character.States
 
             if (!PlayerManager.Instance.MainPlayerCharacter.InRangeToHarvest())
             {
-                PlayerManager.Instance.MainPlayerCharacterMovement.HandleAutoMoveToHarvest(PlayerManager.Instance.PlayerTargetResourceNode.transform);
+                playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoMoveToHarvest(PlayerManager.Instance.PlayerTargetResourceNode.transform);
             }
             else
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;
                 ChangeState(playerStateMachine.HarvestingState);
             }
         }

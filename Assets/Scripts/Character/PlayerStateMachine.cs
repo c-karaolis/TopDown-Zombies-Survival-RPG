@@ -14,6 +14,7 @@ namespace Foxlair.Character.States
         public AttackingState AttackingState;
         public HarvestingState HarvestingState;
 
+        public PlayerCharacter PlayerCharacter;
         //Note: Can add on state enter an enum representation for each state as well if we need it in the codebase somewhere else.
 
         public override void Start()

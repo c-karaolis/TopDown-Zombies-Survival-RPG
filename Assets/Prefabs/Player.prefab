@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForbiddenTransitions: []
+  playerStateMachine: {fileID: 1553633897075785303}
 --- !u!1 &468825815
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForbiddenTransitions: []
+  playerStateMachine: {fileID: 1553633897075785303}
 --- !u!1 &1072856584
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +218,7 @@ MonoBehaviour:
   MovingToHarvestState: {fileID: 391331142}
   AttackingState: {fileID: 1300369017}
   HarvestingState: {fileID: 1942121598}
+  PlayerCharacter: {fileID: 1633508898}
 --- !u!1 &1263402989
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForbiddenTransitions: []
+  playerStateMachine: {fileID: 1553633897075785303}
 --- !u!1 &1300369015
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForbiddenTransitions: []
+  playerStateMachine: {fileID: 1553633897075785303}
 --- !u!1 &1942121596
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForbiddenTransitions: []
+  playerStateMachine: {fileID: 1553633897075785303}
 --- !u!1 &1956693560
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +460,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.077, y: 0, z: -0.252}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5697626967766516520}
   m_Father: {fileID: 7481468964291297333}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -593,8 +600,13 @@ MonoBehaviour:
   Charisma:
     BaseValue: 4
     Name: 6
+  CharacterMovement: {fileID: 7481468962612669612}
   InventoryController: {fileID: 0}
   Inventory: {fileID: 0}
+  CharacterTargetingHandler: {fileID: 0}
+  PlayerEquippedWeapon: {fileID: 0}
+  PunchDefaultWeaponPrefabInstance: {fileID: 8236648986557021876}
+  PunchDefaultWeapon: {fileID: 4107370984349381437}
   weaponEquipPoint: {fileID: 1665639689008592502}
 --- !u!114 &1448349941
 MonoBehaviour:
@@ -650,6 +662,7 @@ MonoBehaviour:
   Health: 0
   MaxHealth: 0
   HealthRegeneration: 0
+  Armor: 0
   HealthBar: {fileID: 0}
 --- !u!1 &7481468963599002950
 GameObject:
@@ -934,3 +947,96 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &7481468964488294739
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3664522833383201634}
+    m_Modifications:
+    - target: {fileID: 1557666025978253287, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_Name
+      value: Punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4717938
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6847117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.727318
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8a58e28c5a3fbe4ebc3e08a13341807, type: 3}
+--- !u!4 &5697626967766516520 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2936784460903346811, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+    type: 3}
+  m_PrefabInstance: {fileID: 7481468964488294739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8236648986557021876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557666025978253287, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+    type: 3}
+  m_PrefabInstance: {fileID: 7481468964488294739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4107370984349381437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6833038450196415086, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
+    type: 3}
+  m_PrefabInstance: {fileID: 7481468964488294739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236648986557021876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ddf4dba18b1c54595286a3d7cd2326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

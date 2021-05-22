@@ -27,31 +27,30 @@ namespace Foxlair.Character
         [System.NonSerialized]
         public PlayerCharacter MainPlayerCharacter;
         [System.NonSerialized]
-        public CharacterMovement MainPlayerCharacterMovement;
-        [System.NonSerialized]
         public CharacterTargetingHandler MainPlayerCharacterTargetingHandler;
-        [System.NonSerialized]
+
+       //[System.NonSerialized]
        //public Inventory MainPlayerCharacterInventory;
 
-        private Weapon playerEquippedWeapon;
+        //private Weapon playerEquippedWeapon;
 
-        public Weapon PlayerEquippedWeapon
-        {
-            get
-            {
-                if (MainPlayerCharacter.PlayerWeapon != null)
-                {
-                    Debug.Log($"found equipped weapon: {MainPlayerCharacter.PlayerWeapon.name}");
-                    return MainPlayerCharacter.PlayerWeapon;
-                }
-                else return punchWeapon.GetComponent<PunchDefaultWeapon>();
-            }
+        //public Weapon PlayerEquippedWeapon
+        //{
+        //    get
+        //    {
+        //        if (MainPlayerCharacter.PlayerWeapon != null)
+        //        {
+        //            Debug.Log($"found equipped weapon: {MainPlayerCharacter.PlayerWeapon.name}");
+        //            return MainPlayerCharacter.PlayerWeapon;
+        //        }
+        //        else return punchWeapon.GetComponent<PunchDefaultWeapon>();
+        //    }
 
-            set
-            {
-                playerEquippedWeapon = value;
-            }
-        }
+        //    set
+        //    {
+        //        playerEquippedWeapon = value;
+        //    }
+        //}
 
 
     }
