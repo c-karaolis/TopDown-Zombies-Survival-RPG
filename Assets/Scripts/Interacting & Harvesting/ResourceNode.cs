@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Foxlair.Harvesting
 {
 
-    public class ResourceNode : MonoBehaviour
+    public class ResourceNode : MonoBehaviour, IInteractable
     {
         public bool isHarvested = false;
         public float respawnTime = 120f;
@@ -29,6 +29,11 @@ namespace Foxlair.Harvesting
         {
             //harvestResourceNodeHealth.OnDeath += OnHarvested;
             meshRendererGameObject = GetComponentInChildren<MeshRenderer>().gameObject;
+        }
+
+        public void Interact()
+        {
+
         }
 
         public virtual void Update()
@@ -64,6 +69,11 @@ namespace Foxlair.Harvesting
             meshRendererGameObject.SetActive(true);
             timeSinceLastHarvest = 0f;
             isHarvested = false;
+        }
+
+        public MonoBehaviour ImplementingMonoBehaviour()
+        {
+            return this;
         }
 
         //public virtual InventoryItem HarvestHit(CharacterController _harvester)

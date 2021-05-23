@@ -51,7 +51,7 @@ namespace Foxlair.Tools.Events
         #endregion
 
         #region Interaction, Targeting & Harvest System
-        public Action<ResourceNode> InteractionSystem_OnResourceNodeFound_Event;
+        public Action<IInteractable> InteractionSystem_OnResourceNodeFound_Event;
         public Action InteractionSystem_OnResourceNodeLost_Event;
 
         public Action<Enemy> TargetingSystem_OnTargetEnemyAcquired_Event;

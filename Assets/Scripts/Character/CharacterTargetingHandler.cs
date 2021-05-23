@@ -12,7 +12,7 @@ namespace Foxlair.Character.Targeting
         protected Collider[] _hit;
         protected Vector3 _raycastDirection;
         protected Collider _potentialEnemyHit;
-        protected Collider _potentialHarvestResourceHit;
+        protected Collider _potentialInteractableHit;
 
         public LayerMask TargetsMask;
         public LayerMask HarvestResourceMask;
@@ -26,7 +26,7 @@ namespace Foxlair.Character.Targeting
         protected float _lastScanTimestamp = 0f;
 
         public Enemy EnemyTarget;
-        public ResourceNode HarvestResourceTarget;
+        public IInteractable InteractableTarget;
 
         public bool DrawDebugRadius = true;
 
@@ -90,7 +90,7 @@ namespace Foxlair.Character.Targeting
         /// <returns></returns>
         protected bool ScanForHarvestResourceTargets()
         {
-            HarvestResourceTarget = null;
+            InteractableTarget = null;
 
             float nearestDistance = float.MaxValue;
             float distance;
@@ -105,18 +105,18 @@ namespace Foxlair.Character.Targeting
                     distance = (_raycastOrigin - collider.transform.position).sqrMagnitude;
                     if (distance < nearestDistance)
                     {
-                        _potentialHarvestResourceHit = collider;
+                        _potentialInteractableHit = collider;
                         nearestDistance = distance;
                     }
                 }
 
                 // we cast a ray to make sure there's no obstacle
-                _raycastDirection = _potentialHarvestResourceHit.transform.position - _raycastOrigin;
-                RaycastHit obstacleHit = DebugRaycast3D(_raycastOrigin, _raycastDirection, Vector3.Distance(_potentialHarvestResourceHit.transform.position, _raycastOrigin), ObstacleMask.value, Color.yellow, true);
+                _raycastDirection = _potentialInteractableHit.transform.position - _raycastOrigin;
+                RaycastHit obstacleHit = DebugRaycast3D(_raycastOrigin, _raycastDirection, Vector3.Distance(_potentialInteractableHit.transform.position, _raycastOrigin), ObstacleMask.value, Color.yellow, true);
                 if (obstacleHit.collider == null)
                 {
-                    HarvestResourceTarget = _potentialHarvestResourceHit.GetComponent<ResourceNode>();
-                    FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event?.Invoke(HarvestResourceTarget);
+                    InteractableTarget = _potentialInteractableHit.GetComponent<IInteractable>();
+                    FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event?.Invoke(InteractableTarget);
                     return true;
                 }
                 else

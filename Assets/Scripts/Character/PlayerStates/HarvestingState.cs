@@ -10,7 +10,7 @@ namespace Foxlair.Character.States
     public class HarvestingState : State
     {
         public PlayerStateMachine playerStateMachine;
-        ResourceNode PlayerTargetResourceNode;
+        IInteractable PlayerTargetInteractable;
 
         private void Start()
         {
@@ -29,7 +29,7 @@ namespace Foxlair.Character.States
         private void HandleNotInRangeToHarvest()
         {
 
-            if (PlayerTargetResourceNode != null && !playerStateMachine.PlayerCharacter.InRangeToHarvest())
+            if (PlayerTargetInteractable != null && !playerStateMachine.PlayerCharacter.InRangeToHarvest())
             {
                 ChangeState(playerStateMachine.MovingToHarvestState);
             }
@@ -54,12 +54,12 @@ namespace Foxlair.Character.States
 
         private void UnsetResourceNode()
         {
-            PlayerTargetResourceNode = null;
+            PlayerTargetInteractable = null;
         }
 
-        private void SetResourceNode(ResourceNode obj)
+        private void SetResourceNode(IInteractable obj)
         {
-            PlayerTargetResourceNode = obj;
+            PlayerTargetInteractable = obj;
         }
     }
 }

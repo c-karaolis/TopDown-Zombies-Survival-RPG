@@ -5691,16 +5691,6 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 2084860803}
-    - target: {fileID: 4107370984349381437, guid: ef8797f619d461044a4e82f7a4de2093,
-        type: 3}
-      propertyPath: weaponDamage
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4107370984349381437, guid: ef8797f619d461044a4e82f7a4de2093,
-        type: 3}
-      propertyPath: playerCharacter
-      value: 
-      objectReference: {fileID: 7481468962829094420}
     - target: {fileID: 7481468962612669612, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: _camera

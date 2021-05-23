@@ -1,4 +1,5 @@
-﻿using Foxlair.PlayerInput;
+﻿using Foxlair.Harvesting;
+using Foxlair.PlayerInput;
 using Foxlair.Tools.Events;
 using Foxlair.Tools.StateMachine;
 using System;
@@ -48,7 +49,7 @@ namespace Foxlair.Character.States
 
         private void HarvestingStateTransition()
         {
-            if (InputHandler.Instance.IsInteractionButtonDown && !(CurrentState.ForbiddenTransitions.Contains(HarvestingState)))
+            if (InputHandler.Instance.IsInteractionButtonDown && !(CurrentState.ForbiddenTransitions.Contains(HarvestingState)) && PlayerCharacter.PlayerTargetInteractable is ResourceNode)
             {
                 ChangeState(HarvestingState);
             }

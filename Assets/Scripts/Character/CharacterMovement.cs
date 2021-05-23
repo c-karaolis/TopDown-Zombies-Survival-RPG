@@ -66,9 +66,9 @@ namespace Foxlair.Character.Movement
 
         public void HandleHarvestingAutoRotation()
         {
-            if (characterTargetingHandler.HarvestResourceTarget != null && input.IsInteractionButtonDown)
+            if (characterTargetingHandler.InteractableTarget != null && input.IsInteractionButtonDown)
             {
-                Vector3 targetDirection = characterTargetingHandler.HarvestResourceTarget.transform.position - transform.position;
+                Vector3 targetDirection = characterTargetingHandler.InteractableTarget.ImplementingMonoBehaviour().transform.position - transform.position;
                 RotateTowards(targetDirection);
             }
 

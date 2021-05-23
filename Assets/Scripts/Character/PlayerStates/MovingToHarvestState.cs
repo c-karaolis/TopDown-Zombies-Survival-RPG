@@ -18,7 +18,7 @@ namespace Foxlair.Character.States
 
             if (!playerStateMachine.PlayerCharacter.InRangeToHarvest())
             {
-                playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoMoveToHarvest(playerStateMachine.PlayerCharacter.PlayerTargetResourceNode.transform);
+                playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoMoveToHarvest(playerStateMachine.PlayerCharacter.PlayerTargetInteractable.ImplementingMonoBehaviour().transform);
             }
             else
             {

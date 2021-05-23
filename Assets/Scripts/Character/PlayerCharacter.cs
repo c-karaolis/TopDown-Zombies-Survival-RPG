@@ -38,7 +38,7 @@ namespace Foxlair.Character
 
         [Header("Will be set through code")]
         public Inventory Inventory;
-        public ResourceNode PlayerTargetResourceNode;
+        public IInteractable PlayerTargetInteractable;
         public Enemy PlayerTargetEnemy;
         #endregion
 
@@ -95,7 +95,7 @@ namespace Foxlair.Character
 
         public bool InRangeToHarvest()
         {
-            if (Vector3.Distance(PlayerTargetResourceNode.transform.position, transform.position) <= 2)
+            if (Vector3.Distance(PlayerTargetInteractable.ImplementingMonoBehaviour().transform.position, transform.position) <= 2)
             {
                 //TODO: Rotate towards harvest resource and start harvesting
                 Debug.Log("player in range to harvest");
@@ -131,12 +131,12 @@ namespace Foxlair.Character
         }
         private void UnsetResourceNode()
         {
-            PlayerTargetResourceNode = null;
+            PlayerTargetInteractable = null;
         }
 
-        private void SetResourceNode(ResourceNode obj)
+        private void SetResourceNode(IInteractable obj)
         {
-            PlayerTargetResourceNode = obj;
+            PlayerTargetInteractable = obj;
         }
 
         private void OnDestroy()

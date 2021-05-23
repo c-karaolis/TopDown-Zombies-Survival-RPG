@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class InteractableIndicator : MonoBehaviour
 {
-    ResourceNode PlayerTargetResourceNode;
+    IInteractable PlayerTargetInteractable;
 
     private void Start()
     {
@@ -18,19 +18,19 @@ public class InteractableIndicator : MonoBehaviour
 
     private void UnsetResourceNode()
     {
-        PlayerTargetResourceNode = null;
+        PlayerTargetInteractable = null;
     }
 
-    private void SetResourceNode(ResourceNode obj)
+    private void SetResourceNode(IInteractable obj)
     {
-        PlayerTargetResourceNode = obj;
+        PlayerTargetInteractable = obj;
     }
 
     void Update()
     {
-        if (PlayerTargetResourceNode != null)
+        if (PlayerTargetInteractable != null)
         {
-            Bounds bounds = PlayerTargetResourceNode.GetComponentInChildren<Renderer>().bounds;
+            Bounds bounds = (PlayerTargetInteractable as MonoBehaviour).GetComponentInChildren<Renderer>().bounds;
 
             float diameter = bounds.size.z;
             diameter *= 2.50f;
