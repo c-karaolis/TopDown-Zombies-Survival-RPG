@@ -71,11 +71,16 @@ namespace Foxlair.Weapons
             {26,0.01f},
         };
 
+        public WeaponType WeaponType;
+
         public virtual void Start()
         {
             input = InputHandler.Instance;
             weaponAudioSource = GetComponent<AudioSource>();
+           playerCharacter.SetAnimatorBasedOnWeaponType((int)WeaponType);
         }
+
+       
 
         public virtual void Update()
         {
@@ -157,5 +162,16 @@ namespace Foxlair.Weapons
             //Destroy(this.gameObject, 0.3f);
 
         }
+
+
+    }
+    public enum WeaponType
+    {
+        BASE,
+        PISTOL,
+        RIFLE,
+        ONE_HAND_MELEE,
+        TWO_HAND_MELEE,
+        
     }
 }

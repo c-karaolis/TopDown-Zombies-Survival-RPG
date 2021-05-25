@@ -85,6 +85,7 @@ namespace Foxlair.Character
             weapon.playerCharacter = this;
             PunchDefaultWeaponPrefabInstance.SetActive(false);
             PlayerEquippedWeapon = weapon;
+            SetAnimatorBasedOnWeaponType((int)weapon.WeaponType);
         }
 
         private void UnsetEquippedWeapon(Weapon weapon) 
@@ -92,6 +93,7 @@ namespace Foxlair.Character
             Debug.Log($"Unequipping {weapon}");
             PunchDefaultWeaponPrefabInstance.SetActive(true);
             PlayerEquippedWeapon = PunchDefaultWeapon;
+            SetAnimatorBasedOnWeaponType((int)PunchDefaultWeapon.WeaponType);
         }
 
         public bool InRangeToHarvest()
@@ -106,6 +108,20 @@ namespace Foxlair.Character
             {
                 return false;
             }
+        }
+
+        public void SetAnimatorBasedOnWeaponType(int index)
+        {
+
+            PlayerAnimator.SetLayerWeight(index, 1);
+
+            for (int i = 0; i < PlayerAnimator.layerCount; i++)
+            {
+                if (i != index)
+                    PlayerAnimator.SetLayerWeight(i, 0);
+            }
+
+
         }
 
         private void SceneStartWeaponSetup()
