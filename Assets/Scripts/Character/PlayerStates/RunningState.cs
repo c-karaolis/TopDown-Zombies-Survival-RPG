@@ -13,6 +13,7 @@ namespace Foxlair.Character.States
         public override void OnStateEnter()
         {
             ForbiddenTransitions.Add(this);
+            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("RUNNING");
         }
 
 

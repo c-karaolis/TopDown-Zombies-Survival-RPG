@@ -25,6 +25,7 @@ namespace Foxlair.Character
         public CharacterAttribute Charisma;
 
         [Header("Character Systems")]
+        public Animator PlayerAnimator;
         public CharacterMovement CharacterMovement;
         public InventoryController InventoryController;
         public CharacterTargetingHandler CharacterTargetingHandler;
