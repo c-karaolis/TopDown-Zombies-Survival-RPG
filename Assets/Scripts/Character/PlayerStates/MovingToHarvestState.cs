@@ -10,6 +10,8 @@ namespace Foxlair.Character.States
 
         public override void OnStateEnter()
         {
+            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("RUNNING");
+
             ForbiddenTransitions.Add(playerStateMachine.HarvestingState);
         }
 

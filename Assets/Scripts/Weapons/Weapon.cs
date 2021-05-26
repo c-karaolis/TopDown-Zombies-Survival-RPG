@@ -111,16 +111,28 @@ namespace Foxlair.Weapons
 
         public virtual void Attack()
         {
-            if (playerCharacter.PlayerTargetEnemy == null) { return; }
 
-            Debug.Log("parent weapon");
+            //if (playerCharacter.PlayerTargetEnemy == null) { return; }
+
+            if (!playerCharacter.PlayerAnimator.GetBool("ATTACKING"))
+            {
+                playerCharacter.PlayerAnimator.SetBool("ATTACKING", true);
+            }
+            //Debug.Log("parent weapon");
 
             //TODO: this is fire delay not fire rate. 
             //find a way to normalise firerate for humans. e.g. thisfirerate = humanfirerate * (1/100)
             nextFire = Time.time + FireDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            playerCharacter.PlayerTargetEnemy.Damage(weaponDamage);
+            if (!(playerCharacter.PlayerTargetEnemy == null))
+            {
+                playerCharacter.PlayerTargetEnemy.Damage(weaponDamage);
+            }
+            else
+            {
+                //Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
+            }
 
             HandleWeaponDurability();
 
@@ -132,6 +144,8 @@ namespace Foxlair.Weapons
             weaponAudioSource.PlayOneShot(attackSoundEffect);
             //Wait for .07 seconds
             yield return new WaitForSeconds(weaponAttackDuration);
+            playerCharacter.PlayerAnimator.SetBool("ATTACKING", false);
+            playerCharacter.isExecutingAnAttackMove = false;
         }
 
         public virtual void HandleWeaponDurability()

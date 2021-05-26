@@ -36,6 +36,7 @@ namespace Foxlair.Character
         public GameObject PunchDefaultWeaponPrefabInstance;
         public PunchDefaultWeapon PunchDefaultWeapon;
         public GameObject weaponEquipPoint;
+        public bool isExecutingAnAttackMove = false;
 
         [Header("Will be set through code")]
         public Inventory Inventory;
