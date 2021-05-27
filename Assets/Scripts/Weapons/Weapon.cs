@@ -163,6 +163,7 @@ namespace Foxlair.Weapons
 
         public  virtual void DestroyWeapon()
         {
+            playerCharacter.PlayerStateMachine.ChangeState(playerCharacter.PlayerStateMachine.IdleState);
             BaseItemSlot slotToRemove = playerCharacter.InventoryController.GetEquipmentSlotByType(InventoryItemInstance.EquipmentType);
             if (slotToRemove != null)
             {

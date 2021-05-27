@@ -627,9 +627,11 @@ MonoBehaviour:
   InventoryController: {fileID: 0}
   CharacterTargetingHandler: {fileID: 2088238235}
   HealthSystem: {fileID: 2176075982940395978}
+  PlayerStateMachine: {fileID: 1553633897075785303}
   PunchDefaultWeaponPrefabInstance: {fileID: 8236648986557021876}
   PunchDefaultWeapon: {fileID: 4107370984349381437}
   weaponEquipPoint: {fileID: 1665639689008592502}
+  isExecutingAnAttackMove: 0
   Inventory: {fileID: 0}
   PlayerTargetEnemy: {fileID: 0}
 --- !u!114 &1448349941

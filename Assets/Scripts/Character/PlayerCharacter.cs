@@ -9,12 +9,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Foxlair.Harvesting;
 using Foxlair.Enemies;
+using Foxlair.Character.States;
 
 namespace Foxlair.Character
 {
     public class PlayerCharacter : Actor
     {
         #region Fields & Properties
+        private Weapon PlayerEquippedWeapon;
+
         [Header("Player Attributes")]
         public CharacterAttribute Strength;
         public CharacterAttribute Agility;
@@ -30,7 +33,7 @@ namespace Foxlair.Character
         public InventoryController InventoryController;
         public CharacterTargetingHandler CharacterTargetingHandler;
         public HealthSystem HealthSystem;
-        private Weapon PlayerEquippedWeapon;
+        public PlayerStateMachine PlayerStateMachine;
 
         [Header("Weapon Related")]
         public GameObject PunchDefaultWeaponPrefabInstance;
@@ -43,6 +46,7 @@ namespace Foxlair.Character
         public IInteractable PlayerTargetInteractable;
         public Enemy PlayerTargetEnemy;
         #endregion
+
 
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
 
