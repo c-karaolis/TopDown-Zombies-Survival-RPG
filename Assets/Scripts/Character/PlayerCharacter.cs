@@ -44,7 +44,7 @@ namespace Foxlair.Character
         [Header("Will be set through code")]
         public Inventory Inventory;
         public IInteractable PlayerTargetInteractable;
-        public Enemy PlayerTargetEnemy;
+        public EnemyCharacter PlayerTargetEnemy;
         #endregion
 
 
@@ -174,7 +174,7 @@ namespace Foxlair.Character
             PlayerTargetEnemy = null;
         }
 
-        private void SetEnemyTarget(Enemy obj)
+        private void SetEnemyTarget(EnemyCharacter obj)
         {
             PlayerTargetEnemy = obj;
         }

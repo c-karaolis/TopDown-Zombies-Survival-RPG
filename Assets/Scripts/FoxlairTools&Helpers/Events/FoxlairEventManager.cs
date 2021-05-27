@@ -54,7 +54,7 @@ namespace Foxlair.Tools.Events
         public Action<IInteractable> InteractionSystem_OnResourceNodeFound_Event;
         public Action InteractionSystem_OnResourceNodeLost_Event;
 
-        public Action<Enemy> TargetingSystem_OnTargetEnemyAcquired_Event;
+        public Action<EnemyCharacter> TargetingSystem_OnTargetEnemyAcquired_Event;
         public Action TargetingSystem_OnTargetEnemyLost_Event;
         #endregion
 

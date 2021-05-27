@@ -2,7 +2,7 @@
 
 namespace Foxlair.Enemies
 {
-    public class Enemy : MonoBehaviour
+    public class EnemyCharacter : MonoBehaviour
     {
         public float _health=30f;
 

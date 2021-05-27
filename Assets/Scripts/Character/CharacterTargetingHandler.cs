@@ -25,7 +25,7 @@ namespace Foxlair.Character.Targeting
         public float DurationBetweenScans = 0.2f;
         protected float _lastScanTimestamp = 0f;
 
-        public Enemy EnemyTarget;
+        public EnemyCharacter EnemyTarget;
         public IInteractable InteractableTarget;
 
         public bool DrawDebugRadius = true;
@@ -67,7 +67,7 @@ namespace Foxlair.Character.Targeting
                 RaycastHit obstacleHit = DebugRaycast3D(_raycastOrigin, _raycastDirection, Vector3.Distance(_potentialEnemyHit.transform.position, _raycastOrigin), ObstacleMask.value, Color.yellow, true);
                 if (obstacleHit.collider == null)
                 {
-                    EnemyTarget = _potentialEnemyHit.GetComponent<Enemy>();
+                    EnemyTarget = _potentialEnemyHit.GetComponent<EnemyCharacter>();
                     FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event?.Invoke(EnemyTarget);
                     return true;
                 }
