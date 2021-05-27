@@ -9,6 +9,8 @@ namespace Foxlair.Character.States
         public PlayerStateMachine playerStateMachine;
 
         public override void OnStateEnter() {
+            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("RUNNING");
+
             ForbiddenTransitions.Add(playerStateMachine.AttackingState);
         }
 

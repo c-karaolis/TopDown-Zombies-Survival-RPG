@@ -9,6 +9,7 @@ namespace Foxlair.Character.States
     public class AttackingState : State
     {
         public PlayerStateMachine playerStateMachine;
+        bool firstTimeEnteredAttackPressed;
 
         private void Start()
         {
@@ -19,12 +20,18 @@ namespace Foxlair.Character.States
         public override void OnStateEnter()
         {
             HandleNotInRangeToAttack();
+            //if (!playerStateMachine.PlayerCharacter.PlayerAnimator.GetBool("Attacking"))
+            //{
+            //    playerStateMachine.PlayerCharacter.PlayerAnimator.SetBool("ATTACKING", true);
+            //}
+
         }
 
         private void HandleNotInRangeToAttack()
         {
             if (playerStateMachine.PlayerCharacter.PlayerTargetEnemy != null && !playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
+                playerStateMachine.PlayerCharacter.isExecutingAnAttackMove = true;
                 ChangeState(playerStateMachine.MovingToAttackState);
             }
         }
@@ -34,7 +41,7 @@ namespace Foxlair.Character.States
             playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoTargetingRotation();
 
             playerStateMachine.PlayerCharacter.GetPlayerWeapon().DetermineAttack(); 
-            if (!InputHandler.Instance.IsFiringButtonDown)
+            if (!InputHandler.Instance.IsFiringButtonDown && !playerStateMachine.PlayerCharacter.isExecutingAnAttackMove)
             {
                 ChangeState(playerStateMachine.IdleState);
             }
@@ -44,7 +51,9 @@ namespace Foxlair.Character.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { }
+        public override void OnStateExit() { 
+           playerStateMachine.PlayerCharacter.PlayerAnimator.SetBool("ATTACKING", false);
+        }
 
 
 
