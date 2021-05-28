@@ -27,6 +27,7 @@ namespace Foxlair.Character.Targeting
 
         public EnemyCharacter EnemyTarget;
         public IInteractable InteractableTarget;
+        private EnemyCharacter previousEnemyTarget;
 
         public bool DrawDebugRadius = true;
 
@@ -42,6 +43,7 @@ namespace Foxlair.Character.Targeting
         /// <returns></returns>
         protected bool ScanForEnemyTargets()
         {
+            previousEnemyTarget = EnemyTarget;
             EnemyTarget = null;
 
             float nearestDistance = float.MaxValue;
@@ -68,7 +70,10 @@ namespace Foxlair.Character.Targeting
                 if (obstacleHit.collider == null)
                 {
                     EnemyTarget = _potentialEnemyHit.GetComponent<EnemyCharacter>();
-                    FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event?.Invoke(EnemyTarget);
+                    if(EnemyTarget != previousEnemyTarget)
+                    {
+                        FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event?.Invoke(EnemyTarget);
+                    }
                     return true;
                 }
                 else

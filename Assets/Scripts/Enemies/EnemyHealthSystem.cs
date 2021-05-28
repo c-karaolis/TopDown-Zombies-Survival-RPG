@@ -9,53 +9,53 @@ namespace Foxlair.Enemies.HealthSystem
     public class EnemyHealthSystem : MonoBehaviour
     {
 
-        public float Health;
-        public float MaxHealth;
-        public float HealthRegeneration;
+        public float health;
+        public float maxHealth;
+        public float healthRegeneration;
 
-        public float Armor;
+        public float armor;
 
         EnemyCharacter enemyCharacter;
 
-        public Image HealthBar;
+        public Image healthBar;
 
         private void Start()
         {
             enemyCharacter = GetComponent<EnemyCharacter>();
-            MaxHealth = 50f;
-            Health = MaxHealth;
-            HealthRegeneration = 0.1f;
+            maxHealth = 50f;
+            health = maxHealth;
+            healthRegeneration = 0.1f;
         }
 
 
 
         public void TakeDamage(float damage)
         {
-            damage -= Armor;
+            damage -= armor;
 
-            if (Health - damage <= 0)
+            if (health - damage <= 0)
             {
-                Health = 0;
+                health = 0;
                 FoxlairEventManager.Instance.HealthSystem_OnHealthLost_Event?.Invoke(damage);
                 Die();
             }
             else
             {
-                Health -= damage;
+                health -= damage;
                 FoxlairEventManager.Instance.HealthSystem_OnHealthLost_Event?.Invoke(damage);
             }
         }
 
         public void Heal(float healAmount)
         {
-            if (Health + healAmount <= MaxHealth)
+            if (health + healAmount <= maxHealth)
             {
-                Health += healAmount;
+                health += healAmount;
                 FoxlairEventManager.Instance.HealthSystem_OnHealthChanged_Event?.Invoke();
             }
             else
             {
-                Health = MaxHealth;
+                health = maxHealth;
                 FoxlairEventManager.Instance.HealthSystem_OnHealthChanged_Event?.Invoke();
             }
         }
@@ -70,22 +70,22 @@ namespace Foxlair.Enemies.HealthSystem
         {
             RegenerateHealth();
 
-            HealthBar.fillAmount = Health / MaxHealth;
+           // HealthBar.fillAmount = Health / MaxHealth;
         }
 
         private void RegenerateHealth()
         {
-            if (Health == MaxHealth)
+            if (health == maxHealth)
             {
                 return;
             }
-            else if (Health > MaxHealth)
+            else if (health > maxHealth)
             {
-                Health = MaxHealth;
+                health = maxHealth;
             }
             else
             {
-                Health += HealthRegeneration * Time.deltaTime;
+                health += healthRegeneration * Time.deltaTime;
             }
 
             FoxlairEventManager.Instance.HealthSystem_OnHealthChanged_Event?.Invoke();
