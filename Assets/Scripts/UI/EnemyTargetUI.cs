@@ -39,7 +39,6 @@ public class EnemyTargetUI : MonoBehaviour
 
     private void ShowUI()
     {
-        Debug.Log("SHOW UI");
         enemyHealthbar.enabled = true;
         nameText.enabled = true;
         healthText.enabled = true;

@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using Foxlair.Tools.StateMachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Foxlair.Tools.StateMachine
+namespace Foxlair.Enemies.States
 {
-    public class ZombieAttackingState : State
+    public class EnemyAttackingState : State
     {
 
-        public ZombieStateMachine zombieStateMachine;
+        public EnemyStateMachine enemyStateMachine;
 
         void Start()
         {

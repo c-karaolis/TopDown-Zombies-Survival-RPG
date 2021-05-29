@@ -18,7 +18,6 @@ namespace Foxlair.Character.States
         {
             if (InputHandler.Instance.IsMovementButtonsDown)
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;  //ChangeState(((PlayerStateMachine)StateMachine).RunningState);
                 ChangeState(playerStateMachine.RunningState);
             }
         }

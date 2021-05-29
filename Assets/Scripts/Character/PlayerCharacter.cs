@@ -31,7 +31,7 @@ namespace Foxlair.Character
         public Animator PlayerAnimator;
         public CharacterMovement CharacterMovement;
         public InventoryController InventoryController;
-        public CharacterTargetingHandler CharacterTargetingHandler;
+        public PlayerCharacterTargetingHandler CharacterTargetingHandler;
         public HealthSystem HealthSystem;
         public PlayerStateMachine PlayerStateMachine;
 

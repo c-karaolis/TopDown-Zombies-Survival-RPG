@@ -6,7 +6,7 @@ using Foxlair.Tools.Events;
 
 namespace Foxlair.Character.Targeting
 {
-    public class CharacterTargetingHandler : MonoBehaviour
+    public class PlayerCharacterTargetingHandler : MonoBehaviour
     {
         protected Vector3 _aimDirection;
         protected Collider[] _hit;

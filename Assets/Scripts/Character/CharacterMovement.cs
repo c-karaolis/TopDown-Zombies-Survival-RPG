@@ -12,7 +12,7 @@ namespace Foxlair.Character.Movement
         private InputHandler input;
         [SerializeField]
         private CharacterController characterController;
-        private CharacterTargetingHandler characterTargetingHandler;
+        private PlayerCharacterTargetingHandler characterTargetingHandler;
         private double gravity;
 
         [SerializeField]
