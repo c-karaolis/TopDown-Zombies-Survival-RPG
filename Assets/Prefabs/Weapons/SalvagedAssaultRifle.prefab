@@ -508,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDamage: 5
   armorPenetration: 3
-  durability: 40
+  durability: 100
   isCoolingDown: 0
   weaponAudioSource: {fileID: 0}
   attackSoundEffect: {fileID: 8300000, guid: 9e644a0b405b51c4caeeb8858075a974, type: 3}

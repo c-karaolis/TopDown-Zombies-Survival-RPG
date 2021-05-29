@@ -5932,6 +5932,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6577254945393256576, guid: a3860ff9939671f449a10e3756db6901,
+        type: 3}
+      propertyPath: drawDebugRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7667223427209970593, guid: a3860ff9939671f449a10e3756db6901,
         type: 3}
       propertyPath: m_Name
@@ -6025,6 +6030,10 @@ PrefabInstance:
       propertyPath: InventoryController
       value: 
       objectReference: {fileID: 1920707852}
+    - target: {fileID: 2088238235, guid: ef8797f619d461044a4e82f7a4de2093, type: 3}
+      propertyPath: DrawDebugRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1553633897075785303, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: ShowDebugCurrentState
