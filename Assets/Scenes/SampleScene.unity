@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 241943854}
   - component: {fileID: 241943853}
   - component: {fileID: 241943852}
+  - component: {fileID: 241943855}
   m_Layer: 10
   m_Name: Obstacle (2)
   m_TagString: Untagged
@@ -733,6 +734,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241943850}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &241943855
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241943850}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &255616890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,18 +1219,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
---- !u!114 &440946604 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1677984575792676320, guid: a3860ff9939671f449a10e3756db6901,
-    type: 3}
-  m_PrefabInstance: {fileID: 7667223427919112933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887943bcff7cced4181478e88362cb8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &450811254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,18 +1451,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -176}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &832737762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7667223428352791495, guid: a3860ff9939671f449a10e3756db6901,
-    type: 3}
-  m_PrefabInstance: {fileID: 7667223427919112933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0607e14e3da67d3419f4b587a8d62cad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &837049258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,18 +1872,6 @@ MonoBehaviour:
   _targetTransform: {fileID: 2088238233}
   _distanceToTarget: 15
   _followSpeed: 3
---- !u!114 &973404271 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7667223428382174726, guid: a3860ff9939671f449a10e3756db6901,
-    type: 3}
-  m_PrefabInstance: {fileID: 7667223427919112933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0dc87cbaa1caee4e83a99d68d2d70d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1005158891 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2354711454714772442, guid: 2cde594bbe644d8478cbcad84b8391d8,
@@ -2189,6 +2170,7 @@ GameObject:
   - component: {fileID: 1122380104}
   - component: {fileID: 1122380103}
   - component: {fileID: 1122380102}
+  - component: {fileID: 1122380106}
   m_Layer: 10
   m_Name: Obstacle
   m_TagString: Untagged
@@ -2270,6 +2252,22 @@ Transform:
   m_Father: {fileID: 1040061961}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1122380106
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122380101}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1125794535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,6 +2331,7 @@ GameObject:
   - component: {fileID: 1196152637}
   - component: {fileID: 1196152636}
   - component: {fileID: 1196152635}
+  - component: {fileID: 1196152638}
   m_Layer: 10
   m_Name: Obstacle (1)
   m_TagString: Untagged
@@ -2414,6 +2413,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196152633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1196152638
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196152633}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1229280981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,29 +2956,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 394168270}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1523362116 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7667223427209970593, guid: a3860ff9939671f449a10e3756db6901,
-    type: 3}
-  m_PrefabInstance: {fileID: 7667223427919112933}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1523362124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523362116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7431660ae87e6484e9f59ca7470184ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyCharacter: {fileID: 0}
-  enemyCharacterTargetingHandler: {fileID: 0}
-  movementSpeed: 5
-  rotationSmoothTime: 0.01
-  rotationSmoothVelocity: 0
 --- !u!1 &1616023984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,12 +3000,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1666670155 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7667223427890668343, guid: a3860ff9939671f449a10e3756db6901,
-    type: 3}
-  m_PrefabInstance: {fileID: 7667223427919112933}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1676095505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,18 +3136,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1765637508 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7667223427531839329, guid: a3860ff9939671f449a10e3756db6901,
-    type: 3}
-  m_PrefabInstance: {fileID: 7667223427919112933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8fecf88aca7a74b83b1763b02de96e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1859559828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5777,18 +5751,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8782439225072769285}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2105276134 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7667223427935318967, guid: a3860ff9939671f449a10e3756db6901,
-    type: 3}
-  m_PrefabInstance: {fileID: 7667223427919112933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ae2ed06c489c944d9e2e8d7241ddecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2126664106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,51 +5932,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1677984575792676320, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: enemyIdleState
-      value: 
-      objectReference: {fileID: 1765637508}
-    - target: {fileID: 1677984575792676320, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: enemyRunningState
-      value: 
-      objectReference: {fileID: 832737762}
-    - target: {fileID: 1677984575792676320, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: enemyAttackingState
-      value: 
-      objectReference: {fileID: 2105276134}
-    - target: {fileID: 1677984575792676320, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: enemyMovingToAttackState
-      value: 
-      objectReference: {fileID: 973404271}
-    - target: {fileID: 1677984575792676320, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: CharacterStatesGameObject
-      value: 
-      objectReference: {fileID: 1666670155}
-    - target: {fileID: 5844392317223060971, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: enemyStateMachine
-      value: 
-      objectReference: {fileID: 440946604}
-    - target: {fileID: 6577254945393256576, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: targetsMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 6577254945393256576, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 6577254945393256576, guid: a3860ff9939671f449a10e3756db6901,
-        type: 3}
-      propertyPath: harvestResourceMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     - target: {fileID: 7667223427209970593, guid: a3860ff9939671f449a10e3756db6901,
         type: 3}
       propertyPath: m_Name

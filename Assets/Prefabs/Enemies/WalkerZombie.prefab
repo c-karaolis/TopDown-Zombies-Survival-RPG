@@ -47,11 +47,11 @@ MonoBehaviour:
   ShowDebugCurrentState: 0
   InitialState: {fileID: 7667223427531839329}
   AvailableStates: []
-  CharacterStatesGameObject: {fileID: 0}
-  IdleState: {fileID: 7667223427531839329}
-  RunningState: {fileID: 7667223428352791495}
-  MovingToAttackState: {fileID: 7667223428382174726}
-  AttackingState: {fileID: 7667223427935318967}
+  CharacterStatesGameObject: {fileID: 7667223427890668343}
+  enemyIdleState: {fileID: 7667223427531839329}
+  enemyRunningState: {fileID: 7667223428352791495}
+  enemyMovingToAttackState: {fileID: 7667223428382174726}
+  enemyAttackingState: {fileID: 7667223427935318967}
   enemyCharacter: {fileID: 5844392317223060971}
 --- !u!1 &7667223427209970593
 GameObject:
@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 5844392317223060971}
   - component: {fileID: 8489867366797021066}
   - component: {fileID: 6577254945393256576}
+  - component: {fileID: 1523362124}
   m_Layer: 9
   m_Name: WalkerZombie
   m_TagString: Enemy
@@ -158,12 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d0e9ade9aedd94e98f0ed0c937661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 30
   healthSystem: {fileID: 8489867366797021066}
   enemyCharacterTargetingHandler: {fileID: 0}
   enemyCharacterMovement: {fileID: 0}
   playerTarget: {fileID: 0}
-  enemyStateMachine: {fileID: 0}
+  animator: {fileID: 0}
+  enemyStateMachine: {fileID: 1677984575792676320}
   enemyName: Zombie Walker
 --- !u!114 &8489867366797021066
 MonoBehaviour:
@@ -196,18 +197,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetsMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   harvestResourceMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   scanRadius: 15
   durationBetweenScans: 0.2
   enemyCharacter: {fileID: 0}
   playerTarget: {fileID: 0}
   drawDebugRadius: 1
+--- !u!114 &1523362124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667223427209970593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7431660ae87e6484e9f59ca7470184ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCharacter: {fileID: 0}
+  enemyCharacterTargetingHandler: {fileID: 0}
+  movementSpeed: 5
+  rotationSmoothTime: 0.01
+  rotationSmoothVelocity: 0
 --- !u!1 &7667223427531839335
 GameObject:
   m_ObjectHideFlags: 0
