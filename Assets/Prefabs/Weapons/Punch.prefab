@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2936784460903346811
 Transform:
   m_ObjectHideFlags: 0
@@ -151,6 +151,6 @@ MonoBehaviour:
   nextFire: 0
   weaponAttackDuration: 0.07
   playerCharacter: {fileID: 0}
-  characterTargetingHandler: {fileID: 0}
   input: {fileID: 0}
   fireRate: 7
+  WeaponType: 0

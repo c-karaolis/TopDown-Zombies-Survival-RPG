@@ -28,23 +28,23 @@ namespace Foxlair.Character
         public CharacterAttribute Charisma;
 
         [Header("Character Systems")]
-        public Animator PlayerAnimator;
-        public CharacterMovement CharacterMovement;
-        public InventoryController InventoryController;
-        public PlayerCharacterTargetingHandler CharacterTargetingHandler;
-        public HealthSystem HealthSystem;
-        public PlayerStateMachine PlayerStateMachine;
+        public Animator playerAnimator;
+        public CharacterMovement characterMovement;
+        public InventoryController inventoryController;
+        public PlayerCharacterTargetingHandler characterTargetingHandler;
+        public HealthSystem healthSystem;
+        public PlayerStateMachine playerStateMachine;
 
         [Header("Weapon Related")]
-        public GameObject PunchDefaultWeaponPrefabInstance;
-        public PunchDefaultWeapon PunchDefaultWeapon;
+        public GameObject punchDefaultWeaponPrefabInstance;
+        public PunchDefaultWeapon punchDefaultWeapon;
         public GameObject weaponEquipPoint;
         public bool isExecutingAnAttackMove = false;
 
         [Header("Will be set through code")]
-        public Inventory Inventory;
-        public IInteractable PlayerTargetInteractable;
-        public EnemyCharacter PlayerTargetEnemy;
+        public Inventory inventory;
+        public IInteractable playerTargetInteractable;
+        public EnemyCharacter playerTargetEnemy;
         #endregion
 
 
@@ -75,9 +75,9 @@ namespace Foxlair.Character
 
         private bool HasEquippedWeapon(out Weapon currentlyEquippedWeapon)
         {
-            if ((InventoryController.GetEquipmentSlotByType(EquipmentType.Weapon).Item as EquippableItem) != null)
+            if ((inventoryController.GetEquipmentSlotByType(EquipmentType.Weapon).Item as EquippableItem) != null)
             {
-                (InventoryController.GetEquipmentSlotByType(EquipmentType.Weapon).Item as EquippableItem).InstanceOfPhysicalItemPrefab.TryGetComponent<Weapon>(out currentlyEquippedWeapon);
+                (inventoryController.GetEquipmentSlotByType(EquipmentType.Weapon).Item as EquippableItem).InstanceOfPhysicalItemPrefab.TryGetComponent<Weapon>(out currentlyEquippedWeapon);
                 return true;
             }
             currentlyEquippedWeapon = null;
@@ -88,7 +88,7 @@ namespace Foxlair.Character
         {
             Debug.Log($"Equipping {weapon}");
             weapon.playerCharacter = this;
-            PunchDefaultWeaponPrefabInstance.SetActive(false);
+            punchDefaultWeaponPrefabInstance.SetActive(false);
             PlayerEquippedWeapon = weapon;
             SetAnimatorBasedOnWeaponType((int)weapon.WeaponType);
         }
@@ -96,14 +96,14 @@ namespace Foxlair.Character
         private void UnsetEquippedWeapon(Weapon weapon) 
         {
             Debug.Log($"Unequipping {weapon}");
-            PunchDefaultWeaponPrefabInstance.SetActive(true);
-            PlayerEquippedWeapon = PunchDefaultWeapon;
-            SetAnimatorBasedOnWeaponType((int)PunchDefaultWeapon.WeaponType);
+            punchDefaultWeaponPrefabInstance.SetActive(true);
+            PlayerEquippedWeapon = punchDefaultWeapon;
+            SetAnimatorBasedOnWeaponType((int)punchDefaultWeapon.WeaponType);
         }
 
         public bool InRangeToHarvest()
         {
-            if (Vector3.Distance(PlayerTargetInteractable.ImplementingMonoBehaviour().transform.position, transform.position) <= 2)
+            if (Vector3.Distance(playerTargetInteractable.ImplementingMonoBehaviour().transform.position, transform.position) <= 2)
             {
                 //TODO: Rotate towards harvest resource and start harvesting
                 Debug.Log("player in range to harvest");
@@ -118,12 +118,12 @@ namespace Foxlair.Character
         public void SetAnimatorBasedOnWeaponType(int index)
         {
 
-            PlayerAnimator.SetLayerWeight(index, 1);
+            playerAnimator.SetLayerWeight(index, 1);
 
-            for (int i = 0; i < PlayerAnimator.layerCount; i++)
+            for (int i = 0; i < playerAnimator.layerCount; i++)
             {
                 if (i != index)
-                    PlayerAnimator.SetLayerWeight(i, 0);
+                    playerAnimator.SetLayerWeight(i, 0);
             }
 
 
@@ -153,12 +153,12 @@ namespace Foxlair.Character
         }
         private void UnsetResourceNode()
         {
-            PlayerTargetInteractable = null;
+            playerTargetInteractable = null;
         }
 
         private void SetResourceNode(IInteractable obj)
         {
-            PlayerTargetInteractable = obj;
+            playerTargetInteractable = obj;
         }
 
         private void OnDestroy()
@@ -171,12 +171,12 @@ namespace Foxlair.Character
 
         private void UnsetEnemyTarget()
         {
-            PlayerTargetEnemy = null;
+            playerTargetEnemy = null;
         }
 
         private void SetEnemyTarget(EnemyCharacter obj)
         {
-            PlayerTargetEnemy = obj;
+            playerTargetEnemy = obj;
         }
     }
 }

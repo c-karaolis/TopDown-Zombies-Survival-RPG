@@ -59,7 +59,7 @@ public class InventoryController : MonoBehaviour
     private void Awake()
 	{
 		FindPlayerCharacter();
-		PlayerCharacter.Inventory = Inventory;
+		PlayerCharacter.inventory = Inventory;
 		//statPanel.SetStats(Strength, Agility, Intelligence, Vitality);
 		statPanel.SetStats(PlayerCharacter.CharacterAttributes.Values.ToArray());
 	}

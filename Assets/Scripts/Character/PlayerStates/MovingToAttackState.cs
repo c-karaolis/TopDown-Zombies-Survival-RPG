@@ -9,7 +9,7 @@ namespace Foxlair.Character.States
         public PlayerStateMachine playerStateMachine;
 
         public override void OnStateEnter() {
-            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("RUNNING");
+            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("RUNNING");
 
             ForbiddenTransitions.Add(playerStateMachine.AttackingState);
         }
@@ -19,7 +19,7 @@ namespace Foxlair.Character.States
             
             if (!playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
-                playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoMoveToAttack(playerStateMachine.PlayerCharacter.PlayerTargetEnemy.transform);
+                playerStateMachine.PlayerCharacter.characterMovement.HandleAutoMoveToAttack(playerStateMachine.PlayerCharacter.playerTargetEnemy.transform);
             }
             else
             {

@@ -15,6 +15,8 @@ namespace Foxlair.Enemies
         public PlayerCharacter playerTarget;
         public Animator animator;
 
+        public EnemyAttack enemyAttack;
+
         [Header("Need to be set manually")]
         public EnemyStateMachine enemyStateMachine;
 
@@ -33,6 +35,18 @@ namespace Foxlair.Enemies
 
         }
 
+        public bool InRangeToAttack()
+        {
+            if (Vector3.Distance(playerTarget.transform.position, transform.position) <= enemyAttack.attackRange)
+            {
+                Debug.Log("enemy in range to attack");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void PlayerSpotted(PlayerCharacter _playerTarget)
         {
             if(_playerTarget == playerTarget) { return; }
@@ -40,6 +54,7 @@ namespace Foxlair.Enemies
             Debug.Log("PLAYER SPOTTED");
             playerTarget = _playerTarget;
             //need to change to chasing/attacking state and use enemycharactermovement moveto..
+            enemyStateMachine.ChangeState(enemyStateMachine.enemyMovingToAttackState);
         }
 
         public void PlayerLost()

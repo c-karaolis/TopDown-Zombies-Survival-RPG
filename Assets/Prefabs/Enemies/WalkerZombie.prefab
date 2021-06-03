@@ -64,11 +64,13 @@ GameObject:
   - component: {fileID: 7667223427209970595}
   - component: {fileID: 1523362122}
   - component: {fileID: 7667223427209970592}
+  - component: {fileID: 8950513547831130661}
   - component: {fileID: 1523362119}
   - component: {fileID: 5844392317223060971}
   - component: {fileID: 8489867366797021066}
   - component: {fileID: 6577254945393256576}
   - component: {fileID: 1523362124}
+  - component: {fileID: 280139210860429754}
   m_Layer: 9
   m_Name: WalkerZombie
   m_TagString: Enemy
@@ -116,7 +118,7 @@ Animator:
   m_GameObject: {fileID: 7667223427209970593}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b20a3c10714a6ac439af479e3273de65, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a4573395d690cd4a935580ae3ca05d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -125,6 +127,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &8950513547831130661
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667223427209970593}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!195 &1523362119
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -160,10 +258,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 8489867366797021066}
-  enemyCharacterTargetingHandler: {fileID: 0}
-  enemyCharacterMovement: {fileID: 0}
+  enemyCharacterTargetingHandler: {fileID: 6577254945393256576}
+  enemyCharacterMovement: {fileID: 1523362124}
   playerTarget: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 7667223427209970592}
+  enemyAttack: {fileID: 280139210860429754}
   enemyStateMachine: {fileID: 1677984575792676320}
   enemyName: Zombie Walker
 --- !u!114 &8489867366797021066
@@ -206,7 +305,7 @@ MonoBehaviour:
     m_Bits: 1024
   scanRadius: 15
   durationBetweenScans: 0.2
-  enemyCharacter: {fileID: 0}
+  enemyCharacter: {fileID: 5844392317223060971}
   playerTarget: {fileID: 0}
   drawDebugRadius: 1
 --- !u!114 &1523362124
@@ -226,6 +325,28 @@ MonoBehaviour:
   movementSpeed: 5
   rotationSmoothTime: 0.01
   rotationSmoothVelocity: 0
+--- !u!114 &280139210860429754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667223427209970593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce34c3da793fd58499f7db59f1ea67b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  armorPenetration: 0
+  isCoolingDown: 0
+  enemyAudioSource: {fileID: 8950513547831130661}
+  attackSoundEffect: {fileID: 8300000, guid: 232325f03ee48c04b90ebf49df90d3ed, type: 3}
+  attackRange: 2
+  nextFire: 0
+  weaponAttackDuration: 0.07
+  enemyCharacter: {fileID: 5844392317223060971}
+  attackRate: 10
 --- !u!1 &7667223427531839335
 GameObject:
   m_ObjectHideFlags: 0

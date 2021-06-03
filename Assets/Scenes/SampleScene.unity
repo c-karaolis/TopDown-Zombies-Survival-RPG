@@ -6010,6 +6010,11 @@ PrefabInstance:
       propertyPath: drawDebugRadius
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7667223427209970592, guid: a3860ff9939671f449a10e3756db6901,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9a4573395d690cd4a935580ae3ca05d6, type: 2}
     - target: {fileID: 7667223427209970593, guid: a3860ff9939671f449a10e3756db6901,
         type: 3}
       propertyPath: m_Name

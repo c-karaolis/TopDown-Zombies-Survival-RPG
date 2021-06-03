@@ -31,7 +31,7 @@ namespace Foxlair.Character.Movement
 
         private void Start()
         {
-            characterTargetingHandler = PlayerCharacter.CharacterTargetingHandler;
+            characterTargetingHandler = PlayerCharacter.characterTargetingHandler;
             input = InputHandler.Instance;
 
         }
@@ -76,9 +76,9 @@ namespace Foxlair.Character.Movement
 
         public void HandleAutoTargetingRotation()
         {
-            if(PlayerCharacter.PlayerTargetEnemy != null)
+            if(PlayerCharacter.playerTargetEnemy != null)
             {
-                Vector3 targetDirection = PlayerCharacter.PlayerTargetEnemy.transform.position - transform.position;
+                Vector3 targetDirection = PlayerCharacter.playerTargetEnemy.transform.position - transform.position;
                 RotateTowards(targetDirection);
             }
 

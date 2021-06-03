@@ -29,7 +29,7 @@ namespace Foxlair.Character.States
 
         private void HandleNotInRangeToAttack()
         {
-            if (playerStateMachine.PlayerCharacter.PlayerTargetEnemy != null && !playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
+            if (playerStateMachine.PlayerCharacter.playerTargetEnemy != null && !playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
                 playerStateMachine.PlayerCharacter.isExecutingAnAttackMove = true;
                 ChangeState(playerStateMachine.MovingToAttackState);
@@ -38,7 +38,7 @@ namespace Foxlair.Character.States
 
         public override void OnStateExecute()
         {
-            playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoTargetingRotation();
+            playerStateMachine.PlayerCharacter.characterMovement.HandleAutoTargetingRotation();
 
             playerStateMachine.PlayerCharacter.GetPlayerWeapon().DetermineAttack(); 
             if (!InputHandler.Instance.IsFiringButtonDown && !playerStateMachine.PlayerCharacter.isExecutingAnAttackMove)
@@ -52,7 +52,7 @@ namespace Foxlair.Character.States
         public override void OnStatePostExecute() { }
 
         public override void OnStateExit() { 
-           playerStateMachine.PlayerCharacter.PlayerAnimator.SetBool("ATTACKING", false);
+           playerStateMachine.PlayerCharacter.playerAnimator.SetBool("ATTACKING", false);
         }
 
 

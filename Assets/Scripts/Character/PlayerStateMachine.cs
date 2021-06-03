@@ -49,7 +49,7 @@ namespace Foxlair.Character.States
 
         private void HarvestingStateTransition()
         {
-            if (InputHandler.Instance.IsInteractionButtonDown && !(CurrentState.ForbiddenTransitions.Contains(HarvestingState)) && PlayerCharacter.PlayerTargetInteractable is ResourceNode)
+            if (InputHandler.Instance.IsInteractionButtonDown && !(CurrentState.ForbiddenTransitions.Contains(HarvestingState)) && PlayerCharacter.playerTargetInteractable is ResourceNode)
             {
                 ChangeState(HarvestingState);
             }

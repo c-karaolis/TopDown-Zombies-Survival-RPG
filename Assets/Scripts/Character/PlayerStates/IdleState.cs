@@ -11,7 +11,7 @@ namespace Foxlair.Character.States
 
         public override void OnStateEnter()
         {
-            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("IDLE");
+            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("IDLE");
         }
 
         private void CheckForMovementInput()

@@ -14,7 +14,10 @@ namespace Foxlair.Enemies.States
         {
             enemyStateMachine.enemyCharacter.enemyCharacterMovement.StopMoving();
 
-            //zombieStateMachine.enemyCharacter.PlayerAnimator.SetTrigger("IDLE");
+            if (!enemyStateMachine.enemyCharacter.animator.GetBool("IDLE"))
+            {
+                enemyStateMachine.enemyCharacter.animator.SetBool("IDLE", true);
+            }            //zombieStateMachine.enemyCharacter.PlayerAnimator.SetTrigger("IDLE");
         }
 
         public override void OnStateExecute()
@@ -29,7 +32,10 @@ namespace Foxlair.Enemies.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { }
+        public override void OnStateExit()
+        {
+            enemyStateMachine.enemyCharacter.animator.SetBool("IDLE", false);
+        }
 
 
 

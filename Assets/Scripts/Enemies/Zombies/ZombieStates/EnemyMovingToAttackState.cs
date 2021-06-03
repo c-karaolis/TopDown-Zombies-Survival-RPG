@@ -14,6 +14,10 @@ namespace Foxlair.Enemies.States
         {
             enemyStateMachine.enemyCharacter.enemyCharacterMovement.MoveTo(enemyStateMachine.enemyCharacter.playerTarget.transform.position);
             //zombieStateMachine.enemyCharacter.PlayerAnimator.SetTrigger("IDLE");
+            if (!enemyStateMachine.enemyCharacter.animator.GetBool("RUNNING"))
+            {
+                enemyStateMachine.enemyCharacter.animator.SetBool("RUNNING", true);
+            }
         }
 
         public override void OnStateExecute()
@@ -24,7 +28,15 @@ namespace Foxlair.Enemies.States
             }
             else
             {
-                enemyStateMachine.enemyCharacter.enemyCharacterMovement.MoveTo(enemyStateMachine.enemyCharacter.playerTarget.transform.position);
+                if (enemyStateMachine.enemyCharacter.InRangeToAttack())
+                {
+                    enemyStateMachine.enemyCharacter.enemyCharacterMovement.StopMoving();
+                    ChangeState(enemyStateMachine.enemyAttackingState);
+                }
+                else
+                {
+                    enemyStateMachine.enemyCharacter.enemyCharacterMovement.MoveTo(enemyStateMachine.enemyCharacter.playerTarget.transform.position);
+                }
             }
         }
 
@@ -32,7 +44,10 @@ namespace Foxlair.Enemies.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { }
+        public override void OnStateExit()
+        {
+            enemyStateMachine.enemyCharacter.animator.SetBool("RUNNING", false);
+        }
 
     }
 }
