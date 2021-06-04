@@ -32,7 +32,7 @@ namespace Foxlair.Character
         public CharacterMovement characterMovement;
         public InventoryController inventoryController;
         public PlayerCharacterTargetingHandler characterTargetingHandler;
-        public HealthSystem healthSystem;
+        public PlayerHealthSystem healthSystem;
         public PlayerStateMachine playerStateMachine;
 
         [Header("Weapon Related")]
@@ -44,7 +44,7 @@ namespace Foxlair.Character
         [Header("Will be set through code")]
         public Inventory inventory;
         public IInteractable playerTargetInteractable;
-        public EnemyCharacter playerTargetEnemy;
+        //public EnemyCharacter target;
         #endregion
 
 
@@ -86,7 +86,7 @@ namespace Foxlair.Character
 
         private void SetEquippedWeapon(Weapon weapon)
         {
-            Debug.Log($"Equipping {weapon}");
+            //Debug.Log($"Equipping {weapon}");
             weapon.playerCharacter = this;
             punchDefaultWeaponPrefabInstance.SetActive(false);
             PlayerEquippedWeapon = weapon;
@@ -95,7 +95,7 @@ namespace Foxlair.Character
 
         private void UnsetEquippedWeapon(Weapon weapon) 
         {
-            Debug.Log($"Unequipping {weapon}");
+            //Debug.Log($"Unequipping {weapon}");
             punchDefaultWeaponPrefabInstance.SetActive(true);
             PlayerEquippedWeapon = punchDefaultWeapon;
             SetAnimatorBasedOnWeaponType((int)punchDefaultWeapon.WeaponType);
@@ -171,12 +171,32 @@ namespace Foxlair.Character
 
         private void UnsetEnemyTarget()
         {
-            playerTargetEnemy = null;
+            target = null;
         }
 
         private void SetEnemyTarget(EnemyCharacter obj)
         {
-            playerTargetEnemy = obj;
+            target = obj;
+        }
+
+        public override void OnActorHealthLost(float damage)
+        {
+            FoxlairEventManager.Instance.PlayerHealthSystem_OnHealthLost_Event?.Invoke(damage);
+        }
+
+        public override void OnActorHealthGained(float healAmount)
+        {
+            FoxlairEventManager.Instance.PlayerHealthSystem_OnHealthGained_Event?.Invoke(healAmount);
+        }
+
+        public override void OnActorDeath()
+        {
+            FoxlairEventManager.Instance.PlayerHealthSystem_OnPlayerDeath_Event?.Invoke();
+        }
+
+        public override void Die()
+        {
+            Destroy(gameObject);
         }
     }
 }

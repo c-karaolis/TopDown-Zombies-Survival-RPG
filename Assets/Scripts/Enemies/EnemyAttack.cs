@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Foxlair.Character;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -93,9 +94,9 @@ namespace Foxlair.Enemies
             nextFire = Time.time + AttackDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            if (!(enemyCharacter.playerTarget == null))
+            if (!(enemyCharacter.target == null))
             {
-                enemyCharacter.playerTarget.healthSystem.TakeDamage(damage);
+                (enemyCharacter.target as PlayerCharacter).healthSystem.TakeDamage(damage);
             }
             else
             {

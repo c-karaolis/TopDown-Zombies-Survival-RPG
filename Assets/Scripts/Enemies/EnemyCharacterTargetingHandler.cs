@@ -31,6 +31,7 @@ namespace Foxlair.Enemies.Targeting
 
         public EnemyCharacter enemyCharacter;
         public PlayerCharacter playerTarget;
+        public PlayerCharacter previousPlayerTarget;
 
         public bool drawDebugRadius = true;
 
@@ -52,6 +53,7 @@ namespace Foxlair.Enemies.Targeting
         /// <returns></returns>
         protected bool ScanForPlayerTarget()
         {
+            previousPlayerTarget = playerTarget;
             playerTarget = null;
 
             float nearestDistance = float.MaxValue;
@@ -86,13 +88,13 @@ namespace Foxlair.Enemies.Targeting
                 else
                 {
                     //FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event?.Invoke();
-                    enemyCharacter.PlayerLost();
+                    enemyCharacter.PlayerLost(previousPlayerTarget);
                     return false;
                 }
             }
             else
             {
-                enemyCharacter.PlayerLost();
+                enemyCharacter.PlayerLost(previousPlayerTarget);
                 //FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event?.Invoke();
                 return false;
             }

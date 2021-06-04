@@ -43,11 +43,16 @@ namespace Foxlair.Tools.Events
         public Action SurvivalSystem_OnDrink_Event;
         #endregion
 
-        #region Health System
-        public Action HealthSystem_OnHealthChanged_Event;
-        public Action<float> HealthSystem_OnHealthGained_Event;
-        public Action<float> HealthSystem_OnHealthLost_Event;
-        public Action HealthSystem_OnPlayerDeath_Event;
+        #region Player Health System
+        public Action<float> PlayerHealthSystem_OnHealthGained_Event;
+        public Action<float> PlayerHealthSystem_OnHealthLost_Event;
+        public Action PlayerHealthSystem_OnPlayerDeath_Event;
+        #endregion
+
+        #region Enemy Health System
+        public Action<float> EnemyHealthSystem_OnHealthGained_Event;
+        public Action<float> EnemyHealthSystem_OnHealthLost_Event;
+        public Action EnemyHealthSystem_OnDeath_Event;
         #endregion
 
         #region Interaction, Targeting & Harvest System

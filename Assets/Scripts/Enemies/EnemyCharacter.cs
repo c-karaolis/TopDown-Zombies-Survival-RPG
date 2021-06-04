@@ -1,19 +1,22 @@
 ﻿using Foxlair.Character;
-using Foxlair.Enemies.HealthSystem;
+using Foxlair.Enemies.Health;
 using Foxlair.Enemies.Movement;
 using Foxlair.Enemies.States;
 using Foxlair.Enemies.Targeting;
+using Foxlair.Tools.Events;
+using System.Collections;
 using UnityEngine;
 
 namespace Foxlair.Enemies
 {
-    public class EnemyCharacter : MonoBehaviour
+    public class EnemyCharacter : Actor
     {
         public EnemyHealthSystem healthSystem;
         public EnemyCharacterTargetingHandler enemyCharacterTargetingHandler;
         public EnemyCharacterMovement enemyCharacterMovement;
-        public PlayerCharacter playerTarget;
         public Animator animator;
+
+        public Vector3 lastKnownPlayerPosition;
 
         public EnemyAttack enemyAttack;
 
@@ -37,9 +40,8 @@ namespace Foxlair.Enemies
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(playerTarget.transform.position, transform.position) <= enemyAttack.attackRange)
+            if (Vector3.Distance(target.transform.position, transform.position) <= enemyAttack.attackRange)
             {
-                Debug.Log("enemy in range to attack");
                 return true;
             }
             else
@@ -49,33 +51,45 @@ namespace Foxlair.Enemies
         }
         public void PlayerSpotted(PlayerCharacter _playerTarget)
         {
-            if(_playerTarget == playerTarget) { return; }
+            if (_playerTarget == target) { return; }
 
-            Debug.Log("PLAYER SPOTTED");
-            playerTarget = _playerTarget;
+            target = _playerTarget;
             //need to change to chasing/attacking state and use enemycharactermovement moveto..
             enemyStateMachine.ChangeState(enemyStateMachine.enemyMovingToAttackState);
         }
 
-        public void PlayerLost()
+        public void PlayerLost(PlayerCharacter _playerCharacter)
         {
-            playerTarget = null;
-            enemyStateMachine.ChangeState(enemyStateMachine.enemyIdleState);
-        }
 
-        public virtual void Damage(float weaponDamage)
-        {
-            Debug.Log($"{this} was hit for {weaponDamage} damage.");
-           if ( (healthSystem.health -= weaponDamage) <= 0 )
+            target = null;
+            if (!(_playerCharacter == null))
             {
-                Die();
+                lastKnownPlayerPosition = _playerCharacter.transform.position;
+
+                enemyStateMachine.ChangeState(enemyStateMachine.enemyMovingToLastPlayerLocationState);
+
             }
+            //enemyStateMachine.ChangeState(enemyStateMachine.enemyIdleState);
         }
 
-        public virtual void Die()
+        public override void OnActorHealthLost(float damage)
         {
-            Destroy(this.gameObject);
+            FoxlairEventManager.Instance.EnemyHealthSystem_OnHealthLost_Event?.Invoke(damage);
         }
 
+        public override void OnActorHealthGained(float healAmount)
+        {
+            FoxlairEventManager.Instance.EnemyHealthSystem_OnHealthGained_Event?.Invoke(healAmount);
+        }
+
+        public override void OnActorDeath()
+        {
+            FoxlairEventManager.Instance.EnemyHealthSystem_OnDeath_Event?.Invoke();
+        }
+
+        public override void Die()
+        {
+            Destroy(gameObject);
+        }
     }
 }

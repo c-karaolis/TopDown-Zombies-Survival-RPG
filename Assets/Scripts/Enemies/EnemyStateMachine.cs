@@ -5,7 +5,7 @@ namespace Foxlair.Enemies.States
     public class EnemyStateMachine : StateMachine
     {
         public EnemyIdleState enemyIdleState;
-        public EnemyRunningState enemyRunningState;
+        public EnemyMovingToLastPlayerLocationState enemyMovingToLastPlayerLocationState;
         public EnemyMovingToAttackState enemyMovingToAttackState;
         public EnemyAttackingState enemyAttackingState;
 

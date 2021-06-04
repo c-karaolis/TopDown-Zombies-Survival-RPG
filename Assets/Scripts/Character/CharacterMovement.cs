@@ -76,9 +76,9 @@ namespace Foxlair.Character.Movement
 
         public void HandleAutoTargetingRotation()
         {
-            if(PlayerCharacter.playerTargetEnemy != null)
+            if(PlayerCharacter.target != null)
             {
-                Vector3 targetDirection = PlayerCharacter.playerTargetEnemy.transform.position - transform.position;
+                Vector3 targetDirection = PlayerCharacter.target.transform.position - transform.position;
                 RotateTowards(targetDirection);
             }
 

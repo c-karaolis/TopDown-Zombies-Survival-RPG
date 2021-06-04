@@ -58,13 +58,13 @@ public class EquippableItem : Item
 
             if (isDirty)
             {
-                Debug.Log($"Item {this.name} was dirty.");
-                Debug.Log($"Durability of physical is {weaponInstance.durability}.");
+                //Debug.Log($"Item {this.name} was dirty.");
+                //Debug.Log($"Durability of physical is {weaponInstance.durability}.");
                 weaponInstance.durability = durability;
             }
             else
             {
-                Debug.Log($"Item {this.name} was clean.");
+                //Debug.Log($"Item {this.name} was clean.");
                 durability = weaponInstance.durability;
             }
 

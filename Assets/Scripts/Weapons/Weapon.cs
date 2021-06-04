@@ -97,9 +97,9 @@ namespace Foxlair.Weapons
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(playerCharacter.playerTargetEnemy.transform.position, playerCharacter.transform.position) <= weaponRange)
+            if (Vector3.Distance(playerCharacter.target.transform.position, playerCharacter.transform.position) <= weaponRange)
             {
-                Debug.Log("weapon in range to attack");
+                //Debug.Log("weapon in range to attack");
                 return true;
             }
             else
@@ -120,14 +120,12 @@ namespace Foxlair.Weapons
             }
             //Debug.Log("parent weapon");
 
-            //TODO: this is fire delay not fire rate. 
-            //find a way to normalise firerate for humans. e.g. thisfirerate = humanfirerate * (1/100)
             nextFire = Time.time + FireDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            if (!(playerCharacter.playerTargetEnemy == null))
+            if (!(playerCharacter.target == null))
             {
-                playerCharacter.playerTargetEnemy.Damage(weaponDamage);
+                (playerCharacter.target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
             }
             else
             {

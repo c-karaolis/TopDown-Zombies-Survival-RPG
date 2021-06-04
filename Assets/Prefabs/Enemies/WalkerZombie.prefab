@@ -49,7 +49,7 @@ MonoBehaviour:
   AvailableStates: []
   CharacterStatesGameObject: {fileID: 7667223427890668343}
   enemyIdleState: {fileID: 7667223427531839329}
-  enemyRunningState: {fileID: 7667223428352791495}
+  enemyMovingToLastPlayerLocationState: {fileID: 7667223428352791495}
   enemyMovingToAttackState: {fileID: 7667223428382174726}
   enemyAttackingState: {fileID: 7667223427935318967}
   enemyCharacter: {fileID: 5844392317223060971}
@@ -262,6 +262,7 @@ MonoBehaviour:
   enemyCharacterMovement: {fileID: 1523362124}
   playerTarget: {fileID: 0}
   animator: {fileID: 7667223427209970592}
+  lastKnownPlayerPosition: {x: 0, y: 0, z: 0}
   enemyAttack: {fileID: 280139210860429754}
   enemyStateMachine: {fileID: 1677984575792676320}
   enemyName: Zombie Walker
@@ -307,6 +308,7 @@ MonoBehaviour:
   durationBetweenScans: 0.2
   enemyCharacter: {fileID: 5844392317223060971}
   playerTarget: {fileID: 0}
+  previousPlayerTarget: {fileID: 0}
   drawDebugRadius: 1
 --- !u!114 &1523362124
 MonoBehaviour:
@@ -482,7 +484,7 @@ GameObject:
   - component: {fileID: 7667223428352791492}
   - component: {fileID: 7667223428352791495}
   m_Layer: 0
-  m_Name: EnemyRunningState
+  m_Name: EnemyMovingToLastPlayerLocationState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

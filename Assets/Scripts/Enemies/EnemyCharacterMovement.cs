@@ -15,8 +15,7 @@ namespace Foxlair.Enemies.Movement
         private EnemyCharacterTargetingHandler enemyCharacterTargetingHandler;
         private NavMeshAgent navMeshAgent;
 
-        [SerializeField]
-        private float movementSpeed = 5f;
+        public float movementSpeed = 5f;
         [SerializeField]
         private float rotationSmoothTime = 0.01f;
         [SerializeField]
@@ -46,9 +45,9 @@ namespace Foxlair.Enemies.Movement
 
         public void HandleAutoTargetingRotation()
         {
-            if (enemyCharacter.playerTarget != null)
+            if (enemyCharacter.target != null)
             {
-                Vector3 targetDirection = enemyCharacter.playerTarget.transform.position - transform.position;
+                Vector3 targetDirection = enemyCharacter.target.transform.position - transform.position;
                 RotateTowards(targetDirection);
             }
         }

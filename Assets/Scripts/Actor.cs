@@ -1,22 +1,23 @@
 ﻿using UnityEngine;
 
-public class Actor : MonoBehaviour
+namespace Foxlair
 {
-    /*
-     * name
-     * faction
-     * 
-    */
-
-    // Start is called before the first frame update
-    void Start()
+    public abstract class Actor : MonoBehaviour
     {
-        
-    }
+        public string faction;
+        public Actor target;
+        /*
+         * name
+         * faction
+         * 
+        */
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public abstract void OnActorHealthLost(float damage);
+
+        public abstract void OnActorHealthGained(float healAmount);
+
+        public abstract void OnActorDeath();
+
+        public abstract void Die();
     }
 }

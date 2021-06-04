@@ -23,7 +23,7 @@ namespace Foxlair.Enemies.States
 
         public override void OnStateExecute()
         {
-            if (enemyStateMachine.enemyCharacter.playerTarget == null)
+            if (enemyStateMachine.enemyCharacter.target == null)
             {
                 ChangeState(enemyStateMachine.enemyIdleState);
             }
