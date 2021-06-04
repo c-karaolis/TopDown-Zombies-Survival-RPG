@@ -11,14 +11,13 @@ namespace Foxlair.Character.States
 
         public override void OnStateEnter()
         {
-            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("IDLE");
+            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("IDLE");
         }
 
         private void CheckForMovementInput()
         {
             if (InputHandler.Instance.IsMovementButtonsDown)
             {
-                PlayerStateMachine playerStateMachine = StateMachine as PlayerStateMachine;  //ChangeState(((PlayerStateMachine)StateMachine).RunningState);
                 ChangeState(playerStateMachine.RunningState);
             }
         }

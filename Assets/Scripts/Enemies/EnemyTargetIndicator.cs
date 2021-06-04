@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class EnemyTargetIndicator : MonoBehaviour
 {
-    Enemy PlayerTargetEnemy;
+    EnemyCharacter PlayerTargetEnemy;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class EnemyTargetIndicator : MonoBehaviour
         PlayerTargetEnemy = null;
     }
 
-    private void SetTarget(Enemy obj)
+    private void SetTarget(EnemyCharacter obj)
     {
         PlayerTargetEnemy = obj;
     }

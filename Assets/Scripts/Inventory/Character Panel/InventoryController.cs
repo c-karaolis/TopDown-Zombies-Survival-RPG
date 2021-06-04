@@ -30,7 +30,7 @@ public class InventoryController : MonoBehaviour
 	public Item TestItem;
 	public LevelingSystem levelingSystem;
 	public int xpToAdd;
-	public HealthSystem PlayerHealthSystem;
+	public PlayerHealthSystem PlayerHealthSystem;
 	private void OnValidate()
 	{
 		if (itemTooltip == null)
@@ -59,7 +59,7 @@ public class InventoryController : MonoBehaviour
     private void Awake()
 	{
 		FindPlayerCharacter();
-		PlayerCharacter.Inventory = Inventory;
+		PlayerCharacter.inventory = Inventory;
 		//statPanel.SetStats(Strength, Agility, Intelligence, Vitality);
 		statPanel.SetStats(PlayerCharacter.CharacterAttributes.Values.ToArray());
 	}

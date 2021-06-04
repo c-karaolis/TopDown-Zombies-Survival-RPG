@@ -38,7 +38,7 @@ namespace Foxlair.Character.States
         public override void OnStateExecute()
         {
 
-            playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoTargetingRotation();
+            playerStateMachine.PlayerCharacter.characterMovement.HandleAutoTargetingRotation();
            // PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
             if (!InputHandler.Instance.IsInteractionButtonDown)
             {

@@ -13,20 +13,20 @@ namespace Foxlair.Character.States
         public override void OnStateEnter()
         {
             ForbiddenTransitions.Add(this);
-            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("RUNNING");
+            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("RUNNING");
         }
 
 
         public override void OnStateExecute()
         {
-            playerStateMachine.PlayerCharacter.CharacterMovement.UpdateCharacterMovement();
+            playerStateMachine.PlayerCharacter.characterMovement.UpdateCharacterMovement();
             CheckForMovementInput();
         }
 
 
         private void CheckForMovementInput()
         {
-            if (playerStateMachine.PlayerCharacter.CharacterMovement.Direction.magnitude <= 0.1f)
+            if (playerStateMachine.PlayerCharacter.characterMovement.Direction.magnitude <= 0.1f)
             {
                 ChangeState(playerStateMachine.IdleState);
             }

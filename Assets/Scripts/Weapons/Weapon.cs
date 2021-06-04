@@ -97,9 +97,9 @@ namespace Foxlair.Weapons
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(playerCharacter.PlayerTargetEnemy.transform.position, playerCharacter.transform.position) <= weaponRange)
+            if (Vector3.Distance(playerCharacter.target.transform.position, playerCharacter.transform.position) <= weaponRange)
             {
-                Debug.Log("weapon in range to attack");
+                //Debug.Log("weapon in range to attack");
                 return true;
             }
             else
@@ -114,20 +114,18 @@ namespace Foxlair.Weapons
 
             //if (playerCharacter.PlayerTargetEnemy == null) { return; }
 
-            if (!playerCharacter.PlayerAnimator.GetBool("ATTACKING"))
+            if (!playerCharacter.playerAnimator.GetBool("ATTACKING"))
             {
-                playerCharacter.PlayerAnimator.SetBool("ATTACKING", true);
+                playerCharacter.playerAnimator.SetBool("ATTACKING", true);
             }
             //Debug.Log("parent weapon");
 
-            //TODO: this is fire delay not fire rate. 
-            //find a way to normalise firerate for humans. e.g. thisfirerate = humanfirerate * (1/100)
             nextFire = Time.time + FireDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            if (!(playerCharacter.PlayerTargetEnemy == null))
+            if (!(playerCharacter.target == null))
             {
-                playerCharacter.PlayerTargetEnemy.Damage(weaponDamage);
+                (playerCharacter.target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
             }
             else
             {
@@ -144,7 +142,7 @@ namespace Foxlair.Weapons
             weaponAudioSource.PlayOneShot(attackSoundEffect);
             //Wait for .07 seconds
             yield return new WaitForSeconds(weaponAttackDuration);
-            playerCharacter.PlayerAnimator.SetBool("ATTACKING", false);
+            playerCharacter.playerAnimator.SetBool("ATTACKING", false);
             playerCharacter.isExecutingAnAttackMove = false;
         }
 
@@ -163,12 +161,12 @@ namespace Foxlair.Weapons
 
         public  virtual void DestroyWeapon()
         {
-            playerCharacter.PlayerStateMachine.ChangeState(playerCharacter.PlayerStateMachine.IdleState);
-            BaseItemSlot slotToRemove = playerCharacter.InventoryController.GetEquipmentSlotByType(InventoryItemInstance.EquipmentType);
+            playerCharacter.playerStateMachine.ChangeState(playerCharacter.playerStateMachine.IdleState);
+            BaseItemSlot slotToRemove = playerCharacter.inventoryController.GetEquipmentSlotByType(InventoryItemInstance.EquipmentType);
             if (slotToRemove != null)
             {
 
-                playerCharacter.InventoryController.DestroyItemInSlot(slotToRemove);
+                playerCharacter.inventoryController.DestroyItemInSlot(slotToRemove);
                 FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
                 //TODO: when this gets invoked find where to subscribe to change to idle state so if fire is hold enemy not punched from long range because moving to attack is bypassed already
                 FoxlairEventManager.Instance.WeaponSystem_OnEquippedWeaponDestroyed_Event?.Invoke();

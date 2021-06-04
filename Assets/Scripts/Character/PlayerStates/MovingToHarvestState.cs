@@ -10,7 +10,7 @@ namespace Foxlair.Character.States
 
         public override void OnStateEnter()
         {
-            playerStateMachine.PlayerCharacter.PlayerAnimator.SetTrigger("RUNNING");
+            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("RUNNING");
 
             ForbiddenTransitions.Add(playerStateMachine.HarvestingState);
         }
@@ -20,7 +20,7 @@ namespace Foxlair.Character.States
 
             if (!playerStateMachine.PlayerCharacter.InRangeToHarvest())
             {
-                playerStateMachine.PlayerCharacter.CharacterMovement.HandleAutoMoveToHarvest(playerStateMachine.PlayerCharacter.PlayerTargetInteractable.ImplementingMonoBehaviour().transform);
+                playerStateMachine.PlayerCharacter.characterMovement.HandleAutoMoveToHarvest(playerStateMachine.PlayerCharacter.playerTargetInteractable.ImplementingMonoBehaviour().transform);
             }
             else
             {

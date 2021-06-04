@@ -59,6 +59,7 @@ namespace Foxlair.CustomCameras
 
         public void LateUpdate()
         {
+            if (_targetTransform == null) { return; }
             transform.position = Vector3.Lerp(transform.position, cameraRelativePosition, followSpeed * Time.deltaTime);
         }
 

@@ -12,17 +12,17 @@ namespace Foxlair.Weapons
 
         public override void Attack()
         {
-            if (!playerCharacter.PlayerAnimator.GetBool("ATTACKING"))
+            if (!playerCharacter.playerAnimator.GetBool("ATTACKING"))
             {
-                playerCharacter.PlayerAnimator.SetBool("ATTACKING", true);
+                playerCharacter.playerAnimator.SetBool("ATTACKING", true);
             }
            // Debug.Log($"Durability: {durability} , Loss per Shot: {durabilityLossPerShot}");
             nextFire = Time.time + FireDelay;
             //PlayerManager.Instance.PlayerTargetEnemy = _characterTargetingHandler.EnemyTarget;
             StartCoroutine(AttackEffect());
-            if (!(playerCharacter.PlayerTargetEnemy == null))
+            if (!(playerCharacter.target == null))
             {
-                playerCharacter.PlayerTargetEnemy.Damage(weaponDamage);
+                (playerCharacter.target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
             }
             else
             {
@@ -45,7 +45,7 @@ namespace Foxlair.Weapons
             GameObject muzzleFlash = Instantiate(muzzleFlashEffect, gunBarrelEnd);
             Destroy(muzzleFlash, weaponAttackDuration);
 
-            playerCharacter.PlayerAnimator.SetBool("ATTACKING", false);
+            playerCharacter.playerAnimator.SetBool("ATTACKING", false);
             playerCharacter.isExecutingAnAttackMove = false;
         }
     }
