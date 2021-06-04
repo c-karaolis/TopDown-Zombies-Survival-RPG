@@ -22,7 +22,7 @@ namespace Foxlair.Weapons
             StartCoroutine(AttackEffect());
             if (!(playerCharacter.target == null))
             {
-                (playerCharacter.target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage);
+                (playerCharacter.target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
             }
             else
             {
