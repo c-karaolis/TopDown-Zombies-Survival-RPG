@@ -3566,7 +3566,7 @@ PrefabInstance:
     - target: {fileID: 7667223427209970595, guid: a3860ff9939671f449a10e3756db6901,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.97
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 7667223427209970595, guid: a3860ff9939671f449a10e3756db6901,
         type: 3}
@@ -6262,11 +6262,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734e179d19e03d94cabe05d998257d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faction: 
+  target: {fileID: 0}
   healthSystem: {fileID: 2126664112}
   enemyCharacterTargetingHandler: {fileID: 0}
   enemyCharacterMovement: {fileID: 0}
-  playerTarget: {fileID: 0}
   animator: {fileID: 0}
+  lastKnownPlayerPosition: {x: 0, y: 0, z: 0}
   enemyAttack: {fileID: 0}
   enemyStateMachine: {fileID: 0}
   enemyName: Gray Wolf
