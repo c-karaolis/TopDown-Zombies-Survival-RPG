@@ -94,9 +94,9 @@ namespace Foxlair.Enemies
             nextFire = Time.time + AttackDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            if (!(enemyCharacter.target == null))
+            if (!(enemyCharacter.Target == null))
             {
-                (enemyCharacter.target as PlayerCharacter).healthSystem.TakeDamage(damage);
+                (enemyCharacter.Target as PlayerCharacter).healthSystem.TakeDamage(damage);
             }
             else
             {

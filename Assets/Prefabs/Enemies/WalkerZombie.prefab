@@ -257,15 +257,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d0e9ade9aedd94e98f0ed0c937661f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faction: 
+  target: {fileID: 0}
+  lastAttacker: {fileID: 0}
   healthSystem: {fileID: 8489867366797021066}
   enemyCharacterTargetingHandler: {fileID: 6577254945393256576}
   enemyCharacterMovement: {fileID: 1523362124}
-  playerTarget: {fileID: 0}
   animator: {fileID: 7667223427209970592}
   lastKnownPlayerPosition: {x: 0, y: 0, z: 0}
   enemyAttack: {fileID: 280139210860429754}
   enemyStateMachine: {fileID: 1677984575792676320}
   enemyName: Zombie Walker
+  isAngry: 0
+  secondsToCalm: 5
 --- !u!114 &8489867366797021066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +308,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1024
-  scanRadius: 15
+  scanRadius: 10
   durationBetweenScans: 0.2
   enemyCharacter: {fileID: 5844392317223060971}
   playerTarget: {fileID: 0}

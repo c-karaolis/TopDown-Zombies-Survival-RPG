@@ -97,7 +97,7 @@ namespace Foxlair.Weapons
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(playerCharacter.target.transform.position, playerCharacter.transform.position) <= weaponRange)
+            if (Vector3.Distance(playerCharacter.Target.transform.position, playerCharacter.transform.position) <= weaponRange)
             {
                 //Debug.Log("weapon in range to attack");
                 return true;
@@ -123,9 +123,9 @@ namespace Foxlair.Weapons
             nextFire = Time.time + FireDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            if (!(playerCharacter.target == null))
+            if (!(playerCharacter.Target == null))
             {
-                (playerCharacter.target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
+                (playerCharacter.Target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
             }
             else
             {
@@ -165,12 +165,10 @@ namespace Foxlair.Weapons
             BaseItemSlot slotToRemove = playerCharacter.inventoryController.GetEquipmentSlotByType(InventoryItemInstance.EquipmentType);
             if (slotToRemove != null)
             {
-
                 playerCharacter.inventoryController.DestroyItemInSlot(slotToRemove);
                 FoxlairEventManager.Instance.StatPanel_OnValuesUpdated_Event?.Invoke();
                 //TODO: when this gets invoked find where to subscribe to change to idle state so if fire is hold enemy not punched from long range because moving to attack is bypassed already
                 FoxlairEventManager.Instance.WeaponSystem_OnEquippedWeaponDestroyed_Event?.Invoke();
-
             }
             //Destroy(this.gameObject, 0.3f);
 

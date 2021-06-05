@@ -50,6 +50,8 @@ namespace Foxlair.Character
 
         public Dictionary<AttributeType, CharacterAttribute> CharacterAttributes;
 
+        public override Actor Target { get { return target; } set { target = value; } }
+
         private void Awake()
         {
             InitializeAttributesDictionary();
@@ -171,12 +173,12 @@ namespace Foxlair.Character
 
         private void UnsetEnemyTarget()
         {
-            target = null;
+            Target = null;
         }
 
         private void SetEnemyTarget(EnemyCharacter obj)
         {
-            target = obj;
+            Target = obj;
         }
 
         public override void OnActorHealthLost(float damage)

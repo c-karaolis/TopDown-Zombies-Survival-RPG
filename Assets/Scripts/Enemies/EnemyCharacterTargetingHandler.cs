@@ -35,7 +35,6 @@ namespace Foxlair.Enemies.Targeting
 
         public bool drawDebugRadius = true;
 
-
         private void Awake()
         {
             enemyCharacter = gameObject.GetComponent<EnemyCharacter>();
@@ -88,6 +87,7 @@ namespace Foxlair.Enemies.Targeting
                 else
                 {
                     //FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event?.Invoke();
+
                     enemyCharacter.PlayerLost(previousPlayerTarget);
                     return false;
                 }

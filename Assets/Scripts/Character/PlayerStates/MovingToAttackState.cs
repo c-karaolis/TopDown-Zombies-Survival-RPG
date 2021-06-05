@@ -19,7 +19,7 @@ namespace Foxlair.Character.States
             
             if (!playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
-                playerStateMachine.PlayerCharacter.characterMovement.HandleAutoMoveToAttack(playerStateMachine.PlayerCharacter.target.transform);
+                playerStateMachine.PlayerCharacter.characterMovement.HandleAutoMoveToAttack(playerStateMachine.PlayerCharacter.Target.transform);
             }
             else
             {

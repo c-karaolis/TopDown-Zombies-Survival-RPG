@@ -60,9 +60,10 @@ namespace Foxlair
             }
             else
             {
+                Debug.Log($"{actor.name}says: Took damage from : {_actor}");
                 health -= damage;
                 actor.OnActorHealthLost(damage);
-                actor.target = _actor;
+                actor.lastAttacker = _actor;
             }
 
         }

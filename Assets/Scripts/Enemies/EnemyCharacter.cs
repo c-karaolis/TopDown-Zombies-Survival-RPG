@@ -4,6 +4,7 @@ using Foxlair.Enemies.Movement;
 using Foxlair.Enemies.States;
 using Foxlair.Enemies.Targeting;
 using Foxlair.Tools.Events;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -25,6 +26,27 @@ namespace Foxlair.Enemies
 
         public string enemyName;
 
+        public bool isAngry = false;
+        public float secondsToCalm;
+
+        public override Actor Target
+        {
+            get { return target; }
+            set
+            {
+                if (isAngry)
+                {
+                    Debug.Log($"{this.name}says: Setting target: {value}");
+                    target = lastAttacker;
+                }
+                if (!isAngry)
+                {
+                    
+                    target = value;
+                }
+            }
+        }
+
         void Awake()
         {
             enemyCharacterTargetingHandler = gameObject.GetComponent<EnemyCharacterTargetingHandler>();
@@ -40,7 +62,7 @@ namespace Foxlair.Enemies
 
         public bool InRangeToAttack()
         {
-            if (Vector3.Distance(target.transform.position, transform.position) <= enemyAttack.attackRange)
+            if (Vector3.Distance(Target.transform.position, transform.position) <= enemyAttack.attackRange)
             {
                 return true;
             }
@@ -51,17 +73,15 @@ namespace Foxlair.Enemies
         }
         public void PlayerSpotted(PlayerCharacter _playerTarget)
         {
-            if (_playerTarget == target) { return; }
+            if (_playerTarget == Target) { return; }
 
-            target = _playerTarget;
-            //need to change to chasing/attacking state and use enemycharactermovement moveto..
+            Target = _playerTarget;
             enemyStateMachine.ChangeState(enemyStateMachine.enemyMovingToAttackState);
         }
 
         public void PlayerLost(PlayerCharacter _playerCharacter)
         {
-
-            target = null;
+            Target = null;
             if (!(_playerCharacter == null))
             {
                 lastKnownPlayerPosition = _playerCharacter.transform.position;
@@ -74,7 +94,16 @@ namespace Foxlair.Enemies
 
         public override void OnActorHealthLost(float damage)
         {
+            StartCoroutine(AggroAfterGettingShot());
             FoxlairEventManager.Instance.EnemyHealthSystem_OnHealthLost_Event?.Invoke(damage);
+        }
+
+        IEnumerator AggroAfterGettingShot()
+        {
+            isAngry = true;
+            PlayerSpotted((PlayerCharacter)lastAttacker);
+            yield return new WaitForSeconds(secondsToCalm);
+            isAngry = false;
         }
 
         public override void OnActorHealthGained(float healAmount)

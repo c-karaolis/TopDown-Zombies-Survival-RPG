@@ -23,7 +23,7 @@ namespace Foxlair.Enemies.States
 
         public override void OnStateExecute()
         {
-            if (enemyStateMachine.enemyCharacter.target == null)
+            if (enemyStateMachine.enemyCharacter.Target == null)
             {
                 ChangeState(enemyStateMachine.enemyIdleState);
             }
@@ -33,7 +33,7 @@ namespace Foxlair.Enemies.States
                 {
                     ChangeState(enemyStateMachine.enemyMovingToAttackState);
                 }
-
+                //chance here to need an else?
                 enemyStateMachine.enemyCharacter.enemyAttack.DetermineAttack();
             }
         }

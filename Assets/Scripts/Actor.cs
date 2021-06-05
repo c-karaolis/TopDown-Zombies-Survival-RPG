@@ -6,6 +6,8 @@ namespace Foxlair
     {
         public string faction;
         public Actor target;
+        public abstract Actor Target { get; set; }
+        public Actor lastAttacker;
         /*
          * name
          * faction

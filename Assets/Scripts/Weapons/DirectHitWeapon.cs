@@ -20,9 +20,9 @@ namespace Foxlair.Weapons
             nextFire = Time.time + FireDelay;
             //PlayerManager.Instance.PlayerTargetEnemy = _characterTargetingHandler.EnemyTarget;
             StartCoroutine(AttackEffect());
-            if (!(playerCharacter.target == null))
+            if (!(playerCharacter.Target == null))
             {
-                (playerCharacter.target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
+                (playerCharacter.Target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
             }
             else
             {
