@@ -36,7 +36,6 @@ namespace Foxlair.Enemies
             {
                 if (isAngry)
                 {
-                    Debug.Log($"{this.name}says: Setting target: {value}");
                     target = lastAttacker;
                 }
                 if (!isAngry)
