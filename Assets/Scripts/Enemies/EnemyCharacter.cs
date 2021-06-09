@@ -72,7 +72,7 @@ namespace Foxlair.Enemies
         }
         public void PlayerSpotted(PlayerCharacter _playerTarget)
         {
-            if (_playerTarget == Target) { return; }
+            if (_playerTarget == Target || _playerTarget == null) { return; }
 
             Target = _playerTarget;
             enemyStateMachine.ChangeState(enemyStateMachine.enemyMovingToAttackState);
@@ -112,7 +112,7 @@ namespace Foxlair.Enemies
 
         public override void OnActorDeath()
         {
-            FoxlairEventManager.Instance.EnemyHealthSystem_OnDeath_Event?.Invoke();
+            FoxlairEventManager.Instance.EnemyHealthSystem_OnDeath_Event?.Invoke(this);
         }
 
         public override void Die()
