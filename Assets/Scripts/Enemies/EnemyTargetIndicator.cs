@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemyTargetIndicator : MonoBehaviour
 {
     EnemyCharacter PlayerTargetEnemy;
-
+    public float height = 0.5f;
     private void Start()
     {
         FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event += SetTarget;
@@ -34,7 +34,7 @@ public class EnemyTargetIndicator : MonoBehaviour
             float diameter = bounds.size.z;
             diameter *= 2.50f;
 
-            this.transform.position = new Vector3(bounds.center.x, 0.5f, bounds.center.z);
+            this.transform.position = new Vector3(bounds.center.x, height, bounds.center.z);
             this.transform.localScale = new Vector3(diameter, diameter, diameter);
         }
         else
