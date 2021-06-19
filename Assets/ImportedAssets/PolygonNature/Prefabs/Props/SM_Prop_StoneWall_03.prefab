@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33564383235432920}
   - component: {fileID: 23197632003833720}
   - component: {fileID: 95590083995699384}
+  - component: {fileID: 65009711741394164}
   m_Layer: 0
   m_Name: SM_Prop_StoneWall_03
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -66,6 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -81,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1932553094402948}
   m_Mesh: {fileID: 4300000, guid: efed596a94373ce4b9a57c826076ca39, type: 3}
+--- !u!65 &65009711741394164
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1932553094402948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3340664, y: 1.0805479, z: 0.4678192}
+  m_Center: {x: 0.55911636, y: 0.54027396, z: -0.043981552}
 --- !u!95 &95590083995699384
 Animator:
   serializedVersion: 3

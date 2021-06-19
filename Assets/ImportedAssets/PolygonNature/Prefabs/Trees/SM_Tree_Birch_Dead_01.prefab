@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210439320850706}
   - component: {fileID: 205034402677776096}
+  - component: {fileID: 136271319220045978}
   m_Layer: 0
   m_Name: SM_Tree_Birch_Dead_01
   m_TagString: Untagged
@@ -185,6 +186,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880860532132952}
   m_Mesh: {fileID: 4300000, guid: 51ec3ce6312e3f840834f946f5c2056d, type: 3}
+--- !u!136 &136271319220045978
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832163050889860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.17307892
+  m_Height: 3.907669
+  m_Direction: 1
+  m_Center: {x: -0.010327309, y: 1.6459765, z: 0}
 --- !u!205 &205034402677776096
 LODGroup:
   m_ObjectHideFlags: 1

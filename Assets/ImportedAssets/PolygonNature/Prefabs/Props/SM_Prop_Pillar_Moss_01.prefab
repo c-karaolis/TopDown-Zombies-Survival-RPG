@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33774613601385302}
   - component: {fileID: 23047994234147148}
   - component: {fileID: 95359260860201482}
+  - component: {fileID: 65646815940232258}
   m_Layer: 0
   m_Name: SM_Prop_Pillar_Moss_01
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -66,6 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -81,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1013901925612630}
   m_Mesh: {fileID: 4300000, guid: 3929ef2cfc373b3459f348dd03fadf22, type: 3}
+--- !u!65 &65646815940232258
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013901925612630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.63370013, y: 2.8130586, z: 0.63374233}
+  m_Center: {x: -0.000021085143, y: 1.4065293, z: 0}
 --- !u!95 &95359260860201482
 Animator:
   serializedVersion: 3

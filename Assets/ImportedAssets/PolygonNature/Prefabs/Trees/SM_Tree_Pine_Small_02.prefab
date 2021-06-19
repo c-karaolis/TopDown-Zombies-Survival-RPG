@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4323406122081712}
   - component: {fileID: 205317105530763478}
+  - component: {fileID: 136750180644093756}
   m_Layer: 0
   m_Name: SM_Tree_Pine_Small_02
   m_TagString: Untagged
@@ -186,6 +187,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177005981484592}
   m_Mesh: {fileID: 4300000, guid: 5f181e5981439844aaad24d55034c60a, type: 3}
+--- !u!136 &136750180644093756
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788851852344936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.23104477
+  m_Height: 2.7807217
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0825028, z: 0.04001808}
 --- !u!205 &205317105530763478
 LODGroup:
   m_ObjectHideFlags: 1

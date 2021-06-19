@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33952996397963948}
   - component: {fileID: 23772207662343810}
   - component: {fileID: 95051663810979704}
+  - component: {fileID: 65222657920787994}
   m_Layer: 0
   m_Name: SM_Prop_Pillar_01
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -66,6 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -81,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926913268781688}
   m_Mesh: {fileID: 4300000, guid: b44d4210f8d3e2f4cb03656f774d3b04, type: 3}
+--- !u!65 &65222657920787994
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926913268781688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.63370013, y: 2.8130586, z: 0.63374233}
+  m_Center: {x: -0.000021085143, y: 1.4065293, z: 0}
 --- !u!95 &95051663810979704
 Animator:
   serializedVersion: 3

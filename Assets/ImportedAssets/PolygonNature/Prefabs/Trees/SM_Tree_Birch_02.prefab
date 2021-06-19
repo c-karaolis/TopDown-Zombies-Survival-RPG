@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4005204135589666}
   - component: {fileID: 205679496283416268}
+  - component: {fileID: 136069262212343604}
   m_Layer: 0
   m_Name: SM_Tree_Birch_02
   m_TagString: Untagged
@@ -185,6 +186,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887917000502556}
   m_Mesh: {fileID: 4300000, guid: 035ff95bac2145d4cbb4185a773a43da, type: 3}
+--- !u!136 &136069262212343604
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756402572416146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.33469224
+  m_Height: 3.907669
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.6459765, z: 0}
 --- !u!205 &205679496283416268
 LODGroup:
   m_ObjectHideFlags: 1

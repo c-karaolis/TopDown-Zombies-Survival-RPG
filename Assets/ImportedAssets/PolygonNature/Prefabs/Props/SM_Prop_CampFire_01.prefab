@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4585559402303324}
   - component: {fileID: 33879184145916550}
   - component: {fileID: 23263163354417112}
+  - component: {fileID: 135542769541568652}
   m_Layer: 0
   m_Name: SM_Prop_CampFire_01
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -65,6 +67,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -80,3 +83,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1558265980526532}
   m_Mesh: {fileID: 4300000, guid: 5f9f6ec19ed9ec548a73b9775e5a7154, type: 3}
+--- !u!135 &135542769541568652
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1558265980526532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.56896544
+  m_Center: {x: 0, y: -0.11, z: 0}

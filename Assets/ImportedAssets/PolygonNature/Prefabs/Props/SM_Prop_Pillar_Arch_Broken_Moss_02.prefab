@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33305868931757636}
   - component: {fileID: 23145588989511474}
   - component: {fileID: 95526546744787298}
+  - component: {fileID: 65942711080216932}
   m_Layer: 0
   m_Name: SM_Prop_Pillar_Arch_Broken_Moss_02
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -66,6 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -81,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1134557082513024}
   m_Mesh: {fileID: 4300000, guid: 9c1d7516e3f689246a9b8f7eee2b1811, type: 3}
+--- !u!65 &65942711080216932
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134557082513024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.408588, y: 0.48623246, z: 0.7139386}
+  m_Center: {x: 0, y: 0.109099805, z: 0}
 --- !u!95 &95526546744787298
 Animator:
   serializedVersion: 3

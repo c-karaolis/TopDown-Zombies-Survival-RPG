@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4091860562062044}
   - component: {fileID: 205654868191982114}
+  - component: {fileID: 136583032572135792}
   m_Layer: 0
   m_Name: SM_Tree_Willow_Large_01
   m_TagString: Untagged
@@ -185,6 +186,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851958537525858}
   m_Mesh: {fileID: 4300000, guid: 9c81ce7f954e62748be58f7c552d1e31, type: 3}
+--- !u!136 &136583032572135792
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387755814615386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.33469224
+  m_Height: 3.907669
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.6459765, z: 0}
 --- !u!205 &205654868191982114
 LODGroup:
   m_ObjectHideFlags: 1

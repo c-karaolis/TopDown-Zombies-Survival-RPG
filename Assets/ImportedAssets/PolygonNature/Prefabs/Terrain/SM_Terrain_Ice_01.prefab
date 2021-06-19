@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4351663343407892}
   - component: {fileID: 33781301098523172}
   - component: {fileID: 23435389558288358}
+  - component: {fileID: 64737436547477628}
   m_Layer: 0
   m_Name: SM_Terrain_Ice_01
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -65,6 +67,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -79,4 +82,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003684783062222}
+  m_Mesh: {fileID: 4300000, guid: 2762cc2cc7877234892f29f0cbc568ad, type: 3}
+--- !u!64 &64737436547477628
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003684783062222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2762cc2cc7877234892f29f0cbc568ad, type: 3}
