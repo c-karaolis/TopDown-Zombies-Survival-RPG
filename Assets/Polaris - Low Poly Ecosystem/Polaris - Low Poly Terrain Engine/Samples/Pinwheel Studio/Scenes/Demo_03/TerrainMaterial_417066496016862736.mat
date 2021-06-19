@@ -26,17 +26,17 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorBlend:
-        m_Texture: {fileID: 3864486861283254181, guid: 0dab121e71a3e7e429417ae8b4ce9552,
+        m_Texture: {fileID: 2589230009660317060, guid: 0dab121e71a3e7e429417ae8b4ce9552,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorByHeight:
-        m_Texture: {fileID: 3815121247488491392, guid: 0dab121e71a3e7e429417ae8b4ce9552,
+        m_Texture: {fileID: -8688284564143917947, guid: 0dab121e71a3e7e429417ae8b4ce9552,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorByNormal:
-        m_Texture: {fileID: 6445702843454814419, guid: 0dab121e71a3e7e429417ae8b4ce9552,
+        m_Texture: {fileID: -8062203379840382837, guid: 0dab121e71a3e7e429417ae8b4ce9552,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -104,3 +104,4 @@ Material:
     - _Dimension: {r: 1000, g: 500, b: 1000, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

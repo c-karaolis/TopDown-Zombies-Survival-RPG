@@ -4,10 +4,12 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: PolygonApocalypse_Material_Vehicle_04
-  m_Shader: {fileID: 4800000, guid: a7331fc07349b124c8c15d545676f9ed, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 430bf3c96850a6848ada6e1e1c1f6f7b,
+    type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -18,6 +20,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_1685A098:
+        m_Texture: {fileID: 2800000, guid: f078ac08c2bacee49a15411ba259493b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_558D75A3:
+        m_Texture: {fileID: 2800000, guid: baccdb054eec6614393c50584c84784e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CD41C4EC:
+        m_Texture: {fileID: 2800000, guid: ab3c9c81285cc4443b3b62ab3ba16da7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Blood:
         m_Texture: {fileID: 2800000, guid: ab3c9c81285cc4443b3b62ab3ba16da7, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -75,6 +89,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_9722AC5: 0.12
+    - Vector1_E1AAED71: 0.49
+    - Vector1_F2D51C2A: 0
     - _BloodAmount: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -95,6 +112,7 @@ Material:
     - _ZWrite: 0
     - __dirty: 0
     m_Colors:
+    - Color_8948C9C: {r: 0.31132078, g: 0.086641155, b: 0.086641155, a: 0}
     - _BloodColor: {r: 0.21323532, g: 0.09721022, b: 0.09721022, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

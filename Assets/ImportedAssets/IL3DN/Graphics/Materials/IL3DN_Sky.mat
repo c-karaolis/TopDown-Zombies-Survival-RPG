@@ -10,7 +10,7 @@ Material:
   m_Name: IL3DN_Sky
   m_Shader: {fileID: 4800000, guid: 49a331ffee1c04d40bac342d1de65a53, type: 3}
   m_ShaderKeywords: _EMISSION _SUNDISK_HIGH_QUALITY
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -31,7 +31,7 @@ Material:
     - _Horizon: 5
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 0.03484337, g: 0.13663265, b: 0.254717, a: 0}
-    - _Color1: {r: 0, g: 1.6329384, b: 2, a: 0}
+    - _Color0: {r: 0.9265332, g: 0, b: 1, a: 0}
+    - _Color1: {r: 2.348349, g: 1.5240047, b: 2.670157, a: 0}
     - _Color2: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 1, g: 0, b: 0, a: 1}
+    - _TintColor: {r: 0.7830189, g: 0.56510323, b: 0.56510323, a: 1}

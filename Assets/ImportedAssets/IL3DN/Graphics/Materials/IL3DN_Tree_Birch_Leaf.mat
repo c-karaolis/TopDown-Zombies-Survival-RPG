@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 5a31b57bf4856e940b34c99ac2bf12b6, type: 3}
   m_ShaderKeywords: EFFECT_HUE_VARIATION GEOM_TYPE_LEAF _ALPHATEST_ON _BEND_ON _EMISSION
     _SHOWBACKFACES_ON _SHOWFRONTFACES_ON
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -60,14 +60,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTexture:
-        m_Texture: {fileID: 2800000, guid: cda9b43b49cfc5b4c97721d5fc83d59e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTexture1:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,10 +76,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TopTexture0:
-        m_Texture: {fileID: 2800000, guid: e5055e0d246bd1047bdb28057a93753c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -101,18 +89,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - AlphaCutoff: 1
-    - AlphaCutoffFloat: 0.5
-    - LeavesAlphaCutoff: 0.5
-    - SnowLeavesFloat: 1
-    - SnowSizeFloat: 1
     - _AlphaCutoff: 0.5
     - _Bend: 1
     - _BumpScale: 1
     - _ColorVariationNoise: 1
-    - _ColorVariationNoise1: 1
     - _ColorVariationScale: 40
-    - _ColorVariationScale1: 40
     - _Cull: 0
     - _CullBackFaces: 0
     - _CullFrontFaces: 0
@@ -141,13 +122,12 @@ Material:
     - _ShowFrontFaces: 1
     - _SmoothnessTextureChannel: 0
     - _Snow: 0
-    - _SnowSize: 2.5
+    - _Snow3: 1
     - _SpecularHighlights: 1
     - _Speed: 10
     - _SquashAmount: 1
     - _SrcBlend: 1
     - _Strenght: 0.5
-    - _TestGIT: 0
     - _TransAmbient: 0.2
     - _TransDirect: 1
     - _TransNormalDistortion: 0.1
@@ -167,7 +147,6 @@ Material:
     - _WindFLoat: 1
     - _WindQuality: 0
     - _WindStrenght: 0.5
-    - _WindStrenght1: 0.5
     - _WindSwinging: 0.5
     - _ZWrite: 1
     - __dirty: 1
@@ -177,8 +156,6 @@ Material:
     - _CurveSphereTip: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _HueVariation: {r: 1, g: 1, b: 1, a: 1}
-    - _Snow: {r: 1, g: 1, b: 1, a: 0}
-    - _SnowColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _TranslucencyColor: {r: 0.72321427, g: 1, b: 0, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}

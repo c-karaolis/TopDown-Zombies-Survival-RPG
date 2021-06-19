@@ -51,6 +51,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainText:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,6 +88,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AlphaCutoff: 0.5
     - _AmbientOcclusion: 0.5
     - _Bend: 1
     - _BumpScale: 1
@@ -118,8 +123,6 @@ Material:
     - _SquashAmount: 1
     - _SrcBlend: 1
     - _Strenght: 0.5
-    - _SwingAmount: 0.1
-    - _SwingSpeed: 0.2
     - _TranslucencyViewDependency: 0.7
     - _UVSec: 0
     - _UseSpeedTreeWind: 0
@@ -144,3 +147,4 @@ Material:
     - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.40999997, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

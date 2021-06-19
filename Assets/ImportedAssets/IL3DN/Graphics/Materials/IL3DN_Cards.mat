@@ -11,8 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: b3442457de865c24a8175cf12efd5a8e, type: 3}
   m_ShaderKeywords: EFFECT_HUE_VARIATION ETC1_EXTERNAL_ALPHA GEOM_TYPE_LEAF _ALPHATEST_ON
     _ONECOLOR_ON
-  m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -60,10 +60,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTexture:
-        m_Texture: {fileID: 2800000, guid: cda9b43b49cfc5b4c97721d5fc83d59e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -78,6 +74,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ShadowOffset:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 46fa255f11489784a86ff91e1485cca5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ThirdTex:
@@ -128,8 +128,10 @@ Material:
     - _Color0: {r: 1, g: 0, b: 0, a: 0}
     - _Color01: {r: 0.25607264, g: 0.4339623, b: 0.13714845, a: 1}
     - _Color02: {r: 0.35108614, g: 0.5377358, b: 0.22574759, a: 0}
+    - _Colors: {r: 0.23820755, g: 0.39697173, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _HueVariation: {r: 0.9495296, g: 1, b: 0.7028302, a: 1}
     - _TranslucencyColor: {r: 0.72321427, g: 1, b: 0, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

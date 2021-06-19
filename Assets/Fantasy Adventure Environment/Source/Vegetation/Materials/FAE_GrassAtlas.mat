@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FAE_GrassAtlas
-  m_Shader: {fileID: 4800000, guid: 1e36dfca605fba6499e6817389a06b01, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: dc1a634184354e343a9a36dd032cf2bf,
+    type: 3}
   m_ShaderKeywords: GEOM_TYPE_LEAF _ALPHATEST_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -115,13 +116,25 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - BendingRadius: 0
     - BendingStrength: 0
     - WindSpeed: 0.3
     - _AO: 0
     - _ASEOutlineWidth: 0
-    - _AmbientOcclusion: 0
+    - _AmbientOcclusion: 0.15
     - _BendingInfluence: 1
     - _BendingRadius: 1.5
     - _BendingStiffness: 1
@@ -143,14 +156,16 @@ Material:
     - _Float2: 1
     - _Float3: 0
     - _Float8: 0.406
+    - _GlobalWindMotion: 1
     - _Globaltiling: 1.56
     - _Glossiness: 0.5
     - _Height: 0
     - _HeightmapInfluence: 1
+    - _LeafFlutter: 0.5
     - _MaskClipValue: 0.5
     - _MaxFlattening: 0.469
     - _MaxHeight: 0
-    - _MaxWindStrength: 0.5
+    - _MaxWindStrength: 0.2
     - _Metallic: 0
     - _MinHeight: -1
     - _Mode: 1
@@ -191,7 +206,7 @@ Material:
     - ObstaclePosition: {r: 0, g: 0, b: 0, a: 0}
     - WindDirection: {r: 0, g: 0, b: 1, a: 0}
     - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.232, g: 0.5, b: 0, a: 1}
+    - _Color: {r: 0.31585774, g: 0.6102941, b: 0.02692473, a: 1}
     - _ColorBottom: {r: 0.25492513, g: 0.5147059, b: 0, a: 1}
     - _ColorTop: {r: 0.31585774, g: 0.6102941, b: 0.02692473, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -205,3 +220,4 @@ Material:
     - _Vector0: {r: 0, g: 0, b: 1, a: 0}
     - _Vector1: {r: 0, g: 1, b: 0, a: 0}
     - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
