@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4901192249349488}
   - component: {fileID: 33737990208436406}
   - component: {fileID: 23494940185677070}
+  - component: {fileID: 64938638531802502}
   m_Layer: 0
   m_Name: SM_Wep_Crosshair_01
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -65,6 +67,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -80,3 +83,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361759019412294}
   m_Mesh: {fileID: 4300000, guid: 1a1f1ca657bb9164eb6fb6bc76ec63b4, type: 3}
+--- !u!64 &64938638531802502
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361759019412294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43806062056763126, guid: 833f805b263f32a4a83713aa336ae4f0, type: 2}

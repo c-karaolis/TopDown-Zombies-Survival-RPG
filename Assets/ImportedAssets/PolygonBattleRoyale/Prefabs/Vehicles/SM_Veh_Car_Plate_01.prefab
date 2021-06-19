@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4840172431156030}
   - component: {fileID: 33337205508930148}
   - component: {fileID: 23684703767501552}
+  - component: {fileID: 64262433253318676}
   m_Layer: 0
   m_Name: SM_Veh_Car_Plate_01
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -65,6 +67,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -80,3 +83,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802431001183316}
   m_Mesh: {fileID: 4300000, guid: 2ae4241dbe2748c4e92c93fa9806ec66, type: 3}
+--- !u!64 &64262433253318676
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802431001183316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43913296758228850, guid: 470da9585a9bb1548a4e79edecfd9c86, type: 2}

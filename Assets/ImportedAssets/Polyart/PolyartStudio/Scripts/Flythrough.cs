@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Flythrough : MonoBehaviour
 {
+    float lookSpeed = 1.0f;
     float moveSpeed = 0.07f;
+
+    float rotationX = 0.0f;
+    float rotationY = 0.0f;
     public GameObject sun;
     public Camera mycamera;
     private Quaternion baseSunTransform;
@@ -12,9 +16,6 @@ public class Flythrough : MonoBehaviour
     public float sunY;
     public float sunZ;
     public float defaultFov;
-    public float baseSpeed = 0.07f;
-    public float runSpeed = 0.3f;
-    public float dashSpeed = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,15 +64,11 @@ public class Flythrough : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = runSpeed;
-        }
-        else if (Input.GetKey(KeyCode.LeftAlt))
-        {
-            moveSpeed = dashSpeed;
+            moveSpeed = 0.3f;
         }
         else
         {
-            moveSpeed = baseSpeed;
+            moveSpeed = 0.07f;
         }
 
 

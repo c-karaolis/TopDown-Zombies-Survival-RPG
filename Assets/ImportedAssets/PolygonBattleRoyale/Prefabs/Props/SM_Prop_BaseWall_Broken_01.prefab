@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4189689255565714}
   - component: {fileID: 33311721869740164}
   - component: {fileID: 23593486308547406}
+  - component: {fileID: 64749194984892626}
   m_Layer: 0
   m_Name: SM_Prop_BaseWall_Broken_01
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -65,6 +67,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -80,3 +83,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279273032208474}
   m_Mesh: {fileID: 4300000, guid: 26af6840ccf037547b0d887e07934fb2, type: 3}
+--- !u!64 &64749194984892626
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1279273032208474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 43173428167783492, guid: ac94cdd4ae15f0340a3aa97f17d6ef49, type: 2}
