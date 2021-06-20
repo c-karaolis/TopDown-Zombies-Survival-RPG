@@ -68,7 +68,7 @@ public class Currency
         return exchangeRates;
     }
 
-    //https://stackoverflow.com/questions/3810943/integer-convert-to-wow-gold/3811023
+    //Solution based on answer here: https://stackoverflow.com/questions/3810943/integer-convert-to-wow-gold/3811023
 
     public long Gold { get { return Coins / GoldInCopper; } } //or _coins/100000
     public long Silver { get { return Coins % GoldInCopper / SilverInCopper; } }
