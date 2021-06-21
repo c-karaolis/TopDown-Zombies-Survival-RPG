@@ -40,7 +40,7 @@ namespace Foxlair.Character.States
         {
             playerStateMachine.PlayerCharacter.characterMovement.HandleAutoTargetingRotation();
 
-            playerStateMachine.PlayerCharacter.GetPlayerWeapon().DetermineAttack(); 
+            playerStateMachine.PlayerCharacter.GetPlayerWeapon().DetermineAttack();
             if (!InputHandler.Instance.IsFiringButtonDown && !playerStateMachine.PlayerCharacter.isExecutingAnAttackMove)
             {
                 ChangeState(playerStateMachine.IdleState);
@@ -51,11 +51,10 @@ namespace Foxlair.Character.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { 
-           playerStateMachine.PlayerCharacter.playerAnimator.SetBool("ATTACKING", false);
+        public override void OnStateExit()
+        {
+            playerStateMachine.PlayerCharacter.playerAnimator.SetBool("ATTACKING", false);
         }
-
-
 
 
     }

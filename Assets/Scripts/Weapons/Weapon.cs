@@ -41,7 +41,7 @@ namespace Foxlair.Weapons
         //1/(x / (1/x) * (1/60))
         public float FireDelay { get => fireRateToDelayValues[fireRate]; }
 
-        private Dictionary<int, float> fireRateToDelayValues = new Dictionary<int, float>
+        private readonly Dictionary<int, float> fireRateToDelayValues = new Dictionary<int, float>
         {
             {1,2.90f},
             {2,2.81f},
