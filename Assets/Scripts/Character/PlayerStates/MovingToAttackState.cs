@@ -8,15 +8,20 @@ namespace Foxlair.Character.States
     {
         public PlayerStateMachine playerStateMachine;
 
-        public override void OnStateEnter() {
-            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("RUNNING");
-
+        public override void OnStateEnter()
+        {
+          
             ForbiddenTransitions.Add(playerStateMachine.AttackingState);
+
+            if (!playerStateMachine.PlayerCharacter.playerAnimator.GetBool("RUNNING"))
+            {
+                playerStateMachine.PlayerCharacter.playerAnimator.SetBool("RUNNING", true);
+            }
         }
 
         public override void OnStateExecute()
         {
-            
+
             if (!playerStateMachine.PlayerCharacter.GetPlayerWeapon().InRangeToAttack())
             {
                 playerStateMachine.PlayerCharacter.characterMovement.HandleAutoMoveToAttack(playerStateMachine.PlayerCharacter.Target.transform);
@@ -31,6 +36,9 @@ namespace Foxlair.Character.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { }
+        public override void OnStateExit()
+        {
+            playerStateMachine.PlayerCharacter.playerAnimator.SetBool("RUNNING", false);
+        }
     }
 }

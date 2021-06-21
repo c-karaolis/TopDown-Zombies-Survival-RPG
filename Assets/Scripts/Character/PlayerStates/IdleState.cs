@@ -11,7 +11,10 @@ namespace Foxlair.Character.States
 
         public override void OnStateEnter()
         {
-            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("IDLE");
+            if (!playerStateMachine.PlayerCharacter.playerAnimator.GetBool("IDLE"))
+            {
+                playerStateMachine.PlayerCharacter.playerAnimator.SetBool("IDLE", true);
+            }
         }
 
         private void CheckForMovementInput()
@@ -22,7 +25,7 @@ namespace Foxlair.Character.States
             }
         }
 
-        public override void OnStateExecute() 
+        public override void OnStateExecute()
         {
             CheckForMovementInput();
         }
@@ -31,7 +34,10 @@ namespace Foxlair.Character.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { }
+        public override void OnStateExit()
+        {
+                playerStateMachine.PlayerCharacter.playerAnimator.SetBool("IDLE", false);
+        }
 
 
     }

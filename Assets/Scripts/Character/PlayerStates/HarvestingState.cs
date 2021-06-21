@@ -18,12 +18,18 @@ namespace Foxlair.Character.States
             FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event += SetResourceNode;
             FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event += UnsetResourceNode;
 
+         
             //ForbiddenTransitions.Add(playerStateMachine.MovingToAttackState);
         }
 
         public override void OnStateEnter()
         {
             HandleNotInRangeToHarvest();
+
+            if (!playerStateMachine.PlayerCharacter.playerAnimator.GetBool("HARVESTING"))
+            {
+                playerStateMachine.PlayerCharacter.playerAnimator.SetBool("HARVESTING", true);
+            }
         }
 
         private void HandleNotInRangeToHarvest()
@@ -39,7 +45,7 @@ namespace Foxlair.Character.States
         {
 
             playerStateMachine.PlayerCharacter.characterMovement.HandleAutoTargetingRotation();
-           // PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
+            // PlayerManager.Instance.PlayerEquippedWeapon.DetermineAttack();
             if (!InputHandler.Instance.IsInteractionButtonDown)
             {
                 ChangeState(playerStateMachine.IdleState);
@@ -50,7 +56,10 @@ namespace Foxlair.Character.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { }
+        public override void OnStateExit()
+        {
+            playerStateMachine.PlayerCharacter.playerAnimator.SetBool("HARVESTING", false);
+        }
 
         private void UnsetResourceNode()
         {

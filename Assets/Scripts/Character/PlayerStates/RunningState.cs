@@ -13,7 +13,10 @@ namespace Foxlair.Character.States
         public override void OnStateEnter()
         {
             ForbiddenTransitions.Add(this);
-            playerStateMachine.PlayerCharacter.playerAnimator.SetTrigger("RUNNING");
+            if (!playerStateMachine.PlayerCharacter.playerAnimator.GetBool("RUNNING"))
+            {
+                playerStateMachine.PlayerCharacter.playerAnimator.SetBool("RUNNING", true);
+            }
         }
 
 
@@ -36,6 +39,9 @@ namespace Foxlair.Character.States
 
         public override void OnStatePostExecute() { }
 
-        public override void OnStateExit() { }
+        public override void OnStateExit()
+        {
+            playerStateMachine.PlayerCharacter.playerAnimator.SetBool("RUNNING", false);
+        }
     }
 }
