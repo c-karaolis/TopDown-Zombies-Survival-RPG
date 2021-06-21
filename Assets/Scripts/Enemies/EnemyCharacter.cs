@@ -72,7 +72,7 @@ namespace Foxlair.Enemies
         }
         public void PlayerSpotted(PlayerCharacter _playerTarget)
         {
-            if (_playerTarget == Target || _playerTarget == null) { return; }
+            if (_playerTarget == Target || _playerTarget == null  ) { return; }
 
             Target = _playerTarget;
             enemyStateMachine.ChangeState(enemyStateMachine.enemyMovingToAttackState);

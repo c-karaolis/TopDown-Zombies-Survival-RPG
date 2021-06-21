@@ -20,14 +20,14 @@ namespace Foxlair.Weapons
             nextFire = Time.time + FireDelay;
             // Start our ShotEffect coroutine to turn our laser line on and off
             StartCoroutine(AttackEffect());
-            if (!(playerCharacter.Target == null))
-            {
-                (playerCharacter.Target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
-            }
-            else
-            {
-                //Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
-            }
+            //if (!(playerCharacter.Target == null))
+            //{
+            //    (playerCharacter.Target as EnemyCharacter).healthSystem.TakeDamage(weaponDamage, playerCharacter);
+            //}
+            //else
+            //{
+            //    //Debug.Log("Shooting in the air. Wasting your weapon I get more money $$$$");
+            //}
 
             HandleWeaponDurability();
 

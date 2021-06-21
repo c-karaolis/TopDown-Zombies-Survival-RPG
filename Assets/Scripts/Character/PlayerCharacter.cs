@@ -95,7 +95,7 @@ namespace Foxlair.Character
             SetAnimatorBasedOnWeaponType((int)weapon.WeaponType);
         }
 
-        private void UnsetEquippedWeapon(Weapon weapon) 
+        private void UnsetEquippedWeapon(Weapon weapon)
         {
             //Debug.Log($"Unequipping {weapon}");
             punchDefaultWeaponPrefabInstance.SetActive(true);
@@ -179,6 +179,14 @@ namespace Foxlair.Character
         private void SetEnemyTarget(EnemyCharacter obj)
         {
             Target = obj;
+        }
+
+        private void OnMeleeWeaponHitAnimationEvent()
+        {
+            if (Target != null && Target is EnemyCharacter)
+            {
+                (Target as EnemyCharacter).healthSystem.TakeDamage(PlayerEquippedWeapon.weaponDamage, this);
+            }
         }
 
         public override void OnActorHealthLost(float damage)
