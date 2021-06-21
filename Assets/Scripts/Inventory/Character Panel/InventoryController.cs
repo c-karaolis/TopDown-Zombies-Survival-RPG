@@ -28,6 +28,7 @@ public class InventoryController : MonoBehaviour
 
 	[Header("Testing Fields")]
 	public Item TestItem;
+	public Item TestItem2;
 	public LevelingSystem levelingSystem;
 	public int xpToAdd;
 	public PlayerHealthSystem PlayerHealthSystem;
@@ -41,6 +42,7 @@ public class InventoryController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
 			Inventory.AddItem(Instantiate(TestItem));
+			Inventory.AddItem(Instantiate(TestItem2));
 
         }
 		if (Input.GetKeyDown(KeyCode.L))
