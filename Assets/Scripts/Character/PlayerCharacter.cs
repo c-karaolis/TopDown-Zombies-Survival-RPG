@@ -169,6 +169,8 @@ namespace Foxlair.Character
             FoxlairEventManager.Instance.WeaponSystem_OnWeaponUnEquipped_Event -= UnsetEquippedWeapon;
             FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeFound_Event -= SetResourceNode;
             FoxlairEventManager.Instance.InteractionSystem_OnResourceNodeLost_Event -= UnsetResourceNode;
+            FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyAcquired_Event -= SetEnemyTarget;
+            FoxlairEventManager.Instance.TargetingSystem_OnTargetEnemyLost_Event -= UnsetEnemyTarget;
         }
 
         private void UnsetEnemyTarget()

@@ -36,24 +36,12 @@ namespace Foxlair.Character.Movement
 
         }
 
-
         public void UpdateCharacterMovement()
         {
             HandleGravity();
             Direction = new Vector3(input.InputVector.x, (float)gravity, input.InputVector.y).normalized;
-            //HandleAutoTargetingRotation();
             HandleMovement();
         }
-
-        // Update is called once per frame
-        //void Update()
-        //{
-        //    HandleGravity();
-        //    direction = new Vector3(_input.inputVector.x, (float)gravity, _input.inputVector.y).normalized;
-        //    HandleAutoTargetingRotation();
-        //    HandleHarvestingAutoRotation();
-        //    HandleMovement();
-        //}
 
         private void HandleGravity()
         {
