@@ -89,15 +89,17 @@ void SampleWind_float(in float2 wPos, out float3 vec)
     vec = float3(v.x, 0, v.y);
 };
 
-void ApplyLODCrossfade_float(in float3 clipPos, in float alpha, out float dithered)
+void ApplyLODCrossfade_float(in float4 screenPos, in float alpha, out float dithered)
 {
+	#ifndef UNIVERSAL_SHADOW_CASTER_PASS_INCLUDED
 	#if LOD_FADE_CROSSFADE
-	float p = GenerateHashedRandomFloat(clipPos.xy * 32);
-	dithered = lerp(p, alpha, unity_LODFade.x > 0 ? unity_LODFade.x : 1);
-	dithered *= alpha;
-	#else
-	dithered = alpha;
+	float hash = GenerateHashedRandomFloat(screenPos.xy * _ScreenParams.xy);
+	float sign = CopySign(hash, unity_LODFade.x);
+	
+	clip(unity_LODFade.x - sign);
 	#endif
+	#endif
+	dithered = alpha;
 }
 
 void GetSunColor_float(out float3 color) 
