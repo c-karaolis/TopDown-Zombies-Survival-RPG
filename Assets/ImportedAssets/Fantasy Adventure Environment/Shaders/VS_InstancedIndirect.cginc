@@ -13,13 +13,33 @@
 	#endif	
 #endif
 
+//Shader Graph
+void InjectSetup_float(float3 A, out float3 Out) 
+{
+	Out = A;
+}
+
 void setupScale()
 {
 #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
+	#ifdef unity_LODFade
+	#undef unity_LODFade
+	#endif
+	
+	#ifdef unity_ObjectToWorld
+	#undef unity_ObjectToWorld
+	#endif
+
+	#ifdef unity_WorldToObject
+	#undef unity_WorldToObject
+	#endif
+	
 	#ifdef GPU_FRUSTUM_ON
+		unity_LODFade = VisibleShaderDataBuffer[unity_InstanceID].ControlData;
 		unity_ObjectToWorld = VisibleShaderDataBuffer[unity_InstanceID].PositionMatrix;
 		unity_WorldToObject = VisibleShaderDataBuffer[unity_InstanceID].InversePositionMatrix;
 	#else
+		unity_LODFade = IndirectShaderDataBuffer[unity_InstanceID].ControlData;
 		unity_ObjectToWorld = IndirectShaderDataBuffer[unity_InstanceID].PositionMatrix;
 		unity_WorldToObject = IndirectShaderDataBuffer[unity_InstanceID].InversePositionMatrix;
 	#endif
@@ -38,10 +58,24 @@ void setupScale()
 void setup()
 {
 #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
+	#ifdef unity_LODFade
+	#undef unity_LODFade
+	#endif
+	
+	#ifdef unity_ObjectToWorld
+	#undef unity_ObjectToWorld
+	#endif
+
+	#ifdef unity_WorldToObject
+	#undef unity_WorldToObject
+	#endif
+	
 	#ifdef GPU_FRUSTUM_ON
+		unity_LODFade = VisibleShaderDataBuffer[unity_InstanceID].ControlData;
 		unity_ObjectToWorld = VisibleShaderDataBuffer[unity_InstanceID].PositionMatrix;
 		unity_WorldToObject = VisibleShaderDataBuffer[unity_InstanceID].InversePositionMatrix;
 	#else
+		unity_LODFade = IndirectShaderDataBuffer[unity_InstanceID].ControlData;
 		unity_ObjectToWorld = IndirectShaderDataBuffer[unity_InstanceID].PositionMatrix;
 		unity_WorldToObject = IndirectShaderDataBuffer[unity_InstanceID].InversePositionMatrix;
 	#endif
