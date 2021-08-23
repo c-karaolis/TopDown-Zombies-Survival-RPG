@@ -7,8 +7,6 @@ public class Flythrough : MonoBehaviour
     float lookSpeed = 1.0f;
     float moveSpeed = 0.07f;
 
-    float rotationX = 0.0f;
-    float rotationY = 0.0f;
     public GameObject sun;
     public Camera mycamera;
     private Quaternion baseSunTransform;
@@ -16,6 +14,9 @@ public class Flythrough : MonoBehaviour
     public float sunY;
     public float sunZ;
     public float defaultFov;
+    public float baseSpeed = 0.07f;
+    public float runSpeed = 0.3f;
+    public float dashSpeed = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,20 +65,19 @@ public class Flythrough : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = 0.3f;
+            moveSpeed = runSpeed;
+        }
+        else if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            moveSpeed = dashSpeed;
         }
         else
         {
-            moveSpeed = 0.07f;
+            moveSpeed = baseSpeed;
         }
 
 
-        //rotationX += Input.GetAxis("Mouse X") * lookSpeed;
-        //rotationY += Input.GetAxis("Mouse Y") * lookSpeed;
-        // rotationY = Mathf.Clamp(rotationY, -90, 90);
-
-        //transform.localRotation = Quaternion.AngleAxis(rotationX, Vector3.up);
-        //transform.localRotation *= Quaternion.AngleAxis(rotationY, Vector3.left);
+   
         if (Input.GetAxis("Vertical")!=0 && Input.GetAxis("Horizontal") !=0)
         {
             transform.position += transform.forward * moveSpeed/1.5f * Input.GetAxis("Vertical");
