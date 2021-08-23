@@ -35,7 +35,7 @@ public class InteractableIndicator : MonoBehaviour
             float diameter = bounds.size.z;
             diameter *= 2.50f;
 
-            this.transform.position = new Vector3(bounds.center.x, 0.5f, bounds.center.z);
+            this.transform.position = new Vector3(bounds.center.x, 0.01f, bounds.center.z);
             this.transform.localScale = new Vector3(diameter, diameter, diameter);
         }
         else

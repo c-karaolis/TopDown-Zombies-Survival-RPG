@@ -7989,6 +7989,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2084860803}
+    - target: {fileID: 2176075982940395978, guid: ef8797f619d461044a4e82f7a4de2093,
+        type: 3}
+      propertyPath: maxHealth
+      value: 635.14
+      objectReference: {fileID: 0}
     - target: {fileID: 4107370984349381437, guid: ef8797f619d461044a4e82f7a4de2093,
         type: 3}
       propertyPath: weaponDamage

@@ -49,6 +49,8 @@ namespace Foxlair
 
         public void TakeDamage(float damage, Actor _actor)
         {
+
+            if(armor>0)
             damage -= armor;
 
             if (health - damage <= 0)
@@ -104,16 +106,19 @@ namespace Foxlair
 
         protected void RegenerateHealth()
         {
+            if (healthRegeneration! > 0)
+                return;
+
             float regeneratedAmount;
 
             if (health == maxHealth)
             {
-                regeneratedAmount = 0;
+                return;
             }
             else if (health > maxHealth)
             {
-                regeneratedAmount = 0;
                 health = maxHealth;
+                return;
             }
             else
             {

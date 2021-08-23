@@ -185,7 +185,10 @@ namespace Foxlair.Character
 
         private void OnMeleeWeaponHitAnimationEvent()
         {
-            if (Target != null && Target is EnemyCharacter)
+            if (Target != null 
+                && Target is EnemyCharacter 
+                && PlayerEquippedWeapon.WeaponType != WeaponType.PISTOL 
+                && PlayerEquippedWeapon.WeaponType != WeaponType.RIFLE)
             {
                 (Target as EnemyCharacter).healthSystem.TakeDamage(PlayerEquippedWeapon.weaponDamage, this);
             }

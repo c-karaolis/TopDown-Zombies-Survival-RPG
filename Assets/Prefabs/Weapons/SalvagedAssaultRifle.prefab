@@ -137,8 +137,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7146236674364105329}
-  m_LocalRotation: {x: -0.021611495, y: 0.104614146, z: -0.024957048, w: 0.99396485}
-  m_LocalPosition: {x: 0.282, y: 0.165, z: -0.168}
+  m_LocalRotation: {x: 0.18109795, y: 0.14432837, z: -0.023608007, w: 0.9725305}
+  m_LocalPosition: {x: 0.304, y: 0.142, z: -0.183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7144281490368410511}
@@ -146,7 +146,7 @@ Transform:
   - {fileID: 7150352231034967197}
   m_Father: {fileID: 980275469250937862}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -2.163, y: 12.075, z: -3.105}
+  m_LocalEulerAnglesHint: {x: 21.043, y: 16.955, z: 0.39}
 --- !u!33 &7156909371135890307
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ MonoBehaviour:
   weaponAttackDuration: 0.07
   playerCharacter: {fileID: 0}
   input: {fileID: 0}
-  fireRate: 19
+  fireRate: 18
   WeaponType: 2
   gunBarrelEnd: {fileID: 3534022744987390148}
   muzzleFlashEffect: {fileID: 1126046646508270, guid: f913bc3b5f93c1d4cac760813a9a6bf1,

@@ -111,7 +111,7 @@ namespace Foxlair.Weapons
 
         public virtual void Attack()
         {
-
+            Debug.Log("test");
             //if (playerCharacter.PlayerTargetEnemy == null) { return; }
 
             if (!playerCharacter.playerAnimator.GetBool("ATTACKING"))
