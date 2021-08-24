@@ -1,41 +1,41 @@
 // Fantasy Adventure Environment
 // staggart.xyz
 
-float4 _WindDirection;
-float _TrunkWindSpeed;
-float _TrunkWindSwinging;
-float _TrunkWindWeight;
-float _WindSpeed;
-float _WindAmplitude;
-float _WindStrength;
+float4 _FAEWindDirection;
+float _FAETrunkWindSpeed;
+float _FAETrunkWindSwinging;
+float _FAETrunkWindWeight;
+float _FAEWindSpeed;
+float _FAEWindAmplitude;
+float _FAEWindStrength;
 
 TEXTURE2D(_WindVectors); SAMPLER(sampler_WindVectors);
 
 float WindSpeed() {
-	return _WindSpeed * _TimeParameters.x * 0.25; //10x faster than legacy _Time.x
+	return _FAEWindSpeed * _TimeParameters.x * 0.25; //10x faster than legacy _Time.x
 }
 
 float3 WindDirection() {
-	return _WindDirection.xyz + 0.001;
+	return _FAEWindDirection.xyz + 0.001;
 }
 void GetGlobalParams_float(out float3 windDir, out float trunkSpeed, out float trunkSwinging, out float trunkWeight, out float windSpeed)
 {
 	windDir = WindDirection().xyz;
-    trunkSpeed = _TrunkWindSpeed ;
-    trunkSwinging = _TrunkWindSwinging;
-    trunkWeight = _TrunkWindWeight;
+    trunkSpeed = _FAETrunkWindSpeed ;
+    trunkSwinging = _FAETrunkWindSwinging;
+    trunkWeight = _FAETrunkWindWeight;
     windSpeed = WindSpeed();
 };
 
 void GetLocalParams_float(in float3 wPos, in float windFreqMult, out float3 windDir, out float trunkSpeed, out float trunkSwinging, out float trunkWeight, out float windSpeed, out float windFreq, out float windStrength)
 {
     windDir = WindDirection().xyz;
-    trunkSpeed = _TrunkWindSpeed;
-    trunkSwinging = _TrunkWindSwinging;
-    trunkWeight = _TrunkWindWeight;
+    trunkSpeed = _FAETrunkWindSpeed;
+    trunkSwinging = _FAETrunkWindSwinging;
+    trunkWeight = _FAETrunkWindWeight;
     windSpeed = WindSpeed();
-    windFreq = length(wPos.xz * 0.01) * (_WindAmplitude * windFreqMult);
-    windStrength = _WindStrength;
+    windFreq = length(wPos.xz * 0.01) * (_FAEWindAmplitude * windFreqMult);
+    windStrength = _FAEWindStrength;
 };
 
 float3 GetPivotPos() {
@@ -50,7 +50,7 @@ void ApplyFoliageWind_float(in float3 wPos, in float maxStrength, in float mask,
 {
 	float speed = WindSpeed();
 
-	float2 windUV = (wPos.xz * 0.01) * _WindAmplitude * freqMult;
+	float2 windUV = (wPos.xz * 0.01) * _FAEWindAmplitude * freqMult;
 	windUV += (WindDirection().xz * (speed));
 
 	float3 windVec = UnpackNormal(SAMPLE_TEXTURE2D_LOD(_WindVectors, sampler_WindVectors, windUV, 0)).rgb;

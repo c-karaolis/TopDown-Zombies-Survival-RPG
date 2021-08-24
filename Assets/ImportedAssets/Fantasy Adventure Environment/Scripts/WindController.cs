@@ -32,12 +32,12 @@ namespace FAE
         [Range(0f, 3f)]
         public float windStrength = 1f;
         [Range(0f, 5f)]
-        public float windAmplitude = 14f;
+        public float windAmplitude = 5f;
 
         [Range(0f, 150f)]
         public float trunkWindSpeed = 10f;
-        [Range(0f, 30f)]
-        public float trunkWindWeight = 4f;
+        [Range(0f, 5f)]
+        public float trunkWindWeight = 0.1f;
         [Range(0f, 0.99f)]
         public float trunkWindSwinging = 0.5f;
 
@@ -51,7 +51,7 @@ namespace FAE
         /// <param name="value"></param>
         public void SetStrength(float value)
         {
-            Shader.SetGlobalFloat("_WindStrength", value);
+            Shader.SetGlobalFloat("_FAEWindStrength", value);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace FAE
         /// <param name="value"></param>
         public void SetTrunkWeight(float value)
         {
-            Shader.SetGlobalFloat("_TrunkWindWeight", value);
+            Shader.SetGlobalFloat("_FAETrunkWindWeight", value);
         }
 
         void OnEnable()
@@ -99,7 +99,7 @@ namespace FAE
                 SetTrunkWeight(trunkWindWeight * windZone.windMain);
             }
 
-            Shader.SetGlobalVector("_WindDirection", this.transform.rotation * Vector3.back);
+            Shader.SetGlobalVector("_FAEWindDirection", this.transform.rotation * Vector3.back);
         }
 
         public void Apply()
@@ -117,14 +117,14 @@ namespace FAE
         private void SetShaderParameters()
         {
             Shader.SetGlobalTexture("_WindVectors", windVectors);
-            Shader.SetGlobalFloat("_WindSpeed", windSpeed);
-            Shader.SetGlobalFloat("_WindStrength", windStrength);
-            Shader.SetGlobalFloat("_WindAmplitude", windAmplitude);
-            Shader.SetGlobalVector("_WindDirection", this.transform.rotation * Vector3.back);
+            Shader.SetGlobalFloat("_FAEWindSpeed", windSpeed);
+            Shader.SetGlobalFloat("_FAEWindStrength", windStrength);
+            Shader.SetGlobalFloat("_FAEWindAmplitude", windAmplitude);
+            Shader.SetGlobalVector("_FAEWindDirection", this.transform.rotation * Vector3.back);
 
-            Shader.SetGlobalFloat("_TrunkWindSpeed", trunkWindSpeed);
-            Shader.SetGlobalFloat("_TrunkWindWeight", trunkWindWeight);
-            Shader.SetGlobalFloat("_TrunkWindSwinging", trunkWindSwinging);
+            Shader.SetGlobalFloat("_FAETrunkWindSpeed", trunkWindSpeed);
+            Shader.SetGlobalFloat("_FAETrunkWindWeight", trunkWindWeight);
+            Shader.SetGlobalFloat("_FAETrunkWindSwinging", trunkWindSwinging);
 
             //Set static var
             WindController._windStrength = windStrength;
