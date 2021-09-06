@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 468825816}
   - component: {fileID: 468825818}
+  - component: {fileID: 2061516554}
   m_Layer: 8
   m_Name: PlayerRenderCamera
   m_TagString: Untagged
@@ -119,6 +120,38 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &2061516554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468825815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &487600377
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f425b7cbe64c79498e8f3218e03aece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowDebugCurrentState: 1
+  ShowDebugCurrentState: 0
   InitialState: {fileID: 1956693562}
   AvailableStates: []
   CharacterStatesGameObject: {fileID: 2014411570}
@@ -588,7 +621,7 @@ MonoBehaviour:
   ScanRadius: 22.16
   DurationBetweenScans: 0.2
   EnemyTarget: {fileID: 0}
-  DrawDebugRadius: 1
+  DrawDebugRadius: 0
 --- !u!114 &1633508898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58afbbdd55bd154f9e21aa39e38ee4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faction: 
+  target: {fileID: 0}
+  lastAttacker: {fileID: 0}
   Strength:
     BaseValue: 3
     Name: 0
@@ -622,18 +658,17 @@ MonoBehaviour:
   Charisma:
     BaseValue: 4
     Name: 6
-  PlayerAnimator: {fileID: 8505705407958824308}
-  CharacterMovement: {fileID: 7481468962612669612}
-  InventoryController: {fileID: 0}
-  CharacterTargetingHandler: {fileID: 2088238235}
-  HealthSystem: {fileID: 2176075982940395978}
-  PlayerStateMachine: {fileID: 1553633897075785303}
-  PunchDefaultWeaponPrefabInstance: {fileID: 8236648986557021876}
-  PunchDefaultWeapon: {fileID: 4107370984349381437}
+  playerAnimator: {fileID: 8505705407958824308}
+  characterMovement: {fileID: 7481468962612669612}
+  inventoryController: {fileID: 0}
+  characterTargetingHandler: {fileID: 2088238235}
+  healthSystem: {fileID: 2176075982940395978}
+  playerStateMachine: {fileID: 1553633897075785303}
+  punchDefaultWeaponPrefabInstance: {fileID: 8236648986557021876}
+  punchDefaultWeapon: {fileID: 4107370984349381437}
   weaponEquipPoint: {fileID: 1665639689008592502}
   isExecutingAnAttackMove: 0
-  Inventory: {fileID: 0}
-  PlayerTargetEnemy: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &1448349941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,14 +682,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacterHealth: 0
-  MaxHunger: 100
-  Hunger: 100
-  HungerRate: 0.1
-  HungerSlider: {fileID: 0}
-  MaxThirst: 100
-  Thirst: 100
-  ThirstRate: 0.3
-  ThirstSlider: {fileID: 0}
+  maxHunger: 100
+  hunger: 0
+  hungerRate: 0.1
+  hungerSlider: {fileID: 0}
+  hungerCounter: {fileID: 0}
+  maxThirst: 100
+  thirst: 0
+  thirstRate: 0.2
+  thirstSlider: {fileID: 0}
+  thirstCounter: {fileID: 0}
 --- !u!114 &1448349943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,11 +722,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d603d7943ef69c446947ebd19983816b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
-  MaxHealth: 50
-  HealthRegeneration: 1
-  Armor: 5
-  HealthBar: {fileID: 0}
+  health: 0
+  maxHealth: 635.14
+  healthRegeneration: 0
+  armor: 0
+  healthBar: {fileID: 0}
 --- !u!114 &7909593590824419437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +893,7 @@ PrefabInstance:
     - target: {fileID: 6833038450196415086, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
         type: 3}
       propertyPath: weaponDamage
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6833038450196415086, guid: b8a58e28c5a3fbe4ebc3e08a13341807,
         type: 3}

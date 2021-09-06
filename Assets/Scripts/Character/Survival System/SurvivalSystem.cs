@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,16 +13,42 @@ namespace Foxlair.Character.SurvivalSystem
         public int playerCharacterHealth;
 
         [Header("Player Hunger")]
-        public float MaxHunger = 100f;
-        public float Hunger = 0f;
-        public float HungerRate;
-        public Image HungerSlider;
+        public float maxHunger = 100f;
+        public float hunger = 0f;
+        public float hungerRate;
+        public Image hungerSlider;
+        public TextMeshProUGUI hungerCounter;
 
         [Header("Player Thirst")]
-        public float MaxThirst = 100f;
-        public float Thirst = 0f;
-        public float ThirstRate;
-        public Image ThirstSlider;
+        public float maxThirst = 100f;
+        public float thirst = 0f;
+        public float thirstRate;
+        public Image thirstSlider;
+        public TextMeshProUGUI thirstCounter;
+
+        private void Start()
+        {
+            //if not saved
+            hunger = maxHunger;
+            thirst = maxThirst;
+
+            SetHungerCounterText();
+            SetThirstCounterText();
+        }
+
+        private void SetThirstCounterText()
+        {
+          //  if (thirst <= 0) return;
+
+            thirstCounter.text = Mathf.Clamp(thirst, 0, maxThirst).ToString("F0");
+        }
+
+        private void SetHungerCounterText()
+        {
+           // if (hunger <= 0) return;
+           
+            hungerCounter.text = Mathf.Clamp(hunger, 0, maxHunger).ToString("F0");
+        }
 
         private void Update()
         {
@@ -31,44 +58,46 @@ namespace Foxlair.Character.SurvivalSystem
 
         public void Eat(float amount)
         {
-            if (Hunger + amount <= MaxHunger)
+            if (hunger + amount <= maxHunger)
             {
-                Hunger += amount;
+                hunger += amount;
             }
             else
             {
-                Hunger = MaxHunger;
+                hunger = maxHunger;
             }
             FoxlairEventManager.Instance.SurvivalSystem_OnEat_Event?.Invoke();
         }
 
         public void Drink(float amount)
         {
-            if (Thirst + amount <= MaxThirst)
+            if (thirst + amount <= maxThirst)
             {
-                Thirst += amount;
+                thirst += amount;
             }
             else
             {
-                Thirst = MaxThirst;
+                thirst = maxThirst;
             }
             FoxlairEventManager.Instance.SurvivalSystem_OnDrink_Event?.Invoke();
         }
 
         private void CalculateThirst()
         {
-            Thirst -= ThirstRate * Time.deltaTime;
+            thirst -= thirstRate * Time.deltaTime;
+            SetThirstCounterText();
 
-            if (ThirstSlider == null) return;
-            ThirstSlider.fillAmount = Thirst / MaxThirst;
+            if (thirstSlider == null) return;
+            thirstSlider.fillAmount = thirst / maxThirst;
         }
 
         private void CalculateHunger()
         {
-            Hunger -= HungerRate * Time.deltaTime;
+            hunger -= hungerRate * Time.deltaTime;
+            SetHungerCounterText();
 
-            if (HungerSlider == null) return;
-            HungerSlider.fillAmount = Hunger / MaxHunger;
+            if (hungerSlider == null) return;
+            hungerSlider.fillAmount = hunger / maxHunger;
         }
 
     }

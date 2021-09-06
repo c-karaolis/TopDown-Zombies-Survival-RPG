@@ -187,8 +187,7 @@ namespace Foxlair.Character
         {
             if (Target != null 
                 && Target is EnemyCharacter 
-                && PlayerEquippedWeapon.WeaponType != WeaponType.PISTOL 
-                && PlayerEquippedWeapon.WeaponType != WeaponType.RIFLE)
+                && PlayerEquippedWeapon is MeleeWeapon)
             {
                 (Target as EnemyCharacter).healthSystem.TakeDamage(PlayerEquippedWeapon.weaponDamage, this);
             }
